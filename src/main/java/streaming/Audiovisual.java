@@ -1,6 +1,10 @@
 package streaming;
 
-
+import Interfaces.Subtitulos;
+import clasesbase.Actores;
+import clasesbase.Categorias;
+import clasesbase.Directores;
+import enums.Tipo;
 
 public class Audiovisual{
 	   //Atributos
