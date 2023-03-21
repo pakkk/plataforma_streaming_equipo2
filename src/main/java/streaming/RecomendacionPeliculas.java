@@ -1,4 +1,4 @@
-package org.example;
+package streaming;
 
 public class RecomendacionPeliculas {
    private int valoracionesPositivas;
