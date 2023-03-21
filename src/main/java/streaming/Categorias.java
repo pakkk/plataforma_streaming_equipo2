@@ -28,7 +28,7 @@ public class Categorias {
     @Override
     public String toString() {
         return "Categoria{" + " Nombre = " + nombre + ""
-        		+ "\nDescripcion = " + descripcion + '}';
+        		+  "\nDescripcion = " + descripcion + '}';
     }
     
     
