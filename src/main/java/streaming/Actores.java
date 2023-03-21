@@ -1,13 +1,13 @@
 package streaming;
 
 public class Actores{
-    
+    //Atributos 
     private String nombre;
     private String apellidos;
     private Sexo s;
     private int edad;
     private String premios;
-
+    //Constructor 
     public Actores(String nombre, String apellidos, Sexo s, int edad, String premios) {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -15,7 +15,7 @@ public class Actores{
         this.edad = edad;
         this.premios = premios;
     }
-    
+    //Getters
     public String getNombre() {
         return nombre;
     }
@@ -27,38 +27,39 @@ public class Actores{
     public String getApellidos() {
         return apellidos;
     }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    
+    public String getPremios() {
+        return premios;
     }
-
+    
     public Sexo getSexo() {
     	return s;
+    }
+    
+    public int getEdad() {
+        return edad;
+    }
+    //Setters
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public void setSexo(Sexo s) {
         this.s = s;
     }
 
-    public int getEdad() {
-        return edad;
-    }
-
     public void setEdad(int edad) {
         this.edad = edad;
     }
 
-    public String getPremios() {
-        return premios;
-    }
-
+    
     public void setPremios(String premios) {
         this.premios = premios;
     }
-
+    //toString
     @Override
     public String toString() {
-        return "actores{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", sexo=" + s + ", edad=" + edad + ", premios=" + premios + '}';
+        return "Actor "+ nombre + " " + apellidos +" de edad "+ edad +" ha ganado " + premios;
     }
      
 }

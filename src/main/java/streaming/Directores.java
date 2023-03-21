@@ -1,11 +1,12 @@
 package streaming;
 
 public class Directores {
+	//Atributos 
 	private String nombre,apellido;
     private Sexo s;
     private int edad;
     private String premios;
-
+    //Constructor
     public Directores(String nombre, String apellido, Sexo s, int edad, String premios) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -13,11 +14,11 @@ public class Directores {
         this.edad = edad;
         this.premios = premios;
     }
-
+    //Getters y Setters
     public String getNombre() {
         return nombre;
     }
-
+  
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -53,7 +54,7 @@ public class Directores {
     public void setPremios(String premios) {
         this.premios = premios;
     }
-
+    //toString
     @Override
     public String toString() {
         return "Directores: " +

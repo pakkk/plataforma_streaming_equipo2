@@ -1,5 +1,5 @@
 package streaming;
 
 public enum Sexo {
-	HOMBRE,MUJER;
+	HOMBRE,MUJER,OTRO;
 }
