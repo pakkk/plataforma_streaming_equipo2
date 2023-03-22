@@ -28,7 +28,7 @@ public class MenuCategorias  implements Menu{
 		return nuevo;
 	}
 
-	public void bajas(int posicion,Object[] nuevo) {
+	public Object [] bajas(int posicion,Object[] nuevo) {
 		/*
 		int indice;
 		for(int i=0;i<nuevo.length;i++) {
@@ -40,12 +40,13 @@ public class MenuCategorias  implements Menu{
 			System.arraycopy(busqueda, indiceborrado+1, t, indiceBorrado, t.length-indiceBorado-1);
 			t = Arrays.copyOf(t, t.length-1) 
 		*/
+		return nuevo;
 	}
 	
 		
-	public void modificadiones(int posicion,Object[] nuevo) {
+	public Object [] modificadiones(int posicion,Object[] nuevo) {
 		// TODO Auto-generated method stub
-		
+		return nuevo;
 	}
 
 	public void busquedas(Object[] nuevo) {

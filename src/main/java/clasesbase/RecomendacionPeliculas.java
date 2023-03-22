@@ -8,9 +8,10 @@ public class RecomendacionPeliculas {
    private TipoValoracion valoracion;
    private String comentarios;
    //Constructor
-    public RecomendacionPeliculas(TipoValoracion valoracion, int valoracionesNegativas, String comentarios) {
+    public RecomendacionPeliculas(TipoValoracion valoracion, String comentarios) {
         this.valoracion = valoracion;
         this.comentarios = comentarios;
+        CorreccionAtributos();
     }
     //Getters y Setters
    
@@ -28,7 +29,11 @@ public class RecomendacionPeliculas {
     public void setComentarios(String comentarios) {
         this.comentarios = comentarios;
     }
-  
+    private void CorreccionAtributos()
+    {
+    	if(comentarios.isEmpty())
+    		comentarios="Sin comentarios";
+    }
     //toString
     @Override
     public String toString() {

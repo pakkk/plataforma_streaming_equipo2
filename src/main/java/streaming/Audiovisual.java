@@ -4,6 +4,7 @@ import Interfaces.Subtitulos;
 import clasesbase.Actores;
 import clasesbase.Categorias;
 import clasesbase.Directores;
+import clasesbase.RecomendacionPeliculas;
 import enums.Tipo;
 
 public class Audiovisual{
@@ -19,6 +20,7 @@ public class Audiovisual{
 	   protected Directores dic [];
 	   protected Categorias cat [];
 	   protected String sub [];
+	   protected RecomendacionPeliculas rec [];
 	   
 	   //Constructor 
 	   public  Audiovisual (Tipo t,String titulo,String idiomaOriginal,int duracion,int vecesVisto)
@@ -32,6 +34,7 @@ public class Audiovisual{
 		   act = new Actores [0];
 		   dic = new Directores [0];
 		   cat = new Categorias[0];
+		   rec = new RecomendacionPeliculas [0];
 		   sub = Subtitulos.idiomas;
 		   CorreccionAtributos();
 	   }

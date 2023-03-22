@@ -1,6 +1,5 @@
 package menus;
 
-import Interfaces.Menu;
 import Interfaces.Subtitulos;
 
 import java.util.Arrays;
