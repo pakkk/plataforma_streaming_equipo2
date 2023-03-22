@@ -11,5 +11,5 @@ public interface Subtitulos {
 			"Chino" 
 	};
 
-	public void subtitulosPermitidos();
+	public String [] subtitulosPermitidos();
 }
