@@ -1,8 +1,9 @@
 package clasesbase;
-
+import java.util.Scanner;
 import enums.Sexo;
 
 public class Actores{
+	Scanner sc = new Scanner (System.in);
     //Atributos 
     private String nombre;
     private String apellidos;
@@ -16,6 +17,7 @@ public class Actores{
         this.s = s;
         this.edad = edad;
         this.premios = premios;
+        CorreccionAtributos();
     }
     //Getters
     public String getNombre() {
@@ -57,6 +59,28 @@ public class Actores{
     
     public void setPremios(String premios) {
         this.premios = premios;
+    }
+    private void CorreccionAtributos()
+    {
+    	while(nombre.isEmpty())
+    	{
+    		System.out.println("Error nombre vacio vuelva a introducirlo");
+    		nombre = sc.nextLine();
+    	}
+    	while(apellidos.isEmpty())
+    	{
+    		System.out.println("Error apellido vacio vuelva a introducirlo");
+    		apellidos = sc.nextLine();
+    	}
+    	while(edad<0)
+    	{
+    		System.out.println("Error edad negativa introducida vuelve a introducirla");
+    		edad = sc.nextInt();
+    	}
+    	if(premios.isEmpty())
+    	{
+    		premios = "Sin premios";
+    	}
     }
     //toString
     @Override

@@ -1,5 +1,5 @@
 package streaming;
-
+import java.util.Scanner;
 import Interfaces.Subtitulos;
 import clasesbase.Actores;
 import clasesbase.Categorias;
@@ -7,6 +7,7 @@ import clasesbase.Directores;
 import enums.Tipo;
 
 public class Audiovisual{
+	   Scanner sc = new Scanner (System.in);
 	   //Atributos
 	   protected Tipo t;
 	   protected String titulo;
@@ -68,7 +69,18 @@ public class Audiovisual{
 	    public void setDuracion(int duracion) {
 	        this.duracion = duracion;
 	    }
-		    
+		private void CorreccionAtributos()
+		{
+			while(titulo.isEmpty())
+			{
+				System.out.println("Error titulo vacio vuelve a introducirlo");
+				titulo = sc.nextLine();
+			}
+			if(idiomaOriginal.isEmpty())
+			{
+				idiomaOriginal = "Ingles";
+			}
+		}
 		@Override
 		public String toString()
 		{

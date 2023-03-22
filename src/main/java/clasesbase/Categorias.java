@@ -1,6 +1,7 @@
 package clasesbase;
-
+import java.util.Scanner;
 public class Categorias {
+	Scanner sc = new Scanner (System.in);
 	//Atributos 
 	private String nombre;
     private String descripcion;
@@ -24,6 +25,18 @@ public class Categorias {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+    private void CorreccionAtributos()
+    {
+    	while(nombre.isEmpty())
+    	{
+    		System.out.println("Error nombre vacio vuelve a introducirlo");
+    		nombre = sc.nextLine();
+    	}
+    	if(descripcion.isEmpty())
+    	{
+    		descripcion = "Sin despcripcion";
+    	}
     }
     //toString
     @Override
