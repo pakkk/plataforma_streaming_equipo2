@@ -14,18 +14,20 @@ public class Audiovisual{
 	   protected String idiomaOriginal;
 	   protected String idiomaAdaptado [];
 	   protected int duracion;
+	   protected int vecesVisto;
 	   protected Actores act [];
 	   protected Directores dic [];
 	   protected Categorias cat [];
 	   protected String sub [];
 	   
 	   //Constructor 
-	   public  Audiovisual (Tipo t,String titulo,String idiomaOriginal,int duracion)
+	   public  Audiovisual (Tipo t,String titulo,String idiomaOriginal,int duracion,int vecesVisto)
 	   {
 		   this.t = t;
 		   this.titulo = titulo;
 		   this.idiomaOriginal = idiomaOriginal;
 		   this.duracion = duracion;
+		   this.vecesVisto = vecesVisto;
 		   idiomaAdaptado = new String [0];
 		   act = new Actores [0];
 		   dic = new Directores [0];
@@ -70,6 +72,13 @@ public class Audiovisual{
 	    public void setDuracion(int duracion) {
 	        this.duracion = duracion;
 	    }
+	    public  int getVecesVisto() {
+	    	return vecesVisto;
+	    }
+	    
+	    public void setVecesVisto(int vecesVisto) {
+	    	this.vecesVisto = vecesVisto;
+	    }
 		private void CorreccionAtributos()
 		{
 			while(titulo.isEmpty())
@@ -85,7 +94,7 @@ public class Audiovisual{
 		@Override
 		public String toString()
 		{
-			return "Audiovisual de tipo " + t +" con nombre "+titulo+" dura "+duracion+" minutos "+" su idioma original es "+idiomaOriginal;
+			return "Audiovisual de tipo " + t +" con nombre "+titulo+" dura "+duracion+" minutos "+" su idioma original es "+idiomaOriginal + "veces visto " + vecesVisto;
 		}
 		}
 

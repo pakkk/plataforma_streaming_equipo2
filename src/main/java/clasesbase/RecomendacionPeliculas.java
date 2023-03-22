@@ -1,47 +1,26 @@
 package clasesbase;
 
 import java.util.Scanner;
+import enums.TipoValoracion;
 public class RecomendacionPeliculas {
 	Scanner sc =  new Scanner (System.in);
    //Atributos
-   private int valoracionesPositivas;
-   private int valoracionesNegativas;
-   private int vecesVista;
+   private TipoValoracion valoracion;
    private String comentarios;
    //Constructor
-    public RecomendacionPeliculas(int valoracionesPositivas, int valoracionesNegativas, int vecesVista, String comentarios) {
-        this.valoracionesPositivas = valoracionesPositivas;
-        valoracionPositivaErronea();
-        this.valoracionesNegativas = valoracionesNegativas;
-        valoracionNegativaErronea();
-        this.vecesVista = vecesVista;
+    public RecomendacionPeliculas(TipoValoracion valoracion, int valoracionesNegativas, String comentarios) {
+        this.valoracion = valoracion;
         this.comentarios = comentarios;
     }
     //Getters y Setters
-    public int getValoracionesPositivas() {
-        return valoracionesPositivas;
+   
+    public TipoValoracion getValoracion(){
+    	return valoracion;
     }
-
-    public void setValoracionesPositivas(int valoracionesPositivas) {
-        this.valoracionesPositivas = valoracionesPositivas;
+    
+    public void setValoracion(TipoValoracion valoracion) {
+    	this.valoracion = valoracion;
     }
-
-    public int getValoracionesNegativas() {
-        return valoracionesNegativas;
-    }
-
-    public void setValoracionesNegativas(int valoracionesNegativas) {
-        this.valoracionesNegativas = valoracionesNegativas;
-    }
-
-    public int getVecesVista() {
-        return vecesVista;
-    }
-
-    public void setVecesVista(int vecesVista) {
-        this.vecesVista = vecesVista;
-    }
-
     public String getComentarios() {
         return comentarios;
     }
@@ -49,29 +28,10 @@ public class RecomendacionPeliculas {
     public void setComentarios(String comentarios) {
         this.comentarios = comentarios;
     }
-    
-    //Metodos
-    private void valoracionPositivaErronea()
-    {
-    	//Metodo para corregir la valoracion positiva en caso de que se introduzca mal
-    	while(valoracionesPositivas<0 || valoracionesPositivas>5)
-    	{
-    		System.out.println("Error valoración positiva mal introducida introduzca del 0 al 5");
-    		valoracionesPositivas = sc.nextInt();
-    	}	
-    }
-    private void valoracionNegativaErronea()
-    {
-    	//Metodo para corregir la valoracion positiva en caso de que se introduzca mal
-    	while(valoracionesNegativas<0 || valoracionesNegativas>5)
-    	{
-    		System.out.println("Error valoración positiva mal introducida introduzca del 0 al 5");
-    		valoracionesNegativas = sc.nextInt();
-    	}	
-    }
+  
     //toString
     @Override
     public String toString() {
-        return "valoracionesPositivas = " + valoracionesPositivas + ", valoracionesNegativas = " + valoracionesNegativas + ", vecesVista = " + vecesVista + ", comentarios = '" + comentarios + '\'';
+        return "Valoracion " + valoracion+ " comentario " + comentarios ;
     }
 }
