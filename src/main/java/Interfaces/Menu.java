@@ -1,7 +1,7 @@
 package Interfaces;
 public interface Menu {
 	
-		public void altas();
+		public Object[] altas(Object[] nuevo);
 		
 		public void bajas(int posicion);
 		
