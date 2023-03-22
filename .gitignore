@@ -1,1 +1,93 @@
 /target/
+
+package streaming;
+
+import java.util.Arrays;
+import java.util.Scanner;
+import Interfaces.Menu;
+import clasesbase.Actores;
+
+import enums.Sexo;
+import enums.Tipo;
+
+public class MenuActores implements Menu{
+	
+	private String nombre,apellidos,premios;
+	private int edad,opcion;
+	private Sexo s;
+	private Actores act [];
+	public MenuActores()
+	{
+		
+	}
+	
+	Scanner sc = new Scanner(System.in);
+
+	public Object altas(Object nuevo) {
+		Actores otro;
+		System.out.println("Introduce el nombre del actor: ");
+		nombre = sc.nextLine();
+		System.out.println("Introduce los apellidos del actor: ");
+		apellidos = sc.nextLine();
+		System.out.println("Introduce la edad del actor: ");
+		edad = sc.nextInt();
+		System.out.println("Introduce los premios que ha ganado este actor a lo largo de su carrera: ");
+		premios = sc.nextLine();
+		System.out.println("Introduce el sexo del actor: \n"
+				+ "1.-Hombre \n"
+				+ "2.-Mujer \n"
+				+ "3.-Otro");
+		opcion = sc.nextInt();
+		boolean salir = false;
+		while(salir == false) {
+			switch(opcion)
+			{
+				case 1:
+				{
+					s = enums.Sexo.HOMBRE;
+					salir = true;
+					break;
+				}
+				case 2:
+				{
+					s = enums.Sexo.MUJER;
+					salir = true;
+					break;
+				}
+				case 3:
+				{
+					s = enums.Sexo.OTRO;
+					salir = true;
+					break;
+				}
+				default:
+					System.out.println("Opcion erronea vuelve a introducirla.");
+					salir = false;
+			}
+		}
+		otro =new Actores(nombre,apellidos,s,edad,premios);
+		nuevo = (Actores) otro;
+		
+		
+		return nuevo;
+		
+	}
+
+	public void bajas(int posicion) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void modificadiones(int posicion) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void busquedas(String busqueda) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}
+

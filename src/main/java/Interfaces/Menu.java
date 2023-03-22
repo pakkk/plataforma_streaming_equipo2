@@ -1,8 +1,7 @@
 package Interfaces;
-
 public interface Menu {
 	
-		public void altas(Object nuevo);
+		public void altas();
 		
 		public void bajas(int posicion);
 		
