@@ -31,6 +31,7 @@ public class Audiovisual{
 		   dic = new Directores [0];
 		   cat = new Categorias[0];
 		   sub = Subtitulos.idiomas;
+		   CorreccionAtributos();
 	   }
 	   
 	   //Getters y Setters
