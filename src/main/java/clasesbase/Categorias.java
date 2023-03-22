@@ -9,10 +9,11 @@ public class Categorias {
     public Categorias(String nombre, String descripcion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        CorreccionAtributos();
     }
     //Getters y Setters
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {
@@ -28,10 +29,10 @@ public class Categorias {
     }
     private void CorreccionAtributos()
     {
-    	while(nombre.isEmpty())
+    	while(this.nombre.isEmpty())
     	{
     		System.out.println("Error nombre vacio vuelve a introducirlo");
-    		nombre = sc.nextLine();
+    		this.nombre = sc.nextLine();
     	}
     	if(descripcion.isEmpty())
     	{
