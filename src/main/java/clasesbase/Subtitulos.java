@@ -1,25 +1,23 @@
 package clasesbase;
 
-import java.util.Arrays;
-
 public class Subtitulos {
-    public String[] idiomas;
+    public String idioma;
 
-    public Subtitulos(String[] idiomas) {
-        this.idiomas = new String[0];
+    public Subtitulos(String idioma) {
+        this.idioma = idioma;
     }
 
-    public String[] getIdiomas() {
-        return idiomas;
+    public String getIdioma() {
+        return idioma;
     }
 
-    public void setIdiomas(String[] idiomas) {
-        this.idiomas = idiomas;
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
     }
 
     @Override
     public String toString() {
-        return "Subtitulos{" + "idiomas=" + Arrays.toString(idiomas) + '}';
+        return "Subtitulos{" + "idiomas=" + idioma + '}';
     }
 
     
