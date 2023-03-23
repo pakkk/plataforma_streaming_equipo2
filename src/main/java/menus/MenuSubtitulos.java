@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MenuSubtitulos {
+/*
     Scanner sc = new Scanner(System.in);
     String[] sub;
     String[] subtituloGenerales;
@@ -148,4 +149,5 @@ public class MenuSubtitulos {
             }
         }
     }
+    */
 }
