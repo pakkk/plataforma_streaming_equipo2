@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package menus;
 
 import clasesbase.Actores;
@@ -10,7 +6,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author alexc
+ * @author alex
  */
 
 //Clase que se encarga de almacenar los metodos de altas, bajas, consultas y busquedas de Actores
