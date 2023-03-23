@@ -7,14 +7,14 @@ public class Actores{
     //Atributos 
     private String nombre;
     private String apellidos;
-    private Sexo s;
+    private Sexo gender;
     private int edad;
     private String premios;
     //Constructor 
-    public Actores(String nombre, String apellidos, Sexo s, int edad, String premios) {
+    public Actores(String nombre, String apellidos, Sexo gender, int edad, String premios) {
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.s = s;
+        this.gender = gender;
         this.edad = edad;
         this.premios = premios;
         CorreccionAtributos();
@@ -37,7 +37,7 @@ public class Actores{
     }
     
     public Sexo getSexo() {
-    	return s;
+    	return gender;
     }
     
     public int getEdad() {
@@ -48,8 +48,8 @@ public class Actores{
         this.apellidos = apellidos;
     }
 
-    public void setSexo(Sexo s) {
-        this.s = s;
+    public void setSexo(Sexo gender) {
+        this.gender = gender;
     }
 
     public void setEdad(int edad) {

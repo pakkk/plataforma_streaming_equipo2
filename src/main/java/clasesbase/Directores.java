@@ -6,14 +6,14 @@ public class Directores {
 	Scanner sc = new Scanner (System.in);
 	//Atributos 
 	private String nombre,apellido;
-    private Sexo s;
+    private Sexo gender;
     private int edad;
     private String premios;
     //Constructor
-    public Directores(String nombre, String apellido, Sexo s, int edad, String premios) {
+    public Directores(String nombre, String apellido, Sexo gender, int edad, String premios) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.s = s;
+        this.gender = gender;
         this.edad = edad;
         this.premios = premios;
         CorreccionAtributos();
@@ -36,11 +36,11 @@ public class Directores {
     }
 
     public Sexo getSexo() {
-        return s;
+        return gender;
     }
 
     public void setSexo(Sexo s) {
-        this.s = s;
+        this.gender = gender;
     }
 
     public int getEdad() {
@@ -86,7 +86,7 @@ public class Directores {
         return "Directores: " +
                 "nombre= " + nombre + '\'' +
                 ", apellido= " + apellido + '\'' +
-                ", sexo= " + s +
+                ", sexo= " + gender +
                 ", edad= " + edad +
                 ", premios= " + premios ;
     }
