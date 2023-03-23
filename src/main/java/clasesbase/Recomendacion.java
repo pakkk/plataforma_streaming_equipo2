@@ -1,6 +1,7 @@
 package clasesbase;
 import enums.TipoValoracion;
 public class Recomendacion {
+	//Esta clase se encarga de cargar los datos de las recomendaciones para despues almacenarlas en un array
    //Atributos
    //Atributo TipoValoracion valoracion: Atributo de tipo enum que define el tipo de valoracion (Positiva y negativa)
    //Atributo String comentario: Atributo que define el comentario de la recomendacion si llegara a no introducirse por defecto es sin comentario
