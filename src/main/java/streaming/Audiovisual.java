@@ -1,25 +1,37 @@
 package streaming;
-import java.util.Scanner;
 import clasesbase.Actores;
 import clasesbase.Categorias;
 import clasesbase.Directores;
-import clasesbase.RecomendacionPeliculas;
-
+import clasesbase.Recomendacion;
+import clasesbase.Subtitulos;
+import java.util.Arrays;
 public class Audiovisual{
-	   Scanner sc = new Scanner (System.in);
 	   //Atributos
-	   protected String titulo;
-	   protected String idiomaOriginal;
-	   protected String idiomaAdaptado [];
-	   protected int duracion;
-	   protected int vecesVisto;
-	   protected Actores act [];
-	   protected Directores dic [];
-	   protected Categorias cat [];
-	   protected String sub [];
-	   protected RecomendacionPeliculas rec [];
+	   /*
+	    * Atributo String titulo: Define el titulo del audiovisual
+	    * Atributo idiomaOriginal: Define el idioma original en el que esta el audiovisual
+	    * Atributo idiomaAdaptado: Define los idiomas adaptados en los que esta el audiovisual
+	    * Atributo int duracion: Define cuanto dura el audiovisual
+	    * Atributo int vecesVisto: Define cuantas veces se ha visto el audiovisual
+	    * Atributo Actores act []: Array que almacena objetos de actores
+	    * Atributo Directores dic []: Array que almacena objetos de directores
+	    * Atributo Categorias cat []: Array que almacena objetos de categorias
+	    * Atributo Subtitulos sub []: Array que almacena objetos de subtitulos
+	    * Atributo Recomendacion rec []: Array que almacena objetos de recomendaciones 
+	    */
+	   private String titulo;
+	   private String idiomaOriginal;
+	   private String idiomaAdaptado [];
+	   private int duracion;
+	   private int vecesVisto;
+	   private Actores act [];
+	   private Directores dic [];
+	   private Categorias cat [];
+	   private Subtitulos sub [];
+	   private Recomendacion rec [];
 	   
 	   //Constructor 
+	   //Constructor que determina los valores de los atributos de audiovisual
 	   public  Audiovisual (String titulo,String idiomaOriginal,int duracion,int vecesVisto)
 	   {
 		
@@ -27,66 +39,129 @@ public class Audiovisual{
 		   this.idiomaOriginal = idiomaOriginal;
 		   this.duracion = duracion;
 		   this.vecesVisto = vecesVisto;
-		   idiomaAdaptado = new String [0];
-		   act = new Actores [0];
-		   dic = new Directores [0];
-		   cat = new Categorias[0];
-		   rec = new RecomendacionPeliculas [0];
 		   CorreccionAtributos();
 	   }
 	   
 	   //Getters y Setters
-
-	    public String getTitulo() {
+	   //Getter que devuelve el valor del titulo del audiovisual
+	    public String getTitulo()
+	    {
 	        return titulo;
 	    }
-
-	    public void setTitulo(String titulo) {
+	    //Setter que permite modificar el valor del titulo del audiovisual
+	    public void setTitulo(String titulo)
+	    {
 	        this.titulo = titulo;
 	    }
-
-	    public String getIdiomaOriginal() {
+	    //Getter que devuelve el valor del isioma original del audiovisual
+	    public String getIdiomaOriginal()
+	    {
 	        return idiomaOriginal;
 	    }
-
-	    public void setIdiomaOriginal(String idiomaOriginal) {
+	    //Setter que permite modificar el valor del idioma original del audiovisual
+	    public void setIdiomaOriginal(String idiomaOriginal)
+	    {
 	        this.idiomaOriginal = idiomaOriginal;
 	    }
-
-	    public String[] getIdiomaAdaptado() {
+	    //Getter que devuelve el Array del idioma adaptado del audiovisual
+	    public String[] getIdiomaAdaptado()
+	    {
 	        return idiomaAdaptado;
 	    }
-
-	    public int getDuracion() {
+	    //Getter que devuelve el valor de la duracion del audiovisual
+	    public int getDuracion() 
+	    {
 	        return duracion;
 	    }
-
-	    public void setDuracion(int duracion) {
+	    //Setter que permite modificar el valor de la duracion
+	    public void setDuracion(int duracion)
+	    {
 	        this.duracion = duracion;
 	    }
-	    public  int getVecesVisto() {
+	    //Getter que devuelve la cantidad de veces que se ha devuelto el audiovisual
+	    public  int getVecesVisto()
+	    {
 	    	return vecesVisto;
 	    }
-	    
-	    public void setVecesVisto(int vecesVisto) {
+	    //Setter que permite modificar el valor de las veces que se ha visto el audiovisual
+	    public void setVecesVisto(int vecesVisto)
+	    {
 	    	this.vecesVisto = vecesVisto;
 	    }
+	    //Getter que devuelve el array de actores
+	    public Actores [] getActores()
+	    {
+	    	return this.act;
+	    }
+	    //Setter que permite modificar le array de actores
+	    public void setActores (Actores act [])
+	    {
+	    	this.act = act;
+	    }
+	    //Getter que devuelve el array de directores
+	    public Directores [] getDirectores()
+	    {
+	    	return this.dic;
+	    }
+	    //Setter que permite modificar el array de directores
+	    public void setDirectores(Directores dic [])
+	    {
+	    	this.dic = dic;
+	    }
+	    //Getter que devuelve el array de categorias
+	    public Categorias [] getCategorias ()
+	    {
+	    	return this.cat;
+	    }
+	    //Setter que permite modificar el array de categorias
+	    public void setCategorias(Categorias cat [])
+	    {
+	    	this.cat = cat;
+	    }
+	    //Getter que devuelve el array de subtitulos
+	    public Subtitulos [] getSubtitulos ()
+	    {
+	    	return this.sub;
+	    }
+	    //Setter que permite modificar el array de subtitulos
+	    public void setSubtitulos(Subtitulos sub [])
+	    {
+	    	this.sub = sub;
+	    }
+	    //Getter que devuelve el array de recomendacion
+	    public Recomendacion [] getRecomendacion()
+	    {
+	    	return this.rec;
+	    }
+	    //Setter que permite modificar el array de recomendacion
+	    public void setRecomendacion(Recomendacion rec [])
+	    {
+	    	this.rec = rec;
+	    }
+	    //Metodo que establece por defecto los atributos que se han dejado vacios
 		private void CorreccionAtributos()
 		{
-			while(titulo.isEmpty())
+			if(titulo.isEmpty())
 			{
-				System.out.println("Error titulo vacio vuelve a introducirlo");
-				titulo = sc.nextLine();
+				this.titulo = "Sin titulo";
+			}
+			if(duracion<=0)
+			{
+				this.duracion = 60;
 			}
 			if(idiomaOriginal.isEmpty())
 			{
 				idiomaOriginal = "Ingles";
 			}
+			if(vecesVisto<0)
+			{
+				this.vecesVisto = 0;
+			}
 		}
 		@Override
 		public String toString()
 		{
-			return "Audiovisual nombre "+titulo+" dura "+duracion+" minutos "+" su idioma original es "+idiomaOriginal + "veces visto " + vecesVisto;
+			return "Audiovisual nombre "+titulo+" dura "+duracion+" minutos "+" su idioma original es "+idiomaOriginal+ "los idiomas adaptados son " + Arrays.toString(idiomaAdaptado) + "veces visto " + vecesVisto;
 		}
 		}
 

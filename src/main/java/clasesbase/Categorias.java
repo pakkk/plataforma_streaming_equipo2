@@ -1,49 +1,59 @@
 package clasesbase;
-import java.util.Scanner;
 public class Categorias {
-	Scanner sc = new Scanner (System.in);
 	//Atributos 
+	/*
+	 * Atributo String nombre: Atributo que define el nombre de la categoria
+	 * Atributo String descripcion: Atributo que define la descripcion de la categoria
+	 */
 	private String nombre;
     private String descripcion;
     //Constructor
-    public Categorias(String nombre, String descripcion) {
+    //Este constructor determina los valores de los atributos nombre y descripcion
+    public Categorias(String nombre, String descripcion) 
+    {
         this.nombre = nombre;
         this.descripcion = descripcion;
         CorreccionAtributos();
     }
     //Getters y Setters
-    public String getNombre() {
+    //Getter que devuelve el valor del nombre de la categoria
+    public String getNombre() 
+    {
         return this.nombre;
     }
-
-    public void setNombre(String nombre) {
+    //Setter que permite modificar el valor del nombre de la categoria
+    public void setNombre(String nombre) 
+    {
         this.nombre = nombre;
     }
-
-    public String getDescripcion() {
-        return descripcion;
+    //Getter que devuelve el valor de la descripcion de la categoria
+    public String getDescripcion() 
+    {
+        return this.descripcion;
     }
-
-    public void setDescripcion(String descripcion) {
+    //Setter que permite modificar el valor de la descripcion de la categoria
+    public void setDescripcion(String descripcion) 
+    {
         this.descripcion = descripcion;
     }
+    //Este metodo sirve para establecer por defecto los atributos que no se introduzcan
     private void CorreccionAtributos()
     {
-    	while(this.nombre.isEmpty())
+    	if(nombre.isEmpty())
     	{
-    		System.out.println("Error nombre vacio vuelve a introducirlo");
-    		this.nombre = sc.nextLine();
+    		this.nombre = "Sin nombre";
     	}
     	if(descripcion.isEmpty())
     	{
     		descripcion = "Sin despcripcion";
     	}
     }
-    //toString
+    //toString que muestra los valores de los atributos nombre y descripcion
     @Override
-    public String toString() {
-        return "Categoria{" + " Nombre = " + nombre + ""
-        		+  "\nDescripcion = " + descripcion + '}';
+    public String toString() 
+    {
+        return "Categoria{" + " Nombre = " + nombre + "\n"
+        		+  "Descripcion = " + descripcion + '}';
     }
     
     

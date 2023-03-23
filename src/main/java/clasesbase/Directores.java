@@ -1,16 +1,23 @@
 package clasesbase;
-import java.util.Scanner;
 import enums.Sexo;
 
 public class Directores {
-	Scanner sc = new Scanner (System.in);
 	//Atributos 
+	/*
+	 * Atributo String nombre: Define el nombre del director
+	 * Atributo String apellido:Define el apellido del dorector
+	 * Atributo Sexo gender:Define el sexo del director
+	 * Atributo int edad:Define la edad del director
+	 * Atributo String premios:Define que tipo de premios ha ganado el director
+	 */
 	private String nombre,apellido;
     private Sexo gender;
     private int edad;
     private String premios;
     //Constructor
-    public Directores(String nombre, String apellido, Sexo gender, int edad, String premios) {
+    //Este constructor se encarga de determinar los valores de nombre,apellido,gender,edad y premios
+    public Directores(String nombre, String apellido, Sexo gender, int edad, String premios) 
+    {
         this.nombre = nombre;
         this.apellido = apellido;
         this.gender = gender;
@@ -19,70 +26,80 @@ public class Directores {
         CorreccionAtributos();
     }
     //Getters y Setters
-    public String getNombre() {
-        return nombre;
+    //Getter que devuelve el valor del nombre del director
+    public String getNombre() 
+    {
+        return this.nombre;
     }
-  
-    public void setNombre(String nombre) {
+    //Setter que permite modificar el valor del nombre del director
+    public void setNombre(String nombre)
+    {
         this.nombre = nombre;
     }
-
-    public String getApellido() {
-        return apellido;
+    //Getter que devuelve el valor del apellido del director
+    public String getApellido()
+    {
+        return this.apellido;
     }
-
-    public void setApellido(String apellido) {
+    //Setter que permite modificar el valor del apellido del director
+    public void setApellido(String apellido)
+    {
         this.apellido = apellido;
     }
-
-    public Sexo getGender() {
-        return gender;
+    //Getter que devuelve el valor del sexo del director
+    public Sexo getGender()
+    {
+        return this.gender;
     }
-
-    public void setGender(Sexo gender) {
+    //Setter que permite modificar el valor del sexo del director
+    public void setGender(Sexo gender)
+    {
         this.gender = gender;
     }
-
-    public int getEdad() {
-        return edad;
+    //Getter que devuelve el valor de la edad del director
+    public int getEdad()
+    {
+        return this.edad;
     }
-
-    public void setEdad(int edad) {
+    //Setter que permite modificar el valor de la edad del director
+    public void setEdad(int edad) 
+    {
         this.edad = edad;
     }
-
-    public String getPremios() {
-        return premios;
+    //Getter que devuelve el valor de los premios del director
+    public String getPremios() 
+    {
+        return this.premios;
     }
-
-    public void setPremios(String premios) {
+    //Setter que permite modificar los premios del director
+    public void setPremios(String premios)
+    {
         this.premios = premios;
     }
+    //Metodo para establecer los atributos por defecto en caso de que no se introduzcan
     private void CorreccionAtributos()
     {
-    	while(nombre.isEmpty())
+    	if(nombre.isEmpty())
     	{
-    		System.out.println("Error nombre vacio vuelva a introducirlo");
-    		nombre = sc.nextLine();
+    		this.nombre = "Sin nombre";
     	}
-    	while(apellido.isEmpty())
+    	if(apellido.isEmpty())
     	{
-    		System.out.println("Error apellido vacio vuelva a introducirlo");
-    		apellido = sc.nextLine();
+    		this.apellido = "Sin apellido";
     	}
-    	while(edad<0)
+    	if(edad<=0)
     	{
-    		System.out.println("Error edad negativa introducida vuelve a introducirla");
-    		edad = sc.nextInt();
+    		this.edad = 18; 
     	}
     	if(premios.isEmpty())
     	{
-    		premios = "Sin premios";
+    		this.premios = "Sin premios";
     	}
     }
-    //toString
+    //toString que muestra el valor de los atributos nombre,apellido,sexo,edad y premios
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return "Directores: " +
                 "nombre= " + nombre + '\'' +
                 ", apellido= " + apellido + '\'' +

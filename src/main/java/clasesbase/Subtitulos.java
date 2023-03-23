@@ -1,22 +1,31 @@
 package clasesbase;
 
 public class Subtitulos {
-    public String idioma;
-
-    public Subtitulos(String idioma) {
+	//Atributos
+	//String idioma: Atributo que define en que idioma estara el subtitulo
+	private String idioma;
+	//Constructor 
+	//Constructor que determina el valor de idioma
+    public Subtitulos(String idioma)
+    {
         this.idioma = idioma;
     }
-
-    public String getIdioma() {
-        return idioma;
+    //Gettters
+    //Get de idioma que devuelve el valor del atributo
+    public String getIdioma() 
+    {
+        return this.idioma;
     }
-
-    public void setIdioma(String idioma) {
+    //Setters
+    //Set de idioma que permite cambiar su valor
+    public void setIdioma(String idioma)
+    {
         this.idioma = idioma;
     }
-    
+    //ToString de idioma que muestra su valor
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Subtitulos{" + "idiomas=" + idioma + '}';
     }
 

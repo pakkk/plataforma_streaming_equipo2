@@ -24,27 +24,27 @@ public class Actores{
     //Getter que devuelve el nombre del actor
     public String getNombre() 
     {
-        return nombre;
+        return this.nombre;
     }
     //Getter que devuelve los apellidos del actor
     public String getApellidos() 
     {
-        return apellidos;
+        return this.apellidos;
     }
     //Getter que devuelve los premios del actor
     public String getPremios() 
     {
-        return premios;
+        return this.premios;
     }
     //Getter que devuelve el genero del actor
     public Sexo getGender() 
     {
-    	return gender;
+    	return this.gender;
     }
     //Getter que devuelve la edad del actor
     public int getEdad() 
     {
-        return edad;
+        return this.edad;
     }
     
     //Setters
@@ -95,9 +95,10 @@ public class Actores{
     	}
     }
     
-    //toString
+    //toString que muestra los valores de los atributos del actor
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return "Actor "+ nombre + " " + apellidos +" de edad "+ edad +" ha ganado " + premios;
     }
      
