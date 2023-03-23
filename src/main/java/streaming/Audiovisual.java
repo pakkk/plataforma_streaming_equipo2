@@ -5,12 +5,10 @@ import clasesbase.Actores;
 import clasesbase.Categorias;
 import clasesbase.Directores;
 import clasesbase.RecomendacionPeliculas;
-import enums.Tipo;
 
 public class Audiovisual{
 	   Scanner sc = new Scanner (System.in);
 	   //Atributos
-	   protected Tipo t;
 	   protected String titulo;
 	   protected String idiomaOriginal;
 	   protected String idiomaAdaptado [];
@@ -23,9 +21,9 @@ public class Audiovisual{
 	   protected RecomendacionPeliculas rec [];
 	   
 	   //Constructor 
-	   public  Audiovisual (Tipo t,String titulo,String idiomaOriginal,int duracion,int vecesVisto)
+	   public  Audiovisual (String titulo,String idiomaOriginal,int duracion,int vecesVisto)
 	   {
-		   this.t = t;
+		
 		   this.titulo = titulo;
 		   this.idiomaOriginal = idiomaOriginal;
 		   this.duracion = duracion;
@@ -40,13 +38,6 @@ public class Audiovisual{
 	   }
 	   
 	   //Getters y Setters
-	    public Tipo getT() {
-	        return t;
-	    }
-
-	    public void setT(Tipo t) {
-	        this.t = t;
-	    }
 
 	    public String getTitulo() {
 	        return titulo;
@@ -97,7 +88,7 @@ public class Audiovisual{
 		@Override
 		public String toString()
 		{
-			return "Audiovisual de tipo " + t +" con nombre "+titulo+" dura "+duracion+" minutos "+" su idioma original es "+idiomaOriginal + "veces visto " + vecesVisto;
+			return "Audiovisual nombre "+titulo+" dura "+duracion+" minutos "+" su idioma original es "+idiomaOriginal + "veces visto " + vecesVisto;
 		}
 		}
 
