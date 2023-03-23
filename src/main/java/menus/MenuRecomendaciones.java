@@ -1,11 +1,10 @@
 package menus;
-import Interfaces.Menu;
 
 import java.util.Arrays;
 import java.util.Scanner;
 import clasesbase.RecomendacionPeliculas;
 import enums.TipoValoracion;
-public class MenuRecomendaciones implements Menu{
+public class MenuRecomendaciones{
 	//Atributos
 	private Scanner sc = new Scanner (System.in);
 	private RecomendacionPeliculas rec [] = new RecomendacionPeliculas [0];

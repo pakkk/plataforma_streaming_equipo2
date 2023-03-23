@@ -3,10 +3,10 @@ package menus;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import Interfaces.Menu;
+
 import clasesbase.Categorias;
 
-public class MenuCategorias  implements Menu{
+public class MenuCategorias {
 	Scanner sc = new Scanner(System.in);
 	private String nombre;
 	private String descripcion;

@@ -1,11 +1,9 @@
 package menus;
 
-import Interfaces.Subtitulos;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class MenuSubtitulos implements Subtitulos {
+public class MenuSubtitulos {
     Scanner sc = new Scanner(System.in);
     String[] sub;
     String[] subtituloGenerales;
