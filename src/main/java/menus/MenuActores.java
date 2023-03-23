@@ -11,9 +11,7 @@ import java.util.Arrays;
 
 //Clase que se encarga de almacenar los metodos de altas, bajas, consultas y busquedas de Actores
 public class MenuActores{
-    //Array de actores
-    private Actores act[] = new Actores[0];
-    
+   
     /* Se pide un Array de objetos Actores
     * Se añade un Actor al Array
     * Se devuelve el Array 
@@ -195,7 +193,7 @@ public class MenuActores{
     {
         for(int i = 0; i < otro.length; i++)
         {
-            if(premios.equalsIgnoreCase(act[i].getPremios()))
+            if(premios.equalsIgnoreCase(otro[i].getPremios()))
             {   
                 System.out.println("Premios antiguos: " + otro[i]);
                 otro[i].setPremios(nuevosPremios);
