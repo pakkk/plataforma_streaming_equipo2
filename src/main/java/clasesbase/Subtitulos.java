@@ -1,6 +1,7 @@
 package clasesbase;
 
 public class Subtitulos {
+	//Esta clase se encarga de cargar los datos de los subtitulos para despues almacenarlos en un array
 	//Atributos
 	//String idioma: Atributo que define en que idioma estara el subtitulo
 	private String idioma;
