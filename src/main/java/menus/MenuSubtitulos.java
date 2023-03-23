@@ -1,153 +1,72 @@
 package menus;
-
 import java.util.Arrays;
-import java.util.Scanner;
+import clasesbase.Subtitulos;
 
-public class MenuSubtitulos {
-/*
-    Scanner sc = new Scanner(System.in);
-    String[] sub;
-    String[] subtituloGenerales;
+public class MenuSubtitulos  {
+    //La clase hace un alta, bajas, modificaciones y busquedas de subtitulos en una pelicula o serie
 
-    public MenuSubtitulos() {
-        sub = new String[0];
+    //Este metodo realiza una alta de subtitulos en una serie o pelicula
+    //Este metodo se le pasa como parametro un array de subtitulos y sus atributos
+    //Se devuelve el array modificado
+    public Subtitulos [] SubtitulosAlta(Subtitulos [] nuevo, String idioma)
+    {
+        nuevo = Arrays.copyOf(nuevo,nuevo.length+1);
+        nuevo[nuevo.length-1]= new Subtitulos(idioma);
+        return nuevo;
     }
-// Menus para los idiomas
-    public String[] subtitulosPermitidos() {
-        subtituloGenerales = Subtitulos.idiomas;
-        String opciones;
-        boolean salir = false;
 
-        System.out.println("Selecciona los Subtitulos de tu pelicula");
-        System.out.println("1. Español");
-        System.out.println("2. Ingles");
-        System.out.println("3. Aleman");
-        System.out.println("4. Portugues");
-        System.out.println("5. Frances");
-        System.out.println("6. Japones");
-        System.out.println("7. Chino");
-//altas de los idiomas
-        while (salir == false) {
-            opciones = sc.next();
-            if (opciones.equals("1")) {
-                sub = Arrays.copyOf(sub, sub.length + 1);
-                sub[sub.length - 1] = subtituloGenerales[0];
-            }
-            if (opciones.equals("2")) {
-                sub = Arrays.copyOf(sub, sub.length + 1);
-                sub[sub.length - 1] = subtituloGenerales[1];
-            }
-            if (opciones.equals("3")) {
-                sub = Arrays.copyOf(sub, sub.length + 1);
-                sub[sub.length - 1] = subtituloGenerales[2];
-            }
-            if (opciones.equals("4")) {
-                sub = Arrays.copyOf(sub, sub.length + 1);
-                sub[sub.length - 1] = subtituloGenerales[3];
-            }
-            if (opciones.equals("5")) {
-                sub = Arrays.copyOf(sub, sub.length + 1);
-                sub[sub.length - 1] = subtituloGenerales[4];
-            }
-            if (opciones.equals("6")) {
-                sub = Arrays.copyOf(sub, sub.length + 1);
-                sub[sub.length - 1] = subtituloGenerales[5];
-            }
-            if (opciones.equals("7")) {
-                sub = Arrays.copyOf(sub, sub.length + 1);
-                sub[sub.length - 1] = subtituloGenerales[6];
-            }
-            while (!opciones.equalsIgnoreCase("si") && !opciones.equalsIgnoreCase("no")) {
-                System.out.println("Desea añadir mas subtitulos ");
-                opciones = sc.next();
-
-                if (opciones.equalsIgnoreCase("si")) {
-                    salir = false;
-                } else if (opciones.equalsIgnoreCase("no")) {
-                    salir = true;
-                } else {
-                    System.out.println("error a decidir, vuelve a decidir");
-                }
+    //Este metodo realiza una baja de subtitulos en una serie o pelicula segun su atributo
+    //Este metodo se le pasa como parametro un array de subtitulos y sus atributos
+    //Se devuelve el array modificado
+    public Subtitulos [] SubtitulosBajas(Subtitulos [] baja, String idioma)
+    {
+        for (int i = 0 ; i < baja.length ; i++)
+        {
+            if (idioma.equalsIgnoreCase((baja[i]).getIdioma()))
+            {
+                System.out.println("Idioma borrado " + baja[i]);
+                System.arraycopy(baja, i+1, baja, i, baja.length-i-1);
+                baja = Arrays.copyOf(baja, baja.length-1) ;
             }
         }
-        return sub;
+        return baja;
     }
 
-    public String[] bajasSubtitulo(String[] subtitulo, int pos) {
-//bucle para poner el subtitulo que queremos al final de array y eliminarlo
-        for (int i = 0; i < subtitulo.length; i++) {
-            if (i == pos) {
-                System.out.println("El subtitulo eliminado es: " + subtitulo[pos]);
-                System.arraycopy(subtitulo, pos + 1, subtitulo, pos, subtitulo.length - pos - 1);
-                subtitulo = Arrays.copyOf(subtitulo, subtitulo.length - 1);
+    //Este metodo realiza una modificacion de subtitulos en una serie o pelicula cambiando su atributo viejo por uno nuevo
+    //Este metodo se le pasa como parametro un array de subtitulos y sus atributos
+    //Se devuelve el array modificado
+    public Subtitulos [] modificacionIdioma(Subtitulos [] modificacion, String idioma, String nuevoIdioma)
+    {
+        for(int i = 0;i<modificacion.length;i++)
+        {
+            if(idioma.equalsIgnoreCase((modificacion[i]).getIdioma()))
+            {
+                System.out.println("Descripcion "+ idioma +" modificados por " + nuevoIdioma);
+                (modificacion[i]).setIdioma(nuevoIdioma);
             }
         }
-        return subtitulo;
+        return modificacion;
     }
 
-    public String[] modificacionesSubtitulo(String[] subtitulo, int pos) {
-//bucle para la modificacion
-        for (int i = 0; i < subtitulo.length; i++) {
-            subtituloGenerales = Subtitulos.idiomas;
-            String opciones;
-            boolean salir = false;
-            if (i == pos) {
-                System.out.println("Selecciona los Subtitulos de tu pelicula");
-                System.out.println("1. Español");
-                System.out.println("2. Ingles");
-                System.out.println("3. Aleman");
-                System.out.println("4. Portugues");
-                System.out.println("5. Frances");
-                System.out.println("6. Japones");
-                System.out.println("7. Chino");
+    //Este metodo realiza una busqueda de subtitulos en una serie o pelicula segun su atributo
+    //Este metodo se le pasa como parametro un array de subtitulos y sus atributos
+    //En caso de que no se encuentre se avisara al usuario
+    public void busquedaPorIdioma(Subtitulos[] busqueda, String idioma)
+    {
+        boolean encontrado = false;
+        for(int i = 0;i<busqueda.length;i++)
+        {
 
-                while (salir == false) {
-                    opciones = sc.next();
-                    if (opciones.equals("1")) {
-                        sub = Arrays.copyOf(sub, sub.length + 1);
-                        sub[sub.length - 1] = subtituloGenerales[0];
-                    }
-                    if (opciones.equals("2")) {
-                        sub = Arrays.copyOf(sub, sub.length + 1);
-                        sub[sub.length - 1] = subtituloGenerales[1];
-                    }
-                    if (opciones.equals("3")) {
-                        sub = Arrays.copyOf(sub, sub.length + 1);
-                        sub[sub.length - 1] = subtituloGenerales[2];
-                    }
-                    if (opciones.equals("4")) {
-                        sub = Arrays.copyOf(sub, sub.length + 1);
-                        sub[sub.length - 1] = subtituloGenerales[3];
-                    }
-                    if (opciones.equals("5")) {
-                        sub = Arrays.copyOf(sub, sub.length + 1);
-                        sub[sub.length - 1] = subtituloGenerales[4];
-                    }
-                    if (opciones.equals("6")) {
-                        sub = Arrays.copyOf(sub, sub.length + 1);
-                        sub[sub.length - 1] = subtituloGenerales[5];
-                    }
-                    if (opciones.equals("7")) {
-                        sub = Arrays.copyOf(sub, sub.length + 1);
-                        sub[sub.length - 1] = subtituloGenerales[6];
-                    }
-                }
+            if(idioma.equalsIgnoreCase((busqueda[i]).getIdioma()))
+            {
+                System.out.println(busqueda[i]);
+                encontrado = true;
             }
+
         }
-        return subtitulo;
-    }
-    //busqueda de subtitulo
-    public void busquedaSubtitulo(String [] subtitulos){
-        String sub;
-        System.out.println("Introduce el subtitulo a buscar");
-        sub = sc.next();
-
-        for (String i : subtitulos) {
-            if (i.equalsIgnoreCase(sub)){
-                System.out.println(i);
-                break;
-            }
+        if (encontrado==false)
+        {
+            System.out.println("Su descripcion " + idioma + " no existe");
         }
     }
-    */
 }
