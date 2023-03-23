@@ -18,9 +18,8 @@ public class MenuActores{
     * Se añade un Actor al Array
     * Se devuelve el Array 
     */
-    public Object[] AltasActores(Object[] otro, String nombre, String apellidos, Sexo gender, int edad, String premios)
+    public Actores[] AltasActores(Actores[] otro, String nombre, String apellidos, Sexo gender, int edad, String premios)
     {
-        otro = (Actores []) act;
         otro = Arrays.copyOf(otro, otro.length + 1);
         otro[otro.length - 1] = new Actores(nombre, apellidos, gender, edad, premios);
         return otro;
@@ -30,12 +29,11 @@ public class MenuActores{
     * Se elimina un Actor del Array
     * Se devuelve el Array 
     */
-    public Object[] BajasActoresPorNombre(Object[] otro, String nombre)
+    public Actores[] BajasActoresPorNombre(Actores[] otro, String nombre)
     {
-        otro = (Actores []) act;
         for(int i = 0; i < otro.length; i++)
         {
-            if(nombre.equalsIgnoreCase(act[i].getNombre()))
+            if(nombre.equalsIgnoreCase(otro[i].getNombre()))
             {   
                 System.out.println("Actores dados de baja: " + otro[i]);
                 System.arraycopy (otro, i+1, otro, i, otro.length-i-1);
@@ -49,12 +47,11 @@ public class MenuActores{
     * Se elimina un Actor del Array
     * Se devuelve el Array 
     */
-    public Object[] BajasActoresPorApellidos(Object[] otro, String apellidos)
+    public Actores[] BajasActoresPorApellidos(Actores[] otro, String apellidos)
     {
-        otro = (Actores []) act;
         for(int i = 0; i < otro.length; i++)
         {
-            if(apellidos.equalsIgnoreCase(act[i].getApellidos()))
+            if(apellidos.equalsIgnoreCase(otro[i].getApellidos()))
             {   
                 System.out.println("Actores dados de baja: " + otro[i]);
                 System.arraycopy (otro, i+1, otro, i, otro.length-i-1);
@@ -68,12 +65,11 @@ public class MenuActores{
     * Se elimina un Actor del Array
     * Se devuelve el Array 
     */
-    public Object[] BajasActoresPorGenero(Object[] otro, Sexo gender)
+    public Actores[] BajasActoresPorGenero(Actores[] otro, Sexo gender)
     {
-        otro = (Actores []) act;
         for(int i = 0; i < otro.length; i++)
         {
-            if(gender.equals(act[i].getGender()))
+            if(gender.equals(otro[i].getGender()))
             {   
                 System.out.println("Actores dados de baja: " + otro[i]);
                 System.arraycopy (otro, i+1, otro, i, otro.length-i-1);
@@ -87,12 +83,11 @@ public class MenuActores{
     * Se elimina un Actor del Array
     * Se devuelve el Array 
     */
-    public Object[] BajasActoresPorEdad(Object[] otro, int edad)
+    public Actores[] BajasActoresPorEdad(Actores[] otro, int edad)
     {
-        otro = (Actores []) act;
         for(int i = 0; i < otro.length; i++)
         {
-            if(edad == act[i].getEdad())
+            if(edad == otro[i].getEdad())
             {   
                 System.out.println("Actores dados de baja: " + otro[i]);
                 System.arraycopy (otro, i+1, otro, i, otro.length-i-1);
@@ -106,12 +101,11 @@ public class MenuActores{
     * Se elimina un Actor del Array
     * Se devuelve el Array 
     */
-    public Object[] BajasActoresPorPremios(Object[] otro, String premios)
+    public Actores[] BajasActoresPorPremios(Actores[] otro, String premios)
     {
-        otro = (Actores []) act;
         for(int i = 0; i < otro.length; i++)
         {
-            if(premios.equalsIgnoreCase(act[i].getPremios()))
+            if(premios.equalsIgnoreCase(otro[i].getPremios()))
             {   
                 System.out.println("Actores dados de baja: " + otro[i]);
                 System.arraycopy (otro, i+1, otro, i, otro.length-i-1);
@@ -125,15 +119,14 @@ public class MenuActores{
     * Se modifica los objetos Actores seleccionados
     * Se devuelve el Array 
     */
-    public Object[] ModificacionActoresPorNombre(Object[] otro, String nombre, String nuevoNombre)
+    public Actores[] ModificacionActoresPorNombre(Actores[] otro, String nombre, String nuevoNombre)
     {
-        otro = (Actores []) act;
         for(int i = 0; i < otro.length; i++)
         {
-            if(nombre.equalsIgnoreCase(act[i].getNombre()))
+            if(nombre.equalsIgnoreCase(otro[i].getNombre()))
             {   
                 System.out.println("Nombre antiguo: " + otro[i]);
-                act[i].setNombre(nuevoNombre);
+                otro[i].setNombre(nuevoNombre);
                 System.out.println("Nombre nuevo: " + otro[i]);
             }
         }
@@ -144,15 +137,14 @@ public class MenuActores{
     * Se modifica los objetos Actores seleccionados
     * Se devuelve el Array 
     */
-    public Object[] ModificacionActoresPorApellidos(Object[] otro, String apellidos, String nuevosApellidos)
+    public Actores[] ModificacionActoresPorApellidos(Actores[] otro, String apellidos, String nuevosApellidos)
     {
-        otro = (Actores []) act;
         for(int i = 0; i < otro.length; i++)
         {
-            if(apellidos.equalsIgnoreCase(act[i].getApellidos()))
+            if(apellidos.equalsIgnoreCase(otro[i].getApellidos()))
             {   
                 System.out.println("Apellidos antiguos: " + otro[i]);
-                act[i].setApellidos(nuevosApellidos);
+                otro[i].setApellidos(nuevosApellidos);
                 System.out.println("Apellidos nuevo: " + otro[i]);
             }
         }
@@ -163,15 +155,14 @@ public class MenuActores{
     * Se modifica los objetos Actores seleccionados
     * Se devuelve el Array 
     */
-    public Object[] ModificacionActoresPorGenero(Object[] otro, Sexo gender, Sexo nuevoGender)
+    public Actores[] ModificacionActoresPorGenero(Actores[] otro, Sexo gender, Sexo nuevoGender)
     {
-        otro = (Actores []) act;
         for(int i = 0; i < otro.length; i++)
         {
-            if(gender.equals(act[i].getGender()))
+            if(gender.equals(otro[i].getGender()))
             {   
                 System.out.println("Genero antiguo: " + otro[i]);
-                act[i].setGender(nuevoGender);
+                otro[i].setGender(nuevoGender);
                 System.out.println("Genero nuevo: " + otro[i]);
             }
         }
@@ -182,15 +173,14 @@ public class MenuActores{
     * Se modifica los objetos Actores seleccionados
     * Se devuelve el Array 
     */
-    public Object[] ModificacionActoresPorEdad(Object[] otro, int edad, int nuevaEdad)
+    public Actores[] ModificacionActoresPorEdad(Actores[] otro, int edad, int nuevaEdad)
     {
-        otro = (Actores []) act;
         for(int i = 0; i < otro.length; i++)
         {
-            if(edad == act[i].getEdad())
+            if(edad == otro[i].getEdad())
             {   
                 System.out.println("Edad antigua: " + otro[i]);
-                act[i].setEdad(nuevaEdad);
+                otro[i].setEdad(nuevaEdad);
                 System.out.println("Edad nueva: " + otro[i]);
             }
         }
@@ -201,15 +191,14 @@ public class MenuActores{
     * Se modifica los objetos Actores seleccionados
     * Se devuelve el Array 
     */
-    public Object[] ModificacionActoresPorPremiois(Object[] otro, String premios, String nuevosPremios)
+    public Actores[] ModificacionActoresPorPremiois(Actores[] otro, String premios, String nuevosPremios)
     {
-        otro = (Actores []) act;
         for(int i = 0; i < otro.length; i++)
         {
             if(premios.equalsIgnoreCase(act[i].getPremios()))
             {   
                 System.out.println("Premios antiguos: " + otro[i]);
-                act[i].setPremios(nuevosPremios);
+                otro[i].setPremios(nuevosPremios);
                 System.out.println("Premios nuevos: " + otro[i]);
             }
         }
@@ -220,13 +209,12 @@ public class MenuActores{
     * Se buscan los objetos Actores
     * Se devuelve el Array 
     */
-    public void BusquedaActoresPorNombre(Object[] otro, String nombre)
+    public void BusquedaActoresPorNombre(Actores[] otro, String nombre)
     {
-        otro = (Actores []) act;
         boolean encontrado = false;
         for(int i = 0; i < otro.length; i++)
         {
-            if(nombre.equalsIgnoreCase(act[i].getNombre()))
+            if(nombre.equalsIgnoreCase(otro[i].getNombre()))
             {   
                 System.out.println("Nombre encontrado: " + otro[i]);
                 encontrado = true;
@@ -243,13 +231,12 @@ public class MenuActores{
     * Se buscan los objetos Actores
     * Se devuelve el Array 
     */
-    public void BusquedaActoresPorApellidos(Object[] otro, String apellidos)
+    public void BusquedaActoresPorApellidos(Actores[] otro, String apellidos)
     {
-        otro = (Actores []) act;
         boolean encontrado = false;
         for(int i = 0; i < otro.length; i++)
         {
-            if(apellidos.equalsIgnoreCase(act[i].getApellidos()))
+            if(apellidos.equalsIgnoreCase(otro[i].getApellidos()))
             {   
                 System.out.println("Apellidos encontrados: " + otro[i]);
                 encontrado = true;
@@ -266,13 +253,12 @@ public class MenuActores{
     * Se buscan los objetos Actores
     * Se devuelve el Array 
     */
-    public void BusquedaActoresPorGenero(Object[] otro, Sexo gender)
+    public void BusquedaActoresPorGenero(Actores[] otro, Sexo gender)
     {
-        otro = (Actores []) act;
         boolean encontrado = false;
         for(int i = 0; i < otro.length; i++)
         {
-            if(gender.equals(act[i].getGender()))
+            if(gender.equals(otro[i].getGender()))
             {   
                 System.out.println("Genero encontrado: " + otro[i]);
                 encontrado = true;
@@ -289,13 +275,12 @@ public class MenuActores{
     * Se buscan los objetos Actores
     * Se devuelve el Array 
     */
-    public void BusquedaActoresPorEdad(Object[] otro, int edad)
+    public void BusquedaActoresPorEdad(Actores[] otro, int edad)
     {
-        otro = (Actores []) act;
         boolean encontrado = false;
         for(int i = 0; i < otro.length; i++)
         {
-            if(edad == act[i].getEdad())
+            if(edad == otro[i].getEdad())
             {   
                 System.out.println("Edad encontrada: " + otro[i]);
                 encontrado = true;
@@ -312,13 +297,12 @@ public class MenuActores{
     * Se buscan los objetos Actores
     * Se devuelve el Array 
     */
-    public void BusquedaActoresPorPremios(Object[] otro, String premios)
+    public void BusquedaActoresPorPremios(Actores[] otro, String premios)
     {
-        otro = (Actores []) act;
         boolean encontrado = false;
         for(int i = 0; i < otro.length; i++)
         {
-            if(premios.equalsIgnoreCase(act[i].getPremios()))
+            if(premios.equalsIgnoreCase(otro[i].getPremios()))
             {   
                 System.out.println("Premio encontrado: " + otro[i]);
                 encontrado = true;
