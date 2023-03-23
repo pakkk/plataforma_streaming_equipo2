@@ -39,7 +39,7 @@ public class Directores {
         return gender;
     }
 
-    public void setGender(Sexo s) {
+    public void setGender(Sexo gender) {
         this.gender = gender;
     }
 

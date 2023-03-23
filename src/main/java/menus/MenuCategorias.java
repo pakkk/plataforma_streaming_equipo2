@@ -6,21 +6,21 @@ import java.util.Scanner;
 
 import clasesbase.Categorias;
 
-public class MenuCategorias {
-	Scanner sc = new Scanner(System.in);
-	private String nombre;
-	private String descripcion;
+public class MenuCategorias 
+{
 	
-	public Object[] altas(Object[] nuevo) {
+	  //Clase que se encarga de almacenar los metodos de altas, bajas, consultas y busquedas de Categorias
+	 
+	
+	
+	
+	public Object[] CategoriaAltas(Object[] nuevo,String nombre, String descripcion) 
+	{
 		/* Se pide un Arrays de objetos Categorias
 		 * Se añade una Categoria al Array
 		 * Se devuelve el Array 
 		 */
-		System.out.println("Introduce el nombre de la nueva categoria:");
-		String nombre = sc.nextLine();
 		
-		System.out.println("Introduce la descripcion de la categoria: ");
-		String descripcion = sc.nextLine();
 	
 		nuevo = Arrays.copyOf(nuevo, nuevo.length+1);
 		nuevo[nuevo.length-1] = new Categorias(nombre,descripcion);
@@ -28,60 +28,122 @@ public class MenuCategorias {
 		return nuevo;
 	}
 
-	public Object [] bajas(int posicion,Object[] nuevo) {
-		/*
-		int indice;
-		for(int i=0;i<nuevo.length;i++) {
-			if(busqueda.equals(nuevo.length)) {
-				indice = i;
-				System.out.println("nombre: "+nuevo[i]);
+	public Object [] CategoriasBajasNombre(String nombre,Object[] nuevo) 
+	{
+		/* Se pide un Arrays de objetos Categorias, y el nombre de la categoria que se va a dar de baja
+		 * Se elimina los objetos categorias seleccionados
+		 * Se devuelve el Array 
+		 */
+		for(int i=0;i<nuevo.length;i++) 
+		{
+			if(nombre.equalsIgnoreCase(((Categorias) nuevo[i]).getNombre()))  
+			{
+				System.out.println("Atributos borrados " + nuevo[i]);
+				System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
+				nuevo = Arrays.copyOf(nuevo, nuevo.length-1) ;
+				
 			}
 		}
-			System.arraycopy(busqueda, indiceborrado+1, t, indiceBorrado, t.length-indiceBorado-1);
-			t = Arrays.copyOf(t, t.length-1) 
-		*/
+			
+		
+		return nuevo;
+	}
+	
+	public Object [] CategoriasBajasDescripcion(String descripcion,Object[] nuevo) 
+	{
+		/* Se pide un Arrays de objetos Categorias, y la descripcion de la categoria que se va a dar de baja
+		 * Se elimina los objetos categorias seleccionados
+		 * Se devuelve el Array 
+		 */
+		
+		for(int i=0;i<nuevo.length;i++) 
+		{
+			if(descripcion.equalsIgnoreCase(((Categorias) nuevo[i]).getDescripcion())) 
+			{
+				System.out.println("Atributos borrado " + nuevo[i]);
+				System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
+				nuevo = Arrays.copyOf(nuevo, nuevo.length-1) ;			
+			}
+		}
+			
+		
 		return nuevo;
 	}
 	
 		
-	public Object [] modificadiones(int posicion,Object[] nuevo) {
-		// TODO Auto-generated method stub
+	public Object [] CategoriasModificadionesPorNombre(Object[] nuevo, String nombre,String nuevoNombre) 
+	{
+		/* Se pide un Arrays de objetos Categorias,  el nombre de la categoria que se va a buscar y su sustitucion
+		 * Se elimina los objetos categorias seleccionados
+		 * Se devuelve el Array 
+		 */
+		for(int i = 0;i<nuevo.length;i++)
+		{
+	        if(nombre.equalsIgnoreCase(((Categorias) nuevo[i]).getNombre())) {
+	        	System.out.println("Descripcion "+ nombre +" modificados por " + nuevoNombre);
+	            ((Categorias)nuevo[i]).setNombre(nuevoNombre);
+	        }
+	    }		
 		return nuevo;
 	}
+	
+	public Object [] CategoriasModificadionesPorDescripcion(Object[] nuevo, String descripcion,String nuevaDescripcion) 
+	{
+		/* Se pide un Arrays de objetos Categorias,  la Descripcion de la categoria que se va a buscar y su sustitucion
+		 * Se elimina los objetos categorias seleccionados
+		 * Se devuelve el Array 
+		 */
+		for(int i = 0;i<nuevo.length;i++)
+		{
+	        if(descripcion.equalsIgnoreCase(((Categorias) nuevo[i]).getNombre())) 
+	        {
+	        	System.out.println("Descripcion "+ descripcion +" modificados por " + nuevaDescripcion);
+	            ((Categorias)nuevo[i]).setNombre(nuevaDescripcion);
+	        }
+	    }		
+		return nuevo;
+	}
+	
+	
 
-	public void busquedas(Object[] nuevo) {
-		
-		int opcion = 100;
-		while(opcion != -1)
-		System.out.println("~~Elige atributo para buscar~~"
-				+ "\n[1]Nombre"
-				+ "\n[2]Descripcion"
-				+ "\n[3]Atras");
-		opcion = sc.nextInt();
-		
-		switch(opcion){
-			case 1:{
-				System.out.println("Introduce el nombre de la nueva categoria:");
-				String nombre = sc.nextLine();
-				
-				for(int i = 0;i<nuevo.length;i++){
-		            if(nombre==((Categorias) nuevo[i]).getNombre())
-		                System.out.println(nuevo[i]);
-		        }
-				break;
-			}
+	public void CategoriasBusquedasNombre(Object[] nuevo,String nombre) 
+	{
+		/* Se pide un Arrays de objetos Categorias y  el nombre de la categoria que se va a buscar 
+		 * Se busca los objetos categorias 
+		 * Se muestra por pantalla 
+		 */		
+		boolean encontrado = false;
+		for(int i = 0;i<nuevo.length;i++)
+		{
+	        if(nombre.equalsIgnoreCase(((Categorias) nuevo[i]).getNombre())) 
+	        {
+	            System.out.println(nuevo[i]);
+	            encontrado = true;
+	        }
+	    }		
+		if (encontrado==false) 
+        	System.out.println("El nombre "+nombre+" no existe");
+	}
+	public void CategoriasBusquedasDescripcion(Object[] nuevo, String descripcion) 
+	{
+		/* Se pide un Arrays de objetos Categorias y  el Descripcion de la categoria que se va a buscar 
+		 * Se busca los objetos categorias 
+		 * Se muestra por pantalla 
+		 */		
+		boolean encontrado = false;	
+		for(int i = 0;i<nuevo.length;i++)
+		{	
 			
-			case 2:{
-				System.out.println("Introduce la descripcion de la categoria: ");
-				String descripcion = sc.nextLine();
-				for(int i = 0;i<nuevo.length;i++){
-		            if(descripcion==((Categorias) nuevo[i]).getDescripcion())
-		                System.out.println(nuevo[i]);
-		         
-		        }
-				break;
-			}
+	        if(descripcion.equalsIgnoreCase(((Categorias) nuevo[i]).getDescripcion())) 
+	        {
+	            System.out.println(nuevo[i]);
+	            encontrado = true;
+	        }
+
 		}
+        if (encontrado==false) 
+        	System.out.println("Su descripcion "+descripcion+" no existe");
+        
 	}
 }
 
