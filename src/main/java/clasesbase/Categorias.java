@@ -1,5 +1,6 @@
 package clasesbase;
 public class Categorias {
+	//Esta clase se encarga de cargar los datos de las categorias para despues almacenarlo en un array
 	//Atributos 
 	/*
 	 * Atributo String nombre: Atributo que define el nombre de la categoria
