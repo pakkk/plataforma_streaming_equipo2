@@ -236,7 +236,7 @@ public class MenuActores{
                 encontrado = true;
             }
             
-            if(encontrado == true)
+            if(encontrado == false)
             {
                 System.out.println("El nombre " + otro[i] + " no se ha encontrado.");
             }
@@ -259,7 +259,7 @@ public class MenuActores{
                 encontrado = true;
             }
             
-            if(encontrado == true)
+            if(encontrado == false)
             {
                 System.out.println("El apellido " + otro[i] + " no se ha encontrado.");
             }
@@ -282,7 +282,7 @@ public class MenuActores{
                 encontrado = true;
             }
             
-            if(encontrado == true)
+            if(encontrado == false)
             {
                 System.out.println("El genero " + otro[i] + " no se ha encontrado.");
             }
@@ -305,7 +305,7 @@ public class MenuActores{
                 encontrado = true;
             }
             
-            if(encontrado == true)
+            if(encontrado == false)
             {
                 System.out.println("La edad " + otro[i] + " no se ha encontrado.");
             }
@@ -328,7 +328,7 @@ public class MenuActores{
                 encontrado = true;
             }
             
-            if(encontrado == true)
+            if(encontrado == false)
             {
                 System.out.println("El premio " + otro[i] + " no se ha encontrado.");
             }
