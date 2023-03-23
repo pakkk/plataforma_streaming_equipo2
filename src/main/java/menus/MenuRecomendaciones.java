@@ -1,152 +1,127 @@
 package menus;
 
 import java.util.Arrays;
-import java.util.Scanner;
 import clasesbase.RecomendacionPeliculas;
 import enums.TipoValoracion;
 public class MenuRecomendaciones{
 	//Atributos
-	private Scanner sc = new Scanner (System.in);
-	private RecomendacionPeliculas rec [] = new RecomendacionPeliculas [0];
-	private TipoValoracion valoracion;
-	private String comentarios;
-	//Constructor
-	public MenuRecomendaciones ()
-	{
-		
-	}
+	//Atributo RecomendacionPeliculas rec []:Sirve para los cast en los metodos que se pasa un Array de objetos 
+	private RecomendacionPeliculas rec [] = new RecomendacionPeliculas[0];
 	//Metodos
-	public Object[] altas(Object[] nuevo) {
-	//Metodo para dar de alta una recomedacion en una pelicula o serie
-		String opcion="";
+	public Object[] RecomendacionPeliculasAltas (Object nuevo[],TipoValoracion valoracion,String comentarios)
+	{
+	//Este metodo se encarga de dar de alta una recomendacion en una pelicula o serie pasandole sus atributos como parametro, se devuelve el array modificado
 		nuevo = (RecomendacionPeliculas []) rec;
-		System.out.println("Selecciona la valoracion de su pelicula o serie: \n"
-				+ "Opcion 1:Positiva \n"
-				+ "Opcion 2:Negativa ");
-		while(!opcion.equals("1") || !opcion.equals("2"))
-		{
-			opcion = sc.next();
-			if(opcion.equals("1"))
-				valoracion = TipoValoracion.POSITIVA;
-			else if(opcion.equals("2"))
-				valoracion = TipoValoracion.NEGATIVA;
-			else
-				System.out.println("Error al seleccionar escoja de nuevo");
-		}
-		System.out.println("Introduzca los comentarios de su pelicula o serie");
-		comentarios = sc.next();
-		
 		nuevo = Arrays.copyOf(nuevo, nuevo.length+1);
-		nuevo[nuevo.length-1] = new RecomendacionPeliculas(valoracion,comentarios);
-		
+		nuevo[nuevo.length-1] = new RecomendacionPeliculas (valoracion,comentarios);
 		return nuevo;
 	}
-
-	public Object[] bajas(int posicion, Object nuevo []) {
-	//Metodo para dar de baja a una recomendacion de una pelicula o serie 
+	
+	public Object[] RecomendacionBajasPorComentarios (Object nuevo[],String comentario)
+	{
+	//Este metodo se encarga de dar de baja a una recomendacion en una pelicula o serie mediante un comentario, es decir, busca las recomendaciones que contenga ese comentario y se borra esa recomendacion
+	//A este metodo se le pasa por parametro el comentario que borrara la recomendacion, se le pasa tambien el array  de recomendaciones a modificar, se devuelve el array modificado
 		nuevo = (RecomendacionPeliculas []) rec;
-		for (int i = 0;i<nuevo.length;i++)
-		{
-			if(i==posicion)
-			{
-				System.out.println("Atributos borrados " + rec[i]);
-				System.arraycopy (nuevo, posicion+1, nuevo, posicion, nuevo.length-posicion-1);
-				nuevo = Arrays.copyOf(nuevo, nuevo.length-1);
-				break;
-			}
-		}
-		return nuevo;
-	}
-
-	public Object[] modificadiones(int posicion,Object nuevo []) {
-	//Metodo para modificar una recomendacion de una pelicula o serie
-		nuevo = (RecomendacionPeliculas []) rec;
-		String opcion="";
+	//Este for recorre el array de recomendaciones buscando las recomendaciones que contenga el mismo comentario para borrarlo 
 		for(int i=0;i<nuevo.length;i++)
 		{
-			if(i==posicion)
+			if(comentario.equalsIgnoreCase(((RecomendacionPeliculas)nuevo[i]).getComentarios()))
 			{
-				System.out.println("Selecciona la valoracion de su pelicula o serie: \n"
-						+ "Opcion 1:Positiva \n"
-						+ "Opcion 2:Negativa ");
-				while(!opcion.equals("1") || !opcion.equals("2"))
-				{
-					opcion = sc.next();
-					if(opcion.equals("1"))
-						valoracion = TipoValoracion.POSITIVA;
-					else if(opcion.equals("2"))
-						valoracion = TipoValoracion.NEGATIVA;
-					else
-						System.out.println("Error al seleccionar escoja de nuevo");
-				}
-				System.out.println("Introduzca los comentarios de su pelicula o serie");
-				comentarios = sc.next();
-				nuevo[i] = new RecomendacionPeliculas (valoracion,comentarios);
-				break;
+				System.out.println("Recomendacion borrada "+nuevo[i]);
+				System.arraycopy (nuevo, i+1, nuevo, i, nuevo.length-i-1);
+				nuevo = Arrays.copyOf (nuevo, nuevo.length-1);
 			}
 		}
 		return nuevo;
-		
 	}
-
-	public void busquedas(Object nuevo []) {
-	//Metodo para buscar una recomendacion de una pelicula o serie 
+	
+	public Object[] RecomendacionBajasPorValoracion(Object nuevo[],TipoValoracion valoracion)
+	{
+	//Este metodo se encarga de dar de baja a una recomendacion en una pelicula o serie mediante una valoracion, es decir, busca las recomendaciones que contenga esa valoracion y se borra esa recomendacion
+	//A este metodo se le pasa por parametro la valoracion que borrara la recomendacion, tambien se le pasa el array de recomendaciones a modificar, se devuelve el array modificado
 		nuevo = (RecomendacionPeliculas []) rec;
-		String opcion="";
-		System.out.println("Seleccione una opcion en el criterio de busqueda: \n"
-				+ "Opcion 1.-Busqueda de valoraciones \n"
-				+ "Opcion 2.-Busqueda de comentarios");
-		while(!opcion.equals("1") && !opcion.equals("2"))
+	//Este for recorre el array de recomendaciones buscando las recomendaciones que contenga la misma valoracion para borrarlo  
+		for(int i=0;i<nuevo.length;i++)
 		{
-			opcion = sc.next();
-			if(opcion.equals("1"))
+			if(valoracion.equals(((RecomendacionPeliculas)nuevo[i]).getValoracion()))
 			{
-				System.out.println("Escoja entre valoracion positiva o negativa");
-				opcion = sc.next();
-				while(!opcion.equalsIgnoreCase("positiva") && !opcion.equalsIgnoreCase("negativa"))
-				{
-					System.out.println("Error al escoger, buelva a introducir que valoracion desea buscar (positiva/negativa)");
-					opcion = sc.next();
-				}
-				if(opcion.equalsIgnoreCase("positiva"))
-				{
-					valoracion = TipoValoracion.POSITIVA;
-					for(int i = 0;i<nuevo.length;i++)
-					{
-						if(valoracion.equals(((RecomendacionPeliculas)nuevo[i]).getValoracion()))				
-						{
-							System.out.println("Tu busqueda coincide con " + nuevo[i]);
-						}
-					}
-				}else
-				{
-					valoracion = TipoValoracion.NEGATIVA;
-					for(int i = 0;i<nuevo.length;i++)
-					{
-						if(valoracion.equals(((RecomendacionPeliculas)nuevo[i]).getValoracion()))				
-						{
-							System.out.println("Tu busqueda coincide con " + nuevo[i]);
-						}
-					}
-				}
-			}else if (opcion.equals("2"))
-			{
-				System.out.println("Introduzca el comentario a buscar");
-				comentarios = sc.next();
-				for(int i = 0;i<nuevo.length;i++)
-				{
-					if(comentarios.equals(((RecomendacionPeliculas)nuevo[i]).getComentarios()))
-					{
-						System.out.println("Tu busqueda coincide con " + nuevo [i]);
-					}
-				}
-			}else
-				System.out.println("Error al introfucir las opciones de busqueda, vuelva a introducirlas");
-			
-			
-		}	
-		
-		
+				System.out.println("Recomendacion borrada "+nuevo[i]);
+				System.arraycopy (nuevo, i+1, nuevo, i, nuevo.length-i-1);
+				nuevo = Arrays.copyOf (nuevo, nuevo.length-1);
+			}
+		}
+		return nuevo;
 	}
-
+	
+	public Object[] RecomendacionModificacionPorComentario(Object nuevo[],String comentario,String nuevoComentario)
+	{
+	//Este metodo se encarga de modificar el atributo comentario por otro nuevo, se le pasa por parametro el array de recomendaciones, el comentario antiguo y el comentario nuevo a reemplazar
+	//Se le devuelve el array modificado
+		nuevo = (RecomendacionPeliculas []) rec;
+	//Este for recorre el array de recomendaciones y busca las recomendaciones que contengan el comentario viejo para reemplazarlo por el nuevo 
+		for(int i=0;i<nuevo.length;i++)
+		{
+			if(comentario.equalsIgnoreCase(((RecomendacionPeliculas)nuevo[i]).getComentarios()))
+			{
+				System.out.println("Atributo a modificar: "+nuevo[i]);
+				((RecomendacionPeliculas)nuevo[i]).setComentarios(nuevoComentario);
+				System.out.println("Atributo modificado: "+nuevo[i]);
+			}
+		}
+		return nuevo;
+	}
+	
+	public Object[] RecomendacionesModificacionPorValoracion(Object nuevo[],TipoValoracion valoracion,TipoValoracion nuevaValoracion)
+	{
+	//Este metodo se encarga de modificar el atributo valoracion por otro nuevo, se le pasa por parametro el array de recomendaciones, la valoracion antigua y la valoracion nueva a reemplazar
+	//Se le devuelve el array modificado
+		nuevo = (RecomendacionPeliculas []) rec;
+	//Este for recorre el array de recomendaciones y busca las recomendaciones que contengan la valoracion vieja para reemplazarla por la nueva 
+		for(int i=0;i<nuevo.length;i++)
+		{
+			if(valoracion.equals(((RecomendacionPeliculas)nuevo[i]).getValoracion()))
+			{
+				System.out.println("Atributo a modificar: "+nuevo[i]);
+				((RecomendacionPeliculas)nuevo[i]).setValoracion(nuevaValoracion);
+				System.out.println("Atributo modificado: "+nuevo[i]);
+			}
+		}
+		return nuevo;
+	}
+	public void RecomendacionesBusquedaPorComentarios(Object nuevo[],String comentario)
+	{
+	//Este metodo se encarga de buscar las recomendaciones por su comentario, se le pasa por parametro el array de recomendaciones y el comentario a buscar
+		nuevo = (RecomendacionPeliculas []) rec;
+	//Este for recorre el array de recomendaciones y busca las recomendaciones que contengan el comentario a buscar, si no lo encuentra se notificara al usuario
+		boolean encontrado = false;
+		for(int i=0;i<nuevo.length;i++)
+		{
+			if(comentario.equalsIgnoreCase(((RecomendacionPeliculas)nuevo[i]).getComentarios()))
+			{
+				System.out.println("Recomendacion encontrada: "+nuevo[i]);
+				encontrado = true;
+			}
+			if(encontrado==true)
+				System.out.println("El comentario "+comentario+" no se ha podido encontrar");
+		}
+	}
+	
+	public void RecomendacionesBusquedaPorValoracion(Object nuevo[],TipoValoracion valoracion)
+	{
+		//Este metodo se encarga de buscar las recomendaciones por su valoracion, se le pasa por parametro el array de recomendaciones y la valoracion a buscar
+			nuevo = (RecomendacionPeliculas []) rec;
+		//Este for recorre el array de recomendaciones y busca las recomendaciones que contengan el comentario a buscar, si no lo encuentra se notificara al usuario 
+		boolean encontrado = false;
+		for(int i=0;i<nuevo.length;i++)
+		{
+			if(valoracion.equals(((RecomendacionPeliculas)nuevo[i]).getValoracion()))
+			{
+				System.out.println("Recomendacion encontrada "+nuevo[i]);
+				encontrado = true;
+			}
+			if(encontrado==true)
+				System.out.println("La valoracion "+valoracion+" no se ha podido encontrar");
+		}
+	}
+	
 }
