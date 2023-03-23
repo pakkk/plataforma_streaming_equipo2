@@ -6,6 +6,7 @@ import clasesbase.Recomendacion;
 import clasesbase.Subtitulos;
 import java.util.Arrays;
 public class Audiovisual{
+	//Clase padre de serie y pelicula que contendra todos los datos que mas tarde se trasmitiran a dichas clases
 	   //Atributos
 	   /*
 	    * Atributo String titulo: Define el titulo del audiovisual
