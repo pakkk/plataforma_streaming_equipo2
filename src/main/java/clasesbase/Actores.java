@@ -1,17 +1,17 @@
 package clasesbase;
-import java.util.Scanner;
 import enums.Sexo;
 
 public class Actores{
-	Scanner sc = new Scanner (System.in);
     //Atributos 
     private String nombre;
     private String apellidos;
     private Sexo gender;
     private int edad;
     private String premios;
-    //Constructor 
-    public Actores(String nombre, String apellidos, Sexo gender, int edad, String premios) {
+    
+    //Constructor que define los atributos del actor
+    public Actores(String nombre, String apellidos, Sexo gender, int edad, String premios) 
+    {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.gender = gender;
@@ -19,69 +19,82 @@ public class Actores{
         this.premios = premios;
         CorreccionAtributos();
     }
+    
     //Getters
-    public String getNombre() {
+    //Getter que devuelve el nombre del actor
+    public String getNombre() 
+    {
         return nombre;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() {
+    //Getter que devuelve los apellidos del actor
+    public String getApellidos() 
+    {
         return apellidos;
     }
-    
-    public String getPremios() {
+    //Getter que devuelve los premios del actor
+    public String getPremios() 
+    {
         return premios;
     }
-    
-    public Sexo getGender() {
+    //Getter que devuelve el genero del actor
+    public Sexo getGender() 
+    {
     	return gender;
     }
-    
-    public int getEdad() {
+    //Getter que devuelve la edad del actor
+    public int getEdad() 
+    {
         return edad;
     }
+    
     //Setters
-    public void setApellidos(String apellidos) {
+    //Setter que permite modificar el nombre del autor
+    public void setNombre(String nombre) 
+    {
+        this.nombre = nombre;
+    }
+    //Setter que permite modificar los apellidos del autor
+    public void setApellidos(String apellidos) 
+    {
         this.apellidos = apellidos;
     }
-
-    public void setGender(Sexo gender) {
+    //Setter que permite modificar el genero del autor
+    public void setGender(Sexo gender) 
+    {
         this.gender = gender;
     }
-
-    public void setEdad(int edad) {
+    //Setter que permite modificar la edad del autor
+    public void setEdad(int edad) 
+    {
         this.edad = edad;
     }
-
-    
-    public void setPremios(String premios) {
+    //Setter que permite modificar los premios del autor
+    public void setPremios(String premios) 
+    {
         this.premios = premios;
     }
+    
+    //Este metodo sirve para establecer los atributos por defecto en caso de que no sean introducidos
     private void CorreccionAtributos()
     {
     	while(nombre.isEmpty())
     	{
-    		System.out.println("Error nombre vacio vuelva a introducirlo");
-    		nombre = sc.nextLine();
+            this.nombre = "Sin nombre";
     	}
     	while(apellidos.isEmpty())
     	{
-    		System.out.println("Error apellido vacio vuelva a introducirlo");
-    		apellidos = sc.nextLine();
+            this.apellidos = "Sin apellidos";
     	}
     	while(edad<0)
     	{
-    		System.out.println("Error edad negativa introducida vuelve a introducirla");
-    		edad = sc.nextInt();
+            this.edad = 18;
     	}
     	if(premios.isEmpty())
     	{
-    		premios = "Sin premios";
+            this.premios = "Sin premios";
     	}
     }
+    
     //toString
     @Override
     public String toString() {
