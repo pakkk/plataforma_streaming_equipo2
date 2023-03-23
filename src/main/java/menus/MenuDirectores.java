@@ -1,8 +1,6 @@
 package menus;
 
 import java.util.Arrays;
-
-
 import clasesbase.Directores;
 import enums.Sexo;
 
