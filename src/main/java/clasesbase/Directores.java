@@ -2,6 +2,7 @@ package clasesbase;
 import enums.Sexo;
 
 public class Directores {
+	//Esta clase se encarga de cargar los datos de los directores para despues almacenarlo en un array
 	//Atributos 
 	/*
 	 * Atributo String nombre: Define el nombre del director
