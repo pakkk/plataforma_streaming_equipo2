@@ -36,7 +36,7 @@ public class Actores{
         return premios;
     }
     
-    public Sexo getSexo() {
+    public Sexo getGender() {
     	return gender;
     }
     
@@ -48,7 +48,7 @@ public class Actores{
         this.apellidos = apellidos;
     }
 
-    public void setSexo(Sexo gender) {
+    public void setGender(Sexo gender) {
         this.gender = gender;
     }
 

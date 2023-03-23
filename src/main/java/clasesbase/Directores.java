@@ -35,11 +35,11 @@ public class Directores {
         this.apellido = apellido;
     }
 
-    public Sexo getSexo() {
+    public Sexo getGender() {
         return gender;
     }
 
-    public void setSexo(Sexo s) {
+    public void setGender(Sexo s) {
         this.gender = gender;
     }
 
