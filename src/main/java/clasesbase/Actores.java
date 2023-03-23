@@ -2,6 +2,7 @@ package clasesbase;
 import enums.Sexo;
 
 public class Actores{
+	//Esta clase se encarga de cargar los datos de los actores para despues almacenarlo en un array
     //Atributos 
     private String nombre;
     private String apellidos;
