@@ -1,51 +1,60 @@
 package clasesbase;
 import enums.TipoValoracion;
+
 public class Recomendacion {
-	//Esta clase se encarga de cargar los datos de las recomendaciones para despues almacenarlas en un array
-   //Atributos
-   //Atributo TipoValoracion valoracion: Atributo de tipo enum que define el tipo de valoracion (Positiva y negativa)
-   //Atributo String comentario: Atributo que define el comentario de la recomendacion si llegara a no introducirse por defecto es sin comentario
-   private TipoValoracion valoracion;
-   private String comentarios;
-   //Constructor
-   //Constructor que determina los valores de valoracion y comentarios
-    public Recomendacion(TipoValoracion valoracion, String comentarios) 
+    // This class is responsible for loading recommendation data and storing it in an array.
+
+    // Attributes
+    // Attribute TipoValoracion valoracion: An enum attribute that defines the type of rating (Positive and negative)
+    // Attribute String comentarios: An attribute that defines the comment of the recommendation. If it is not entered, by default it is without comment.
+    private TipoValoracion valoracion;
+    private String comentarios;
+
+    // Constructor
+    // Constructor that determines the values of valoracion and comentarios.
+    public Recomendacion(TipoValoracion valoracion, String comentarios)
     {
         this.valoracion = valoracion;
         this.comentarios = comentarios;
-        CorreccionAtributos();
+        attributeCorrection();
     }
-    //Getters y Setters
-    //Getter de valoracion que devuelve su valor
+
+    // Getters and Setters
+    // Getter of valoracion that returns its value.
     public TipoValoracion getValoracion()
     {
-    	return this.valoracion;
+        return this.valoracion;
     }
-    //Setter de valoracion que permite modificar su valor
+
+    // Setter of valoracion that allows modifying its value.
     public void setValoracion(TipoValoracion valoracion)
     {
-    	this.valoracion = valoracion;
+        this.valoracion = valoracion;
     }
-    //Getter de comentario que devuelve su valor
-    public String getComentarios() 
+
+    // Getter of comentarios that returns its value.
+    public String getComentarios()
     {
         return this.comentarios;
     }
-    //Setter de comentario que permite modificar su valor
-    public void setComentarios(String comentarios) 
+
+    // Setter of comentarios that allows modifying its value.
+    public void setComentarios(String comentarios)
     {
         this.comentarios = comentarios;
     }
-    //Metodo privado para establecer el valor por defecto del atributo comentario
-    private void CorreccionAtributos()
+
+    // Private method to set the default value of the comentarios attribute.
+    private void attributeCorrection()
     {
-    	if(comentarios.isEmpty())
-    		comentarios="Sin comentarios";
+        if(comentarios.isEmpty())
+            comentarios="Without comment";
     }
-    //toString que muestra los valores de valoracion y comentarios
+
+    // toString that shows the values of valoracion and comentarios.
     @Override
-    public String toString() 
+    public String toString()
     {
-        return "Valoracion " + valoracion+ " comentario " + comentarios ;
+        return "Rating " + valoracion+ " comment " + comentarios ;
     }
 }

@@ -3,126 +3,107 @@ package menus;
 import java.util.Arrays;
 import clasesbase.Recomendacion;
 import enums.TipoValoracion;
-public class MenuRecomendaciones{
-	//Clase que se encarga de almacenar los metodos de altas, bajas, consultas y busquedas de Recomendaciones
-	//Atributos
-	//Atributo Recomendacion rec []:Sirve para los cast en los metodos que se pasa un Array de objetos 
-	private Recomendacion rec [] = new Recomendacion[0];
-	//Metodos
-	public Object[] RecomendacionPeliculasAltas (Object nuevo[],TipoValoracion valoracion,String comentarios)
-	{
-	//Este metodo se encarga de dar de alta una recomendacion en una pelicula o serie pasandole sus atributos como parametro, se devuelve el array modificado
-		nuevo = (Recomendacion []) rec;
-		nuevo = Arrays.copyOf(nuevo, nuevo.length+1);
-		nuevo[nuevo.length-1] = new Recomendacion (valoracion,comentarios);
+
+public class MenuRecomendaciones {
+	// Class that manages the methods for adding, deleting, querying, and searching Recommendations
+	// Attributes
+	// Attribute Recomendacion rec[]: used for casting in methods that receive an array of objects
+	private Recomendacion rec[] = new Recomendacion[0];
+
+	// Methods
+	public Object[] RecomendacionPeliculasAltas(Object nuevo[], TipoValoracion valoracion, String comentarios) {
+		// This method adds a recommendation for a movie or TV show, passing its attributes as parameters, and returns the modified array
+		nuevo = (Recomendacion[]) rec;
+		nuevo = Arrays.copyOf(nuevo, nuevo.length + 1);
+		nuevo[nuevo.length - 1] = new Recomendacion(valoracion, comentarios);
 		return nuevo;
 	}
-	
-	public Object[] RecomendacionBajasPorComentarios (Object nuevo[],String comentario)
-	{
-	//Este metodo se encarga de dar de baja a una recomendacion en una pelicula o serie mediante un comentario, es decir, busca las recomendaciones que contenga ese comentario y se borra esa recomendacion
-	//A este metodo se le pasa por parametro el comentario que borrara la recomendacion, se le pasa tambien el array  de recomendaciones a modificar, se devuelve el array modificado
-		nuevo = (Recomendacion []) rec;
-	//Este for recorre el array de recomendaciones buscando las recomendaciones que contenga el mismo comentario para borrarlo 
-		for(int i=0;i<nuevo.length;i++)
-		{
-			if(comentario.equalsIgnoreCase(((Recomendacion)nuevo[i]).getComentarios()))
-			{
-				System.out.println("Recomendacion borrada "+nuevo[i]);
-				System.arraycopy (nuevo, i+1, nuevo, i, nuevo.length-i-1);
-				nuevo = Arrays.copyOf (nuevo, nuevo.length-1);
+
+	public Object[] RecomendacionBajasPorComentarios(Object nuevo[], String comentario) {
+		// This method deletes a recommendation for a movie or TV show by searching for a specific comment and removing that recommendation
+		// The method receives the comment that will delete the recommendation as a parameter, as well as the array of recommendations to modify, and returns the modified array
+		nuevo = (Recomendacion[]) rec;
+		// This for loop searches the array of recommendations for recommendations that contain the same comment to delete it
+		for (int i = 0; i < nuevo.length; i++) {
+			if (comentario.equalsIgnoreCase(((Recomendacion) nuevo[i]).getComentarios())) {
+				System.out.println("Recomendacion borrada " + nuevo[i]);
+				System.arraycopy(nuevo, i + 1, nuevo, i, nuevo.length - i - 1);
+				nuevo = Arrays.copyOf(nuevo, nuevo.length - 1);
 			}
 		}
 		return nuevo;
 	}
-	
-	public Object[] RecomendacionBajasPorValoracion(Object nuevo[],TipoValoracion valoracion)
-	{
-	//Este metodo se encarga de dar de baja a una recomendacion en una pelicula o serie mediante una valoracion, es decir, busca las recomendaciones que contenga esa valoracion y se borra esa recomendacion
-	//A este metodo se le pasa por parametro la valoracion que borrara la recomendacion, tambien se le pasa el array de recomendaciones a modificar, se devuelve el array modificado
-		nuevo = (Recomendacion []) rec;
-	//Este for recorre el array de recomendaciones buscando las recomendaciones que contenga la misma valoracion para borrarlo  
-		for(int i=0;i<nuevo.length;i++)
-		{
-			if(valoracion.equals(((Recomendacion)nuevo[i]).getValoracion()))
-			{
-				System.out.println("Recomendacion borrada "+nuevo[i]);
-				System.arraycopy (nuevo, i+1, nuevo, i, nuevo.length-i-1);
-				nuevo = Arrays.copyOf (nuevo, nuevo.length-1);
+
+	public Object[] RecomendacionBajasPorValoracion(Object nuevo[], TipoValoracion valoracion) {
+		// This method deletes a recommendation for a movie or TV show by searching for a specific rating and removing that recommendation
+		// The method receives the rating that will delete the recommendation as a parameter, as well as the array of recommendations to modify, and returns the modified array
+		nuevo = (Recomendacion[]) rec;
+		// This for loop searches the array of recommendations for recommendations that contain the same rating to delete it
+		for (int i = 0; i < nuevo.length; i++) {
+			if (valoracion.equals(((Recomendacion) nuevo[i]).getValoracion())) {
+				System.out.println("Recomendacion borrada " + nuevo[i]);
+				System.arraycopy(nuevo, i + 1, nuevo, i, nuevo.length - i - 1);
+				nuevo = Arrays.copyOf(nuevo, nuevo.length - 1);
 			}
 		}
 		return nuevo;
 	}
-	
-	public Object[] RecomendacionModificacionPorComentario(Object nuevo[],String comentario,String nuevoComentario)
-	{
-	//Este metodo se encarga de modificar el atributo comentario por otro nuevo, se le pasa por parametro el array de recomendaciones, el comentario antiguo y el comentario nuevo a reemplazar
-	//Se le devuelve el array modificado
-		nuevo = (Recomendacion []) rec;
-	//Este for recorre el array de recomendaciones y busca las recomendaciones que contengan el comentario viejo para reemplazarlo por el nuevo 
-		for(int i=0;i<nuevo.length;i++)
-		{
-			if(comentario.equalsIgnoreCase(((Recomendacion)nuevo[i]).getComentarios()))
-			{
-				System.out.println("Atributo a modificar: "+nuevo[i]);
-				((Recomendacion)nuevo[i]).setComentarios(nuevoComentario);
-				System.out.println("Atributo modificado: "+nuevo[i]);
+
+	public Object[] RecomendacionModificacionPorComentario(Object nuevo[], String comentario, String nuevoComentario) {
+		nuevo = (Recomendacion[]) rec;
+//This loop iterates through the recommendations array and searches for recommendations that contain the old comment to replace it with the new one.
+		for (int i = 0; i < nuevo.length; i++) {
+			if (comentario.equalsIgnoreCase(((Recomendacion) nuevo[i]).getComentarios())) {
+				System.out.println("Attribute to modify: " + nuevo[i]);
+				((Recomendacion) nuevo[i]).setComentarios(nuevoComentario);
+				System.out.println("Attribute modified: " + nuevo[i]);
 			}
 		}
 		return nuevo;
 	}
-	
-	public Object[] RecomendacionesModificacionPorValoracion(Object nuevo[],TipoValoracion valoracion,TipoValoracion nuevaValoracion)
-	{
-	//Este metodo se encarga de modificar el atributo valoracion por otro nuevo, se le pasa por parametro el array de recomendaciones, la valoracion antigua y la valoracion nueva a reemplazar
-	//Se le devuelve el array modificado
-		nuevo = (Recomendacion []) rec;
-	//Este for recorre el array de recomendaciones y busca las recomendaciones que contengan la valoracion vieja para reemplazarla por la nueva 
-		for(int i=0;i<nuevo.length;i++)
-		{
-			if(valoracion.equals(((Recomendacion)nuevo[i]).getValoracion()))
-			{
-				System.out.println("Atributo a modificar: "+nuevo[i]);
-				((Recomendacion)nuevo[i]).setValoracion(nuevaValoracion);
-				System.out.println("Atributo modificado: "+nuevo[i]);
+
+	//This method is responsible for modifying the "valoracion" attribute to a new one. It takes as parameters the recommendations array, the old rating, and the new rating to replace it.
+//It returns the modified array.
+	public Object[] RecomendacionesModificacionPorValoracion(Object nuevo[], TipoValoracion valoracion, TipoValoracion nuevaValoracion) {
+		nuevo = (Recomendacion[]) rec;
+//This loop iterates through the recommendations array and searches for recommendations that contain the old rating to replace it with the new one.
+		for (int i = 0; i < nuevo.length; i++) {
+			if (valoracion.equals(((Recomendacion) nuevo[i]).getValoracion())) {
+				System.out.println("Attribute to modify: " + nuevo[i]);
+				((Recomendacion) nuevo[i]).setValoracion(nuevaValoracion);
+				System.out.println("Attribute modified: " + nuevo[i]);
 			}
 		}
 		return nuevo;
 	}
-	public void RecomendacionesBusquedaPorComentarios(Object nuevo[],String comentario)
-	{
-	//Este metodo se encarga de buscar las recomendaciones por su comentario, se le pasa por parametro el array de recomendaciones y el comentario a buscar
-		nuevo = (Recomendacion []) rec;
-	//Este for recorre el array de recomendaciones y busca las recomendaciones que contengan el comentario a buscar, si no lo encuentra se notificara al usuario
+
+	//This method is responsible for searching for recommendations by their comments. It takes as parameters the recommendations array and the comment to search for.
+	public void RecomendacionesBusquedaPorComentarios(Object nuevo[], String comentario) {
+		nuevo = (Recomendacion[]) rec;
+//This loop iterates through the recommendations array and searches for recommendations that contain the comment to search for. If it is not found, the user will be notified.
 		boolean encontrado = false;
-		for(int i=0;i<nuevo.length;i++)
-		{
-			if(comentario.equalsIgnoreCase(((Recomendacion)nuevo[i]).getComentarios()))
-			{
-				System.out.println("Recomendacion encontrada: "+nuevo[i]);
+		for (int i = 0; i < nuevo.length; i++) {
+			if (comentario.equalsIgnoreCase(((Recomendacion) nuevo[i]).getComentarios())) {
+				System.out.println("Recommendation found: " + nuevo[i]);
 				encontrado = true;
 			}
-			if(encontrado==true)
-				System.out.println("El comentario "+comentario+" no se ha podido encontrar");
+			if (encontrado == true)
+				System.out.println("The comment " + comentario + " could not be found.");
 		}
 	}
-	
-	public void RecomendacionesBusquedaPorValoracion(Object nuevo[],TipoValoracion valoracion)
-	{
-		//Este metodo se encarga de buscar las recomendaciones por su valoracion, se le pasa por parametro el array de recomendaciones y la valoracion a buscar
-			nuevo = (Recomendacion []) rec;
-		//Este for recorre el array de recomendaciones y busca las recomendaciones que contengan el comentario a buscar, si no lo encuentra se notificara al usuario 
+
+	//This method is responsible for searching for recommendations by their rating. It takes as parameters the recommendations array and the rating to search for.
+	public void RecomendacionesBusquedaPorValoracion(Object nuevo[], TipoValoracion valoracion) {
+		nuevo = (Recomendacion[]) rec;
+//This loop iterates through the recommendations array and searches for recommendations that contain the rating to search for. If it is not found, the user will be notified.
 		boolean encontrado = false;
-		for(int i=0;i<nuevo.length;i++)
-		{
-			if(valoracion.equals(((Recomendacion)nuevo[i]).getValoracion()))
-			{
-				System.out.println("Recomendacion encontrada "+nuevo[i]);
+		for (int i = 0; i < nuevo.length; i++) {
+			if (valoracion.equals(((Recomendacion) nuevo[i]).getValoracion())) {
+				System.out.println("Recommendation found " + nuevo[i]);
 				encontrado = true;
 			}
-			if(encontrado==true)
-				System.out.println("La valoracion "+valoracion+" no se ha podido encontrar");
+			if (encontrado == true)
+				System.out.println("The rating " + valoracion + " could not be found.");
 		}
 	}
-	
 }
