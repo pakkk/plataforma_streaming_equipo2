@@ -7,19 +7,19 @@ public class MenuPeliculasSeries {
 	
 	//Este metodo se encarga de dar de alta una pelicula con los atributos que se le pasa por parametro
 	//Este metodo devuelve el array modificado
-	public Pelicula [] PeliculaAlta(Pelicula nuevo[],String titulo,String idiomaOriginal, int duracion, int vecesVisto)
+	public Pelicula [] PeliculaAlta(Pelicula nuevo[],String titulo,String idiomaOriginal,String idiomaAdaptado[],int duracion, int vecesVisto)
 	{
 		nuevo = Arrays.copyOf(nuevo, nuevo.length+1);
-		nuevo[nuevo.length-1] = new Pelicula (titulo,idiomaOriginal,duracion,vecesVisto);
+		nuevo[nuevo.length-1] = new Pelicula (titulo,idiomaOriginal,idiomaAdaptado,duracion,vecesVisto);
 		return nuevo;
 	}
 	
 	//Este metodo se encarga de dar de alta una pelicula con los atributos que se le pasa por parametro
 	//Este metodo devuelve el array modificado
-	public Serie [] SerieAlta(Serie nuevo[],String titulo,String idiomaOriginal, int duracion, int vecesVisto)
+	public Serie [] SerieAlta(Serie nuevo[],String titulo,String idiomaOriginal,String idiomaAdaptado[], int duracion, int vecesVisto)
 	{
 		nuevo = Arrays.copyOf(nuevo, nuevo.length+1);
-		nuevo[nuevo.length-1] = new Serie (titulo,idiomaOriginal,duracion,vecesVisto);
+		nuevo[nuevo.length-1] = new Serie (titulo,idiomaOriginal,idiomaAdaptado,duracion,vecesVisto);
 		return nuevo;
 	}
 	//Este metodo se encarga de dar de baja a una pelicula por su titulo
@@ -32,8 +32,8 @@ public class MenuPeliculasSeries {
 			if(titulo.equalsIgnoreCase((nuevo[i]).getTitulo()))
 			{
 				System.out.println("Pelicula a borrar "+nuevo[i]);
-					System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
-					nuevo = Arrays.copyOf(nuevo, nuevo.length-1) ;
+				System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
+				nuevo = Arrays.copyOf(nuevo, nuevo.length-1) ;
 					
 			}
 		}
@@ -49,9 +49,25 @@ public class MenuPeliculasSeries {
 			if(idiomaOriginal.equalsIgnoreCase((nuevo[i]).getIdiomaOriginal()))
 			{
 				System.out.println("Pelicula a borrar "+nuevo[i]);
-					System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
-					nuevo = Arrays.copyOf(nuevo, nuevo.length-1) ;
+				System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
+				nuevo = Arrays.copyOf(nuevo, nuevo.length-1);
 					
+			}
+		}
+		return nuevo;
+	}
+	//Este metodo se encarga de dar de baja a una pelicula por su idioma adaptado
+	//Este metodo devuelve el array modificado
+	public Pelicula [] PeliculaBajaPorIdiomaAdaptado(Pelicula nuevo [],String idiomaAdaptado [])
+	{
+		//Este for busca a la pelicula por su idioma adaptado  y la borra del array
+		for(int i = 0;i<nuevo.length;i++)
+		{
+			if(idiomaAdaptado.equals(nuevo[i].getIdiomaAdaptado()))
+			{
+				System.out.println("Pelicula a borrar "+nuevo[i]);
+				System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
+				nuevo = Arrays.copyOf(nuevo, nuevo.length-1);
 			}
 		}
 		return nuevo;
@@ -122,6 +138,19 @@ public class MenuPeliculasSeries {
 		}
 		return nuevo;
 	}
+	//Este metodo se encarga de dar de baja a una serie por su idioma adaptado
+	//Este metodo devuelve el array modificado
+	public Serie[] SerieBajaPorIdiomaAdaptado(Serie nuevo[],String idiomaAdaptado[])
+	{
+		//Este for busca a la serie por su idioma adaptado
+		for(int i = 0;i<nuevo.length;i++)
+		{
+			System.out.println("Serie a borrar "+nuevo[i]);
+			System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
+			nuevo = Arrays.copyOf(nuevo, nuevo.length-1);
+		}
+		return nuevo;
+	}
 	//Este metodo se encarga de dar de baja a una serie por su duracion
 	//Este metodo devuelve el array modificado
 	public Serie [] SerieBajaPorDuracion(Serie nuevo[],int duracion)
@@ -186,6 +215,22 @@ public class MenuPeliculasSeries {
 		}
 		return nuevo;
 	}
+	//Este metodo se encarga de modificar un atributo idioma adaptado de una pelicula por otro nuevo
+	//Este metodo devuelve  el array modificado
+	public Pelicula [] PeliculaModificacionPorIdiomaAdaptado(Pelicula nuevo[],String idiomaAdaptado[],String nuevoIdiomaAdaptado[])
+	{
+		//Este for busca el atributo idioma original de una pelicula y lo modifica por el nuevo
+		for(int i = 0;i<nuevo.length;i++)
+		{
+			if(idiomaAdaptado.equals(nuevo[i].getIdiomaAdaptado()))
+			{
+				System.out.println("Pelicula a modificar "+nuevo[i]);
+				nuevo[i].setIdiomaAdaptado(nuevoIdiomaAdaptado);
+				System.out.println("Pelicula modificada "+nuevo[i]);
+			}
+		}
+		return nuevo;
+	}
 	//Este metodo se encarga de modificar un atributo duracion de una pelicula por otro nuevo
 	//Este metodo devuelve el array modificado 
 	public Pelicula [] PeliculaModificacionPorDuracion(Pelicula nuevo[],int duracion,int nuevaDuracion)
@@ -244,7 +289,23 @@ public class MenuPeliculasSeries {
 			if(idiomaOriginal.equalsIgnoreCase(nuevo[i].getIdiomaOriginal()))
 			{
 				System.out.println("Serie a modificar "+nuevo[i]);
-				nuevo[i].setIdiomaOriginal(nuevoIdiomaOriginal);;
+				nuevo[i].setIdiomaOriginal(nuevoIdiomaOriginal);
+				System.out.println("Serie modificada "+nuevo[i]);
+			}
+		}
+		return nuevo;
+	}
+	//Este metodo se encarga de modificar un atributo idioma adaptado de una serie por otro nuevo
+	//Este metodo devuelve el array modificado 
+	public Serie[] SerieModificacionPorIdiomaAdaptado(Serie nuevo[],String idiomaAdaptado[],String nuevoIdiomaAdaptado[])
+	{
+		//Este for busca el atributo idioma adaptado de una serie y lo modifica por el nuevo
+		for(int i=0;i<nuevo.length;i++)
+		{
+			if(idiomaAdaptado.equals(nuevo[i].getIdiomaAdaptado()))
+			{
+				System.out.println("Serie a modificar "+nuevo[i]);
+				nuevo[i].setIdiomaAdaptado(nuevoIdiomaAdaptado);
 				System.out.println("Serie modificada "+nuevo[i]);
 			}
 		}
@@ -316,6 +377,22 @@ public class MenuPeliculasSeries {
 		if(encontrado==false)
 			System.out.println("El idioma original "+idiomaOriginal+" no se encuentra en ninguna pelicula");
 	}
+	//Este metodo se encarga de buscar las peliculas en funcion de su idioma adaptado y los muestra
+	public void PeliculaBusquedaPorIdiomaAdaptado(Pelicula nuevo[],String idiomaAdaptado[])
+	{
+		//This for takes care of tour the array and show the movies that contain the adapted language introduced 
+		boolean encontrado = false;
+		for(int i = 0;i<nuevo.length;i++)
+		{
+			if(idiomaAdaptado.equals(nuevo[i].getIdiomaAdaptado()))
+			{
+				System.out.println("Pelicula encontrada "+nuevo[i]);
+				encontrado = true;
+			}
+		}
+		if(encontrado==false)
+			System.out.println("El idioma adaptado "+Arrays.toString(idiomaAdaptado)+" no ose encuentra en ninguna pelicula");
+	}
 	//Este metodo se encarga de buscar las peliculas en funcion de su duracion y los muestra
 	public void PeliculaBusquedaPorDuracion(Pelicula nuevo [],int duracion)
 	{
@@ -383,6 +460,22 @@ public class MenuPeliculasSeries {
 		}
 		if(encontrado==false)
 			System.out.println("La serie con idioma original "+idiomaOriginal+" no se ha encontrado");
+	}
+	//This method takes care of search the movies that contains the adapted language and show it
+	public void SerieBusquedaPorIdiomaAdaptado(Serie nuevo[],String idiomaAdaptado[])
+	{
+		//This for takes care of tour the array and show the series that contains the adapted language introduced
+		boolean encontrado = true;
+		for(int i = 0;i<nuevo.length;i++)
+		{
+			if(idiomaAdaptado.equals(nuevo[i].getIdiomaAdaptado()))
+			{
+				System.out.println("Serie encontrada "+nuevo[i]);
+				encontrado = true;
+			}
+		}
+		if(encontrado==false)
+			System.out.println("La serie con el idioma adaptado "+Arrays.toString(idiomaAdaptado)+" no se encuentra");
 	}
 	//Este metodo se encarga de buscar las series que contengan una duracion y las muestras
 	public void SerieBusquedaPorDuracion(Serie nuevo [],int duracion)
