@@ -13,7 +13,8 @@ import java.util.Arrays;
 //Class responsible for storing the methods for adding, removing, querying, and searching for Actors
 public class MenuActors {
    
-	public Actors[] addActors(Actors[] other, String name, String lastName, Gender gender, int age, String awards) {
+	public Actors[] addActors(Actors[] other, String name, String lastName, Gender gender, int age, String awards) 
+	{
 	    other = Arrays.copyOf(other, other.length + 1);
 	    other[other.length - 1] = new Actors(name, lastName, gender, age, awards);
 	    return other;
@@ -23,9 +24,12 @@ public class MenuActors {
 	* Remove an Actor from the Array
 	* Return the Array 
 	*/
-	public Actors[] removeActorsByName(Actors[] other, String name) {
-	    for(int i = 0; i < other.length; i++) {
-	        if(name.equalsIgnoreCase(other[i].getName())) {   
+	public Actors[] removeActorsByName(Actors[] other, String name) 
+	{
+	    for(int i = 0; i < other.length; i++) 
+	    {
+	        if(name.equalsIgnoreCase(other[i].getName())) 
+	        {   
 	            System.out.println("Actors removed: " + other[i]);
 	            System.arraycopy(other, i+1, other, i, other.length-i-1);
 	            other = Arrays.copyOf(other, other.length-1) ;
@@ -38,9 +42,12 @@ public class MenuActors {
 	* Remove an Actor from the Array
 	* Return the Array 
 	*/
-	public Actors[] removeActorsBylastName(Actors[] other, String lastName) {
-	    for(int i = 0; i < other.length; i++) {
-	        if(lastName.equalsIgnoreCase(other[i].getLastName())) {   
+	public Actors[] removeActorsBylastName(Actors[] other, String lastName) 
+	{
+	    for(int i = 0; i < other.length; i++) 
+	    {
+	        if(lastName.equalsIgnoreCase(other[i].getLastName())) 
+	        {   
 	            System.out.println("Actors removed: " + other[i]);
 	            System.arraycopy(other, i+1, other, i, other.length-i-1);
 	            other = Arrays.copyOf(other, other.length-1) ;
@@ -53,9 +60,12 @@ public class MenuActors {
 	* Remove an Actor from the Array
 	* Return the Array 
 	*/
-	public Actors[] removeActorsByGender(Actors[] other, Gender gender) {
-	    for(int i = 0; i < other.length; i++) {
-	        if(gender.equals(other[i].getGender())) {   
+	public Actors[] removeActorsByGender(Actors[] other, Gender gender) 
+	{
+	    for(int i = 0; i < other.length; i++) 
+	    {
+	        if(gender.equals(other[i].getGender())) 
+	        {   
 	            System.out.println("Actors removed: " + other[i]);
 	            System.arraycopy(other, i+1, other, i, other.length-i-1);
 	            other = Arrays.copyOf(other, other.length-1) ;
@@ -68,9 +78,12 @@ public class MenuActors {
 	* Remove an Actor from the Array
 	* Return the Array 
 	*/
-	public Actors[] removeActorsByAge(Actors[] other, int age) {
-	    for(int i = 0; i < other.length; i++) {
-	        if(age == other[i].getAge()) {   
+	public Actors[] removeActorsByAge(Actors[] other, int age) 
+	{
+	    for(int i = 0; i < other.length; i++) 
+	    {
+	        if(age == other[i].getAge())
+	        {   
 	            System.out.println("Actors removed: " + other[i]);
 	            System.arraycopy(other, i+1, other, i, other.length-i-1);
 	            other = Arrays.copyOf(other, other.length-1) ;
