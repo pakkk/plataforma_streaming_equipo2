@@ -33,11 +33,12 @@ public class Audiovisual{
 	   
 	   //Constructor 
 	   //Constructor que determina los valores de los atributos de audiovisual
-	   public  Audiovisual (String titulo,String idiomaOriginal,int duracion,int vecesVisto)
+	   public  Audiovisual (String titulo,String idiomaOriginal,String idiomaAdaptado [],int duracion,int vecesVisto)
 	   {
 		
 		   this.titulo = titulo;
 		   this.idiomaOriginal = idiomaOriginal;
+		   this.idiomaAdaptado = idiomaAdaptado;
 		   this.duracion = duracion;
 		   this.vecesVisto = vecesVisto;
 		   CorreccionAtributos();
@@ -47,7 +48,7 @@ public class Audiovisual{
 	   //Getter que devuelve el valor del titulo del audiovisual
 	    public String getTitulo()
 	    {
-	        return titulo;
+	        return this.titulo;
 	    }
 	    //Setter que permite modificar el valor del titulo del audiovisual
 	    public void setTitulo(String titulo)
@@ -57,7 +58,7 @@ public class Audiovisual{
 	    //Getter que devuelve el valor del isioma original del audiovisual
 	    public String getIdiomaOriginal()
 	    {
-	        return idiomaOriginal;
+	        return this.idiomaOriginal;
 	    }
 	    //Setter que permite modificar el valor del idioma original del audiovisual
 	    public void setIdiomaOriginal(String idiomaOriginal)
@@ -67,12 +68,17 @@ public class Audiovisual{
 	    //Getter que devuelve el Array del idioma adaptado del audiovisual
 	    public String[] getIdiomaAdaptado()
 	    {
-	        return idiomaAdaptado;
+	        return this.idiomaAdaptado;
+	    }
+	    //Setter que permite la modificacion del array idioma adaptado del audiovisual
+	    public void setIdiomaAdaptado(String idiomaAdaptado[])
+	    {
+	    	this.idiomaAdaptado=idiomaAdaptado;
 	    }
 	    //Getter que devuelve el valor de la duracion del audiovisual
 	    public int getDuracion() 
 	    {
-	        return duracion;
+	        return this.duracion;
 	    }
 	    //Setter que permite modificar el valor de la duracion
 	    public void setDuracion(int duracion)
@@ -82,7 +88,7 @@ public class Audiovisual{
 	    //Getter que devuelve la cantidad de veces que se ha devuelto el audiovisual
 	    public  int getVecesVisto()
 	    {
-	    	return vecesVisto;
+	    	return this.vecesVisto;
 	    }
 	    //Setter que permite modificar el valor de las veces que se ha visto el audiovisual
 	    public void setVecesVisto(int vecesVisto)
@@ -162,7 +168,7 @@ public class Audiovisual{
 		@Override
 		public String toString()
 		{
-			return "Audiovisual nombre "+titulo+" dura "+duracion+" minutos "+" su idioma original es "+idiomaOriginal+ "los idiomas adaptados son " + Arrays.toString(idiomaAdaptado) + "veces visto " + vecesVisto;
+			return "nombre "+titulo+" dura "+duracion+" minutos "+" su idioma original es "+idiomaOriginal+ "los idiomas adaptados son " + Arrays.toString(idiomaAdaptado) + "y se ha visto" + vecesVisto;
 		}
 		}
 
