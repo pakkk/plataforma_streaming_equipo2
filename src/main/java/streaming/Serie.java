@@ -1,16 +1,14 @@
 package streaming;
 
 public class Serie extends Audiovisual{
-	//Clase que se encarga de almacenar los datos de audiovisual para despues cargarlo en un array
+	//This Class takes care of save data of audiovisual to load the data in one array 
 	
 	//Constructor
-	//Este constructor proviene de la clase Audiovisual 
-	public Serie(String titulo, String idiomaOriginal,String idiomaAdaptado[], int duracion, int vecesVisto) 
+	//This constructor comes from the audiovisual class
+	public Serie(String title, String OriginalLanguage,String AdaptedLanguage[], int duration, int views) 
 	{
-		super(titulo, idiomaOriginal,idiomaAdaptado, duracion, vecesVisto);
+		super(title, OriginalLanguage,AdaptedLanguage, duration, views);
 	}
-	//Los metodos vienen heredados de la clase Audiovisual por lo que no hace falta introducirlos aqui
-
+	//Methods extends of audiovisual class, so no need to enter here
 	
-
 }
