@@ -12,7 +12,11 @@ import java.util.Arrays;
 
 //Class responsible for storing the methods for adding, removing, querying, and searching for Actors
 public class MenuActors {
-   
+        /* 
+        * Takes an array of Actors objects
+        * Adds a new actor to the array
+        * Returns the updated array
+        */
 	public Actors[] addActors(Actors[] other, String name, String lastName, Gender gender, int age, String awards) 
 	{
 	    other = Arrays.copyOf(other, other.length + 1);
