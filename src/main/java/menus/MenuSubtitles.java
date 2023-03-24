@@ -54,18 +54,18 @@ public class MenuSubtitles  {
     //In case the user is not found
     public void searchByLanguage(Subtitles[] search, String language)
     {
-        boolean encontrado = false;
+        boolean found = false;
         for(int i = 0;i<search.length;i++)
         {
 
             if(language.equalsIgnoreCase((search[i]).getLanguage()))
             {
                 System.out.println(search[i]);
-                encontrado = true;
+                found = true;
             }
 
         }
-        if (encontrado==false)
+        if (found==false)
         {
             System.out.println("Su descripcion " + language + " no existe");
         }
