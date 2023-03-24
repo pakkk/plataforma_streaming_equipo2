@@ -29,7 +29,7 @@ public class MenuPeliculasSeries {
 		//Este for busca a la pelicula por su titulo y la borra del array
 		for(int i = 0;i<nuevo.length;i++)
 		{
-			if(titulo.equalsIgnoreCase((nuevo[i]).getTitulo()))
+			if(titulo.equalsIgnoreCase((nuevo[i]).getTitle()))
 			{
 				System.out.println("Pelicula a borrar "+nuevo[i]);
 				System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
