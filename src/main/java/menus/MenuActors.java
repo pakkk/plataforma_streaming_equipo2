@@ -82,7 +82,7 @@ public class MenuActors {
 	* Remove an Actor from the Array
 	* Return the Array 
 	*/
-	public Actors[] BajasActorsByawards(Actors[] other, String awards)
+	public Actors[] BajasActorsByAwards(Actors[] other, String awards)
     {
         for(int i = 0; i < other.length; i++)
         {
@@ -100,7 +100,7 @@ public class MenuActors {
     * The selected Actors objects are modified
     * The Array is returned
     */
-    public Actors[] ModifyActorsByname(Actors[] other, String name, String newName)
+    public Actors[] ModifyActorsByName(Actors[] other, String name, String newName)
     {
         for(int i = 0; i < other.length; i++)
         {
@@ -118,7 +118,7 @@ public class MenuActors {
     * The selected Actors objects are modified
     * The Array is returned
     */
-    public Actors[] ModifyActorsBylastName(Actors[] other, String lastName, String nuevoslastName)
+    public Actors[] ModifyActorsByLastName(Actors[] other, String lastName, String nuevoslastName)
     {
         for(int i = 0; i < other.length; i++)
         {
@@ -136,7 +136,7 @@ public class MenuActors {
     * The selected Actors objects are modified
     * The Array is returned
     */
-    public Actors[] ModifyActorsByGenero(Actors[] other, Gender gender, Gender nuevoGender)
+    public Actors[] ModifyActorsByGender(Actors[] other, Gender gender, Gender nuevoGender)
     {
         for(int i = 0; i < other.length; i++)
         {
@@ -154,7 +154,7 @@ public class MenuActors {
     * The selected Actors objects are modified
     * The Array is returned
     */
-    public Actors[] ModifyActorsByage(Actors[] other, int age, int newAge)
+    public Actors[] ModifyActorsByAge(Actors[] other, int age, int newAge)
     {
         for(int i = 0; i < other.length; i++)
         {
@@ -168,9 +168,9 @@ public class MenuActors {
         return other;
     }
     
-    /* Se pide un Array de objetos Actors,  los awards del actor que se va a buscar y su sustitucion
-    * Se modifica los objetos Actors seleccionados
-    * Se devuelve el Array 
+    /* An Array of Actors objects is requested,  the awards of the actor to be sought and his replacement
+    * The selected Actors objects are modified
+    * The Array is returned 
     */
     public Actors[] ModifyActorsByAwards(Actors[] other, String awards, String newAwards)
     {
@@ -178,120 +178,120 @@ public class MenuActors {
         {
             if(awards.equalsIgnoreCase(other[i].getAwards()))
             {   
-                System.out.println("awards antiguos: " + other[i]);
+                System.out.println("Old awards: " + other[i]);
                 other[i].setAwards(newAwards);
-                System.out.println("awards nuevos: " + other[i]);
+                System.out.println("New awards: " + other[i]);
             }
         }
         return other;
     }
     
-    /* Se pide un Array de objetos Actors y el name del actor que se va a buscar
-    * Se buscan los objetos Actors
-    * Se devuelve el Array 
+    /* An Array of Actors objects and the name of the actor to be searched
+    * Looking for objects Actors
+    * The Array is returned
     */
-    public void SearchActorsByname(Actors[] other, String name)
+    public void SearchActorsByName(Actors[] other, String name)
     {
-        boolean encontrado = false;
+        boolean found = false;
         for(int i = 0; i < other.length; i++)
         {
             if(name.equalsIgnoreCase(other[i].getName()))
             {   
-                System.out.println("name encontrado: " + other[i]);
-                encontrado = true;
+                System.out.println("name found: " + other[i]);
+                found = true;
             }
             
-            if(encontrado == false)
+            if(found == false)
             {
-                System.out.println("El name " + other[i] + " no se ha encontrado.");
+                System.out.println("The name " + other[i] + " has not been found.");
             }
         }
     }
     
-    /* Se pide un Array de objetos Actors y los lastName del actor que se va a buscar
-    * Se buscan los objetos Actors
-    * Se devuelve el Array 
+    /* An Array of Actors objects and the last name of the actor to be searched
+    * Looking for objects Actors
+    * The Array is returned
     */
-    public void SearchActorsBylastName(Actors[] other, String lastName)
+    public void SearchActorsByLastName(Actors[] other, String lastName)
     {
-        boolean encontrado = false;
+        boolean found = false;
         for(int i = 0; i < other.length; i++)
         {
             if(lastName.equalsIgnoreCase(other[i].getLastName()))
             {   
-                System.out.println("lastName encontrados: " + other[i]);
-                encontrado = true;
+                System.out.println("lastName found: " + other[i]);
+                found = true;
             }
             
-            if(encontrado == false)
+            if(found == false)
             {
-                System.out.println("El apellido " + other[i] + " no se ha encontrado.");
+                System.out.println("The lastName " + other[i] + " has not been found.");
             }
         }
     }
     
-    /* Se pide un Array de objetos Actors y el genero del actor que se va a buscar
-    * Se buscan los objetos Actors
-    * Se devuelve el Array 
+    /* An Array of Actors objects and the gender of the actor to be searched
+    * Looking for objects Actors
+    * The Array is returned
     */
-    public void SearchActorsByGenero(Actors[] other, Gender gender)
+    public void SearchActorsByGender(Actors[] other, Gender gender)
     {
-        boolean encontrado = false;
+        boolean found = false;
         for(int i = 0; i < other.length; i++)
         {
             if(gender.equals(other[i].getGender()))
             {   
-                System.out.println("Genero encontrado: " + other[i]);
-                encontrado = true;
+                System.out.println("Gender found: " + other[i]);
+                found = true;
             }
             
-            if(encontrado == false)
+            if(found == false)
             {
-                System.out.println("El genero " + other[i] + " no se ha encontrado.");
+                System.out.println("The Gender " + other[i] + " has not been found.");
             }
         }
     }
     
-    /* Se pide un Array de objetos Actors y la age del actor que se va a buscar
-    * Se buscan los objetos Actors
-    * Se devuelve el Array 
+    /* An Array of Actors objects and the age of the actor to be searched
+    * Looking for objects Actors
+    * The Array is returned
     */
-    public void SearchActorsByage(Actors[] other, int age)
+    public void SearchActorsByAge(Actors[] other, int age)
     {
-        boolean encontrado = false;
+        boolean found = false;
         for(int i = 0; i < other.length; i++)
         {
             if(age == other[i].getAge())
             {   
-                System.out.println("age encontrada: " + other[i]);
-                encontrado = true;
+                System.out.println("Age found: " + other[i]);
+                found = true;
             }
             
-            if(encontrado == false)
+            if(found == false)
             {
-                System.out.println("La age " + other[i] + " no se ha encontrado.");
+                System.out.println("The age " + other[i] + " has not been found.");
             }
         }
     }
     
-    /* Se pide un Array de objetos Actors y ls awards del actor que se va a buscar
-    * Se buscan los objetos Actors
-    * Se devuelve el Array 
+    /* An Array of Actors objects and the awards of the actor to be searched
+    * Looking for objects Actors
+    * The Array is returned
     */
     public void SearchActorsByawards(Actors[] other, String awards)
     {
-        boolean encontrado = false;
+        boolean found = false;
         for(int i = 0; i < other.length; i++)
         {
             if(awards.equalsIgnoreCase(other[i].getAwards()))
             {   
-                System.out.println("Premio encontrado: " + other[i]);
-                encontrado = true;
+                System.out.println("Award found: " + other[i]);
+                found = true;
             }
             
-            if(encontrado == false)
+            if(found == false)
             {
-                System.out.println("El premio " + other[i] + " no se ha encontrado.");
+                System.out.println("The award " + other[i] + " has not been found.");
             }
         }
     }
