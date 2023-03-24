@@ -25,7 +25,7 @@ public class MenuSubtitles  {
         {
             if (language.equalsIgnoreCase((remove[i]).getLanguage()))
             {
-                System.out.println("Idioma borrado " + remove[i]);
+                System.out.println("Deleted language " + remove[i]);
                 System.arraycopy(remove, i+1, remove, i, remove.length-i-1);
                 remove = Arrays.copyOf(remove, remove.length-1) ;
             }
@@ -42,7 +42,7 @@ public class MenuSubtitles  {
         {
             if(language.equalsIgnoreCase((modify[i]).getLanguage()))
             {
-                System.out.println("Descripcion "+ language +" modificados por " + newLanguage);
+                System.out.println("Description "+ language +" modified by " + newLanguage);
                 (modify[i]).setLanguage(newLanguage);
             }
         }
@@ -67,7 +67,7 @@ public class MenuSubtitles  {
         }
         if (found==false)
         {
-            System.out.println("Su descripcion " + language + " no existe");
+            System.out.println("The description " + language + " doesn't exist");
         }
     }
 }
