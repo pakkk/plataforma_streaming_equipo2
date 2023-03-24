@@ -1,110 +1,110 @@
 package menus;
 import java.util.Arrays;
 import streaming.Serie;
-import streaming.Pelicula;
-public class MenuPeliculasSeries {
-	//Esta clase se encarga de dar altas, bajas, modificaciones y busquedas de peliculas o series
+import streaming.Film;
+public class MenuFilmSeries {
+	//This class is responsible for high, low, modifications and searches of films or series
 	
-	//Este metodo se encarga de dar de alta una pelicula con los atributos que se le pasa por parametro
-	//Este metodo devuelve el array modificado
-	public Pelicula [] PeliculaAlta(Pelicula nuevo[],String titulo,String idiomaOriginal,String idiomaAdaptado[],int duracion, int vecesVisto)
+	//This method is responsible for registering a film with the attributes that is passed by parametro
+	//This method returns the modified array
+	public Film [] addFilm(Film movie[],String title,String originalLanguage,String adaptedLanguage[],int duration, int views)
 	{
-		nuevo = Arrays.copyOf(nuevo, nuevo.length+1);
-		nuevo[nuevo.length-1] = new Pelicula (titulo,idiomaOriginal,idiomaAdaptado,duracion,vecesVisto);
-		return nuevo;
+		movie = Arrays.copyOf(movie, movie.length+1);
+		movie[movie.length-1] = new Film (title,originalLanguage,adaptedLanguage,duration,views);
+		return movie;
 	}
 	
-	//Este metodo se encarga de dar de alta una pelicula con los atributos que se le pasa por parametro
-	//Este metodo devuelve el array modificado
-	public Serie [] SerieAlta(Serie nuevo[],String titulo,String idiomaOriginal,String idiomaAdaptado[], int duracion, int vecesVisto)
+	//This method is responsible for registering a film with the attributes that is passed by parametro
+	//This method returns the modified array
+	public Serie [] addSerie(Serie serie[],String title,String originalLanguage,String adaptedLanguage[], int duration, int views)
 	{
-		nuevo = Arrays.copyOf(nuevo, nuevo.length+1);
-		nuevo[nuevo.length-1] = new Serie (titulo,idiomaOriginal,idiomaAdaptado,duracion,vecesVisto);
-		return nuevo;
+		serie = Arrays.copyOf(serie, serie.length+1);
+		serie[serie.length-1] = new Serie (title,originalLanguage,adaptedLanguage,duration,views);
+		return serie;
 	}
-	//Este metodo se encarga de dar de baja a una pelicula por su titulo
-	//Este metodo devuelve el array modificado
-	public Pelicula [] PeliculaBajaPorTitulo(Pelicula nuevo[],String titulo)
+	//This method is responsible for removing a film for its title
+	//This method returns the modified array
+	public Film [] removeFilmByTitle(Film movie[],String title)
 	{
-		//Este for busca a la pelicula por su titulo y la borra del array
-		for(int i = 0;i<nuevo.length;i++)
+		//This for searches for the film by its title and deletes it from the array
+		for(int i = 0;i<movie.length;i++)
 		{
-			if(titulo.equalsIgnoreCase((nuevo[i]).getTitle()))
+			if(title.equalsIgnoreCase((movie[i]).getTitle()))
 			{
-				System.out.println("Pelicula a borrar "+nuevo[i]);
-				System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
-				nuevo = Arrays.copyOf(nuevo, nuevo.length-1) ;
+				System.out.println("Deleted film: "+movie[i]);
+				System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
+				movie = Arrays.copyOf(movie, movie.length-1) ;
 					
 			}
 		}
-		return nuevo;
+		return movie;
 	}
-	//Este metodo se encarga de dar de baja a una pelicula por su idioma original
-	//Este metodo devuelve el array modificado
-	public Pelicula [] PeliculaBajaPorIdiomaOriginal(Pelicula nuevo[],String idiomaOriginal)
+	//This method is responsible for removing a film for its original language
+	//This method returns the modified array
+	public Film [] removeFilmByOriginalLanguage(Film movie[],String originalLanguage)
 	{
-		//Este for busca a la pelicula por su idioma original y la borra del array
-		for(int i = 0;i<nuevo.length;i++)
+		//This for searches the film for its original language and deletes it from the array
+		for(int i = 0;i<movie.length;i++)
 		{
-			if(idiomaOriginal.equalsIgnoreCase((nuevo[i]).getIdiomaOriginal()))
+			if(originalLanguage.equalsIgnoreCase((movie[i]).getOriginalLanguage()))
 			{
-				System.out.println("Pelicula a borrar "+nuevo[i]);
-				System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
-				nuevo = Arrays.copyOf(nuevo, nuevo.length-1);
+				System.out.println("Deleted film: "+movie[i]);
+				System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
+				movie = Arrays.copyOf(movie, movie.length-1);
 					
 			}
 		}
-		return nuevo;
+		return movie;
 	}
-	//Este metodo se encarga de dar de baja a una pelicula por su idioma adaptado
-	//Este metodo devuelve el array modificado
-	public Pelicula [] PeliculaBajaPorIdiomaAdaptado(Pelicula nuevo [],String idiomaAdaptado [])
+	//This method is responsible for removing a film for its adapted language
+	//This method returns the modified array
+	public Film [] removeFilmByAdaptedLanguage(Film movie [],String adaptedLanguage [])
 	{
-		//Este for busca a la pelicula por su idioma adaptado  y la borra del array
-		for(int i = 0;i<nuevo.length;i++)
+		//This for searches for the film by its adapted language and deletes it from the array
+		for(int i = 0;i<movie.length;i++)
 		{
-			if(idiomaAdaptado.equals(nuevo[i].getIdiomaAdaptado()))
+			if(adaptedLanguage.equals(movie[i].getAdaptedLanguages()))
 			{
-				System.out.println("Pelicula a borrar "+nuevo[i]);
-				System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
-				nuevo = Arrays.copyOf(nuevo, nuevo.length-1);
+				System.out.println("Deleted film: "+movie[i]);
+				System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
+				movie = Arrays.copyOf(movie, movie.length-1);
 			}
 		}
-		return nuevo;
+		return movie;
 	}
-	//Este metodo se encarga de dar de baja a una pelicula por su duracion
-	//Este metodo devuelve el array modificado
-	public Pelicula [] PeliculaBajaPorDuracion(Pelicula nuevo[],int duracion)
+	//This method is responsible for removing a film for its duration
+	//This method returns the modified array
+	public Film [] removeFilmByDuration(Film movie[],int duration)
 	{
-		//Este for busca a la pelicula por su duracion y la borra del array
-		for(int i = 0;i<nuevo.length;i++)
+		//This for looks for the film for its duration and deletes it from the array
+		for(int i = 0;i<movie.length;i++)
 		{
-			if(duracion==(nuevo[i]).getDuracion())
+			if(duration==(movie[i]).getDuration())
 			{
-				System.out.println("Pelicula a borrar "+nuevo[i]);
-					System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
-					nuevo = Arrays.copyOf(nuevo, nuevo.length-1) ;
+				System.out.println("Deleted film: "+movie[i]);
+                                System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
+                                movie = Arrays.copyOf(movie, movie.length-1) ;
 					
 			}
 		}
-		return nuevo;
+		return movie;
 	}
-	//Este metodo se encarga de dar de baja a una pelicula por las veces que se ha visto
-	//Este metodo devuelve el array modificado
-	public Pelicula [] PeliculaBajaPorVecesVisto(Pelicula nuevo[],int vecesVisto)
+	//This method is responsible for removing a film for the times it has been seen
+	//This method returns the modified array
+	public Film [] removeFilmByViews(Film movie[],int views)
 	{
-		//Este for busca a la pelicula por las veces que se ha visto y la borra del array
-		for(int i = 0;i<nuevo.length;i++)
+		//This for looks for the film by the times it has been seen and deletes it from the array
+		for(int i = 0;i<movie.length;i++)
 		{
-			if(vecesVisto==(nuevo[i]).getVecesVisto())
+			if(views==(movie[i]).getViews())
 			{
-				System.out.println("Pelicula a borrar "+nuevo[i]);
-					System.arraycopy(nuevo, i+1, nuevo, i, nuevo.length-i-1);
-					nuevo = Arrays.copyOf(nuevo, nuevo.length-1) ;
+				System.out.println("Deleted film: "+movie[i]);
+                                System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
+                                movie = Arrays.copyOf(movie, movie.length-1) ;
 					
 			}
 		}
-		return nuevo;
+		return movie;
 	}
 	//Este metodo se encarga de dar de baja a una serie por su titulo
 	//Este metodo devuelve el array modificado
