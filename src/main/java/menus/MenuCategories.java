@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import es.iesjandula.streaming.baseclasses.Category;
 
-public class CategorySwitch
+public class MenuCategories
 {
 	
 	// Class that stores methods for adding, deleting, querying and searching Categories
@@ -29,8 +29,10 @@ public class CategorySwitch
 		 * Deletes the selected categories from the array
 		 * Returns the updated array
 		 */
-		for(int i=0; i<categoryArray.length; i++) {
-			if(name.equalsIgnoreCase(categoryArray[i].getName()))  {
+		for(int i=0; i<categoryArray.length; i++) 
+		{
+			if(name.equalsIgnoreCase(categoryArray[i].getName()))  
+			{
 				System.out.println("Attributes deleted " + categoryArray[i]);
 				System.arraycopy(categoryArray, i+1, categoryArray, i, categoryArray.length-i-1);
 				categoryArray = Arrays.copyOf(categoryArray, categoryArray.length-1) ;
@@ -48,8 +50,10 @@ public class CategorySwitch
 		 * Deletes the selected categories from the array
 		 * Returns the updated array
 		 */
-		for(int i=0; i<categoryArray.length; i++) {
-			if(description.equalsIgnoreCase(categoryArray[i].getDecription())) {
+		for(int i=0; i<categoryArray.length; i++)
+		{
+			if(description.equalsIgnoreCase(categoryArray[i].getDecription())) 
+			{
 				System.out.println("Attributes deleted " + categoryArray[i]);
 				System.arraycopy(categoryArray, i+1, categoryArray, i, categoryArray.length-i-1);
 				categoryArray = Arrays.copyOf(categoryArray, categoryArray.length-1) ;			
@@ -68,8 +72,10 @@ public class CategorySwitch
 		 * Replaces the selected categories in the array
 		 * Returns the updated array
 		 */
-		for(int i = 0; i < categoryArray.length; i++) {
-			if(name.equalsIgnoreCase(categoryArray[i].getName())) {
+		for(int i = 0; i < categoryArray.length; i++) 
+		{
+			if(name.equalsIgnoreCase(categoryArray[i].getName())) 
+			{
 				System.out.println("Description "+ name +" modified to " + newName);
 				categoryArray[i].setName(newName);
 			}
@@ -84,8 +90,10 @@ public class CategorySwitch
 		 * Replaces the selected categories in the array
 		 * Returns the updated array
 		 */
-		for(int i = 0; i < categoryArray.length; i++) {
-			if(description.equalsIgnoreCase(categoryArray[i].getName())) {
+		for(int i = 0; i < categoryArray.length; i++) 
+		{
+			if(description.equalsIgnoreCase(categoryArray[i].getName())) 
+			{
 				System.out.println("Description "+ description +" modified to " + newDescription);
 				categoryArray[i].setName(newDescription);
 			}
@@ -103,31 +111,38 @@ public class CategorySwitch
 		* Displays the result on the screen
 		*/
 		boolean found = false;
-		for(int i = 0; i < categoryArray.length; i++) {
-			if(name.equalsIgnoreCase(categoryArray[i].getName())) {
+		for(int i = 0; i < categoryArray.length; i++) 
+		{
+			if(name.equalsIgnoreCase(categoryArray[i].getName())) 
+			{
 					System.out.println(categoryArray[i]);
 					found = true;
 			}
 		}
-		if (!found) {
+		if (!found) 
+		{
 			System.out.println("The name " + name + " does not exist");
 		}
 	}
 
-	public void searchCategoryByDescription(Category[] categoryArray, String description) {
+	public void searchCategoryByDescription(Category[] categoryArray, String description) 
+	{
 		/*
 		* Takes an array of Category objects and the description of the category to search for
 		* Searches for the categories in the array
 		* Displays the result on the screen
 		*/
 		boolean found = false;
-			for(int i = 0; i < categoryArray.length; i++) {
-				if(description.equalsIgnoreCase(categoryArray[i].getDecription())) {
+			for(int i = 0; i < categoryArray.length; i++) 
+			{
+				if(description.equalsIgnoreCase(categoryArray[i].getDecription())) 
+				{
 				System.out.println(categoryArray[i]);
 				found = true;
 				}
 			}
-		if (!found) {
+		if (!found) 
+		{
 			System.out.println("The description " + description + " does not exist");
 		}
 	}
