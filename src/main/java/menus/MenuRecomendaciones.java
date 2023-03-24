@@ -95,7 +95,7 @@ public class MenuRecomendaciones {
 	//This method is responsible for searching for recommendations by their rating. It takes as parameters the recommendations array and the rating to search for.
 	public void RecomendacionesBusquedaPorValoracion(Object nuevo[], TipoValoracion valoracion) {
 		nuevo = (Recomendacion[]) rec;
-//This loop iterates through the recommendations array and searches for recommendations that contain the rating to search for. If it is not found, the user will be notified.
+//This loop iterates through the recommendations array and searches for recommendations that contain the rating to search for. If it is not found, the user will be notified..
 		boolean encontrado = false;
 		for (int i = 0; i < nuevo.length; i++) {
 			if (valoracion.equals(((Recomendacion) nuevo[i]).getValoracion())) {
