@@ -1,4 +1,4 @@
-package clasesbase;
+package es.iesjandula.streaming.baseclasses;
 import enums.TipoValoracion;
 public class Recomendacion {
 	//Esta clase se encarga de cargar los datos de las recomendaciones para despues almacenarlas en un array

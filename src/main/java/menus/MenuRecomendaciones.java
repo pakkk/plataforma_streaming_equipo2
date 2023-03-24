@@ -1,8 +1,9 @@
 package menus;
 
 import java.util.Arrays;
-import clasesbase.Recomendacion;
+
 import enums.TipoValoracion;
+import es.iesjandula.streaming.baseclasses.Recomendacion;
 
 public class MenuRecomendaciones {
 	// Class that manages the methods for adding, deleting, querying, and searching Recommendations

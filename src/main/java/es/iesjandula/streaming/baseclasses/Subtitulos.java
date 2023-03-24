@@ -1,4 +1,4 @@
-package clasesbase;
+package es.iesjandula.streaming.baseclasses;
 
 public class Subtitulos {
 	//Esta clase se encarga de cargar los datos de los subtitulos para despues almacenarlos en un array

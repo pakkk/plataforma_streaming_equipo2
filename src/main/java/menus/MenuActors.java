@@ -1,7 +1,8 @@
 package menus;
 
-import clasesbase.Actors;
 import enums.Gender;
+import es.iesjandula.streaming.baseclasses.Actors;
+
 import java.util.Arrays;
 
 /**

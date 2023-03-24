@@ -1,10 +1,11 @@
 package streaming;
-import clasesbase.Actores;
-import clasesbase.Category;
-import clasesbase.Directores;
-import clasesbase.Recomendacion;
-import clasesbase.Subtitulos;
 import java.util.Arrays;
+
+import es.iesjandula.streaming.baseclasses.Actores;
+import es.iesjandula.streaming.baseclasses.Category;
+import es.iesjandula.streaming.baseclasses.Directores;
+import es.iesjandula.streaming.baseclasses.Recomendacion;
+import es.iesjandula.streaming.baseclasses.Subtitulos;
 public class Audiovisual{
 	//Clase padre de serie y pelicula que contendra todos los datos que mas tarde se trasmitiran a dichas clases
 	   //Atributos

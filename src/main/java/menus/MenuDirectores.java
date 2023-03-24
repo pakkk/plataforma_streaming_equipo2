@@ -1,8 +1,9 @@
 package menus;
 
 import java.util.Arrays;
-import clasesbase.Directores;
+
 import enums.Sexo;
+import es.iesjandula.streaming.baseclasses.Directores;
 
 public class MenuDirectores 
 {

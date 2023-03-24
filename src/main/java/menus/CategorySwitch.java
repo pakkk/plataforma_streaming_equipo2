@@ -2,8 +2,7 @@ package menus;
 
 import java.util.Arrays;
 
-
-import clasesbase.Category;
+import es.iesjandula.streaming.baseclasses.Category;
 
 public class CategorySwitch
 {

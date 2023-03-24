@@ -1,4 +1,4 @@
-package clasesbase;
+package es.iesjandula.streaming.baseclasses;
 import enums.Gender;
 
 public class Actors{

@@ -1,6 +1,7 @@
 package menus;
 import java.util.Arrays;
-import clasesbase.Subtitulos;
+
+import es.iesjandula.streaming.baseclasses.Subtitulos;
 
 public class MenuSubtitulos  {
     //La clase hace un alta, bajas, modificaciones y busquedas de subtitulos en una pelicula o serie

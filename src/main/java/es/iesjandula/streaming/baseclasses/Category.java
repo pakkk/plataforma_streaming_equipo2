@@ -1,4 +1,4 @@
-package clasesbase;
+package es.iesjandula.streaming.baseclasses;
 public class Category {
     // This class is responsible for loading category data and storing it in an array
     // Attributes 
