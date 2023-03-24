@@ -1,6 +1,6 @@
 package streaming;
 import clasesbase.Actores;
-import clasesbase.Categorias;
+import clasesbase.Category;
 import clasesbase.Directores;
 import clasesbase.Recomendacion;
 import clasesbase.Subtitulos;
@@ -27,7 +27,7 @@ public class Audiovisual{
 	   private int vecesVisto;
 	   private Actores act [];
 	   private Directores dic [];
-	   private Categorias cat [];
+	   private Category cat [];
 	   private Subtitulos sub [];
 	   private Recomendacion rec [];
 	   
@@ -116,12 +116,12 @@ public class Audiovisual{
 	    	this.dic = dic;
 	    }
 	    //Getter que devuelve el array de categorias
-	    public Categorias [] getCategorias ()
+	    public Category [] getCategorias ()
 	    {
 	    	return this.cat;
 	    }
 	    //Setter que permite modificar el array de categorias
-	    public void setCategorias(Categorias cat [])
+	    public void setCategorias(Category cat [])
 	    {
 	    	this.cat = cat;
 	    }
