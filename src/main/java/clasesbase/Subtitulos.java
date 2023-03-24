@@ -27,7 +27,7 @@ public class Subtitulos {
     @Override
     public String toString()
     {
-        return "Subtitulos{" + "idiomas=" + idioma + '}';
+        return "Subtitulos{" + "idiomas=" + this.idioma + '}';
     }
 
     

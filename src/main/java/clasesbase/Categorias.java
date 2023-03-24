@@ -53,8 +53,8 @@ public class Categorias {
     @Override
     public String toString() 
     {
-        return "Categoria{" + " Nombre = " + nombre + "\n"
-        		+  "Descripcion = " + descripcion + '}';
+        return "Categoria{" + " Nombre = " + this.nombre + "\n"
+        		+  "Descripcion = " + this.descripcion + '}';
     }
     
     

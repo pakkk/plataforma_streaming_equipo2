@@ -102,11 +102,11 @@ public class Directores {
     public String toString() 
     {
         return "Directores: " +
-                "nombre= " + nombre + '\'' +
-                ", apellido= " + apellido + '\'' +
-                ", sexo= " + gender +
-                ", edad= " + edad +
-                ", premios= " + premios ;
+                "nombre= " + this.nombre + '\'' +
+                ", apellido= " + this.apellido + '\'' +
+                ", sexo= " + this.gender +
+                ", edad= " + this.edad +
+                ", premios= " + this.premios ;
     }
 	
 

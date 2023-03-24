@@ -46,6 +46,6 @@ public class Recomendacion {
     @Override
     public String toString() 
     {
-        return "Valoracion " + valoracion+ " comentario " + comentarios ;
+        return "Valoracion " + this.valoracion+ " comentario " + this.comentarios ;
     }
 }
