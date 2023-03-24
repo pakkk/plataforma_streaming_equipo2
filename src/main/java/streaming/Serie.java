@@ -5,9 +5,9 @@ public class Serie extends Audiovisual{
 	
 	//Constructor
 	//This constructor comes from the audiovisual class
-	public Serie(String title, String OriginalLanguage,String AdaptedLanguage[], int duration, int views) 
+	public Serie(String title, String originalLanguage,String adaptedLanguage[], int duration, int views) 
 	{
-		super(title, OriginalLanguage,AdaptedLanguage, duration, views);
+		super(title, originalLanguage,adaptedLanguage, duration, views);
 	}
 	//Methods extends of audiovisual class, so no need to enter here
 	
