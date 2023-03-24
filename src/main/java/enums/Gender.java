@@ -1,5 +1,5 @@
 package enums;
 
-public enum Sexo {
+public enum Gender {
 	HOMBRE,MUJER,OTRO;
 }
