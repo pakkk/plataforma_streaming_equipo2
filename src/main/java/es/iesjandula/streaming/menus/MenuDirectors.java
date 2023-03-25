@@ -1,4 +1,4 @@
-package ies.jandula.streaming.menus;
+package es.iesjandula.streaming.menus;
 
 import java.util.Arrays;
 
