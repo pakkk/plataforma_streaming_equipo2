@@ -1,4 +1,4 @@
-package menus;
+package ies.jandula.streaming.menus;
 import java.util.Arrays;
 
 import es.iesjandula.streaming.baseclasses.Subtitles;

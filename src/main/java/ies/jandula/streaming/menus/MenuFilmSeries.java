@@ -1,4 +1,4 @@
-package menus;
+package ies.jandula.streaming.menus;
 import java.util.Arrays;
 import streaming.Serie;
 import streaming.Film;
@@ -7,7 +7,7 @@ public class MenuFilmSeries {
 	
 	//This method is responsible for registering a film with the attributes that is passed by parametro
 	//This method returns the modified array
-	public Film [] addFilm(Film movie[],String title,String originalLanguage,String adaptedLanguage[],int duration, int views)
+	public Film []  addFilm(Film movie[],String title,String originalLanguage,String adaptedLanguage[],int duration, int views)
 	{
 		movie = Arrays.copyOf(movie, movie.length+1);
 		movie[movie.length-1] = new Film (title,originalLanguage,adaptedLanguage,duration,views);
@@ -312,204 +312,213 @@ public class MenuFilmSeries {
 		return other;
 	}
 	//This method is in charge of modifying a duration attribute of an array by another one.
-		//This method returns the modified array.
-		public Serie [] SeriesModificationForDuration(Serie other[],int duration,int newDuration)
-		{
-			//This for finds the duration attribute of a series and modifies it by the other one 
-			for(int i = 0;i<other.length;i++)
-			{
-				if(duration==other[i].getDuration())
-				{
-					System.out.println("Series to modify "+other[i]);
-					other[i].setDuration(newDuration);
-					System.out.println("Series modified "+other[i]);
-				}
-			}
-			return other;
-		}
-		//This method is in charge of modifying an attribute of a series by another one other
-		//This method returns the modified array
-		public Serie [] SeriesModificationForViewedTimes(Serie other[],int timesViewed,int otherViewedTimes)
-		{
-			//This for looks for the times viewed attribute of a series and modifies it by other 
-			for(int i = 0;i<other.length;i++)
-			{
-				if(timesViewed==other[i].getViews())
-				{
-					System.out.println("Series to modify "+other[i]);
-					other[i].setViews(otherViewedTimes);
-					System.out.println("Series modified "+other[i]);
-				}
-			}
-			return other;
-	}
-	//Este metodo se encarga de buscar las peliculas en funcion de su titulo y los muestra
-	public void PeliculaBusquedaPorTitulo(Pelicula other [],String titulo)
+	//This method returns the modified array.
+	public Serie [] SeriesModificationForDuration(Serie other[],int duration,int newDuration)
 	{
-		//Este for recorre el array y muestra las peliculas que conetngan el titulo introducido
-		//En caso de que no lo encuentre se avisara al usuario
-		boolean encontrado = false;
+		//This for finds the duration attribute of a series and modifies it by the other one 
 		for(int i = 0;i<other.length;i++)
 		{
-			if(titulo.equalsIgnoreCase(other[i].getTitulo()))
+			if(duration==other[i].getDuration())
 			{
-				System.out.println("Pelicula encontrada "+other[i]);
-				encontrado=true;
+				System.out.println("Series to modify "+other[i]);
+				other[i].setDuration(newDuration);
+				System.out.println("Series modified "+other[i]);
 			}
 		}
-		if(encontrado==false)
-			System.out.println("El titulo "+titulo+" no se encuentra en ninguna pelicula");
+		return other;
 	}
-	//Este metodo se encarga de buscar las peliculas en funcion de su idioma original y los muestra
-	public void PeliculaBusquedaPorIdiomaOriginal(Pelicula other [],String idiomaOriginal)
+	//This method is in charge of modifying an attribute of a series by another one other
+	//This method returns the modified array
+	public Serie [] SeriesModificationForViewedTimes(Serie other[],int timesViewed,int otherViewedTimes)
 	{
-		//Este for recorre el array y muestra las peliculas que conetngan el idioma original introducido
-		//En caso de que no lo encuentre se avisara al usuario
-		boolean encontrado = false;
+		//This for looks for the times viewed attribute of a series and modifies it by other 
 		for(int i = 0;i<other.length;i++)
 		{
-			if(idiomaOriginal.equalsIgnoreCase(other[i].getIdiomaOriginal()))
+			if(timesViewed==other[i].getViews())
 			{
-				System.out.println("Pelicula encontrada "+other[i]);
-				encontrado=true;
+				System.out.println("Series to modify "+other[i]);
+				other[i].setViews(otherViewedTimes);
+				System.out.println("Series modified "+other[i]);
 			}
 		}
-		if(encontrado==false)
-			System.out.println("El idioma original "+idiomaOriginal+" no se encuentra en ninguna pelicula");
-	}
-	//Este metodo se encarga de buscar las peliculas en funcion de su idioma adaptado y los muestra
-	public void PeliculaBusquedaPorIdiomaAdaptado(Pelicula other[],String idiomaAdaptado[])
+		return other;
+}
+	// This method is responsible for searching for Films by their title and displaying them
+	public void FilmsSearchByTitle(Film other[], String title) 
 	{
-		//This for takes care of tour the array and show the movies that contain the adapted language introduced 
-		boolean encontrado = false;
-		for(int i = 0;i<other.length;i++)
+	// This for loop iterates over the array and displays the Films that contain the
+	// entered title. If it is not found, the user will be notified.
+		boolean found = false;
+		for(int i = 0; i < other.length; i++) 
 		{
-			if(idiomaAdaptado.equals(other[i].getIdiomaAdaptado()))
+			if(title.equalsIgnoreCase(other[i].getTitle())) 
 			{
-				System.out.println("Pelicula encontrada "+other[i]);
-				encontrado = true;
+			System.out.println("Film found " + other[i]);
+			found = true;
 			}
 		}
-		if(encontrado==false)
-			System.out.println("El idioma adaptado "+Arrays.toString(idiomaAdaptado)+" no ose encuentra en ninguna pelicula");
+		if(!found)
+			System.out.println("The title " + title + " is not found in any Film");
 	}
-	//Este metodo se encarga de buscar las peliculas en funcion de su duracion y los muestra
-	public void PeliculaBusquedaPorDuracion(Pelicula other [],int duracion)
+
+	// This method is responsible for searching for Films by their original language and displaying them
+	public void FilmsSearchByOriginalLanguage(Film other[], String originalLanguage) 
 	{
-		//Este for recorre el array y muestra las peliculas que conetngan la duracion introducido
-		//En caso de que no lo encuentre se avisara al usuario
-		boolean encontrado = false;
-		for(int i = 0;i<other.length;i++)
+		// This for loop iterates over the array and displays the Films that contain the 
+		// entered original language. If it is not found, the user will be notified.
+		boolean found = false;
+		for(int i = 0; i < other.length; i++)
 		{
-			if(duracion==other[i].getDuracion())
+			if(originalLanguage.equalsIgnoreCase(other[i].getOriginalLanguage())) 
 			{
-				System.out.println("Pelicula encontrada "+other[i]);
-				encontrado=true;
+				System.out.println("Film found " + other[i]);
+				found = true;
 			}
 		}
-		if(encontrado==false)
-			System.out.println("La duracion "+duracion+" no se encuentra en ninguna pelicula");
+		if(!found)
+			System.out.println("The original language " + originalLanguage + " is not found in any Film");
 	}
-	//Este metodo se encarga de buscar las peliculas que contengan un numero de visitas y los muestra
-	public void PeliculaBusquedaPorVecesVisto(Pelicula other [],int vecesVisto)
+
+	// This method is responsible for searching for Films by their adapted language and displaying them
+	public void FilmsSearchByAdaptedLanguage(Film other[], String adaptedLanguage[]) 
 	{
-		//Este for recorre el array y muestra las peliculas que conetngan el numero de visitas introducido
-		//En caso de que no lo encuentre se avisara al usuario
-		boolean encontrado = false;
-		for(int i = 0;i<other.length;i++)
+		// This for loop iterates over the array and displays the Films that contain the 
+		// entered adapted language. If it is not found, the user will be notified.
+		boolean found = false;
+		for(int i = 0; i < other.length; i++) 
 		{
-			if(vecesVisto==other[i].getVecesVisto())
+			if(Arrays.equals(adaptedLanguage, other[i].getAdaptedLanguages())) 
 			{
-				System.out.println("Pelicula encontrada "+other[i]);
-				encontrado=true;
+				System.out.println("Film found " + other[i]);
+				found = true;
 			}
 		}
-		if(encontrado==false)
-			System.out.println("Las visitas "+vecesVisto+" no se encuentra en ninguna pelicula");
+		if(!found)
+			System.out.println("The adapted language " + Arrays.toString(adaptedLanguage) + " is not found in any Film");
 	}
+
+	// This method is responsible for searching for Films by their duration and displaying them
+	public void FilmsSearchByDuration(Film other[], int duration) 
+	{
+		// This for loop iterates over the array and displays the Films that contain the 
+		// entered duration. If it is not found, the user will be notified.
+		boolean found = false;
+		for(int i = 0; i < other.length; i++) 
+		{
+			if(duration == other[i].getDuration()) 
+			{
+				System.out.println("Film found " + other[i]);
+				found = true;
+			}
+		}
+		if(!found)
+			System.out.println("The duration " + duration + " is not found in any Film");
+	}
+
+	// This method is responsible for searching for Films that contain a number of views and displaying them
+	public void FilmsSearchByViews(Film other[], int views) 
+	{
+		// This for loop iterates over the array and displays the Films that contain the 
+		// entered number of views. If it is not found, the user will be notified.
+		boolean found = false;
+		for(int i = 0; i < other.length; i++) 
+		{
+			if(views == other[i].getViews()) 
+			{
+				System.out.println("Film found " + other[i]);
+				found = true;
+			}
+		}
+		if(!found)
+			System.out.println("The views " + views + " is not found in any Film");
+	}
+		
 	//Este metodo se encarga de buscar las series que contengan un titulo y las muestras
-	public void SerieBusquedaPorTitulo(Serie other [],String titulo)
+	public void searchSeriesByTitle(Serie other[], String title) 
 	{
-		//Este for recorre el array y muestra las series que contengan el titulo introducido
-		//En caso de que no lo encuentre se avisara al usuario 
-		boolean encontrado = false;
-		for(int i = 0;i<other.length;i++)
+		// This for loop iterates through the array and displays the series that contain the entered title
+		// If not found, the user will be notified
+		boolean found = false;
+		for(int i = 0; i < other.length; i++) 
 		{
-			if(titulo.equalsIgnoreCase(other[i].getTitulo()))
+			if(title.equalsIgnoreCase(other[i].getTitle())) 
 			{
-				System.out.println("Serie encontrada "+other[i]);
-				encontrado = true;
+				System.out.println("Series found: " + other[i]);
+				found = true;
 			}
 		}
-		if(encontrado==false)
-			System.out.println("La serie con titulo "+titulo+" no se ha encontrado");
+		if(!found)
+			System.out.println("The series with title " + title + " was not found.");
 	}
-	//Este metodo se encarga de buscar las series que contengan un idioma original y las muestras
-	public void SerieBusquedaPorIdiomaOriginal(Serie other [],String idiomaOriginal)
-	{
-		//Este for recorre el array y muestra las series que contengan el idioma original introducido
-		//En caso de que no lo encuentre se avisara al usuario 
-		boolean encontrado = false;
-		for(int i = 0;i<other.length;i++)
+
+	// This method takes care of searching for series that contain an original language and displays them
+	public void searchSeriesByOriginalLanguage(Serie other[], String originalLanguage) {
+		// This for loop iterates through the array and displays the series that contain the entered original language
+		// If not found, the user will be notified
+		boolean found = false;
+		for(int i = 0; i < other.length; i++) 
 		{
-			if(idiomaOriginal.equalsIgnoreCase(other[i].getIdiomaOriginal()))
+			if(originalLanguage.equalsIgnoreCase(other[i].getOriginalLanguage())) 
 			{
-				System.out.println("Serie encontrada "+other[i]);
-				encontrado = true;
+				System.out.println("Series found: " + other[i]);
+				found = true;
 			}
 		}
-		if(encontrado==false)
-			System.out.println("La serie con idioma original "+idiomaOriginal+" no se ha encontrado");
+		if(!found)
+			System.out.println("The series with original language " + originalLanguage + " was not found.");
 	}
-	//This method takes care of search the movies that contains the adapted language and show it
-	public void SerieBusquedaPorIdiomaAdaptado(Serie other[],String idiomaAdaptado[])
+
+	// This method takes care of searching for series that contain an adapted language and displays them
+	public void searchSeriesByAdaptedLanguage(Serie other[], String adaptedLanguage[]) 
 	{
-		//This for takes care of tour the array and show the series that contains the adapted language introduced
-		boolean encontrado = true;
-		for(int i = 0;i<other.length;i++)
+		// This for loop iterates through the array and displays the series that contain the entered adapted language
+		boolean found = false;
+		for(int i = 0; i < other.length; i++) 
 		{
-			if(idiomaAdaptado.equals(other[i].getIdiomaAdaptado()))
+			if(Arrays.equals(adaptedLanguage, other[i].getAdaptedLanguages())) 
 			{
-				System.out.println("Serie encontrada "+other[i]);
-				encontrado = true;
+				System.out.println("Series found: " + other[i]);
+				found = true;
 			}
 		}
-		if(encontrado==false)
-			System.out.println("La serie con el idioma adaptado "+Arrays.toString(idiomaAdaptado)+" no se encuentra");
+		if(!found)
+			System.out.println("The series with adapted language " + Arrays.toString(adaptedLanguage) + " was not found.");
 	}
-	//Este metodo se encarga de buscar las series que contengan una duracion y las muestras
-	public void SerieBusquedaPorDuracion(Serie other [],int duracion)
+
+	// This method takes care of searching for series that contain a duration and displays them
+	public void searchSeriesByDuration(Serie other[], int duration) 
 	{
-		//Este for recorre el array y muestra las series que contengan la duracion introducido
-		//En caso de que no lo encuentre se avisara al usuario 
-		boolean encontrado = false;
-		for(int i = 0;i<other.length;i++)
+		// This for loop iterates through the array and displays the series that contain the entered duration
+		// If not found, the user will be notified
+		boolean found = false;
+		for(int i = 0; i < other.length; i++) 
 		{
-			if(duracion==other[i].getDuracion())
+			if(duration == other[i].getDuration()) 
 			{
-				System.out.println("Serie encontrada "+other[i]);
-				encontrado = true;
+				System.out.println("Series found: " + other[i]);
+				found = true;
 			}
 		}
-		if(encontrado==false)
-			System.out.println("La serie con duracion "+duracion+" no se ha encontrado");
+		if(!found)
+			System.out.println("The series with duration " + duration + " was not found.");
 	}
-	//Este metodo se encarga de buscar las series que contengan un numero de visitas y las muestras
-	public void SerieBusquedaPorVecesVisto(Serie other [],int vecesVisto)
+
+	// This method takes care of searching for series that contain a number of views and displays them
+	public void searchSeriesByViews(Serie other[], int views) 
 	{
-		//Este for recorre el array y muestra las series que contengan un numero de visitas introducido
-		//En caso de que no lo encuentre se avisara al usuario 
-		boolean encontrado = false;
-		for(int i = 0;i<other.length;i++)
+		// This for loop iterates through the array and displays the series that contain the entered number of views
+		// If not found, the user will be notified
+		boolean found = false;
+		for(int i = 0; i < other.length; i++) 
 		{
-			if(vecesVisto==other[i].getVecesVisto())
+			if(views == other[i].getViews()) 
 			{
-				System.out.println("Serie encontrada "+other[i]);
-				encontrado = true;
+				System.out.println("Series found: " + other[i]);
+				found = true;
 			}
 		}
-		if(encontrado==false)
-			System.out.println("La serie con visitas "+vecesVisto+" no se ha encontrado");
-		}
+		if(!found)
+			System.out.println("The series with " + views + " views was not found.");
+	}
 						
 }

@@ -1,4 +1,4 @@
-package menus;
+package ies.jandula.streaming.menus;
 
 import enums.Gender;
 import es.iesjandula.streaming.baseclasses.Actors;
