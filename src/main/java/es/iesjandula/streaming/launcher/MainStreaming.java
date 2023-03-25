@@ -5,6 +5,7 @@ public class MainStreaming {
 	{
 		Launcher launch = new Launcher();
 		launch.startStreaming();
+	
 	}
 
 	
