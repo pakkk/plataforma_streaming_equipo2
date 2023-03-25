@@ -1,7 +1,8 @@
 package ies.jandula.streaming.menus;
 import java.util.Arrays;
-import streaming.Serie;
-import streaming.Film;
+
+import es.iesjandula.streaming.streaming.Film;
+import es.iesjandula.streaming.streaming.Serie;
 public class MenuFilmSeries {
 	//This class is responsible for high, low, modifications and searches of films or series
 	

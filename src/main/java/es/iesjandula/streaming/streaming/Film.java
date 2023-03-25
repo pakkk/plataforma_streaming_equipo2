@@ -1,4 +1,4 @@
-package streaming;
+package es.iesjandula.streaming.streaming;
 
 public class Film extends Audiovisual {
     //Class that stores audiovisual data after loading it into an array

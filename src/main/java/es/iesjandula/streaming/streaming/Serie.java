@@ -1,4 +1,4 @@
-package streaming;
+package es.iesjandula.streaming.streaming;
 
 public class Serie extends Audiovisual{
 	//This Class takes care of save data of audiovisual to load the data in one array 

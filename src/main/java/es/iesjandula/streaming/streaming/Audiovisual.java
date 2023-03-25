@@ -1,4 +1,4 @@
-package streaming;
+package es.iesjandula.streaming.streaming;
 import java.util.Arrays;
 
 
