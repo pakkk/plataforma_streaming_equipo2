@@ -2,8 +2,8 @@ package ies.jandula.streaming.menus;
 
 import java.util.Arrays;
 
-import enums.Gender;
 import es.iesjandula.streaming.baseclasses.Directors;
+import es.iesjandula.streaming.enums.Gender;
 
 public class MenuDirectors 
 {

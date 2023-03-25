@@ -2,8 +2,8 @@ package ies.jandula.streaming.menus;
 
 import java.util.Arrays;
 
-import enums.RatingType;
 import es.iesjandula.streaming.baseclasses.Recommendation;
+import es.iesjandula.streaming.enums.RatingType;
 
 public class MenuRecommendations {
 	// Class that manages the methods for adding, deleting, querying, and searching Recommendations

@@ -1,7 +1,7 @@
 package ies.jandula.streaming.menus;
 
-import enums.Gender;
 import es.iesjandula.streaming.baseclasses.Actors;
+import es.iesjandula.streaming.enums.Gender;
 
 import java.util.Arrays;
 

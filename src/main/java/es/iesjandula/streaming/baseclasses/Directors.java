@@ -1,5 +1,5 @@
 package es.iesjandula.streaming.baseclasses;
-import enums.Gender;
+import es.iesjandula.streaming.enums.Gender;
 
 public class Directors {
 	//This class is responsible for loading the data of the directors and storing it in an array

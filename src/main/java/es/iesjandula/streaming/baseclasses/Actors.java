@@ -1,5 +1,5 @@
 package es.iesjandula.streaming.baseclasses;
-import enums.Gender;
+import es.iesjandula.streaming.enums.Gender;
 
 public class Actors{
 	//This class is responsible for loading actor data and storing it in an array

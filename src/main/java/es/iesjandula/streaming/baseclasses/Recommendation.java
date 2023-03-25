@@ -1,5 +1,5 @@
 package es.iesjandula.streaming.baseclasses;
-import enums.RatingType;
+import es.iesjandula.streaming.enums.RatingType;
 
 public class Recommendation {
     // This class is responsible for loading recommendation data and storing it in an array
