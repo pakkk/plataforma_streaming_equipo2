@@ -175,7 +175,7 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
 			}
 			if(originalLanguage.isEmpty())
 			{
-				originalLanguage = "English";
+				this.originalLanguage = "English";
 			}
 			if(views<0)
 			{
@@ -185,6 +185,6 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
 		@Override
 		public String toString()
 		{
-			return "name "+title+" lasts "+duration+" minutes "+" its original language is "+originalLanguage+ "adapted languages are " + Arrays.toString(adaptedLanguage) + "and has been seen" + views;
+			return "name "+this.title+" lasts "+this.duration+" minutes "+" its original language is "+this.originalLanguage+ " adapted languages are " + Arrays.toString(this.adaptedLanguage) + " and has been seen " + this.views;
 		}
 	}
