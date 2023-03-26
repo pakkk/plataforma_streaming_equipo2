@@ -4,7 +4,7 @@ import es.iesjandula.streaming.baseclasses.Category;
 import es.iesjandula.streaming.streaming.*;
 
 public class genderStast{
-	
+	//this class takes care of show series and films that have many genders
 	public void infoGenderSerie(Serie arraySerie[])
 	{
 		Category category[];
