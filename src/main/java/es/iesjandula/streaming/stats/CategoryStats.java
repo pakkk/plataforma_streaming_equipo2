@@ -11,7 +11,7 @@ public class CategoryStats {
 	// This class take care of count of categories there are.
 	
 	
-	//Thi method count the how many categories there are in the series
+	//This method count the how many categories there are in the series
 	public void numCategorySeries(Serie[] seriesCategory)
     {
         int sum = 0;
