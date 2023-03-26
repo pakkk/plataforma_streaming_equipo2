@@ -3,10 +3,10 @@ package es.iesjandula.streaming.stats;
 import es.iesjandula.streaming.baseclasses.Category;
 import es.iesjandula.streaming.streaming.*;
 
-public class genderStast{
-	//this class takes care of show series and films that have many genders
+public class GenderStast{
+	//This class takes care of show series and films that have many genders
 	
-	//this method show the series that have two or more genders
+	//This method show the series that have two or more genders
 	public void infoGenderSerie(Serie arraySerie[])
 	{
 		Category category[];
@@ -20,6 +20,7 @@ public class genderStast{
 		}
 		
 	}
+	//This method show the films that have two or more genders 
 	public void infoGenderFilm(Film arrayFilm[])
 	{
 		Category category[];
