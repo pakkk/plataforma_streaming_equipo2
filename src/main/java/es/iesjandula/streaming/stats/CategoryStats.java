@@ -10,6 +10,8 @@ import es.iesjandula.streaming.streaming.Serie;
 public class CategoryStats {
 	// This class take care of count of categories there are.
 	
+	
+	//Thi method count the how many categories there are in the series
 	public void numCategorySeries(Serie[] seriesCategory)
     {
         int sum = 0;
@@ -54,7 +56,7 @@ public class CategoryStats {
         
         System.out.println("There are "+ sum +" Category in our system.");
     }
-    //This method shows many the Category of the series
+    //This method shows how many the Category of the series
     public void showCategorySeries(Serie[] seriesCategory)
     {
         Category[] arrayCategory;
@@ -64,7 +66,7 @@ public class CategoryStats {
             System.out.println(Arrays.toString(arrayCategory));
         }
     }
-    //This method shows the num of categories of the  films
+    //This method shows how many categories are in the films
     public void showCategoryFilms(Film[] filmsCategory)
     {
         Category[] arrayCategory;
