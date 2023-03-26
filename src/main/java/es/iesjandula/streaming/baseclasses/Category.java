@@ -44,7 +44,7 @@ public class Category {
             this.name = "Unnamed";
         }
         if (decription.isEmpty()) {
-            decription = "No description";
+            this.decription = "No description";
         }
     }
 
