@@ -4,7 +4,7 @@ import es.iesjandula.streaming.enums.RatingType;
 public class Recommendation {
     // This class is responsible for loading recommendation data and storing it in an array
     // Attributes
-    // Attribute RatingType valoracion: An enum attribute that defines the type of recommendation (Positive and negative)
+    // Attribute RatingType rating: An enum attribute that defines the type of recommendation (Positive and negative)
     // Attribute String comment: An attribute that defines the recommendation comment, if not entered by default it is without comment
     private RatingType rating;
     private String comment;
