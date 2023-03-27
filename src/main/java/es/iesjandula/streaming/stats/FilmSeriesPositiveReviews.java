@@ -1,10 +1,8 @@
 package es.iesjandula.streaming.stats;
-
 import es.iesjandula.streaming.baseclasses.Recommendation;
 import es.iesjandula.streaming.enums.RatingType;
 import es.iesjandula.streaming.streaming.Film;
 import es.iesjandula.streaming.streaming.Serie;
-
 public class FilmSeriesPositiveReviews {
 	//This class shows the series and films with positive reviews
 	
