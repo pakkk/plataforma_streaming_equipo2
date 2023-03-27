@@ -3,7 +3,7 @@ import es.iesjandula.streaming.streaming.*;
 import es.iesjandula.streaming.baseclasses.Recommendation;
 import es.iesjandula.streaming.enums.RatingType;
 public class FilmSeriesNegativeReviews {
-	//This class shows the series and films with bad ratting
+	//This class shows the series and films with bad rating
 	
     //This method shows the series that have negative reviews
     public void infoSeriesNegativeReviews(Serie[] seriesNegativeReviews)
