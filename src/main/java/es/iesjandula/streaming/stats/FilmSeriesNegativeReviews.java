@@ -6,11 +6,6 @@ package es.iesjandula.streaming.stats;
 import es.iesjandula.streaming.streaming.*;
 import es.iesjandula.streaming.baseclasses.Recommendation;
 import es.iesjandula.streaming.enums.RatingType;
-import java.util.Arrays;
-/**
- *
- * @author alexc
- */
 public class FilmSeriesNegativeReviews {
     //This method shows the series that have negative reviews
     public void infoSeriesNegativeReviews(Serie[] seriesNegativeReviews)
