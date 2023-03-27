@@ -6,7 +6,7 @@ import es.iesjandula.streaming.streaming.Serie;
 public class MenuFilmSeries {
 	//This class is responsible for high, low, modifications and searches of films or series
 	
-	//This method is responsible for registering a film with the attributes that is passed by parametro
+	//This method is responsible for registering a film with the attributes that is passed by param
 	//This method returns the modified array
 	public Film []  addFilm(Film movie[],String title,String originalLanguage,String adaptedLanguage[],int duration, int views)
 	{
@@ -15,7 +15,7 @@ public class MenuFilmSeries {
 		return movie;
 	}
 	
-	//This method is responsible for registering a film with the attributes that is passed by parametro
+	//This method is responsible for registering a film with the attributes that is passed by param
 	//This method returns the modified array
 	public Serie [] addSerie(Serie serie[],String title,String originalLanguage,String adaptedLanguage[], int duration, int views)
 	{
@@ -107,7 +107,7 @@ public class MenuFilmSeries {
 		}
 		return movie;
 	}
-	//This method is in charge of deregistering a series by its title.
+	//This method is responsible of removing a serie by his title
 	//This method returns the modified array.
 	public Serie [] SeriesDropByTitle(Serie other[],String title)
 	{
@@ -123,7 +123,7 @@ public class MenuFilmSeries {
 		}
 		return other;
 	}
-	//This method is responsible for deregistering an array by its original language.
+	//This method is responsible of removing a serie by his original language .
 	//This method returns the modified array.
 	public Serie [] SeriesDropByOriginalLanguage(Serie other[],String originalLanguage)
 	{
@@ -139,7 +139,7 @@ public class MenuFilmSeries {
 		}
 		return other;
 	}
-	//This method is responsible for deregistering an array by its adapted language.
+	//This method is responsible of delete a serie an array by its adapted language.
 	//This method returns the modified array
 	public Serie[] SeriesDropByAdaptedLanguage(Serie other[],String adaptedLanguage[])
 	{
@@ -152,7 +152,7 @@ public class MenuFilmSeries {
 		}
 		return other;
 	}
-	//This method is in charge of deregistering a series for its duration.
+	//This method is in charge of delete a serie for its duration.
 	//This method returns the modified array
 	public Serie [] SeriesDownDuration(Serie other[],int duration)
 	{
@@ -168,7 +168,7 @@ public class MenuFilmSeries {
 		}
 		return other;
 	}
-	//This method is responsible for deregistering an array by its title.
+	//This method is responsible for  delete a serie  by its title.
 	//This method returns the modified array
 	public Serie [] SeriesDownViewTimesView(Serie other[],int timesViewed)
 	{
@@ -434,7 +434,7 @@ public class MenuFilmSeries {
 			System.out.println("The views " + views + " is not found in any Film");
 	}
 		
-	//Este metodo se encarga de buscar las series que contengan un titulo y las muestras
+	//This method is responsible of search a serie by his title
 	public void searchSeriesByTitle(Serie other[], String title) 
 	{
 		// This for loop iterates through the array and displays the series that contain the entered title
