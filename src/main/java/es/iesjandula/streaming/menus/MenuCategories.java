@@ -92,7 +92,7 @@ public class MenuCategories
 		 */
 		for(int i = 0; i < categoryArray.length; i++) 
 		{
-			if(description.equalsIgnoreCase(categoryArray[i].getName())) 
+			if(description.equalsIgnoreCase(categoryArray[i].getDescription())) 
 			{
 				System.out.println("Description "+ description +" modified to " + newDescription);
 				categoryArray[i].setName(newDescription);
