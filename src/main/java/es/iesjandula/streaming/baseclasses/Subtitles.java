@@ -7,7 +7,7 @@ public class Subtitles {
 	private String language;
 	
 	// Constructor
-	// Constructor that sets the value of the language attribute
+	// Constructor that sets he value of the language attribute
     public Subtitles(String language)
     {
         this.language = language;
