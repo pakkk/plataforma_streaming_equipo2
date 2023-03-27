@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package es.iesjandula.streaming.stats;
 import es.iesjandula.streaming.streaming.*;
 import es.iesjandula.streaming.baseclasses.Recommendation;
 import es.iesjandula.streaming.enums.RatingType;
 public class FilmSeriesNegativeReviews {
+	//This class shows the series and films with bad ratting
+	
     //This method shows the series that have negative reviews
     public void infoSeriesNegativeReviews(Serie[] seriesNegativeReviews)
     {

@@ -6,6 +6,8 @@ import es.iesjandula.streaming.streaming.Film;
 import es.iesjandula.streaming.streaming.Serie;
 
 public class FilmSeriesPositiveReviews {
+	//This class shows the series and films with positive reviews
+	
     //This method shows the series that have positive reviews
     public void infoSeriesGoodRecommendation(Serie[] seriesGoodRecommendation)
     {
