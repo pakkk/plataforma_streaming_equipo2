@@ -26,7 +26,7 @@ public class FilmSeriesPositiveReviews {
         }
     }
     //This method shows the films that have positive reviews
-    public void infoFilmsActors(Film[] filmsGoodRecommendation)
+    public void infoFilmsGoodRecommendation(Film[] filmsGoodRecommendation)
     {
         Recommendation[] arrayRecommendation;
         RatingType rate;
