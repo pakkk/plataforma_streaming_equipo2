@@ -7,13 +7,13 @@ public class Category {
      * String attribute "decription": defines the description of the category
      */
     private String name;
-    private String decription;
+    private String description;
 
     // Constructor
-    // This constructor sets the values of the "name" and "decription" attributes
-    public Category(String name, String decription) {
+    // This constructor sets the values of the "name" and "description" attributes
+    public Category(String name, String description) {
         this.name = name;
-        this.decription = decription;
+        this.description = description;
         fixAttributes();
     }
 
@@ -29,13 +29,13 @@ public class Category {
     }
 
     // Getter that returns the value of the category description
-    public String getDecription() {
-        return this.decription;
+    public String getDescription() {
+        return this.description;
     }
 
     // Setter that allows modifying the value of the category description
-    public void setDecription(String decription) {
-        this.decription = decription;
+    public void setDescription(String decription) {
+        this.description = decription;
     }
 
     // This method sets default values for attributes that are not provided
@@ -43,8 +43,8 @@ public class Category {
         if (name.isEmpty()) {
             this.name = "Unnamed";
         }
-        if (decription.isEmpty()) {
-            this.decription = "No description";
+        if (description.isEmpty()) {
+            this.description = "No description";
         }
     }
 
@@ -52,6 +52,6 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" + " Name = " + this.name + "\n"
-                + "Description = " + this.decription + '}';
+                + "Description = " + this.description + '}';
     }
 }
