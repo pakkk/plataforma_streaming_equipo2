@@ -6,45 +6,40 @@ package es.iesjandula.streaming.stats;
 import es.iesjandula.streaming.streaming.*;
 import es.iesjandula.streaming.baseclasses.Recommendation;
 import es.iesjandula.streaming.enums.RatingType;
-import java.util.Arrays;
-/**
- *
- * @author alexc
- */
 public class FilmSeriesNegativeReviews {
     //This method shows the series that have negative reviews
-    public void infoSeriesActors(Serie[] seriesActors)
+    public void infoSeriesNegativeReviews(Serie[] seriesNegativeReviews)
     {
         Recommendation[] arrayRecommendation;
         RatingType rate; 
-        for(int i = 0; i < seriesActors.length; i++)
+        for(int i = 0; i < seriesNegativeReviews.length; i++)
         {
-            arrayRecommendation = seriesActors[i].getRecommendation();
+            arrayRecommendation = seriesNegativeReviews[i].getRecommendation();
             for(int j = 0; j < arrayRecommendation.length; j++)
             {
                 rate = arrayRecommendation[j].getRating();
                 if(rate.equals(RatingType.NEGATIVE))
                 {
-                    System.out.println(seriesActors[i]);
+                    System.out.println(seriesNegativeReviews[i]);
                     break;
                 }
             }
         }
     }
     //This method shows the films that have negative reviews
-    public void infoFilmsActors(Film[] filmsActors)
+    public void infoFilmsNegativeReviews(Film[] filmsNegativeReviews)
     {
         Recommendation[] arrayRecommendation;
         RatingType rate; 
-        for(int i = 0; i < filmsActors.length; i++)
+        for(int i = 0; i < filmsNegativeReviews.length; i++)
         {
-            arrayRecommendation = filmsActors[i].getRecommendation();
+            arrayRecommendation = filmsNegativeReviews[i].getRecommendation();
             for(int j = 0; j < arrayRecommendation.length; j++)
             {
                 rate = arrayRecommendation[j].getRating();
                 if(rate.equals(RatingType.NEGATIVE))
                 {
-                    System.out.println(filmsActors[i]);
+                    System.out.println(filmsNegativeReviews[i]);
                     break;
                 }
             }
