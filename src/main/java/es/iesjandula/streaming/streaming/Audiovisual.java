@@ -21,7 +21,7 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
 		 * Attribute int views: Defines how many times the audiovisual has been watched
 		 * Attribute Actors Actors[]: Array that stores objects of Actors
 		 * Attribute Directors dir[]: Array that stores objects of directors
-		 * Attribute categoryegories category[]: Array that stores objects of categoryegories
+		 * Attribute categories category[]: Array that stores objects of categories
 		 * Attribute Subtitles subtitles[]: Array that stores objects of Subtitles
 		 * Attribute Recommendations rec[]: Array that stores objects of recommendations
 		 */
@@ -147,7 +147,7 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
 	    {
 	    	return this.subtitles;
 	    }
-	    //Setter to modify the subtitlestitle array
+	    //Setter to modify the subtitles array
 	    public void setSubtitles(Subtitles subtitles [])
 	    {
 	    	this.subtitles = subtitles;
@@ -182,6 +182,7 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
 				this.views = 0;
 			}
 		}
+		//To string to show the value of the Class attribute
 		@Override
 		public String toString()
 		{
