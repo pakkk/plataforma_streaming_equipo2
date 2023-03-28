@@ -55,7 +55,7 @@ public class MenuActors {
      * @param lastName
      * @return 
      */
-    public Actors[] removeActorsBylastName(Actors[] other, String lastName) 
+    public Actors[] removeActorsByLastName(Actors[] other, String lastName) 
     {
         for(int i = 0; i < other.length; i++) 
         {

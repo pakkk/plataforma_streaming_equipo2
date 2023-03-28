@@ -7,10 +7,16 @@ import es.iesjandula.streaming.enums.RatingType;
 
 public class MenuRecommendations {
 	/**Class that manages the methods for adding, deleting, querying, and searching Recommendations*/
-
+        
+        /**
+         * This method adds a recommendation for a movie or TV show, passing its attributes as parameters, and returns the modified array
+         * @param array
+         * @param rate
+         * @param comment
+         * @return 
+         */
 	public Recommendation[] recommendationPeliculasAltas(Recommendation array[], RatingType rate, String comment) 
 	{
-		/**This method adds a recommendation for a movie or TV show, passing its attributes as parameters, and returns the modified array*/
 		array = Arrays.copyOf(array, array.length + 1);
 		array[array.length - 1] = new Recommendation(rate, comment);
 		return array;
