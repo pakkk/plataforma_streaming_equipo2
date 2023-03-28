@@ -11,14 +11,14 @@ public class SubtitleStats {
      */
     public void countSubtitlesSerie (Serie arraySerie[])
     {
-            int sum = 0;
-            Subtitles subtitle[];
-            for(int i = 0;i<arraySerie.length;i++)
-            {
-                    subtitle = arraySerie[i].getSubtitles();
-                    sum+=subtitle.length;
-            }
-            System.out.println("There are "+sum+" subtitles in the serie");
+        int sum = 0;
+        Subtitles subtitle[];
+        for(int i = 0;i<arraySerie.length;i++)
+        {
+            subtitle = arraySerie[i].getSubtitles();
+            sum+=subtitle.length;
+        }
+        System.out.println("There are "+sum+" subtitles in the serie");
     }
     
     /**
@@ -27,14 +27,14 @@ public class SubtitleStats {
      */
     public void countSubtitlesFilm (Film arrayFilm[])
     {
-            int sum = 0;
-            Subtitles subtitle[];
-            for(int i = 0;i<arrayFilm.length;i++)
-            {
-                    subtitle = arrayFilm[i].getSubtitles();
-                    sum+=subtitle.length;
-            }
-            System.out.println("There are "+sum+" subtitles in the film");
+        int sum = 0;
+        Subtitles subtitle[];
+        for(int i = 0;i<arrayFilm.length;i++)
+        {
+            subtitle = arrayFilm[i].getSubtitles();
+            sum+=subtitle.length;
+        }
+        System.out.println("There are "+sum+" subtitles in the film");
     }
     
     /**
@@ -44,20 +44,20 @@ public class SubtitleStats {
      */
     public void countAllSubtitles(Serie arraySerie[],Film arrayFilm[])
     {
-            int sum = 0;
-            Subtitles subtitle[];
-            for(int i = 0;i<arraySerie.length;i++)
-            {
-                    subtitle = arraySerie[i].getSubtitles();
-                    sum+=subtitle.length;
-            }
+        int sum = 0;
+        Subtitles subtitle[];
+        for(int i = 0;i<arraySerie.length;i++)
+        {
+            subtitle = arraySerie[i].getSubtitles();
+            sum+=subtitle.length;
+        }
 
-            for(int i = 0;i<arrayFilm.length;i++)
-            {
-                    subtitle = arrayFilm[i].getSubtitles();
-                    sum+=subtitle.length;
-            }
-            System.out.println("There are "+sum+" subtitles in our systems");
+        for(int i = 0;i<arrayFilm.length;i++)
+        {
+            subtitle = arrayFilm[i].getSubtitles();
+            sum+=subtitle.length;
+        }
+        System.out.println("There are "+sum+" subtitles in our systems");
     }
      
     /**
@@ -66,12 +66,12 @@ public class SubtitleStats {
      */
     public void showSubtitlesSerie(Serie arraySerie[])
     {
-            Subtitles subtitle[];
-            for(Serie serie:arraySerie)
-            {
-                    subtitle = serie.getSubtitles();
-                    System.out.println(Arrays.toString(subtitle));
-            }
+        Subtitles subtitle[];
+        for(Serie serie:arraySerie)
+        {
+            subtitle = serie.getSubtitles();
+            System.out.println(Arrays.toString(subtitle));
+        }
     }
  
     /**
@@ -80,12 +80,12 @@ public class SubtitleStats {
      */
     public void showSubtitlesFilm(Film arrayFilm[])
     {
-            Subtitles subtitle[];
-            for(Film film:arrayFilm)
-            {
-                    subtitle = film.getSubtitles();
-                    System.out.println(Arrays.toString(subtitle));
-            }
+	    Subtitles subtitle[];
+	    for(Film film:arrayFilm)
+	    {
+	        subtitle = film.getSubtitles();
+	        System.out.println(Arrays.toString(subtitle));
+	    }
     }
     
     /**
@@ -94,13 +94,15 @@ public class SubtitleStats {
      */
     public void infoFilmSubtitles(Film arrayFilm[])
     {
-            Subtitles subtitle[];
-            for(Film film:arrayFilm)
+        Subtitles subtitle[];
+        for(Film film:arrayFilm)
+        {
+            subtitle = film.getSubtitles();
+            if(subtitle.length>=2)
             {
-                    subtitle = film.getSubtitles();
-                    if(subtitle.length>=2)
-                            System.out.println(Arrays.toString(subtitle));
+            	System.out.println(film);
             }
+        }
     }
     
     /**
@@ -109,13 +111,15 @@ public class SubtitleStats {
      */
     public void infoSerieSubtitles(Serie arraySerie[])
     {
-            Subtitles subtitle[];
-            for(Serie serie:arraySerie)
+        Subtitles subtitle[];
+        for(Serie serie:arraySerie)
+        {
+            subtitle = serie.getSubtitles();
+            if(subtitle.length>=2)
             {
-                    subtitle = serie.getSubtitles();
-                    if(subtitle.length>=2)
-                            System.out.println(Arrays.toString(subtitle));
+                    System.out.println(serie);
             }
+        }
     }
 	
 	
