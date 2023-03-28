@@ -21,6 +21,7 @@ public class Launcher{
 	private Serie serie[] = new Serie[0];
 	private Actors actor[];
 	private Directors director[];
+        private Category category[];
 	
 	/**Attributes of films and serie
 	 *
@@ -51,10 +52,10 @@ public class Launcher{
 	 * Gender gender: Represent the gender of the actor of director
 	 *   
 	 */
-	private String name,lastName,awards;
+	private String name,lastName,awards,description;
 	private int age;
 	private Gender gender;
-	private String newName,newLastGame,newAwards;
+	private String newName,newLastGame,newAwards,newDescription;
 	private int newAge;
 	private Gender newGender;
 	//Menu instance 
@@ -2588,12 +2589,371 @@ public class Launcher{
 								break;
 								}							case "3":
 								System.out.println("You choose menu of categories, select one option: \n"
-										+ "1.-Add a categorie \n"
-										+ "2.-Delete a categorie \n"
-										+ "3.-Modify a categorie \n"
-										+ "4.-Search a categorie \n"
+										+ "1.-Add a category \n"
+										+ "2.-Delete a category \n"
+										+ "3.-Modify a category \n"
+										+ "4.-Search a category \n"
 										+ "5.-Back");
-								
+								option = this.scanner.next();
+                                                                if(option.equals("1"))
+                                                                {
+                                                                        this.name = this.scanner.nextLine();
+                                                                        System.out.println("Select a name");
+                                                                        this.name = this.scanner.nextLine();
+                                                                        System.out.println("Select a description");
+                                                                        this.description = this.scanner.nextLine();
+                                                                        option = this.scanner.next();
+                                                                        System.out.println("Where do you save your category (serie/film)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                        {
+                                                                                System.out.println("Error choose again (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("serie"))
+                                                                        {
+                                                                                this.statsFS.countSeries(this.serie);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your serie");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Serie serie:this.serie)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                        {
+                                                                                                this.category = serie.getCategory();
+                                                                                                this.category = this.menuCat.addCategory(this.category, this.name, this.description);
+                                                                                                serie.setCategory(this.category);
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                this.statsFS.countFilms(this.film);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your film");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Film film:this.film)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                        {
+                                                                                                this.category = film.getCategory();
+                                                                                                this.category = this.menuCat.addCategory(this.category, this.name, this.description);
+                                                                                                film.setCategory(this.category);
+                                                                                        }
+                                                                                }
+                                                                        }
+
+                                                                }
+                                                                else if(option.equals("2"))
+                                                                {
+                                                                        System.out.println("You choose delete a Category by its attributes, choose one: \n"
+                                                                                        + "1.-Name \n"
+                                                                                        + "2.-Description \n");
+                                                                        option = this.scanner.next();
+                                                                        if(option.equalsIgnoreCase("name") || option.equals("1"))
+                                                                        {
+                                                                                this.name = this.scanner.nextLine();
+                                                                                System.out.println("Select a name to search");
+                                                                                this.name = this.scanner.next();
+                                                                                System.out.println("where do you remove the category (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                                while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                                {
+                                                                                        System.out.println("Error choose again (serie/film)");
+                                                                                        option = this.scanner.next();
+                                                                                }
+                                                                                if(option.equalsIgnoreCase("serie"))
+                                                                                {
+                                                                                        this.statsFS.countSeries(this.serie);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your serie");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Serie serie:this.serie)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                                {
+                                                                                                        this.category = serie.getCategory();
+                                                                                                        this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
+                                                                                                        serie.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                        this.statsFS.countFilms(this.film);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your film");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Film film:this.film)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                                {
+                                                                                                        this.category = film.getCategory();
+                                                                                                        this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
+                                                                                                        film.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+
+                                                                        }
+                                                                        else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("Description") || option.equals("2"))
+                                                                        {
+                                                                                this.description = this.scanner.nextLine();
+                                                                                System.out.println("Select the description to search");
+                                                                                this.description = this.scanner.nextLine();
+                                                                                System.out.println("were do you remove the description (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                                while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                                {
+                                                                                        System.out.println("Error choose again (serie/film)");
+                                                                                        option = this.scanner.next();
+                                                                                }
+                                                                                if(option.equalsIgnoreCase("serie"))
+                                                                                {
+                                                                                        this.statsFS.countSeries(this.serie);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your serie");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Serie serie:this.serie)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                                {
+                                                                                                        this.category = serie.getCategory();
+                                                                                                        this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
+                                                                                                        serie.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                        this.statsFS.countFilms(this.film);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your film");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Film film:this.film)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                                {
+                                                                                                        this.category = film.getCategory();
+                                                                                                        this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
+                                                                                                        film.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                System.out.println("Error selecting option");
+                                                                        }
+                                                                }
+                                                                else if(option.equals("3"))
+                                                                {
+                                                                        System.out.println("You choose modify a attribute of a category, choose one option: \n "
+                                                                                        + "1.-Name \n"
+                                                                                        + "2.-Description \n");
+                                                                        option = this.scanner.next();
+                                                                        if(option.equalsIgnoreCase("name") || option.equals("1"))
+                                                                        {
+                                                                                this.name = this.scanner.nextLine();
+                                                                                System.out.println("Select a name to search");
+                                                                                this.name = this.scanner.nextLine();
+                                                                                System.out.println("Select the new name");
+                                                                                this.newName = this.scanner.nextLine();
+                                                                                System.out.println("Were do you modify the category (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                                while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                                {
+                                                                                        System.out.println("Error choose again (serie/film)");
+                                                                                        option = this.scanner.next();
+                                                                                }
+                                                                                if(option.equalsIgnoreCase("serie"))
+                                                                                {
+                                                                                        this.statsFS.countSeries(this.serie);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your serie");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Serie serie:this.serie)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                                {
+                                                                                                        this.category = serie.getCategory();
+                                                                                                        this.category = this.menuCat.modifyCategoryByName(this.category, this.name, this.newName);
+                                                                                                        serie.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                        this.statsFS.countFilms(this.film);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your film");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Film film:this.film)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                                {
+                                                                                                        this.category = film.getCategory();
+                                                                                                        this.category = this.menuCat.modifyCategoryByName(this.category, this.name, this.newName);
+                                                                                                        film.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+
+                                                                        }
+                                                                        else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("Description") || option.equals("2"))
+                                                                        {
+                                                                                this.description = this.scanner.nextLine();
+                                                                                System.out.println("Select the description to search");
+                                                                                this.description = this.scanner.nextLine();
+                                                                                System.out.println("Select the new description");
+                                                                                this.newDescription = this.scanner.nextLine();
+                                                                                System.out.println("were do you modify the category (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                                while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                                {
+                                                                                        System.out.println("Error choose again (serie/film)");
+                                                                                        option = this.scanner.next();
+                                                                                }
+                                                                                if(option.equalsIgnoreCase("serie"))
+                                                                                {
+                                                                                        this.statsFS.countSeries(this.serie);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your serie");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Serie serie:this.serie)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                                {
+                                                                                                        this.category = serie.getCategory();
+                                                                                                        this.category = this.menuCat.modifyCategoryByDescription(this.category, this.description, this.newDescription);
+                                                                                                        serie.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                        this.statsFS.countFilms(this.film);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your film");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Film film:this.film)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                                {
+                                                                                                        this.category = film.getCategory();
+                                                                                                        this.category = this.menuCat.modifyCategoryByDescription(this.category, this.description, this.newDescription);
+                                                                                                        film.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                System.out.println("Error selecting option");
+                                                                        }
+                                                                }
+                                                                else if(option.equals("4"))
+                                                                {
+                                                                        System.out.println("You choose delete a category by his attributes, choose one: \n"
+                                                                                        + "1.-Name \n"
+                                                                                        + "2.-Description \n");
+                                                                        option = this.scanner.next();
+                                                                        if(option.equalsIgnoreCase("name") || option.equals("1"))
+                                                                        {
+                                                                                this.name = this.scanner.nextLine();
+                                                                                System.out.println("Select a name to search");
+                                                                                this.name = this.scanner.next();
+                                                                                System.out.println("where do you search the category (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                                while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                                {
+                                                                                        System.out.println("Error choose again (serie/film)");
+                                                                                        option = this.scanner.next();
+                                                                                }
+                                                                                if(option.equalsIgnoreCase("serie"))
+                                                                                {
+                                                                                        this.statsFS.countSeries(this.serie);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your serie");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Serie serie:this.serie)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                                {
+                                                                                                    this.category = serie.getCategory();
+                                                                                                    this.menuCat.searchCategoryByName(this.category, this.name);
+                                                                                                    serie.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                        this.statsFS.countFilms(this.film);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your film");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Film film:this.film)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                                {
+                                                                                                    this.category = film.getCategory();
+                                                                                                    this.menuCat.searchCategoryByName(this.category, this.name);
+                                                                                                    film.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+
+                                                                        }
+                                                                        else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("Description") || option.equals("2"))
+                                                                        {
+                                                                                this.lastName = this.scanner.nextLine();
+                                                                                System.out.println("Select the description to search");
+                                                                                this.lastName = this.scanner.nextLine();
+                                                                                System.out.println("were do you search the category (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                                while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                                {
+                                                                                        System.out.println("Error choose again (serie/film)");
+                                                                                        option = this.scanner.next();
+                                                                                }
+                                                                                if(option.equalsIgnoreCase("serie"))
+                                                                                {
+                                                                                        this.statsFS.countSeries(this.serie);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your serie");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Serie serie:this.serie)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                                {
+                                                                                                    this.category = serie.getCategory();
+                                                                                                    this.menuCat.searchCategoryByDescription(this.category, this.description);
+                                                                                                    serie.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                        this.statsFS.countFilms(this.film);
+                                                                                        this.title= this.scanner.nextLine();
+                                                                                        System.out.println("Select the title of your film");
+                                                                                        this.title = this.scanner.nextLine();
+                                                                                        for(Film film:this.film)
+                                                                                        {
+                                                                                                if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                                {
+                                                                                                    this.category = film.getCategory();
+                                                                                                    this.menuCat.searchCategoryByDescription(this.category, this.description);
+                                                                                                    film.setCategory(this.category);
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                System.out.println("Error selecting option");
+                                                                        }
+                                                                }
 								break;
 								
 							case "4":
