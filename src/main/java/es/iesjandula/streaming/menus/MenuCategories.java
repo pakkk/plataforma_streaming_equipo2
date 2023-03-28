@@ -52,7 +52,7 @@ public class MenuCategories
 		 */
 		for(int i=0; i<categoryArray.length; i++)
 		{
-			if(description.equalsIgnoreCase(categoryArray[i].getDecription())) 
+			if(description.equalsIgnoreCase(categoryArray[i].getDescription())) 
 			{
 				System.out.println("Attributes deleted " + categoryArray[i]);
 				System.arraycopy(categoryArray, i+1, categoryArray, i, categoryArray.length-i-1);
@@ -135,10 +135,10 @@ public class MenuCategories
 		boolean found = false;
 			for(int i = 0; i < categoryArray.length; i++) 
 			{
-				if(description.equalsIgnoreCase(categoryArray[i].getDecription())) 
+				if(description.equalsIgnoreCase(categoryArray[i].getDescription())) 
 				{
-				System.out.println(categoryArray[i]);
-				found = true;
+					System.out.println(categoryArray[i]);
+					found = true;
 				}
 			}
 		if (!found) 
