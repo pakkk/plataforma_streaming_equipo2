@@ -150,10 +150,10 @@ public class MenuRecommendations {
 				System.out.println("Recommendation found " + array[i]);
 				encontrado = true;
 			}
-			if (encontrado == true)
-			{
-				System.out.println("The rating " + rate + " could not be found.");
-			}
+		}
+		if (!encontrado)
+		{
+			System.out.println("The rating " + rate + " could not be found.");
 		}
 		
 	}
