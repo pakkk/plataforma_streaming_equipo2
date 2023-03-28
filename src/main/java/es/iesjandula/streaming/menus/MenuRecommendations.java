@@ -15,7 +15,7 @@ public class MenuRecommendations {
          * @param comment
          * @return 
          */
-	public Recommendation[] recommendationPeliculasAltas(Recommendation array[], RatingType rate, String comment) 
+	public Recommendation[] addRecommendation(Recommendation array[], RatingType rate, String comment) 
 	{
 		array = Arrays.copyOf(array, array.length + 1);
 		array[array.length - 1] = new Recommendation(rate, comment);
@@ -51,7 +51,7 @@ public class MenuRecommendations {
          * @param rate
          * @return 
          */
-	public Recommendation[] recommendationBajasPorrate(Recommendation array[], RatingType rate)
+	public Recommendation[] recommendationDeleteByRate(Recommendation array[], RatingType rate)
 	{
 		/** This for loop searches the array of recommendations for recommendations that contain the same rating to delete it*/
 		for (int i = 0; i < array.length; i++)
@@ -73,7 +73,7 @@ public class MenuRecommendations {
          * @param arraycomment
          * @return 
          */
-	public Recommendation[] recommendationModificacionPorcomment(Recommendation array[], String comment, String arraycomment) 
+	public Recommendation[] recommendationModifyByComment(Recommendation array[], String comment, String arraycomment) 
 	{
 		/**This loop iterates through the recommendations array and searches for recommendations that contain the old comment to replace it with the new one*/
 		for (int i = 0; i < array.length; i++) 
@@ -96,7 +96,7 @@ public class MenuRecommendations {
          * @param nuevarate
          * @return 
          */
-	public Recommendation[] recommendationesModificacionPorrate(Recommendation array[], RatingType rate, RatingType nuevarate) 
+	public Recommendation[] recommendationModifyByRate(Recommendation array[], RatingType rate, RatingType nuevarate) 
 	{
 		/**This loop iterates through the recommendations array and searches for recommendations that contain the old rating to replace it with the new one*/
 		for (int i = 0; i < array.length; i++) 
@@ -116,7 +116,7 @@ public class MenuRecommendations {
          * @param array
          * @param comment 
          */
-	public void recommendationesBusquedaPorcomment(Recommendation array[], String comment)
+	public void recommendationSearchByComment(Recommendation array[], String comment)
 	{
 		/**This loop iterates through the recommendations array and searches for recommendations that contain the comment to search for. If it is not found, the user will be notified*/
 		boolean encontrado = false;
@@ -128,7 +128,9 @@ public class MenuRecommendations {
 				encontrado = true;
 			}
 			if (encontrado == true)
+			{
 				System.out.println("The comment " + comment + " could not be found.");
+			}
 		}
 	}
         
@@ -137,7 +139,7 @@ public class MenuRecommendations {
          * @param array
          * @param rate 
          */
-	public void recommendationesBusquedaPorrate(Recommendation array[], RatingType rate) 
+	public void recommendationSearchByRate(Recommendation array[], RatingType rate) 
 	{
 		/**This loop iterates through the recommendations array and searches for recommendations that contain the rating to search for. If it is not found, the user will be notified*/
 		boolean encontrado = false;
@@ -149,7 +151,9 @@ public class MenuRecommendations {
 				encontrado = true;
 			}
 			if (encontrado == true)
+			{
 				System.out.println("The rating " + rate + " could not be found.");
+			}
 		}
 		
 	}
