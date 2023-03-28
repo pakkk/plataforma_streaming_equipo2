@@ -45,7 +45,7 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
 			this.adaptedLanguage = adaptedLanguages;
 			this.duration = duration;
 			this.views = views;
-			CorrectAttributes();
+			correctAttributes();
 		}
 		
 		//Getters and Setters
@@ -163,21 +163,21 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
 	    	this.recommendation = recommendation;
 	    }
 	    //Default method to set attributes that have been left empty
-		private void CorrectAttributes()
+		private void correctAttributes()
 		{
-			if(title.isEmpty())
+			if(this.title.isEmpty())
 			{
 				this.title = "Untitled";
 			}
-			if(duration<=0)
+			if(this.duration<=0)
 			{
 				this.duration = 60;
 			}
-			if(originalLanguage.isEmpty())
+			if(this.originalLanguage.isEmpty())
 			{
 				this.originalLanguage = "English";
 			}
-			if(views<0)
+			if(this.views<0)
 			{
 				this.views = 0;
 			}
