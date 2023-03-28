@@ -22,6 +22,7 @@ public class Launcher{
 	private Actors actor[];
 	private Directors director[];
         private Category category[];
+        private Recommendation recommendation[];
 	
 	/**Attributes of films and serie
 	 *
@@ -52,10 +53,12 @@ public class Launcher{
 	 * Gender gender: Represent the gender of the actor of director
 	 *   
 	 */
-	private String name,lastName,awards,description;
+	private String name,lastName,awards,description, comment;
 	private int age;
 	private Gender gender;
-	private String newName,newLastGame,newAwards,newDescription;
+	private String newName,newLastGame,newAwards,newDescription, newComment;
+        private RatingType rate;
+        private RatingType newRate;
 	private int newAge;
 	private Gender newGender;
 	//Menu instance 
@@ -2956,15 +2959,435 @@ public class Launcher{
                                 }
 								break;
 								
-							case "4":
-								System.out.println("You choose menu of recommendation, select one option: \n"
-										+ "1.-Add a recommendation \n"
-										+ "2.-Delete a recommendation \n"
-										+ "3.-Modify a recommendation \n"
-										+ "4.-Search a recommendation \n"
-										+ "5.-Back");
-								
-								break;
+                                                case "4":
+                                                        System.out.println("You choose menu of recommendation, select one option: \n"
+                                                                        + "1.-Add a recommendation \n"
+                                                                        + "2.-Delete a recommendation \n"
+                                                                        + "3.-Modify a recommendation \n"
+                                                                        + "4.-Search a recommendation \n"
+                                                                        + "5.-Back");
+                                                        option = this.scanner.next();
+                                                        if(option.equals("1"))
+                                                        {
+                                                                System.out.println("Select a rating (bad/good)");
+                                                                option = this.scanner.next();
+                                                                while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
+                                                                {
+                                                                    System.out.println("Error selecting a rate, choose again (bad/good)");
+                                                                    option = this.scanner.next();
+                                                                }
+                                                                if(option.equalsIgnoreCase("good"))
+                                                                {
+                                                                    this.rate = RatingType.POSITIVE;
+                                                                }
+                                                                else
+                                                                {
+                                                                    this.rate = RatingType.NEGATIVE;
+                                                                }
+                                                                this.comment = this.scanner.nextLine();
+                                                                System.out.println("Select a comment ");
+                                                                this.comment = this.scanner.nextLine();
+                                                                System.out.println("Where do you save your recommendation (serie/film)");
+                                                                option = this.scanner.next();
+                                                                while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                {
+                                                                        System.out.println("Error choose again (serie/film)");
+                                                                        option = this.scanner.next();
+                                                                }
+                                                                if(option.equalsIgnoreCase("serie"))
+                                                                {
+                                                                        this.statsFS.countSeries(this.serie);
+                                                                        this.title= this.scanner.nextLine();
+                                                                        System.out.println("Select the title of your serie");
+                                                                        this.title = this.scanner.nextLine();
+                                                                        for(Serie serie:this.serie)
+                                                                        {
+                                                                                if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                {
+                                                                                        this.recommendation = serie.getRecommendation();
+                                                                                        this.recommendation = this.menuRec.addRecommendation(this.recommendation, this.rate, this.comment);
+                                                                                        serie.setRecommendation(this.recommendation);
+                                                                                }
+                                                                        }
+                                                                }
+                                                                else
+                                                                {
+                                                                        this.statsFS.countFilms(this.film);
+                                                                        this.title= this.scanner.nextLine();
+                                                                        System.out.println("Select the title of your film");
+                                                                        this.title = this.scanner.nextLine();
+                                                                        for(Film film:this.film)
+                                                                        {
+                                                                                if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                {
+                                                                                        this.recommendation = film.getRecommendation();
+                                                                                        this.recommendation = this.menuRec.addRecommendation(this.recommendation, this.rate, this.comment);
+                                                                                        film.setRecommendation(this.recommendation);
+                                                                                }
+                                                                        }
+                                                                }
+
+                                                        }
+                                                        else if(option.equals("2"))
+                                                        {
+                                                                System.out.println("You choose delete a recommendation by its attributes, choose one: \n"
+                                                                                + "1.-Rating \n"
+                                                                                + "2.-Comment \n");
+                                                                option = this.scanner.next();
+                                                                if(option.equalsIgnoreCase("Rating") || option.equals("1"))
+                                                                {
+                                                                        System.out.println("Select a rating (bad/good)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
+                                                                        {
+                                                                            System.out.println("Error selecting a rate, choose again (bad/good)");
+                                                                            option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("good"))
+                                                                        {
+                                                                            this.rate = RatingType.POSITIVE;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            this.rate = RatingType.NEGATIVE;
+                                                                        }
+                                                                        System.out.println("where do you remove the recommendation (serie/film)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                        {
+                                                                                System.out.println("Error choose again (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("serie"))
+                                                                        {
+                                                                                this.statsFS.countSeries(this.serie);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your serie");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Serie serie:this.serie)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = serie.getRecommendation();
+                                                                                            this.recommendation = this.menuRec.recommendationDeleteByRate(this.recommendation, this.rate);
+                                                                                            serie.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                this.statsFS.countFilms(this.film);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your film");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Film film:this.film)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = film.getRecommendation();
+                                                                                            this.recommendation = this.menuRec.recommendationDeleteByRate(this.recommendation, this.rate);
+                                                                                            film.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+
+                                                                }
+                                                                else if(option.equalsIgnoreCase("Comment") || option.equalsIgnoreCase("Comment") || option.equals("2"))
+                                                                {
+                                                                        this.comment = this.scanner.nextLine();
+                                                                        System.out.println("Select the comment to search");
+                                                                        this.comment = this.scanner.nextLine();
+                                                                        System.out.println("were do you remove the description (serie/film)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                        {
+                                                                                System.out.println("Error choose again (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("serie"))
+                                                                        {
+                                                                                this.statsFS.countSeries(this.serie);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your serie");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Serie serie:this.serie)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = serie.getRecommendation();
+                                                                                            this.recommendation = this.menuRec.recommendationDeleteByComment(this.recommendation, this.comment);
+                                                                                            serie.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                this.statsFS.countFilms(this.film);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your film");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Film film:this.film)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = film.getRecommendation();
+                                                                                            this.recommendation = this.menuRec.recommendationDeleteByComment(this.recommendation, this.comment);
+                                                                                            film.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                }
+                                                                else
+                                                                {
+                                                                        System.out.println("Error selecting option");
+                                                                }
+                                                        }
+                                                        else if(option.equals("3"))
+                                                        {
+                                                                System.out.println("You choose modify an attribute of a category, choose one option: \n "
+                                                                                + "1.-Rating \n"
+                                                                                + "2.-Comment \n");
+                                                                option = this.scanner.next();
+                                                                if(option.equalsIgnoreCase("Rating") || option.equals("1"))
+                                                                {
+                                                                        System.out.println("Select a rating to search (bad/good)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
+                                                                        {
+                                                                            System.out.println("Error selecting a rate, choose again (bad/good)");
+                                                                            option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("good"))
+                                                                        {
+                                                                            this.rate = RatingType.POSITIVE;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            this.rate = RatingType.NEGATIVE;
+                                                                        }
+                                                                        System.out.println("Select a new rate (bad/good)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
+                                                                        {
+                                                                            System.out.println("Error selecting a rate, choose again (bad/good)");
+                                                                            option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("good"))
+                                                                        {
+                                                                            this.newRate = RatingType.POSITIVE;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            this.newRate = RatingType.NEGATIVE;
+                                                                        }
+                                                                        System.out.println("Where do you modify the recommendation (serie/film)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                        {
+                                                                                System.out.println("Error choose again (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("serie"))
+                                                                        {
+                                                                                this.statsFS.countSeries(this.serie);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your serie");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Serie serie:this.serie)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = serie.getRecommendation();
+                                                                                            this.recommendation = this.menuRec.recommendationModifyByRate(this.recommendation, this.rate, this.newRate);
+                                                                                            serie.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                this.statsFS.countFilms(this.film);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your film");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Film film:this.film)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = film.getRecommendation();
+                                                                                            this.recommendation = this.menuRec.recommendationModifyByRate(this.recommendation, this.rate, this.newRate);
+                                                                                            film.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+
+                                                                }
+                                                                else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("Description") || option.equals("2"))
+                                                                {
+                                                                        this.comment = this.scanner.nextLine();
+                                                                        System.out.println("Select the comment to search");
+                                                                        this.comment = this.scanner.nextLine();
+                                                                        System.out.println("Select the new comment");
+                                                                        this.newComment = this.scanner.nextLine();
+                                                                        System.out.println("were do you modify the category (serie/film)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                        {
+                                                                                System.out.println("Error choose again (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("serie"))
+                                                                        {
+                                                                                this.statsFS.countSeries(this.serie);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your serie");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Serie serie:this.serie)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = serie.getRecommendation();
+                                                                                            this.recommendation = this.menuRec.recommendationModifyByComment(this.recommendation, this.comment, this.newComment);
+                                                                                            serie.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                this.statsFS.countFilms(this.film);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your film");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Film film:this.film)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = film.getRecommendation();
+                                                                                            this.recommendation = this.menuRec.recommendationModifyByComment(this.recommendation, this.comment, this.newComment);
+                                                                                            film.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                }
+                                                                else
+                                                                {
+                                                                        System.out.println("Error selecting option");
+                                                                }
+                                                        }
+                                                        else if(option.equals("4"))
+                                                        {
+                                                                System.out.println("You choose search a recommendation by his attributes, choose one: \n"
+                                                                                + "1.-Rating \n"
+                                                                                + "2.-Comment \n");
+                                                                option = this.scanner.next();
+                                                                if(option.equalsIgnoreCase("Rating") || option.equals("1"))
+                                                                {
+                                                                        System.out.println("Select a rate to search (bad/good)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
+                                                                        {
+                                                                            System.out.println("Error selecting a rate, choose again (bad/good)");
+                                                                            option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("good"))
+                                                                        {
+                                                                            this.rate = RatingType.POSITIVE;
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            this.rate = RatingType.NEGATIVE;
+                                                                        }
+                                                                        System.out.println("where do you search the recommendation (serie/film)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                        {
+                                                                                System.out.println("Error choose again (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("serie"))
+                                                                        {
+                                                                                this.statsFS.countSeries(this.serie);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your serie");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Serie serie:this.serie)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = serie.getRecommendation();
+                                                                                            this.menuRec.recommendationSearchByRate(this.recommendation, this.rate);
+                                                                                            serie.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                this.statsFS.countFilms(this.film);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your film");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Film film:this.film)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = film.getRecommendation();
+                                                                                            this.menuRec.recommendationSearchByRate(this.recommendation, this.rate);
+                                                                                            film.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+
+                                                                }
+                                                                else if(option.equalsIgnoreCase("Comment") || option.equalsIgnoreCase("Comment") || option.equals("2"))
+                                                                {
+                                                                        this.comment = this.scanner.nextLine();
+                                                                        System.out.println("Select the description to search");
+                                                                        this.comment = this.scanner.nextLine();
+                                                                        System.out.println("were do you search the category (serie/film)");
+                                                                        option = this.scanner.next();
+                                                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                                                        {
+                                                                                System.out.println("Error choose again (serie/film)");
+                                                                                option = this.scanner.next();
+                                                                        }
+                                                                        if(option.equalsIgnoreCase("serie"))
+                                                                        {
+                                                                                this.statsFS.countSeries(this.serie);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your serie");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Serie serie:this.serie)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = serie.getRecommendation();
+                                                                                            this.menuRec.recommendationSearchByComment(this.recommendation, this.comment);
+                                                                                            serie.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                                this.statsFS.countFilms(this.film);
+                                                                                this.title= this.scanner.nextLine();
+                                                                                System.out.println("Select the title of your film");
+                                                                                this.title = this.scanner.nextLine();
+                                                                                for(Film film:this.film)
+                                                                                {
+                                                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                                                        {
+                                                                                            this.recommendation = film.getRecommendation();
+                                                                                            this.menuRec.recommendationSearchByComment(this.recommendation, this.comment);
+                                                                                            film.setRecommendation(this.recommendation);
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                }
+                                                                else
+                                                                {
+                                                                        System.out.println("Error selecting option");
+                                                                }
+                                                        }
+                                                        break;
 								
 							case "5":
 								System.out.println("You choose menu of subtitles, select one option: \n"
