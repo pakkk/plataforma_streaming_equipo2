@@ -248,12 +248,11 @@ public class MenuActors {
             {   
                 System.out.println("name found: " + other[i]);
                 found = true;
-            }
-            
-            if(found == false)
-            {
-                System.out.println("The name " + other[i] + " has not been found.");
-            }
+            }                    
+        }
+        if(found == false)
+        {
+            System.out.println("The name " + name + " has not been found.");
         }
     }
 
@@ -271,12 +270,11 @@ public class MenuActors {
             {   
                 System.out.println("lastName found: " + other[i]);
                 found = true;
-            }
-            
-            if(found == false)
-            {
-                System.out.println("The lastName " + other[i] + " has not been found.");
-            }
+            }              
+        }
+        if(found == false)
+        {
+            System.out.println("The lastName " + lastName + " has not been found.");
         }
     }
 
@@ -295,11 +293,11 @@ public class MenuActors {
                 System.out.println("Gender found: " + other[i]);
                 found = true;
             }
-            
-            if(found == false)
-            {
-                System.out.println("The Gender " + other[i] + " has not been found.");
-            }
+                       
+        }
+        if(found == false)
+        {
+            System.out.println("The Gender " + gender + " has not been found.");
         }
     }
 
@@ -318,11 +316,10 @@ public class MenuActors {
                 System.out.println("Age found: " + other[i]);
                 found = true;
             }
-            
-            if(found == false)
-            {
-                System.out.println("The age " + other[i] + " has not been found.");
-            }
+        }
+        if(found == false)
+        {
+            System.out.println("The age " + age + " has not been found.");
         }
     }
 
@@ -342,10 +339,10 @@ public class MenuActors {
                 found = true;
             }
             
-            if(found == false)
-            {
-                System.out.println("The award " + other[i] + " has not been found.");
-            }
+        }
+        if(found == false)
+        {
+            System.out.println("The award " + awards + " has not been found.");
         }
     }
     
