@@ -3,9 +3,12 @@ import es.iesjandula.streaming.streaming.*;
 import es.iesjandula.streaming.baseclasses.Recommendation;
 import es.iesjandula.streaming.enums.RatingType;
 public class FilmSeriesNegativeReviews {
-	//This class shows the series and films with bad rating
+    /**This class shows the series and films with bad rating*/
 	
-    //This method shows the series that have negative reviews
+    /**
+     * This method shows the series that have negative reviews
+     * @param seriesNegativeReviews 
+     */
     public void infoSeriesNegativeReviews(Serie[] seriesNegativeReviews)
     {
         Recommendation[] arrayRecommendation;
@@ -24,7 +27,11 @@ public class FilmSeriesNegativeReviews {
             }
         }
     }
-    //This method shows the films that have negative reviews
+
+    /**
+     * This method shows the films that have negative reviews
+     * @param filmsNegativeReviews 
+     */
     public void infoFilmsNegativeReviews(Film[] filmsNegativeReviews)
     {
         Recommendation[] arrayRecommendation;

@@ -11,9 +11,12 @@ import java.util.Arrays;
  * @author alexc
  */
 public class ActorStats {
-    //This class takes care of count and show how many Actors there are in the films or series
-    
-    //This method counts how many Actors there are in the series
+    /**This class takes care of count and show how many Actors there are in the films or series*/
+  
+    /**
+    * This method counts how many Actors there are in the series
+    * @param seriesActors 
+    */
     public void numActorsSeries(Serie[] seriesActors)
     {
         int sum = 0;
@@ -26,7 +29,11 @@ public class ActorStats {
         
         System.out.println("There are "+ sum +" actors in the series.");
     }
-    //This method counts how many Actors there are in the films
+
+    /**
+     * This method counts how many Actors there are in the films
+     * @param filmActors 
+     */
     public void numActorsFilms(Film[] filmActors)
     {
         int sum = 0;
@@ -39,7 +46,12 @@ public class ActorStats {
         
         System.out.println("There are "+ sum +" actors in the films.");
     }
-    //This method counts how many Actors there are in total
+    
+    /**
+     * This method counts how many Actors there are in total
+     * @param seriesActors
+     * @param filmActors 
+     */
     public void allActors(Serie[] seriesActors, Film[] filmActors)
     {
         int sum = 0;
@@ -58,7 +70,11 @@ public class ActorStats {
         
         System.out.println("There are "+ sum +" actors in our system.");
     }
-    //This method shows many the Actors of the series
+    
+    /**
+     * This method shows many the Actors of the series
+     * @param seriesActors 
+     */
     public void showActorsSeries(Serie[] seriesActors)
     {
         Actors[] arrayActors;
@@ -68,7 +84,11 @@ public class ActorStats {
             System.out.println(Arrays.toString(arrayActors));
         }
     }
-    //This method shows many the Actors of the films
+    
+    /**
+     * This method shows many the Actors of the films
+     * @param filmsActors 
+     */
     public void showActorsFilms(Film[] filmsActors)
     {
         Actors[] arrayActors;
@@ -78,7 +98,11 @@ public class ActorStats {
             System.out.println(Arrays.toString(arrayActors));
         }
     }
-    //This method shows the series that have 2 or more actors working on them
+
+    /**
+     * This method shows the series that have 2 or more actors working on them
+     * @param seriesActors 
+     */
     public void infoSeriesActors(Serie[] seriesActors)
     {
         Actors[] arrayActors;
@@ -91,7 +115,11 @@ public class ActorStats {
             }
         }
     }
-    //This method shows the films that have 2 or more actors working on them
+    
+    /**
+     * This method shows the films that have 2 or more actors working on them
+     * @param filmsActors 
+     */
     public void infoFilmsActors(Film[] filmsActors)
     {
         Actors[] arrayActors;

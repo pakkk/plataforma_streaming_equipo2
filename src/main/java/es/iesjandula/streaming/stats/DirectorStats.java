@@ -7,9 +7,12 @@ import java.util.Arrays;
  * @author jjurval
  */
 public class DirectorStats {
-    //This class takes care of count and show how many Directors there are in the films or series
+    /**This class takes care of count and show how many Directors there are in the films or series*/
     
-    //This method counts how many Directors there are in the series
+    /**
+     * This method counts how many Directors there are in the series
+     * @param seriesDirectors 
+     */
     public void numActorsSeries(Serie[] seriesDirectors)
     {
         int sum = 0;
@@ -22,7 +25,11 @@ public class DirectorStats {
         
         System.out.println("There are "+ sum +" directors in the series.");
     }
-    //This method counts how many Directors there are in the films
+
+    /**
+     * This method counts how many Directors there are in the films
+     * @param filmDirectors 
+     */
     public void numActorsFilms(Film[] filmDirectors)
     {
         int sum = 0;
@@ -35,7 +42,12 @@ public class DirectorStats {
         
         System.out.println("There are "+ sum +" actors in the films.");
     }
-    //This method counts how many Directors there are in total
+
+    /**
+     * This method counts how many Directors there are in total
+     * @param seriesDirectors
+     * @param filmDirectors 
+     */
     public void allDirectors(Serie[] seriesDirectors, Film[] filmDirectors)
     {
         int sum = 0;
@@ -54,7 +66,11 @@ public class DirectorStats {
         
         System.out.println("There are "+ sum +" directors in our system.");
     }
-    //This method shows many the Directors of the series
+
+    /**
+     * This method shows many the Directors of the series
+     * @param seriesDirectors 
+     */
     public void showDirectorsSeries(Serie[] seriesDirectors)
     {
         Directors[] arrayDirectors;
@@ -64,7 +80,11 @@ public class DirectorStats {
             System.out.println(Arrays.toString(arrayDirectors));
         }
     }
-    //This method shows many the Directors of the films
+    
+    /**
+     * This method shows many the Directors of the films
+     * @param filmsDirectors 
+     */
     public void showdirectorsFilms(Film[] filmsDirectors)
     {
         Directors[] arrayDirectors;
@@ -74,7 +94,11 @@ public class DirectorStats {
             System.out.println(Arrays.toString(arrayDirectors));
         }
     }
-    //This method shows the series that have 2 or more directors working on them
+    
+    /**
+     * This method shows the series that have 2 or more directors working on them
+     * @param seriesDirectors 
+     */
     public void infoSeriesDirectors(Serie[] seriesDirectors)
     {
         Directors[] arrayDirectors;
@@ -87,7 +111,11 @@ public class DirectorStats {
             }
         }
     }
-    //This method shows the films that have 2 or more directors working on them
+    
+    /**
+     * This method shows the films that have 2 or more directors working on them
+     * @param filmsDirectors 
+     */
     public void infoFilmsDirectors(Film[] filmsDirectors)
     {
         Directors[] arrayDirectors;
