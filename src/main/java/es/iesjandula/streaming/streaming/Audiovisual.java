@@ -30,10 +30,10 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
 		private String adaptedLanguage[];
 		private int duration;
 		private int views;
-		private Actors actors[];
-		private Directors directors[];
-		private Category category[];
-		private Subtitles subtitles[];
+		private Actors actors[] = new Actors [0];
+		private Directors directors[] = new Directors [0];
+		private Category category[] = new Category [0];
+		private Subtitles subtitles[] = new Subtitles [0];
 		private Recommendation recommendation[];
 		
 		//Constructor
