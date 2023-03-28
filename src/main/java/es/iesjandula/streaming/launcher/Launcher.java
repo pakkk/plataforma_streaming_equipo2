@@ -2621,7 +2621,6 @@ public class Launcher{
                                         this.name = this.scanner.nextLine();
                                         System.out.println("Select a description");
                                         this.description = this.scanner.nextLine();
-                                        option = this.scanner.next();
                                         System.out.println("Where do you save your category (serie/film)");
                                         option = this.scanner.next();
                                         while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
@@ -2631,19 +2630,19 @@ public class Launcher{
                                         }
                                         if(option.equalsIgnoreCase("serie"))
                                         {
-                                                this.statsFS.countSeries(this.serie);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your serie");
-                                                this.title = this.scanner.nextLine();
-                                                for(Serie serie:this.serie)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                                        {
-                                                                this.category = serie.getCategory();
-                                                                this.category = this.menuCat.addCategory(this.category, this.name, this.description);
-                                                                serie.setCategory(this.category);
-                                                        }
-                                                }
+                                            this.statsFS.countSeries(this.serie);
+                                            this.title= this.scanner.nextLine();
+                                            System.out.println("Select the title of your serie");
+                                            this.title = this.scanner.nextLine();
+                                            for(Serie serie:this.serie)
+                                            {
+                                                    if(this.title.equalsIgnoreCase(serie.getTitle()))
+                                                    {
+                                                        this.category = serie.getCategory();
+                                                        this.category = this.menuCat.addCategory(this.category, this.name, this.description);
+                                                        serie.setCategory(this.category);
+                                                    }
+                                            }
                                         }
                                         else
                                         {
@@ -2653,12 +2652,12 @@ public class Launcher{
                                                 this.title = this.scanner.nextLine();
                                                 for(Film film:this.film)
                                                 {
-                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
-                                                        {
-                                                                this.category = film.getCategory();
-                                                                this.category = this.menuCat.addCategory(this.category, this.name, this.description);
-                                                                film.setCategory(this.category);
-                                                        }
+                                                    if(this.title.equalsIgnoreCase(film.getTitle()))
+                                                    {
+                                                        this.category = film.getCategory();
+                                                        this.category = this.menuCat.addCategory(this.category, this.name, this.description);
+                                                        film.setCategory(this.category);
+                                                    }
                                                 }
                                         }
 
@@ -3414,9 +3413,8 @@ public class Launcher{
                 				option = this.scanner.next();
                                 if(option.equals("1"))
                                 {
-                                    this.language = this.scanner.nextLine();
                                     System.out.println("Select a language");
-                                   
+                                    this.language = this.scanner.next();
                                     System.out.println("Where do you save your language (serie/film)");
                                     option = this.scanner.next();
                                     while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
@@ -3460,10 +3458,7 @@ public class Launcher{
                                 }
                                 else if(option.equals("2"))
                                 {
-                                    System.out.println("You choose delete a language by it language");
-                                    
-                                    
-                                       
+                                    System.out.println("You choose delete a subtitle by his language");
                                     System.out.println("Select a language to search");
                                     this.language = this.scanner.next();
                                     System.out.println("where do you remove the language (serie/film)");
@@ -3510,15 +3505,10 @@ public class Launcher{
                                 
                                 else if(option.equals("3"))
                                 {
-                                    System.out.println("You  modify the languge");
-                                    option = this.scanner.next();
-                                    
-                                    
-                                    this.language = this.scanner.nextLine();
-                                    System.out.println("Select a language to search");
-                                    this.language = this.scanner.nextLine();
+                                    System.out.println("You choose modify the subtitle by his language");
+                                    System.out.println("Select the language to search");
                                     System.out.println("Select the new language");
-                                    this.newLanguage = this.scanner.nextLine();
+                                    this.newLanguage = this.scanner.next();
                                     System.out.println("Were do you modify the language (serie/film)");
                                     option = this.scanner.next();
                                     while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
@@ -3565,9 +3555,6 @@ public class Launcher{
                 		        else if(option.equals("4"))
                 		        {
                 		        	System.out.println("You choose search a subtitle by languaje") ;
-                                    
-                            
-                                           
                 	                System.out.println("Select a language to search");
                 	                this.language = this.scanner.next();
                 	                System.out.println("where do you search the language (serie/film)");
@@ -3659,6 +3646,7 @@ public class Launcher{
 										+ "6.-Show bad series \n"
 										+ "7.-Show multi gender film \n"
 										+ "8.-Show multi gender serie");
+										
 								option = this.scanner.next();
 								if(option.equals("1"))
 								{
@@ -3720,6 +3708,8 @@ public class Launcher{
 								{
 									this.genderFS.infoGenderSerie(this.serie);
 								}
+							case  "2":
+								
 								break;
 										
 							case "6":
