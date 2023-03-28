@@ -168,8 +168,9 @@ public class MenuDirectors
 		{
 			if(name.equalsIgnoreCase(array[i].getName()))
 			{
-			System.out.println("Description " + name + " modified to " + newName);
-			array[i].setName(newName);
+				System.out.println("Director to modify "+array[i]);
+				array[i].setName(newName);
+				System.out.println("Director modified "+array[i]);
 			}
 		}
 		return array;
@@ -190,8 +191,9 @@ public class MenuDirectors
 		{
 			if(LastName.equalsIgnoreCase(array[i].getLastName()))
 			{
-			System.out.println("Description " + LastName + " modified to " + newLastName);
-			array[i].setLastName(newLastName);
+				System.out.println("Director to modify "+array[i]);
+				array[i].setLastName(newLastName);
+				System.out.println("Director modified "+array[i]);
 			}
 		}
 		return array;
@@ -212,8 +214,9 @@ public class MenuDirectors
 		{
 			if(gender.equals(array[i].getGender()))
 			{
-			System.out.println("Description " + gender + " modified to " + newGender);
-			array[i].setGender(newGender);
+				System.out.println("Director to modify "+array[i]);
+				array[i].setGender(newGender);
+				System.out.println("Director modified "+array[i]);
 			}
 		}
 		return array;
@@ -234,8 +237,9 @@ public class MenuDirectors
 		{
 			if(age == (array[i].getAge()))
 			{
-			System.out.println("Description " + age + " modified to " + newAge);
-			array[i].setAge(newAge);
+				System.out.println("Director to modify "+array[i]);
+				array[i].setAge(newAge);
+				System.out.println("Director to modified "+array[i]);
 			}
 		}
 		return array;
@@ -257,8 +261,9 @@ public class MenuDirectors
 		{
 			if(awards.equalsIgnoreCase(array[i].getAwards())) 
 			{
-			System.out.println("Description " + awards + " modified by " + newAward);
-			array[i].setAwards(newAward);
+				System.out.println("Director to modify "+array[i]);
+				array[i].setAwards(newAward);
+				System.out.println("Director to modify "+array[i]);
 			}
 		}
 		return array;
