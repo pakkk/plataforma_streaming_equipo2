@@ -3,10 +3,12 @@ import java.util.*;
 import es.iesjandula.streaming.baseclasses.*;
 import es.iesjandula.streaming.streaming.*;
 import es.iesjandula.streaming.menus.*;
+import es.iesjandula.streaming.enums.*;
 public class Launcher{
 	//This class is responsible of execute the menus and control the logic of the entire project
-	//Attributes
-	/*
+	
+	/**Attributes
+	 *
 	 * Attribute Scanner scanner: Provide of Class Scanner and his use its only for write by keyboard
 	 * Attribute Film film[]: Array that save films that the user select
 	 * Attribute Serie serie[]: Array that save series that the user select
@@ -17,8 +19,8 @@ public class Launcher{
 	private Film film[] = new Film[0];
 	private Serie serie[] = new Serie[0];
 	
-	//Attributes of films and serie
-	/*
+	/**Attributes of films and serie
+	 *
 	 * String titles: Title of the film or movie that the user choose 
 	 * String originalLanguage: Language with which the movie or serie it was created 
 	 * String adaptedLanguage []: Language with which the movie or serie its translated
@@ -37,6 +39,21 @@ public class Launcher{
 	private String newAdaptedLanguage[] = new String [0];
 	private int newDuration,newViews;
 	
+	/**Attributes of actors and directors
+	 *
+	 * String name: Name of the actor or director
+	 * String lastName: Last name of the actor of director
+	 * String awards: Awards that the actor or director has been wined
+	 * int age: Age of the actor or director
+	 * Gender gender: Represent the gender of the actor of director
+	 *   
+	 */
+	private String name,lastName,awards;
+	private int age;
+	private Gender gender;
+	private String newName,newLastGame,newAwards;
+	private int newAge;
+	private Gender newGender;
 	//Menu instance 
 	//This instance controls the menu of actors
 	private MenuActors menuAct = new MenuActors();
@@ -63,7 +80,7 @@ public class Launcher{
 				+ "so please choose one of this option:\n"
 				+ "1.-Add a new film \n"
 				+ "2.-Add a new serie");
-		option = scanner.next();
+		option = this.scanner.next();
 		//Inside this loop there is a switch were the user can add a film or movie
 		while(!endLoop)
 		{
@@ -72,117 +89,117 @@ public class Launcher{
 			{
 				case "1":
 					//The user must to introduce with the scanner the attributes of the films 
-					option = scanner.nextLine();
+					option = this.scanner.nextLine();
 					System.out.println("You choose add a new film please introduce his title");
-					this.title = scanner.nextLine();
+					this.title = this.scanner.nextLine();
 					System.out.println("Introduce his original language");
-					this.originalLanguage = scanner.next();
+					this.originalLanguage = this.scanner.next();
 					System.out.println("Want to introduce adapted language? (yes/no)");
-					option = scanner.next();
+					option = this.scanner.next();
 					while(!option.equalsIgnoreCase("yes") && !option.equalsIgnoreCase("no"))
 					{
 						System.out.println("Error introducing adapted language introduce yes or no again");
-						option = scanner.next();
+						option = this.scanner.next();
 					}
 					if(option.equalsIgnoreCase("yes"))
 					{
 						while(!option.equalsIgnoreCase("no"))
 						{
 							System.out.println("Introduce a new language");
-							language = scanner.next();
-							adaptedLanguage = Arrays.copyOf(adaptedLanguage, adaptedLanguage.length+1);
-							adaptedLanguage[adaptedLanguage.length-1] = language;
+							language = this.scanner.next();
+							this.adaptedLanguage = Arrays.copyOf(this.adaptedLanguage, this.adaptedLanguage.length+1);
+							this.adaptedLanguage[this.adaptedLanguage.length-1] = language;
 							System.out.println("Want to introduce a new language (no/any key)");
-							option=scanner.next();
+							option=this.scanner.next();
 						}
 					}
 					//This try catch it used if the user enter a String data
 					try
 					{
 						System.out.println("Enter a duration");
-						duration = scanner.nextInt();
+						this.duration = this.scanner.nextInt();
 					}catch(InputMismatchException exception)
 					{
 						System.out.println("Error introducing duration");
-						duration = 0;
+						this.duration = 0;
 					}
 					//This try-catch do the same function of the last try-catch
 					try
 					{
 						System.out.println("Enter a view");
-						views = scanner.nextInt();
+						this.views = this.scanner.nextInt();
 					}catch(InputMismatchException exception)
 					{
 						System.out.println("Error introducing views");
-						views=0;
+						this.views=0;
 					}
-					film = menuFS.addFilm(film, title, originalLanguage, adaptedLanguage, duration, views);
+					this.film = this.menuFS.addFilm(this.film, this.title, this.originalLanguage, this.adaptedLanguage, this.duration, this.views);
 					break;
 				case "2":
-					this.title = scanner.nextLine();
+					this.title = this.scanner.nextLine();
 					//The user must introduce with the scanner the attributes of the series
 					System.out.println("You choose add a new serie please introduce his title");
-					this.title = scanner.nextLine();
+					this.title = this.scanner.nextLine();
 					System.out.println("Introduce his original language");
-					this.originalLanguage = scanner.next();
+					this.originalLanguage = this.scanner.next();
 					System.out.println("Want to introduce adapted language? (yes/no)");
-					option = scanner.next();
+					option = this.scanner.next();
 					while(!option.equalsIgnoreCase("yes") && !option.equalsIgnoreCase("no"))
 					{
 						System.out.println("Error introducing adapted language introduce yes or no again");
-						option = scanner.next();
+						option = this.scanner.next();
 					}
 					if(option.equalsIgnoreCase("yes"))
 					{
 						while(!option.equalsIgnoreCase("no"))
 						{
 							System.out.println("Introduce a new language");
-							language = scanner.next();
-							adaptedLanguage = Arrays.copyOf(adaptedLanguage, adaptedLanguage.length+1);
-							adaptedLanguage[adaptedLanguage.length-1] = language;
+							language = this.scanner.next();
+							this.adaptedLanguage = Arrays.copyOf(this.adaptedLanguage, this.adaptedLanguage.length+1);
+							this.adaptedLanguage[this.adaptedLanguage.length-1] = language;
 							System.out.println("Want to introduce a new language (no/any key)");
-							option=scanner.next();
+							option=this.scanner.next();
 						}
 					}
 					//This try-catch it used if the user introduce a string data
 					try
 					{
 						System.out.println("Enter a duration");
-						duration = scanner.nextInt();
+						this.duration = this.scanner.nextInt();
 					}catch(InputMismatchException exception)
 					{
 						System.out.println("Error introducing duration");
-						duration = 0;
+						this.duration = 0;
 					}
 					//This try-catch have the same function of the last try-catch
 					try
 					{
 						System.out.println("Enter a view");
-						views = scanner.nextInt();
+						this.views = this.scanner.nextInt();
 					}catch(InputMismatchException exception)
 					{
 						System.out.println("Error introducing views");
-						views=0;
+						this.views=0;
 					}
-					serie = menuFS.addSerie(serie, title, originalLanguage, adaptedLanguage, duration, views);
+					this.serie = this.menuFS.addSerie(this.serie, this.title, this.originalLanguage, this.adaptedLanguage, this.duration, this.views);
 					break;
 				default:
 					System.out.println("Error introducing option");		
 			}
 			//When a film or serie it introduced the user can introduced another film or serie or can access to the next menu
 			System.out.println("Want select again? (yes/no)");
-			option = scanner.next();
+			option = this.scanner.next();
 			while(!option.equalsIgnoreCase("yes") && !option.equalsIgnoreCase("no"))
 			{
 				System.out.println("Error, select again (yes/no)");
-				option=scanner.next();
+				option=this.scanner.next();
 			}
 			if(option.equalsIgnoreCase("yes"))
 			{
 				System.out.println("Select one of this option \n"
 						+ "1.-Add a new film \n"
 						+ "2.-Add a new serie \n");
-				option=scanner.next();
+				option=this.scanner.next();
 			}
 			if(option.equalsIgnoreCase("no"))
 				endLoop = true;
@@ -195,7 +212,7 @@ public class Launcher{
 				+ "2.-Menu of data of films and series \n"
 				+ "3.-Exit");
 		System.out.println("Select one of them");
-		option = scanner.next();
+		option = this.scanner.next();
 		while(!endLoop)
 		{
 			switch(option)
@@ -209,61 +226,61 @@ public class Launcher{
 							+ "3.-Modify an attribute \n"
 							+ "4.-Search a film or serie \n"
 							+ "5.-Back");
-					option = scanner.next();
+					option = this.scanner.next();
 					while(!endMenu)
 					{
 						switch(option)
 						{
 						case "1":
 							System.out.println("Choose which audiovisual do you want (serie\film)");
-							option = scanner.next();
+							option = this.scanner.next();
 							if(option.equalsIgnoreCase("serie"))
 							{
-								this.title = scanner.nextLine();
+								this.title = this.scanner.nextLine();
 								System.out.println("You choose add a new serie please introduce his title");
-								this.title = scanner.nextLine();
+								this.title = this.scanner.nextLine();
 								System.out.println("Introduce his original language");
-								this.originalLanguage = scanner.next();
+								this.originalLanguage = this.scanner.next();
 								System.out.println("Want to introduce adapted language? (yes/no)");
-								option = scanner.next();
+								option = this.scanner.next();
 								while(!option.equalsIgnoreCase("yes") && !option.equalsIgnoreCase("no"))
 								{
 									System.out.println("Error introducing adapted language introduce yes or no again");
-									option = scanner.next();
+									option = this.scanner.next();
 								}
 								if(option.equalsIgnoreCase("yes"))
 								{
 									while(!option.equalsIgnoreCase("no"))
 									{
 										System.out.println("Introduce a new language");
-										language = scanner.next();
-										adaptedLanguage = Arrays.copyOf(adaptedLanguage, adaptedLanguage.length+1);
-										adaptedLanguage[adaptedLanguage.length-1] = language;
+										language = this.scanner.next();
+										this.adaptedLanguage = Arrays.copyOf(this.adaptedLanguage, this.adaptedLanguage.length+1);
+										this.adaptedLanguage[this.adaptedLanguage.length-1] = language;
 										System.out.println("Want to introduce a new language (no/any key)");
-										option=scanner.next();
+										option=this.scanner.next();
 									}
 								}
 								//This try-catch it used if the user introduce a string data
 								try
 								{
 									System.out.println("Enter a duration");
-									duration = scanner.nextInt();
+									this.duration = this.scanner.nextInt();
 								}catch(InputMismatchException exception)
 								{
 									System.out.println("Error introducing duration");
-									duration = 0;
+									this.duration = 0;
 								}
 								//This try-catch have the same function of the last try-catch
 								try
 								{
 									System.out.println("Enter a view");
-									views = scanner.nextInt();
+									this.views = this.scanner.nextInt();
 								}catch(InputMismatchException exception)
 								{
 									System.out.println("Error introducing views");
-									views=0;
+									this.views=0;
 								}
-								serie = menuFS.addSerie(serie, title, originalLanguage, adaptedLanguage, duration, views);
+								this.serie = this.menuFS.addSerie(this.serie, this.title, this.originalLanguage, this.adaptedLanguage, this.duration, this.views);
 							}
 							else if(option.equalsIgnoreCase("film"))
 							{
@@ -333,14 +350,14 @@ public class Launcher{
 								{
 									System.out.println("Select the title to search");
 									title = scanner.nextLine();
-									serie = menuFS.SeriesDropByTitle(serie, title);
+									serie = menuFS.seriesDropByTitle(serie, title);
 								}
 								else if(option.equalsIgnoreCase("original language") || option.equalsIgnoreCase("originalLanguage") || option.equals("2"))
 								{
 									originalLanguage = scanner.nextLine();
 									System.out.println("Select the original language to search");
 									originalLanguage = scanner.nextLine();
-									serie = menuFS.SeriesDropByOriginalLanguage(serie, originalLanguage);
+									serie = menuFS.seriesDropByOriginalLanguage(serie, originalLanguage);
 								}
 								else if(option.equalsIgnoreCase("adapted language") || option.equalsIgnoreCase("adaptedLanguage") || option.equals("3"))
 								{
@@ -354,7 +371,7 @@ public class Launcher{
 										System.out.println("Select another to add or \"exit\" to stop and search");
 										option = scanner.next();
 									}
-									serie = menuFS.SeriesDropByAdaptedLanguage(serie, adaptedLanguage);
+									serie = menuFS.seriesDropByAdaptedLanguage(serie, adaptedLanguage);
 									
 								}
 								else if(option.equalsIgnoreCase("duration") || option.equals("4"))
@@ -372,7 +389,7 @@ public class Launcher{
 									if(duration==-1)
 										System.out.println("Error to delete the serie");
 									else
-										serie = menuFS.SeriesDownDuration(serie, duration);
+										serie = menuFS.seriesDownDuration(serie, duration);
 								}
 								else if(option.equalsIgnoreCase("views") || option.equals("5"))
 								{
@@ -389,7 +406,7 @@ public class Launcher{
 									if(views<0)
 										System.out.println("Error to delete the serie");
 									else
-										serie = menuFS.SeriesDownViewTimesView(serie, views);
+										serie = menuFS.seriesDownViewTimesView(serie, views);
 											
 								}else
 									System.out.println("Error to introducing option");
@@ -492,14 +509,14 @@ public class Launcher{
 									this.title = this.scanner.nextLine();
 									System.out.println("Select the new title");
 									this.newTitle = this.scanner.nextLine();
-									this.serie = menuFS.SeriesModificationForTitle(this.serie, this.title, this.newTitle);
+									this.serie = menuFS.seriesModificationForTitle(this.serie, this.title, this.newTitle);
 								}
 								else if(option.equalsIgnoreCase("Original language") || option.equalsIgnoreCase("originalLanguage") || option.equalsIgnoreCase("2"))
 								{
 									System.out.println("Select the original language to search");
 									this.originalLanguage = this.scanner.next();
 									System.out.println("Select the new original language");
-									this.serie = this.menuFS.SeriesModificationByOriginalLanguage(this.serie, this.originalLanguage, this.newOriginalLanguage);
+									this.serie = this.menuFS.seriesModificationByOriginalLanguage(this.serie, this.originalLanguage, this.newOriginalLanguage);
 								}
 								else if(option.equalsIgnoreCase("Adapted language") || option.equalsIgnoreCase("adaptedLanguage") || option.equalsIgnoreCase("3"))
 								{
@@ -512,7 +529,7 @@ public class Launcher{
 										System.out.println("Select another to add or \"exit\" to stop and modify");
 										option = this.scanner.next();
 									}
-									this.serie = this.menuFS.SeriesModificationByAdaptedLanguage(this.serie, this.adaptedLanguage, this.adaptedLanguage);
+									this.serie = this.menuFS.seriesModificationByAdaptedLanguage(this.serie, this.adaptedLanguage, this.adaptedLanguage);
 								}
 								else if(option.equalsIgnoreCase("duration") || option.equalsIgnoreCase("4"))
 								{
@@ -521,8 +538,8 @@ public class Launcher{
 										System.out.println("Select the duration to search");
 										this.duration = this.scanner.nextInt(); 
 										System.out.println("Select the new duration");
-										this.duration = this.scanner.nextInt();
-										this.serie = this.menuFS.SeriesModificationForDuration(this.serie, this.duration, this.newDuration); 
+										this.newDuration = this.scanner.nextInt();
+										this.serie = this.menuFS.seriesModificationForDuration(this.serie, this.duration, this.newDuration); 
 									}catch(InputMismatchException e)
 									{
 										System.out.println("Error introducing duration");
@@ -535,8 +552,8 @@ public class Launcher{
 										System.out.println("Select the views to search");
 										this.views = this.scanner.nextInt(); 
 										System.out.println("Select the new views");
-										this.views = this.scanner.nextInt();
-										this.serie = this.menuFS.SeriesModificationForDuration(this.serie, this.views, this.views); 
+										this.newViews = this.scanner.nextInt();
+										this.serie = this.menuFS.seriesModificationForDuration(this.serie, this.views, this.newViews); 
 									}catch(InputMismatchException e)
 									{
 										System.out.println("Error introducing views");
@@ -562,14 +579,14 @@ public class Launcher{
 									this.title = this.scanner.nextLine();
 									System.out.println("Select the new title");
 									this.newTitle = this.scanner.nextLine();
-									this.film = menuFS.MovieModificationForTitle(this.film, this.title, this.newTitle);
+									this.film = menuFS.movieModificationForTitle(this.film, this.title, this.newTitle);
 								}
 								else if(option.equalsIgnoreCase("Original language") || option.equalsIgnoreCase("originalLanguage") || option.equalsIgnoreCase("2"))
 								{
 									System.out.println("Select the original language to search");
 									this.originalLanguage = this.scanner.next();
 									System.out.println("Select the new original language");
-									this.film = this.menuFS.MovieModificationForOriginalLanguage(this.film, this.originalLanguage, this.newOriginalLanguage);
+									this.film = this.menuFS.movieModificationForOriginalLanguage(this.film, this.originalLanguage, this.newOriginalLanguage);
 								}
 								else if(option.equalsIgnoreCase("Adapted language") || option.equalsIgnoreCase("adaptedLanguage") || option.equalsIgnoreCase("3"))
 								{
@@ -582,7 +599,7 @@ public class Launcher{
 										System.out.println("Select another to add or \"exit\" to stop and modify");
 										option = this.scanner.next();
 									}
-									this.film = this.menuFS.MovieModificationByAdaptedLanguage(this.film, this.adaptedLanguage, this.adaptedLanguage);
+									this.film = this.menuFS.movieModificationByAdaptedLanguage(this.film, this.adaptedLanguage, this.adaptedLanguage);
 								}
 								else if(option.equalsIgnoreCase("duration") || option.equalsIgnoreCase("4"))
 								{
@@ -591,8 +608,8 @@ public class Launcher{
 										System.out.println("Select the duration to search");
 										this.duration = this.scanner.nextInt(); 
 										System.out.println("Select the new duration");
-										this.duration = this.scanner.nextInt();
-										this.film = this.menuFS.MovieModificationForDuration(this.film, this.duration, this.newDuration); 
+										this.newDuration = this.scanner.nextInt();
+										this.film = this.menuFS.movieModificationForDuration(this.film, this.duration, this.newDuration); 
 									}catch(InputMismatchException e)
 									{
 										System.out.println("Error introducing duration");
@@ -605,8 +622,8 @@ public class Launcher{
 										System.out.println("Select the views to search");
 										this.views = this.scanner.nextInt(); 
 										System.out.println("Select the new views");
-										this.views = this.scanner.nextInt();
-										this.film = this.menuFS.FilmModificationTimesViewed(this.film, this.views, this.views); 
+										this.newViews = this.scanner.nextInt();
+										this.film = this.menuFS.filmModificationTimesViewed(this.film, this.views, this.newViews); 
 									}catch(InputMismatchException e)
 									{
 										System.out.println("Error introducing views");
@@ -693,13 +710,13 @@ public class Launcher{
 									this.title = scanner.nextLine();
 									System.out.println("Select a title to search");
 									this.title = scanner.nextLine();
-								    this.menuFS.FilmsSearchByTitle(this.film, this.title);
+								    this.menuFS.filmsSearchByTitle(this.film, this.title);
 								}
 								else if(option.equalsIgnoreCase("Original language") || option.equalsIgnoreCase("originalLanguage") || option.equals("2"))
 								{
 									System.out.println("Select a original language to search");
 									this.originalLanguage = scanner.nextLine();
-								    this.menuFS.FilmsSearchByOriginalLanguage(this.film, this.originalLanguage);
+								    this.menuFS.filmsSearchByOriginalLanguage(this.film, this.originalLanguage);
 								}
 								else if (option.equalsIgnoreCase("Adapted language") || option.equalsIgnoreCase("adaptedLanguage") || option.equals("3"))
 								{
@@ -712,7 +729,7 @@ public class Launcher{
 										System.out.println("Select another to add or \"exit\" to stop and modify");
 										option = this.scanner.next();
 									}
-									this.menuFS.FilmsSearchByAdaptedLanguage(this.film, this.adaptedLanguage);
+									this.menuFS.filmsSearchByAdaptedLanguage(this.film, this.adaptedLanguage);
 								}
 								else if(option.equalsIgnoreCase("duration") || option.equals("4"))
 								{
@@ -720,7 +737,7 @@ public class Launcher{
 									{
 										System.out.println("Select a duration");
 										this.duration = this.scanner.nextInt();
-										this.menuFS.FilmsSearchByDuration(this.film, this.duration);
+										this.menuFS.filmsSearchByDuration(this.film, this.duration);
 									}catch(InputMismatchException e)
 									{
 										System.out.println("Error introducing duration");
@@ -732,7 +749,7 @@ public class Launcher{
 									{
 										System.out.println("Select a duration");
 										this.duration = this.scanner.nextInt();
-										this.menuFS.FilmsSearchByViews(this.film, this.views);
+										this.menuFS.filmsSearchByViews(this.film, this.views);
 									}catch(InputMismatchException e)
 									{
 										System.out.println("Error introducing views");
@@ -778,6 +795,11 @@ public class Launcher{
 										+ "3.-Modify a actor \n"
 										+ "4.-Search a actor \n"
 										+ "5.-Back");
+								option = this.scanner.next();
+								if(option.equalsIgnoreCase("1"))
+								{
+									System.out.println("");
+								}
 								break;
 							case "2":
 								System.out.println("You choose menu of directors, select one option: \n"
