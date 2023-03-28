@@ -3159,7 +3159,7 @@ public class Launcher{
                                                         }
                                                         else if(option.equals("3"))
                                                         {
-                                                                System.out.println("You choose modify an attribute of a category, choose one option: \n "
+                                                                System.out.println("You choose modify an attribute of a recommendation, choose one option: \n "
                                                                                 + "1.-Rating \n"
                                                                                 + "2.-Comment \n");
                                                                 option = this.scanner.next();
