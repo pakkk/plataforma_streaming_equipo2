@@ -3902,6 +3902,81 @@ public class Launcher{
 					}
 					break;
 				case "4":
+					System.out.println("1.-Number of categories of films and series\n"
+							+ "2.-Content of categories of films and series\n"
+							+ "3.-Show all categories\n"
+							+ "4.-Show the series with 2 or more categories\n"
+							+ "5.-Show the series with 2 or more categories");
+					option = this.scanner.next();
+					if(option.equals("1")) 
+					{
+						System.out.println("Choose (series/films)");
+						option = this.scanner.next();
+						if(option.equalsIgnoreCase("series")) 
+						{
+							this.statsCategory.numCategorySeries(serie);
+						}
+						else 
+						{
+							this.statsCategory.numCategoryFilms(film);
+						}
+					}
+					else if(option.equals("1")) 
+					{
+						System.out.println("Choose number of (series/films)");
+						option = this.scanner.next();
+						if(option.equalsIgnoreCase("series")) 
+						{
+							this.statsCategory.numCategorySeries(serie);
+						}
+						else 
+						{
+							this.statsCategory.numCategoryFilms(film);
+						}
+					}
+					else if(option.equals("2")) 
+					{
+						System.out.println("Choose categories of (series/films)");
+						option = this.scanner.next();
+						if(option.equalsIgnoreCase("series")) 
+						{
+							this.statsCategory.showCategorySeries(serie);
+						}
+						else 
+						{
+							this.statsCategory.showCategoryFilms(film);
+						}
+					}
+					else if(option.equals("3")) 
+					{
+						this.statsCategory.allCategory(serie, film);
+					}
+					else if(option.equals("4")) 
+					{
+						System.out.println("Choose info of (series/films)");
+						option = this.scanner.next();
+						if(option.equalsIgnoreCase("series")) 
+						{
+							this.statsCategory.infoSeriesCategory(serie);
+						}
+						else 
+						{
+							this.statsCategory.infoFilmsCategory(film);
+						}
+					}
+					else if(option.equals("5")) 
+					{
+						System.out.println("Choose info of (series/films)");
+						option = this.scanner.next();
+						if(option.equalsIgnoreCase("series")) 
+						{
+							this.statsCategory.numCategorySeries(serie);
+						}
+						else 
+						{
+							this.statsCategory.numCategoryFilms(film);
+						}
+					}
 					System.out.println("Thanks for use our application!");
 					endLoop=true;
 					break;
