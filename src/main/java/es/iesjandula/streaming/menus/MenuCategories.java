@@ -126,7 +126,7 @@ public class MenuCategories
 			if(description.equalsIgnoreCase(categoryArray[i].getDescription())) 
 			{
 				System.out.println("Description "+ description +" modified to " + newDescription);
-				categoryArray[i].setName(newDescription);
+				categoryArray[i].setDescription(newDescription);
 			}
 		}		
 		return categoryArray;
