@@ -13,7 +13,7 @@ public class DirectorStats {
      * This method counts how many Directors there are in the series
      * @param seriesDirectors 
      */
-    public void numActorsSeries(Serie[] seriesDirectors)
+    public void numDirectorsSeries(Serie[] seriesDirectors)
     {
         int sum = 0;
         Directors[] arrayDirectors;
@@ -30,7 +30,7 @@ public class DirectorStats {
      * This method counts how many Directors there are in the films
      * @param filmDirectors 
      */
-    public void numActorsFilms(Film[] filmDirectors)
+    public void numDirectorsFilms(Film[] filmDirectors)
     {
         int sum = 0;
         Directors[] arrayDirectors;
@@ -85,7 +85,7 @@ public class DirectorStats {
      * This method shows many the Directors of the films
      * @param filmsDirectors 
      */
-    public void showdirectorsFilms(Film[] filmsDirectors)
+    public void showDirectorsFilms(Film[] filmsDirectors)
     {
         Directors[] arrayDirectors;
         for(Film film:filmsDirectors)
