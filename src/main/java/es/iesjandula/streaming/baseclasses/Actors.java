@@ -141,7 +141,7 @@ public class Actors{
     @Override
     public String toString() 
     {
-        return "Actor "+ this.name + " " + this.lastName +" aged "+ this.age +" has won " + this.awards;
+        return "Actor "+ this.name + " " + this.lastName +" gender " +this.gender+ " aged "+ this.age +" has won " + this.awards;
     }
 
      
