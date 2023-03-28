@@ -6,12 +6,19 @@ import java.util.Arrays;
 import es.iesjandula.streaming.baseclasses.Category;
 import es.iesjandula.streaming.streaming.Film;
 import es.iesjandula.streaming.streaming.Serie;
-
+	/**
+	 * 
+	 * @author Javier
+	 *
+	 */
 public class CategoryStats {
 	// This class take care of count of categories there are.
 	
 	
-	//This method count the how many categories there are in the series
+	/**This method count the how many categories there are in the series
+	 * 
+	 * @param seriesCategory
+	 */
 	public void numCategorySeries(Serie[] seriesCategory)
     {
         int sum = 0;
@@ -24,7 +31,10 @@ public class CategoryStats {
         
         System.out.println("There are "+ sum +" categories in the series.");
     }
-    //This method counts how many categories there are in the films
+    /**This method counts how many categories there are in the films
+     * 
+     * @param filmCategory
+     */
     public void numCategoryFilms(Film[] filmCategory)
     {
         int sum = 0;
@@ -37,7 +47,11 @@ public class CategoryStats {
         
         System.out.println("There are "+ sum +" categories in the films.");
     }
-    //This method counts how many categories there are in total
+    /**
+     * This method counts how many categories there are in total
+     * @param seriesCategory
+     * @param filmCategory
+     */
     public void allCategory(Serie[] seriesCategory, Film[] filmCategory)
     {
         int sum = 0;
@@ -56,7 +70,10 @@ public class CategoryStats {
         
         System.out.println("There are "+ sum +" Category in our system.");
     }
-    //This method shows how many the Category of the series
+    /**
+     * This method shows how many the Category of the series
+     * @param seriesCategory
+     */
     public void showCategorySeries(Serie[] seriesCategory)
     {
         Category[] arrayCategory;
@@ -66,7 +83,10 @@ public class CategoryStats {
             System.out.println(Arrays.toString(arrayCategory));
         }
     }
-    //This method shows how many categories are in the films
+    /**This method shows how many categories are in the films
+     * 
+     * @param filmsCategory
+     */
     public void showCategoryFilms(Film[] filmsCategory)
     {
         Category[] arrayCategory;
@@ -76,7 +96,10 @@ public class CategoryStats {
             System.out.println(Arrays.toString(arrayCategory));
         }
     }
-    //This method shows the series that have 2 or more Category on them
+    /**This method shows the series that have 2 or more Category on them
+     * 
+     * @param seriesCategory
+     */
     public void infoSeriesCategory(Serie[] seriesCategory)
     {
         Category[] arrayCategory;
@@ -89,7 +112,10 @@ public class CategoryStats {
             }
         }
     }
-    //This method shows the films that have 2 or more Category on them
+    /**This method shows the films that have 2 or more Category on them
+     * 
+     * @param filmsCategory
+     */
     public void infoFilmsCategory(Film[] filmsCategory)
     {
         Category[] arrayCategory;

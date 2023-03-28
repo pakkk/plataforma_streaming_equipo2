@@ -3,7 +3,11 @@ package es.iesjandula.streaming.menus;
 import java.util.Arrays;
 
 import es.iesjandula.streaming.baseclasses.Category;
-
+	/**
+	 * 
+	 * @author Javier
+	 *
+	 */
 public class MenuCategories
 {
 	

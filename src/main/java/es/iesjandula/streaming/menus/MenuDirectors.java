@@ -4,7 +4,11 @@ import java.util.Arrays;
 
 import es.iesjandula.streaming.baseclasses.Directors;
 import es.iesjandula.streaming.enums.Gender;
-
+	/**
+	 * 
+	 * @author Javier
+	 *
+	 */
 public class MenuDirectors 
 {
 	
