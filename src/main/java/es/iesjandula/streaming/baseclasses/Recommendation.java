@@ -2,14 +2,19 @@ package es.iesjandula.streaming.baseclasses;
 import es.iesjandula.streaming.enums.RatingType;
 
 public class Recommendation {
-    // This class is responsible for loading recommendation data and storing it in an array
-    // Attributes
-    // Attribute RatingType rating: An enum attribute that defines the type of recommendation (Positive and negative)
-    // Attribute String comment: An attribute that defines the recommendation comment, if not entered by default it is without comment
+    /** This class is responsible for loading recommendation data and storing it in an array
+    * Attributes
+    * Attribute RatingType rating: An enum attribute that defines the type of recommendation (Positive and negative)
+    * Attribute String comment: An attribute that defines the recommendation comment, if not entered by default it is without comment
+    */
     private RatingType rating;
     private String comment;
     // Constructor
-    // Constructor that determines the values of rating and comment
+    /** Constructor that determines the values of rating and comment
+     * 
+     * @param rating
+     * @param comment
+     */
     public Recommendation(RatingType rating, String comment) 
     {
         this.rating = rating;
@@ -17,27 +22,41 @@ public class Recommendation {
         attributeCorrection();
     }
     // Getters and Setters
-    // Getter for rating that returns its value
+    /**
+     *  Getter for rating that returns its value
+     * @return
+     */
     public RatingType getRating() 
     {
         return this.rating;
     }
-    // Setter for rating that allows modifying its value
+    /**
+     *  Setter for rating that allows modifying its value
+     * @param rating
+     */
     public void setRating(RatingType rating) 
     {
         this.rating = rating;
     }
-    // Getter for comment that returns its value
+    /**
+     *  Getter for comment that returns its value
+     * @return
+     */
     public String getComment()
     {
         return this.comment;
     }
-    // Setter for comment that allows modifying its value
+    /** Setter for comment that allows modifying its value
+     * 
+     * @param comment
+     */
     public void setComment(String comment)
     {
         this.comment = comment;
     }
-    // Private method to set the default value of the comment attribute
+    /**
+     *  Private method to set the default value of the comment attribute
+     */
     private void attributeCorrection() 
     {
         if (this.comment.isEmpty())

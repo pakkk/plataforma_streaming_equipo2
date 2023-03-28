@@ -16,7 +16,14 @@ public class Directors {
     private int age;
     private String awards;
     //Constructor
-    //This constructor is responsible for setting the values of name, lastName, gender, age, and awards
+    /**
+     * This constructor is responsible for setting the values of name, lastName, gender, age, and awards
+     * @param name
+     * @param lastName
+     * @param gender
+     * @param age
+     * @param awards
+     */
     public Directors(String name, String lastName, Gender gender, int age, String awards) 
     {
         this.name = name;
@@ -27,57 +34,89 @@ public class Directors {
         CorrectAttributes();
     }
     //Getters and Setters
-    //Getter that returns the value of the director's name
+    /**Getter that returns the value of the director's name
+     * 
+     * @return
+     */
     public String getName() 
     {
         return this.name;
     }
-    //Setter that allows modifying the value of the director's name
+    /**Setter that allows modifying the value of the director's name
+     * 
+     * @param name
+     */
     public void setName(String name)
     {
         this.name = name;
     }
-    //Getter that returns the value of the director's last name
+    /**Getter that returns the value of the director's last name
+     * 
+     * @return
+     */
     public String getLastName()
     {
         return this.lastName;
     }
-    //Setter that allows modifying the value of the director's last name
+    /**Setter that allows modifying the value of the director's last name
+     * 
+     * @param lastName
+     */
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
     }
-    //Getter that returns the value of the director's gender
+    /**Getter that returns the value of the director's gender
+     * 
+     * @return
+     */
     public Gender getGender()
     {
         return this.gender;
     }
-    //Setter that allows modifying the value of the director's gender
+    /**
+     * Setter that allows modifying the value of the director's gender
+     * @param gender
+     */
     public void setGender(Gender gender)
     {
         this.gender = gender;
     }
-    //Getter that returns the value of the director's age
+    /**
+     * Getter that returns the value of the director's age
+     * @return
+     */
     public int getAge()
     {
         return this.age;
     }
-    //Setter that allows modifying the value of the director's age
+    /**Setter that allows modifying the value of the director's age
+     * 
+     * @param age
+     */
     public void setAge(int age) 
     {
         this.age = age;
     }
-    //Getter that returns the value of the director's awards
+    /**Getter that returns the value of the director's awards
+     * 
+     * @return
+     */
     public String getAwards() 
     {
         return this.awards;
     }
-    //Setter that allows modifying the director's awards
+    /**
+     * Setter that allows modifying the director's awards
+     * @param awards
+     */
     public void setAwards(String awards)
     {
         this.awards = awards;
     }
-    //Method to set default attributes in case they are not entered
+    /**
+     * Method to set default attributes in case they are not entered
+     */
     private void CorrectAttributes()
     {
     	if(name.isEmpty())
@@ -97,7 +136,9 @@ public class Directors {
     		this.awards = "No awards";
     	}
     }
-    //toString that displays the value of the attributes name, lastName, gender, age, and awards
+    /**
+     * toString that displays the value of the attributes name, lastName, gender, age, and awards
+     */
     @Override
     public String toString() 
     {

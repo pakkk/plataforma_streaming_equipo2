@@ -10,7 +10,14 @@ public class Actors{
     private int age;
     private String awards;
     
-    //Constructor that defines the attributes of the actor
+    /**Constructor that defines the attributes of the actor
+     * 
+     * @param name
+     * @param lastName
+     * @param gender
+     * @param age
+     * @param awards
+     */
     public Actors(String name, String lastName, Gender gender, int age, String awards) 
     {
         this.name = name;
@@ -22,60 +29,92 @@ public class Actors{
     }
     
     //Getters
-    //Getter that returns the actor's name
+    /**Getter that returns the actor's name
+     * 
+     * @return
+     */
     public String getName() 
     {
         return this.name;
     }
-    //Getter that returns the actor's last name
+    /**
+     * Getter that returns the actor's last name
+     * @return
+     */
     public String getLastName() 
     {
         return this.lastName;
     }
-    //Getter that returns the actor's awards
+    /**Getter that returns the actor's awards
+     * 
+     * @return
+     */
     public String getAwards() 
     {
         return this.awards;
     }
-    //Getter that returns the actor's gender
+    /**Getter that returns the actor's gender
+     * 
+     * @return
+     */
     public Gender getGender() 
     {
     	return this.gender;
     }
-    //Getter that returns the actor's age
+    /**Getter that returns the actor's age
+     * 
+     * @return
+     */
     public int getAge() 
     {
         return this.age;
     }
     
     //Setters
-    //Setter that allows modifying the actor's name
+    /**
+     * Setter that allows modifying the actor's name
+     * @param name
+     */
     public void setName(String name) 
     {
         this.name = name;
     }
-    //Setter that allows modifying the actor's last name
+    /**
+     * Setter that allows modifying the actor's last name
+     * @param lastName
+     */
     public void setLastName(String lastName) 
     {
         this.lastName = lastName;
     }
-    //Setter that allows modifying the actor's gender
+    /**
+     * Setter that allows modifying the actor's gender
+     * @param gender
+     */
     public void setGender(Gender gender) 
     {
         this.gender = gender;
     }
-    //Setter that allows modifying the actor's age
+    /**
+     * Setter that allows modifying the actor's age
+     * @param age
+     */
     public void setAge(int age) 
     {
         this.age = age;
     }
-    //Setter that allows modifying the actor's awards
+    /**Setter that allows modifying the actor's awards
+     * 
+     * @param awards
+     */
     public void setAwards(String awards) 
     {
         this.awards = awards;
     }
     
-    //This method is used to set default attributes if they are not entered
+    /**This method is used to set default attributes if they are not entered
+     * 
+     */
     private void correctAttributes()
     {
     	while(name.isEmpty())
@@ -96,7 +135,9 @@ public class Actors{
     	}
     }
     
-    //toString that displays the values of the actor's attributes
+    /**toString that displays the values of the actor's attributes
+     * 
+     */
     @Override
     public String toString() 
     {
