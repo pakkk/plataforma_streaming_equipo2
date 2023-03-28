@@ -135,11 +135,12 @@ public class MenuCategories
 		boolean found = false;
 			for(int i = 0; i < categoryArray.length; i++) 
 			{
-				if(description.equalsIgnoreCase(categoryArray[i].getDescription())) 
+				if(description.equalsIgnoreCase(categoryArray[i].getDescription()))
 				{
 					System.out.println(categoryArray[i]);
 					found = true;
 				}
+					
 			}
 		if (!found) 
 		{
