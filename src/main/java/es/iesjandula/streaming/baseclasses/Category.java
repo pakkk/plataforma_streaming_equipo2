@@ -11,7 +11,7 @@ public class Category {
     private String description;
 
        /**Constructor
-     * This constructor sets the values of the "name" and "description" attributes
+     *  This constructor sets the values of the "name" and "description" attributes
      * 
      * @param name
      * @param description
