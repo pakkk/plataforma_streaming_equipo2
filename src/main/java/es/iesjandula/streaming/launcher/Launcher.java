@@ -21,8 +21,8 @@ public class Launcher{
 	private Serie serie[] = new Serie[0];
 	private Actors actor[];
 	private Directors director[];
-        private Category category[];
-        private Recommendation recommendation[];
+    private Category category[];
+    private Recommendation recommendation[];
 	
 	/**Attributes of films and serie
 	 *
@@ -57,8 +57,8 @@ public class Launcher{
 	private int age;
 	private Gender gender;
 	private String newName,newLastGame,newAwards,newDescription, newComment;
-        private RatingType rate;
-        private RatingType newRate;
+    private RatingType rate;
+    private RatingType newRate;
 	private int newAge;
 	private Gender newGender;
 	//Menu instance 
@@ -76,6 +76,20 @@ public class Launcher{
 	private MenuFilmSeries menuFS = new MenuFilmSeries();
 	//This instance controls the stats of series and films
 	private FilmsSerieStats statsFS = new FilmsSerieStats ();
+	//This instance controls the stats of the good films and series
+	private FilmSeriesPositiveReviews goodFS = new FilmSeriesPositiveReviews();
+	//This instance controls the stats of the bad films and series
+	private FilmSeriesNegativeReviews badFS = new FilmSeriesNegativeReviews();
+	//This instance controls the stats of the multi gender films and series
+	private GenderStast genderFS = new GenderStast();
+	//This instance controls the stats of the actors
+	private ActorStats statsActor = new ActorStats();
+	//This instance controls the stats of the directors
+	private DirectorStats statDirector = new DirectorStats();
+	//This instance controls the stats of the categories
+	private CategoryStats statsCategory = new CategoryStats();
+	//This instance controls the stats of the subtitles
+	private SubtitleStats statsSubtitles = new SubtitleStats();
 	
 	
 	//This method controls the operation of this program calling menu methods
@@ -3476,6 +3490,31 @@ public class Launcher{
 										this.statsFS.countSeries(this.serie);
 									}
 								}
+								else if(option.equals("3"))
+								{
+									this.goodFS.infoFilmsGoodRecommendation(this.film);
+								}
+								else if(option.equals("4"))
+								{
+									this.badFS.infoFilmsNegativeReviews(this.film);
+								}
+								else if(option.equals("5"))
+								{
+									this.goodFS.infoSeriesGoodRecommendation(this.serie);
+								}
+								else if(option.equals("6"))
+								{
+									this.badFS.infoSeriesNegativeReviews(this.serie);
+								}
+								else if(option.equals("7"))
+								{
+									this.genderFS.infoGenderFilm(this.film);
+								}
+								else if(option.equals("8"))
+								{
+									this.genderFS.infoGenderSerie(this.serie);
+								}
+								break;
 										
 							case "6":
 								endMenu = true;
