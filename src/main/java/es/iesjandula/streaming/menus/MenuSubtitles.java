@@ -79,7 +79,7 @@ public class MenuSubtitles  {
         }
         if (found==false)
         {
-            System.out.println("The description " + language + " doesn't exist");
+            System.out.println("The language " + language + " doesn't exist");
         }
     }
 }
