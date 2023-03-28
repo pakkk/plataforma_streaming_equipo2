@@ -425,7 +425,9 @@ public class MenuFilmSeries {
 			}
 		}
 		if(!found)
+		{
 			System.out.println("The adapted language " + Arrays.toString(adaptedLanguage) + " is not found in any Film");
+		}
 	}
 
 	//This method is responsible for searching for Films by their duration and displaying them
@@ -465,7 +467,9 @@ public class MenuFilmSeries {
 			}
 		}
 		if(!found)
+		{
 			System.out.println("The views " + views + " is not found in any Film");
+		}
 	}
 		
 	//This method is responsible of search a serie by his title
