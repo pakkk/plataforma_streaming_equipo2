@@ -53,14 +53,14 @@ public class Launcher{
 	 * Gender gender: Represent the gender of the actor of director
 	 *   
 	 */
-	private String name,lastName,awards,description, comment;
+	private String name,lastName,awards,description,comment,language;
 	private int age;
 	private Gender gender;
-	private String newName,newLastGame,newAwards,newDescription, newComment;
-    private RatingType rate;
-    private RatingType newRate;
+	private String newName,newLastGame,newAwards,newDescription,newComment,newLanguage;
 	private int newAge;
 	private Gender newGender;
+	private RatingType rate;
+    private RatingType newRate;
 	//Menu instance 
 	//This instance controls the menu of actors
 	private MenuActors menuAct = new MenuActors();
