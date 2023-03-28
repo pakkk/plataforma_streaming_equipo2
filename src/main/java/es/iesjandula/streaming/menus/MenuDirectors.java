@@ -284,7 +284,9 @@ public class MenuDirectors
 			}
 		}
 		if (found == false)
+		{
 			System.out.println("The name " + name + " does not exist");
+		}
 
 	}
 	/**
@@ -308,7 +310,9 @@ public class MenuDirectors
 			}
 		}
 		if (found == false)
+		{
 			System.out.println("The name " + lastName + " does not exist");
+		}
 
 	}
 	/**
@@ -332,7 +336,9 @@ public class MenuDirectors
 			}
 		}
 		if (found == false)
+		{
 			System.out.println("The name " + gender + " does not exist");
+		}
 	}
 	/**
 	 * Takes an array of Directors objects and the age of the Director to be searched
@@ -355,7 +361,9 @@ public class MenuDirectors
 			}
 		}
 		if (found == false)
+		{
 			System.out.println("The age " + age + " does not exist");
+		}
 	}
 	/**
 	 * An Array of Directors objects is requested and the awards of the Director to be fetched
@@ -378,7 +386,9 @@ public class MenuDirectors
             }
         }		
         if (found==false) 
+        {
         	System.out.println("The award "+awards+" does not exist");
+        }
     }
 		
 }
