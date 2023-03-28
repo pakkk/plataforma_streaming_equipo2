@@ -6,7 +6,10 @@ import es.iesjandula.streaming.streaming.Serie;
 public class FilmSeriesPositiveReviews {
 	//This class shows the series and films with positive reviews
 	
-    //This method shows the series that have positive reviews
+    /**This method shows the series that have positive reviews
+     * 
+     * @param seriesGoodRecommendation
+     */
     public void infoSeriesGoodRecommendation(Serie[] seriesGoodRecommendation)
     {
         Recommendation[] arrayRecommendation;
@@ -25,7 +28,10 @@ public class FilmSeriesPositiveReviews {
             }
         }
     }
-    //This method shows the films that have positive reviews
+    /**This method shows the films that have positive reviews
+     * 
+     * @param filmsGoodRecommendation
+     */
     public void infoFilmsGoodRecommendation(Film[] filmsGoodRecommendation)
     {
         Recommendation[] arrayRecommendation;
