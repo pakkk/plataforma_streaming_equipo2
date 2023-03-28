@@ -4,11 +4,14 @@ import java.util.Arrays;
 import es.iesjandula.streaming.baseclasses.Subtitles;
 
 public class MenuSubtitles  {
-    //The class makes a high, low, modifications and searches of subtitles in a movie or series
+    /**The class makes a high, low, modifications and searches of subtitles in a movie or series*/
 
-    //This method performs a discharge of subtitles in a series or film
-    //This method is passed as a parameter an array of subtitles and their attributes
-    //The modified array is returned
+    /**
+     * This method performs a discharge of subtitles in a series or film, this method is passed as a parameter an array of subtitles and their attributes, the modified array is returned
+     * @param newSubtitle
+     * @param language
+     * @return 
+     */
     public Subtitles [] addSubtitles(Subtitles [] newSubtitle, String language)
     {
         newSubtitle = Arrays.copyOf(newSubtitle,newSubtitle.length+1);
@@ -16,9 +19,12 @@ public class MenuSubtitles  {
         return newSubtitle;
     }
 
-    //This method removes subtitles in a series or film according to its attribute
-    //This method is passed as a parameter an array of subtitles and their attributes
-    //The modified array is returned
+    /**
+     * This method removes subtitles in a series or film according to its attribute, this method is passed as a parameter an array of subtitles and their attributes, the modified array is returned
+     * @param remove
+     * @param language
+     * @return 
+     */
     public Subtitles [] removeSubtitles(Subtitles [] remove, String language)
     {
         for (int i = 0 ; i < remove.length ; i++)
@@ -33,9 +39,13 @@ public class MenuSubtitles  {
         return remove;
     }
 
-    //This method makes a modification of subtitles in a series or film changing its old attribute for a new one
-    //This method is passed as a parameter an array of subtitles and their attributes
-    //The modified array is returned
+    /**
+     * This method makes a modification of subtitles in a series or film changing its old attribute for a new one, this method is passed as a parameter an array of subtitles and their attributes, the modified array is returned
+     * @param modify
+     * @param language
+     * @param newLanguage
+     * @return 
+     */
     public Subtitles [] modifyLanguage(Subtitles [] modify, String language, String newLanguage)
     {
         for(int i = 0;i<modify.length;i++)
@@ -49,9 +59,11 @@ public class MenuSubtitles  {
         return modify;
     }
 
-    //This method performs a search for subtitles in a series or film according to its attribute
-    //This method is passed as a parameter an array of subtitles and their attributes
-    //In case the user is not found
+    /**
+     * This method performs a search for subtitles in a series or film according to its attribute, this method is passed as a parameter an array of subtitles and their attributes, in case the user is not found
+     * @param search
+     * @param language 
+     */
     public void searchByLanguage(Subtitles[] search, String language)
     {
         boolean found = false;
