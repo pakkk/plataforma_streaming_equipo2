@@ -3432,11 +3432,11 @@ public class Launcher{
                                         this.title = this.scanner.nextLine();
                                         for(Serie serie:this.serie)
                                             {
-                                            	if(this.title.equalsIgnoreCase(serie.getSubtitles()))
+                                            	if(this.title.equalsIgnoreCase(serie.getTitle()))
                                                 {
-                                                    this.language = serie.getSubtitles();
-                                                    this.language = this.menuSub.addLanguage(subtitles,this.language);
-                                                    serie.setSubtitles(this.language);
+                                                    this.subtitles = serie.getSubtitles();
+                                                    this.subtitles = this.menuSub.addSubtitles(this.subtitles,this.language);
+                                                    serie.setSubtitles(this.subtitles);
                                                 }
                                             }
                                     }
@@ -3448,11 +3448,11 @@ public class Launcher{
                                         this.title = this.scanner.nextLine();
                                         for(Film film:this.film)
                                         {
-                                            if(this.title.equalsIgnoreCase(film.getSubtitles()))
+                                            if(this.title.equalsIgnoreCase(film.getTitle()))
                                             {
-                                                this.language = film.getSubtitles();
-                                                this.language = this.menuSub.addLanguage(subtitles, this.language);
-                                                film.setSubtitles(this.language);
+                                                this.subtitles = film.getSubtitles();
+                                                this.subtitles = this.menuSub.addSubtitles(this.subtitles, this.language);
+                                                film.setSubtitles(this.subtitles);
                                             }
                                 		}
                                     }
@@ -3481,11 +3481,11 @@ public class Launcher{
                                         this.title = this.scanner.nextLine();
                                         for(Serie serie:this.serie)
                                         {
-                                            if(this.title.equalsIgnoreCase(serie.getSubtitles()))
+                                            if(this.title.equalsIgnoreCase(serie.getTitle()))
                                             {
-                                                this.language = serie.getSubtitles();
-                                                this.language = this.menuSub.removeSubtitles(subtitles, this.language);
-                                                serie.setSubtitles(this.language);
+                                                this.subtitles = serie.getSubtitles();
+                                                this.subtitles = this.menuSub.removeSubtitles(this.subtitles, this.language);
+                                                serie.setSubtitles(this.subtitles);
                                             }
                                         }
                                     }
@@ -3497,11 +3497,11 @@ public class Launcher{
                                         this.title = this.scanner.nextLine();
                                         for(Film film:this.film)
                                         {
-                                            if(this.title.equalsIgnoreCase(film.getSubtitles()))
+                                            if(this.title.equalsIgnoreCase(film.getTitle()))
                                             {
-                                                this.language = film.getSubtitles();
-                                                this.language = this.menuSub.removeSubtitles(subtitles, this.language);
-                                                film.setSubtitles(this.language);
+                                                this.subtitles = film.getSubtitles();
+                                                this.subtitles = this.menuSub.removeSubtitles(subtitles, this.language);
+                                                film.setSubtitles(this.subtitles);
                                             }
                                         }
                                     }
@@ -3534,11 +3534,11 @@ public class Launcher{
                                         this.title = this.scanner.nextLine();
                                         for(Serie serie:this.serie)
                                         {
-                                            if(this.title.equalsIgnoreCase(serie.getSubtitles()))
+                                            if(this.title.equalsIgnoreCase(serie.getTitle()))
                                             {
-                                                this.language = serie.getSubtitles();
-                                                this.language = this.menuSub.modifyLanguage(subtitles, this.language, this.newlanguage);
-                                                serie.setSubtitles(this.language);
+                                                this.subtitles = serie.getSubtitles();
+                                                this.subtitles = this.menuSub.modifyLanguage(subtitles, this.language, this.newLanguage);
+                                                serie.setSubtitles(this.subtitles);
                                             }
                                         }
                                     }
@@ -3550,11 +3550,11 @@ public class Launcher{
                                         this.title = this.scanner.nextLine();
                                         for(Film film:this.film)
                                         {
-                                            if(this.title.equalsIgnoreCase(film.getSubtitles()))
+                                            if(this.title.equalsIgnoreCase(film.getTitle()))
                                             {
-                                                this.language = film.getSubtitles();
-                                                this.language = this.menuSub.modifyLanguage(subtitles, this.language, this.newLanguage);
-                                                film.setSubtitles(this.language);
+                                                this.subtitles = film.getSubtitles();
+                                                this.subtitles = this.menuSub.modifyLanguage(subtitles, this.language, this.newLanguage);
+                                                film.setSubtitles(this.subtitles);
                                             }
                                         }
                                     }
@@ -3585,11 +3585,10 @@ public class Launcher{
                                         this.title = this.scanner.nextLine();
                                         for(Serie serie:this.serie)
                             			{
-                                            if(this.title.equalsIgnoreCase(serie.getSubtitles()))
+                                            if(this.title.equalsIgnoreCase(serie.getTitle()))
                                             {
-                                                this.language = serie.getSubtitles();
-                                                this.menuSub.searchByLanguage(this.language, this.language);
-                                                serie.setSubtitles(this.language);
+                                                this.subtitles = serie.getSubtitles();
+                                                this.menuSub.searchByLanguage(this.subtitles, this.language);
                                             }
                                         }
                                     }
@@ -3601,11 +3600,10 @@ public class Launcher{
                                         this.title = this.scanner.nextLine();
                                         for(Film film:this.film)
                                         {
-                                            if(this.title.equalsIgnoreCase(film.getSubtitles()))
+                                            if(this.title.equalsIgnoreCase(film.getTitle()))
                                             {
-                                                this.language = film.getSubtitles();
-                                                this.menuSub.searchByLanguage(subtitles, this.language);
-                                                film.setSubtitles(this.language);
+                                                this.subtitles = film.getSubtitles();
+                                                this.menuSub.searchByLanguage(this.subtitles, this.language);
                                             }
                                         }
                                     }
