@@ -3709,9 +3709,14 @@ public class Launcher{
 									this.genderFS.infoGenderSerie(this.serie);
 								}
 							case  "2":
-								
+								System.out.println("You choose stats of actors ");
 								break;
-										
+							case "3":
+								break;
+							case "4":
+								break;
+							case "5":
+								break;
 							case "6":
 								endMenu = true;
 								break;
