@@ -34,7 +34,7 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
 		private Directors directors[] = new Directors [0];
 		private Category category[] = new Category [0];
 		private Subtitles subtitles[] = new Subtitles [0];
-		private Recommendation recommendation[];
+		private Recommendation recommendation[] = new Recommendation [0];
 		
 		//Constructor
 		//Constructor that sets the values of the Audiovisual attributes
