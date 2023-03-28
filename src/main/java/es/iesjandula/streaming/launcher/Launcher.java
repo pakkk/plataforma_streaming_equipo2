@@ -3770,6 +3770,61 @@ public class Launcher{
 							case "4":
 								break;
 							case "5":
+                                                                System.out.println("You choose stats of subtitles from films and series, choose one option: \n"
+                                                                                + "1.-Show all subtitles from films \n"
+                                                                                + "2.-Show all subtitles from series \n"
+										+ "3.-Show all subtitles \n"
+										+ "4.-Show all films that contains 1 or more subtitles \n"
+										+ "5.-Show all series that contains 1 or more subtitles \n");
+                                                                option = this.scanner.next();
+								if(option.equals("1"))
+								{
+									System.out.println("Do you want see the number of subtitles or the content (number/content)");
+									option = this.scanner.next();
+									while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+									{
+										System.out.println("Error choosing a option, please choose again");
+										option = this.scanner.next();
+									}
+									if(option.equalsIgnoreCase("number"))
+									{
+										this.statsSubtitles.countSubtitlesFilm(this.film);
+									}
+									else
+									{
+										this.statsSubtitles.showSubtitlesFilm(this.film);
+									}
+								}
+                                                                else if(option.equals("2"))
+								{
+									System.out.println("Do you want see the number of subtitles or the content (number/content)");
+									option = this.scanner.next();
+									while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+									{
+										System.out.println("Error choosing a option, please choose again");
+										option = this.scanner.next();
+									}
+									if(option.equalsIgnoreCase("number"))
+									{
+										this.statsSubtitles.countSubtitlesSerie(this.serie);
+									}
+									else
+									{
+										this.statsSubtitles.showSubtitlesSerie(this.serie);
+									}
+								}
+                                                                else if(option.equals("3"))
+                                                                {
+                                                                    this.statsSubtitles.countAllSubtitles(serie, film);
+                                                                }
+                                                                else if(option.equals("4"))
+                                                                {
+                                                                    this.statsSubtitles.infoFilmSubtitles(film);
+                                                                }
+                                                                else if(option.equals("5"))
+                                                                {
+                                                                    this.statsSubtitles.infoSerieSubtitles(serie);
+                                                                }
 								break;
 							case "6":
 								endMenu = true;
