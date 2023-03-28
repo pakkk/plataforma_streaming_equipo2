@@ -23,6 +23,7 @@ public class Launcher{
 	private Directors director[];
     private Category category[];
     private Recommendation recommendation[];
+    private Subtitles subtitles[];
 	
 	/**Attributes of films and serie
 	 *
@@ -3403,14 +3404,221 @@ public class Launcher{
                                                         }
                                                         break;
 								
-							case "5":
-								System.out.println("You choose menu of subtitles, select one option: \n"
-										+ "1.-Add a subtitle \n"
-										+ "2.-Delete a subtitle \n"
-										+ "3.-Modify a subtitle \n"
-										+ "4.-Seacrh a subtitle \n"
-										+ "5.-Back");
-								break;
+                            case "5":
+                				System.out.println("You choose menu of subtitles, select one option: \n"
+                						+ "1.-Add a language \n"
+                						+ "2.-Delete a language \n"
+                						+ "3.-Modify a language \n"
+                						+ "4.-Search a language \n"
+                						+ "5.-Back");
+                				option = this.scanner.next();
+                                if(option.equals("1"))
+                                {
+                                    this.language = this.scanner.nextLine();
+                                    System.out.println("Select a language");
+                                   
+                                    System.out.println("Where do you save your language (serie/film)");
+                                    option = this.scanner.next();
+                                    while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                    {
+                                        System.out.println("Error choose again (serie/film)");
+                                        option = this.scanner.next();
+                                    }
+                                    if(option.equalsIgnoreCase("serie"))
+                                    {
+                                        this.statsFS.countSeries(this.serie);
+                                        this.title= this.scanner.nextLine();
+                                        System.out.println("Select the title of your serie");
+                                        this.title = this.scanner.nextLine();
+                                        for(Serie serie:this.serie)
+                                            {
+                                            	if(this.title.equalsIgnoreCase(serie.getSubtitles()))
+                                                {
+                                                    this.language = serie.getSubtitles();
+                                                    this.language = this.menuSub.addLanguage(subtitles,this.language);
+                                                    serie.setSubtitles(this.language);
+                                                }
+                                            }
+                                    }
+                                    else
+                                    {
+                                        this.statsFS.countFilms(this.film);
+                                        this.title= this.scanner.nextLine();
+                                        System.out.println("Select the title of your film");
+                                        this.title = this.scanner.nextLine();
+                                        for(Film film:this.film)
+                                        {
+                                            if(this.title.equalsIgnoreCase(film.getSubtitles()))
+                                            {
+                                                this.language = film.getSubtitles();
+                                                this.language = this.menuSub.addLanguage(subtitles, this.language);
+                                                film.setSubtitles(this.language);
+                                            }
+                                		}
+                                    }
+
+                                }
+                                else if(option.equals("2"))
+                                {
+                                    System.out.println("You choose delete a language by it language");
+                                    
+                                    
+                                       
+                                    System.out.println("Select a language to search");
+                                    this.language = this.scanner.next();
+                                    System.out.println("where do you remove the language (serie/film)");
+                                    option = this.scanner.next();
+                                    while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                    {
+                                        System.out.println("Error choose again (serie/film)");
+                                        option = this.scanner.next();
+                                    }
+                                    if(option.equalsIgnoreCase("serie"))
+                                    {
+                                        this.statsFS.countSeries(this.serie);
+                                        this.title= this.scanner.nextLine();
+                                        System.out.println("Select the title of your serie");
+                                        this.title = this.scanner.nextLine();
+                                        for(Serie serie:this.serie)
+                                        {
+                                            if(this.title.equalsIgnoreCase(serie.getSubtitles()))
+                                            {
+                                                this.language = serie.getSubtitles();
+                                                this.language = this.menuSub.removeSubtitles(subtitles, this.language);
+                                                serie.setSubtitles(this.language);
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        this.statsFS.countFilms(this.film);
+                                        this.title= this.scanner.nextLine();
+                                        System.out.println("Select the title of your film");
+                                        this.title = this.scanner.nextLine();
+                                        for(Film film:this.film)
+                                        {
+                                            if(this.title.equalsIgnoreCase(film.getSubtitles()))
+                                            {
+                                                this.language = film.getSubtitles();
+                                                this.language = this.menuSub.removeSubtitles(subtitles, this.language);
+                                                film.setSubtitles(this.language);
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                
+                                else if(option.equals("3"))
+                                {
+                                    System.out.println("You  modify the languge");
+                                    option = this.scanner.next();
+                                    
+                                    
+                                    this.language = this.scanner.nextLine();
+                                    System.out.println("Select a language to search");
+                                    this.language = this.scanner.nextLine();
+                                    System.out.println("Select the new language");
+                                    this.newLanguage = this.scanner.nextLine();
+                                    System.out.println("Were do you modify the language (serie/film)");
+                                    option = this.scanner.next();
+                                    while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                    {
+                                        System.out.println("Error choose again (serie/film)");
+                                        option = this.scanner.next();
+                                    }
+                                	if(option.equalsIgnoreCase("serie"))
+                            		{
+                                        this.statsFS.countSeries(this.serie);
+                                        this.title= this.scanner.nextLine();
+                                        System.out.println("Select the title of your serie");
+                                        this.title = this.scanner.nextLine();
+                                        for(Serie serie:this.serie)
+                                        {
+                                            if(this.title.equalsIgnoreCase(serie.getSubtitles()))
+                                            {
+                                                this.language = serie.getSubtitles();
+                                                this.language = this.menuSub.modifyLanguage(subtitles, this.language, this.newlanguage);
+                                                serie.setSubtitles(this.language);
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        this.statsFS.countFilms(this.film);
+                                        this.title= this.scanner.nextLine();
+                                        System.out.println("Select the title of your film");
+                                        this.title = this.scanner.nextLine();
+                                        for(Film film:this.film)
+                                        {
+                                            if(this.title.equalsIgnoreCase(film.getSubtitles()))
+                                            {
+                                                this.language = film.getSubtitles();
+                                                this.language = this.menuSub.modifyLanguage(subtitles, this.language, this.newLanguage);
+                                                film.setSubtitles(this.language);
+                                            }
+                                        }
+                                    }
+                                   
+                                
+                				}
+                		        
+                		        else if(option.equals("4"))
+                		        {
+                		        	System.out.println("You choose search a subtitle by languaje") ;
+                                    
+                            
+                                           
+                	                System.out.println("Select a language to search");
+                	                this.language = this.scanner.next();
+                	                System.out.println("where do you search the language (serie/film)");
+                	                option = this.scanner.next();
+                	                while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+                                    {
+                                        System.out.println("Error choose again (serie/film)");
+                                        option = this.scanner.next();
+                                    }
+                                    if(option.equalsIgnoreCase("serie"))
+                                    {
+                                        this.statsFS.countSeries(this.serie);
+                                        this.title= this.scanner.nextLine();
+                                        System.out.println("Select the title of your serie");
+                                        this.title = this.scanner.nextLine();
+                                        for(Serie serie:this.serie)
+                            			{
+                                            if(this.title.equalsIgnoreCase(serie.getSubtitles()))
+                                            {
+                                                this.language = serie.getSubtitles();
+                                                this.menuSub.searchByLanguage(this.language, this.language);
+                                                serie.setSubtitles(this.language);
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        this.statsFS.countFilms(this.film);
+                                        this.title= this.scanner.nextLine();
+                                        System.out.println("Select the title of your film");
+                                        this.title = this.scanner.nextLine();
+                                        for(Film film:this.film)
+                                        {
+                                            if(this.title.equalsIgnoreCase(film.getSubtitles()))
+                                            {
+                                                this.language = film.getSubtitles();
+                                                this.menuSub.searchByLanguage(subtitles, this.language);
+                                                film.setSubtitles(this.language);
+                                            }
+                                        }
+                                    }
+
+                                }
+                                    
+                            	else
+                                {
+                                	System.out.println("Error selecting option");
+                                }
+                            
+                				break;
+                            			
 						
 							case "6":
 								endMenu = true;
