@@ -3709,7 +3709,61 @@ public class Launcher{
 									this.genderFS.infoGenderSerie(this.serie);
 								}
 							case  "2":
-								System.out.println("You choose stats of actors ");
+								System.out.println("You choose stats of actors, choose one option \n"
+										+ "1.-Show all actors \n"
+										+ "2.-Show actors in films \n"
+										+ "3.-Show actors in series \n"
+										+ "4.-Show series that works 2 or more actors \n"
+										+ "5.-Show films that works 2 or more actors");
+								option = this.scanner.next();
+								if(option.equals("1"))
+								{
+									this.statsActor.allActors(this.serie, this.film);	
+								}
+								else if(option.equals("2"))
+								{
+									System.out.println("Do you want see the number of series or the content (number/content)");
+									option = this.scanner.next();
+									while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+									{
+										System.out.println("Error choosing a option, please choose again");
+										option = this.scanner.next();
+									}
+									if(option.equalsIgnoreCase("number"))
+									{
+										this.statsActor.numActorsFilms(this.film);
+									}
+									else
+									{
+										this.statsActor.showActorsFilms(this.film);
+									}
+								}
+								else if(option.equals("3"))
+								{
+									System.out.println("Do you want see the number of series or the content (number/content)");
+									option = this.scanner.next();
+									while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+									{
+										System.out.println("Error choosing a option, please choose again");
+										option = this.scanner.next();
+									}
+									if(option.equalsIgnoreCase("number"))
+									{
+										this.statsActor.numActorsSeries(this.serie);
+									}
+									else
+									{
+										this.statsActor.showActorsSeries(this.serie);
+									}
+								}
+								else if(option.equals("4"))
+								{
+									this.statsActor.infoSeriesActors(this.serie);
+								}
+								else if(option.equals("5"))
+								{
+									this.statsActor.infoFilmsActors(this.film);
+								}
 								break;
 							case "3":
 								break;
