@@ -52,8 +52,9 @@ public class MenuSubtitles  {
         {
             if(language.equalsIgnoreCase((modify[i]).getLanguage()))
             {
-                System.out.println("Description "+ language +" modified by " + newLanguage);
+                System.out.println("Subtitle to modify "+modify[i]);
                 (modify[i]).setLanguage(newLanguage);
+                System.out.println("Subtitle modified "+modify[i]);
             }
         }
         return modify;
