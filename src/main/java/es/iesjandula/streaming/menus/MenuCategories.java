@@ -101,8 +101,10 @@ public class MenuCategories
 		{
 			if(name.equalsIgnoreCase(categoryArray[i].getName())) 
 			{
-				System.out.println("Description "+ name +" modified to " + newName);
+				System.out.println("Category to modify "+categoryArray[i]);
 				categoryArray[i].setName(newName);
+				System.out.println("Category to modified "+categoryArray[i]);
+				
 			}
 		}		
 		return categoryArray;
@@ -125,8 +127,9 @@ public class MenuCategories
 		{
 			if(description.equalsIgnoreCase(categoryArray[i].getDescription())) 
 			{
-				System.out.println("Description "+ description +" modified to " + newDescription);
+				System.out.println("Category to modify "+categoryArray[i]);
 				categoryArray[i].setDescription(newDescription);
+				System.out.println("Category to modified "+categoryArray[i]);
 			}
 		}		
 		return categoryArray;
