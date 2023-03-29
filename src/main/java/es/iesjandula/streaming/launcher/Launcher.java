@@ -1225,7 +1225,7 @@ public class Launcher{
 										System.out.println("Select the last name to search");
 										this.lastName = this.scanner.nextLine();
 										System.out.println("Select the new last name");
-										this.lastName = this.scanner.nextLine();
+										this.newLastName = this.scanner.nextLine();
 										System.out.println("were do you modify the actor (serie/film)");
 										option = this.scanner.next();
 										while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
