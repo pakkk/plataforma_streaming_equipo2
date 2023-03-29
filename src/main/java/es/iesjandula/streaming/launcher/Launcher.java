@@ -1400,7 +1400,7 @@ public class Launcher{
 										System.out.println("Select the awards to search");
 										this.awards = this.scanner.next();
 										System.out.println("Select the new awards");
-										this.awards = this.scanner.next();
+										this.newAwards = this.scanner.next();
 										System.out.println("were do you modify the actor (serie/film)");
 										option = this.scanner.next();
 										while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
@@ -2297,7 +2297,7 @@ public class Launcher{
 										System.out.println("Select the awards to search");
 										this.awards = this.scanner.next();
 										System.out.println("Select the new awards");
-										this.awards = this.scanner.next();
+										this.newAwards = this.scanner.next();
 										System.out.println("were do you modify the director (serie/film)");
 										option = this.scanner.next();
 										while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
