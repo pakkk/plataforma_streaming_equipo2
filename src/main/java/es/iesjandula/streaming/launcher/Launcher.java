@@ -234,7 +234,8 @@ public class Launcher{
 		System.out.println("You have this options now: \n"
 				+ "1.-Menu of films and serie \n"
 				+ "2.-Menu of data of films and series \n"
-				+ "3.-Exit");
+				+ "3.-Menu of stats of the system \n"
+				+ "4.-Exit");
 		System.out.println("Select one of them");
 		option = this.scanner.next();
 		while(!endLoop)
@@ -1449,7 +1450,7 @@ public class Launcher{
 								}
 								else if(option.equals("4"))
 								{
-									System.out.println("You choose delete a actor by his attributes, choose one: \n"
+									System.out.println("You choose search a actor by his attributes, choose one: \n"
 											+ "1.-Name \n"
 											+ "2.-Last name \n"
 											+ "3.-Gender \n"
@@ -2346,7 +2347,7 @@ public class Launcher{
 								}
 								else if(option.equals("4"))
 								{
-									System.out.println("You choose delete a director by his attributes, choose one: \n"
+									System.out.println("You choose search a director by his attributes, choose one: \n"
 											+ "1.-Name \n"
 											+ "2.-Last name \n"
 											+ "3.-Gender \n"
