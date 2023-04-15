@@ -4,7 +4,7 @@ import es.iesjandula.streaming.streaming.*;
 import java.util.Arrays;
 
 /**
- * @author jjurval
+ * @author Juan Alberto
  */
 public class DirectorStats
 {

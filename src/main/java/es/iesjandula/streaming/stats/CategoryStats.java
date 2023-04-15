@@ -7,7 +7,7 @@ import es.iesjandula.streaming.streaming.Film;
 import es.iesjandula.streaming.streaming.Serie;
 
 /**
- * @author Javi
+ * @author Javier
  * This class takes care of counting the categories in the system.
  */
 public class CategoryStats
