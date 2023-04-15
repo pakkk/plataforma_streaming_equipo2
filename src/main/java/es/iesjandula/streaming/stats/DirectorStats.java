@@ -4,12 +4,13 @@ import es.iesjandula.streaming.streaming.*;
 import java.util.Arrays;
 
 /**
+ * This class takes care of count and show how many Directors there are in the films or series.
+ * 
  * @author Juan Alberto
  */
 public class DirectorStats
 {
-    /**This class takes care of count and show how many Directors there are in the films or series*/
-    
+	
 	/**
 	* This method counts how many Directors there are in the series
 	* @param seriesDirectors An array of objects of type Series that contains information about TV series.

@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 /**
  * This class takes care of counting and displaying how many Actors there are in the films or series
+ * 
  * @author Alejandro
  */
 public class ActorStats

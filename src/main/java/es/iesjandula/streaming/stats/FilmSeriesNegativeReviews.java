@@ -7,7 +7,7 @@ import es.iesjandula.streaming.enums.RatingType;
 /**
  * This class shows the series and films with bad rating
  * 
- * @author Alejandro Cazalla
+ * @author Alejandro
  */
 public class FilmSeriesNegativeReviews
 {
