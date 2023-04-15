@@ -3,14 +3,18 @@ package es.iesjandula.streaming.stats;
 import es.iesjandula.streaming.baseclasses.Category;
 import es.iesjandula.streaming.streaming.*;
 
-public class GenderStast{
+/**
+ * @author Eduardo
+ */
+public class GenderStast
+{
 	//This class takes care of show series and films that have many genders
 	
-	/**This method show the series that have two or more genders
-	 * 
-	 * @param arraySerie
+	/**
+	 * This method show the series that have two or more genders
+	 * @param arraySerie the array serie
 	 */
-	public void infoGenderSerie(Serie arraySerie[])
+	public void infoGenderSerie(Serie[] arraySerie)
 	{
 		Category category[];
 		for(Serie serie: arraySerie)
@@ -21,13 +25,12 @@ public class GenderStast{
 				System.out.println(serie);
 			}
 		}
-		
 	}
 	/**
 	 * This method show the films that have two or more genders 
-	 * @param arrayFilm
+	 * @param arrayFilm the array film
 	 */
-	public void infoGenderFilm(Film arrayFilm[])
+	public void infoGenderFilm(Film[] arrayFilm)
 	{
 		Category category[];
 		for(Film film: arrayFilm)
@@ -38,9 +41,5 @@ public class GenderStast{
 				System.out.println(film);
 			}
 		}
-		
 	}
-	
-	
-	
 }
