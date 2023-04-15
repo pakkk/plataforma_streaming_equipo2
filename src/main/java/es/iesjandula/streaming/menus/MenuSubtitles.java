@@ -8,7 +8,7 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
  */
 public class MenuSubtitles
 {
-    /**The class makes a high, low, modifications and searches of subtitles in a movie or series*/
+    /*The class makes a high, low, modifications and searches of subtitles in a movie or series*/
 
     /**
      * This method performs a discharge of subtitles in a series or film, this method is passed as a parameter an array of subtitles and their attributes, the modified array is returned
@@ -80,7 +80,7 @@ public class MenuSubtitles
                 found = true;
             }
         }
-        if (found==false)
+        if (!found)
         {
             System.out.println("The language " + language + " doesn't exist");
         }
