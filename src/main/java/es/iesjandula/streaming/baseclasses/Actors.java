@@ -1,22 +1,39 @@
 package es.iesjandula.streaming.baseclasses;
+
 import es.iesjandula.streaming.enums.Gender;
 
-public class Actors{
+/**
+ * 
+ * @author Eduardo
+ *
+ */
+public class Actors
+{
 	//This class is responsible for loading actor data and storing it in an array
     //Attributes 
+	
+	/**Attribute name*/
     private String name;
+    
+    /**Attribute lastName*/
     private String lastName;
+    
+    /**Attribute gender*/
     private Gender gender;
+    
+    /**Attribute age*/
     private int age;
+    
+    /**Attribute awards*/
     private String awards;
     
     /**Constructor that defines the attributes of the actor
      * 
-     * @param name
-     * @param lastName
-     * @param gender
-     * @param age
-     * @param awards
+     * @param name the name of the actor
+     * @param lastName the last name of the actor
+     * @param gender the gender of the actor
+     * @param age the age of the actor
+     * @param awards the awards of the actor
      */
     public Actors(String name, String lastName, Gender gender, int age, String awards) 
     {
@@ -25,42 +42,45 @@ public class Actors{
         this.gender = gender;
         this.age = age;
         this.awards = awards;
-        correctAttributes();
+        this.correctAttributes();
     }
     
     //Getters
-    /**Getter that returns the actor's name
+    /**Getter 
      * 
-     * @return
+     * @return that returns the actor's name
      */
     public String getName() 
     {
         return this.name;
     }
+    
     /**
-     * Getter that returns the actor's last name
-     * @return
+     * Getter 
+     * @return that returns the actor's last name
      */
     public String getLastName() 
     {
         return this.lastName;
     }
-    /**Getter that returns the actor's awards
-     * 
-     * @return
+    
+    /**Getter 
+     * @return that returns the actor's awards
      */
     public String getAwards() 
     {
         return this.awards;
     }
-    /**Getter that returns the actor's gender
-     * 
-     * @return
+    
+    /**
+     * Getter 
+     * @return that returns the actor's gender
      */
     public Gender getGender() 
     {
     	return this.gender;
     }
+    
     /**Getter that returns the actor's age
      * 
      * @return
@@ -79,6 +99,7 @@ public class Actors{
     {
         this.name = name;
     }
+    
     /**
      * Setter that allows modifying the actor's last name
      * @param lastName
@@ -87,6 +108,7 @@ public class Actors{
     {
         this.lastName = lastName;
     }
+    
     /**
      * Setter that allows modifying the actor's gender
      * @param gender
@@ -95,6 +117,7 @@ public class Actors{
     {
         this.gender = gender;
     }
+    
     /**
      * Setter that allows modifying the actor's age
      * @param age
@@ -103,6 +126,7 @@ public class Actors{
     {
         this.age = age;
     }
+    
     /**Setter that allows modifying the actor's awards
      * 
      * @param awards
@@ -113,19 +137,18 @@ public class Actors{
     }
     
     /**This method is used to set default attributes if they are not entered
-     * 
      */
     private void correctAttributes()
     {
-    	while(name.isEmpty())
+    	if(name.isEmpty())
     	{
             this.name = "Unnamed";
     	}
-    	while(lastName.isEmpty())
+    	if(lastName.isEmpty())
     	{
             this.lastName = "Unnamed";
     	}
-    	while(age<0)
+    	if(age<0)
     	{
             this.age = 18;
     	}
@@ -135,8 +158,8 @@ public class Actors{
     	}
     }
     
-    /**toString that displays the values of the actor's attributes
-     * 
+    /**
+     * @return that displays the values of the actor's attributes
      */
     @Override
     public String toString() 

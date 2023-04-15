@@ -1,6 +1,26 @@
 package es.iesjandula.streaming.enums;
 
-public enum Gender {
+/**
+ * 
+ * @author Pablo Elias
+ *
+ */
+public enum Gender 
+{
 	//Enum that saves the gender of a actor or director 
-	MALE,FEMALE,OTHER;
+	
+	/**
+	 * MALE gender type.
+	 */
+	MALE,
+	
+	/**
+	 * FEMALE gender type.
+	 */
+	FEMALE,
+	
+	/**
+	 * OTHER gender type.
+	 */
+	OTHER;
 }

@@ -1,28 +1,41 @@
 package es.iesjandula.streaming.baseclasses;
+
 import es.iesjandula.streaming.enums.Gender;
 
-public class Directors {
+/**
+ * 
+ * @author Juan Alberto
+ *
+ */
+
+public class Directors 
+{
 	//This class is responsible for loading the data of the directors and storing it in an array
 	//Attributes 
-	/*
-	 * Attribute String name: Defines the name of the director
-	 * Attribute String lastName: Defines the last name of the director
-	 * Attribute Gender gender: Defines the gender of the director
-	 * Attribute int age: Defines the age of the director
-	 * Attribute String awards: Defines the type of awards the director has won
-	 */
-	private String name, lastName;
+	
+	/** Attribute String name: Defines the name of the director */
+	private String name;
+	
+	/** Attribute String lastName: Defines the last name of the director */
+	private String lastName;
+	
+	/** Attribute Gender gender: Defines the gender of the director */
     private Gender gender;
+	 
+	/** Attribute int age: Defines the age of the director */
     private int age;
+	 
+	/** Attribute String awards: Defines the type of awards the director has won*/
     private String awards;
-    //Constructor
+    
     /**
+     * Constructor
      * This constructor is responsible for setting the values of name, lastName, gender, age, and awards
-     * @param name
-     * @param lastName
-     * @param gender
-     * @param age
-     * @param awards
+     * @param name the name of the director
+     * @param lastName the last name of the director
+     * @param gender the gender of the director
+     * @param age the age of the director
+     * @param awards the awards of the director
      */
     public Directors(String name, String lastName, Gender gender, int age, String awards) 
     {
@@ -31,93 +44,103 @@ public class Directors {
         this.gender = gender;
         this.age = age;
         this.awards = awards;
-        CorrectAttributes();
+        this.correctAttributes();
     }
+    
     //Getters and Setters
-    /**Getter that returns the value of the director's name
-     * 
-     * @return
+    
+    /**Getter 
+     * @return that returns the value of the director's name
      */
     public String getName() 
     {
         return this.name;
     }
+    
     /**Setter that allows modifying the value of the director's name
-     * 
-     * @param name
+     * @param name the name of the director
      */
     public void setName(String name)
     {
         this.name = name;
     }
-    /**Getter that returns the value of the director's last name
+    
+    /**Getter 
      * 
-     * @return
+     * @return that returns the value of the director's last name
      */
     public String getLastName()
     {
         return this.lastName;
     }
+    
     /**Setter that allows modifying the value of the director's last name
      * 
-     * @param lastName
+     * @param lastName the last name of the director
      */
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
     }
-    /**Getter that returns the value of the director's gender
+    
+    /**Getter 
      * 
-     * @return
+     * @return that returns the value of the director's gender
      */
     public Gender getGender()
     {
         return this.gender;
     }
+    
     /**
      * Setter that allows modifying the value of the director's gender
-     * @param gender
+     * @param gender the gender of the director
      */
     public void setGender(Gender gender)
     {
         this.gender = gender;
     }
+    
     /**
-     * Getter that returns the value of the director's age
-     * @return
+     * Getter 
+     * @return that returns the value of the director's age
      */
     public int getAge()
     {
         return this.age;
     }
+    
     /**Setter that allows modifying the value of the director's age
      * 
-     * @param age
+     * @param age the age of the director
      */
     public void setAge(int age) 
     {
         this.age = age;
     }
-    /**Getter that returns the value of the director's awards
+    
+    /**Getter 
      * 
-     * @return
+     * @return that returns the value of the director's awards
      */
     public String getAwards() 
     {
         return this.awards;
     }
+    
     /**
      * Setter that allows modifying the director's awards
-     * @param awards
+     * @param awards the awards of the director
      */
     public void setAwards(String awards)
     {
         this.awards = awards;
     }
+    
     /**
      * Method to set default attributes in case they are not entered
      */
-    private void CorrectAttributes()
+    private void correctAttributes()
     {
     	if(name.isEmpty())
     	{
@@ -136,9 +159,11 @@ public class Directors {
     		this.awards = "No awards";
     	}
     }
-    /**
-     * toString that displays the value of the attributes name, lastName, gender, age, and awards
-     */
+    
+	/**
+	 * toString that displays the value of the attributes name, lastName, gender, age, and awards
+	 * @return String with the information of the director
+	 */
     @Override
     public String toString() 
     {

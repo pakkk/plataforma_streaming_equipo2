@@ -1,6 +1,21 @@
 package es.iesjandula.streaming.enums;
 
-public enum RatingType {
+/**
+ * 
+ * @author Pablo Elias
+ *
+ */
+public enum RatingType
+{
 	//Enum that save the rating of a recommendation of a serie or film
-	POSITIVE,NEGATIVE;
+	
+	/**
+	 * POSITIVE rating type positive.
+	 */
+	POSITIVE,
+	
+	/**
+	 * NEGATIVE rating type negative.
+	 */
+	NEGATIVE;
 }
