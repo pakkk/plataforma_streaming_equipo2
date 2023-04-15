@@ -16,7 +16,7 @@ public class CategoryStats
     /**
      * This method counts how many categories there are in the series.
      * 
-     * @param seriesCategory
+     * @param seriesCategory an array of Serie objects representing the series in the streaming system.
      */
     public void countSeriesCategories(Serie[] seriesCategory)
     {
@@ -32,7 +32,7 @@ public class CategoryStats
     /**
      * This method counts how many categories there are in the films.
      * 
-     * @param filmCategory
+     * @param filmCategory an array of Film objects representing the films in the streaming system.
      */
     public void countFilmsCategories(Film[] filmCategory)
     {
@@ -48,8 +48,8 @@ public class CategoryStats
     /**
      * This method counts how many categories there are in total.
      * 
-     * @param seriesCategory
-     * @param filmCategory
+     * @param seriesCategory an array of Serie objects representing the series in the streaming system.
+     * @param filmCategory an array of Film objects representing the films in the streaming system.
      */
     public void countAllCategories(Serie[] seriesCategory, Film[] filmCategory)
     {
@@ -70,7 +70,7 @@ public class CategoryStats
     /**
      * This method shows the categories of the series.
      * 
-     * @param seriesCategory
+     * @param seriesCategory an array of Serie objects representing the series in the streaming system.
      */
     public void showSeriesCategories(Serie[] seriesCategory)
     {
@@ -84,7 +84,7 @@ public class CategoryStats
     /**
      * This method shows the categories of the films.
      * 
-     * @param filmsCategory
+     * @param filmsCategory an array of Film objects representing the films in the streaming system.
      */
     public void showFilmCategories(Film[] filmsCategory)
     {
@@ -98,7 +98,7 @@ public class CategoryStats
     /**
      * This method shows the series that have 2 or more categories on them.
      * 
-     * @param seriesCategory
+     * @param seriesCategory an array of Serie objects representing the series in the streaming system.
      */
     public void showSeriesWithTwoOrMoreCategories(Serie[] seriesCategory)
     {
@@ -115,7 +115,7 @@ public class CategoryStats
     /**
      * This method shows the films that have 2 or more categories on them.
      * 
-     * @param filmsCategory
+     * @param filmsCategory an array of Film objects representing the films in the streaming system.
      */
     public void showFilmsWithTwoOrMoreCategories(Film[] filmsCategory)
     {
