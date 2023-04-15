@@ -1,6 +1,6 @@
 package es.iesjandula.streaming.menus;
-import java.util.Arrays;
 
+import java.util.Arrays;
 import es.iesjandula.streaming.baseclasses.Subtitles;
 
 /**
