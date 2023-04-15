@@ -77,7 +77,7 @@ public class Launcher
 	private String originalLanguage;
 
 	/**Attribute String adaptedLanguage []: Language with which the movie or serie its translated*/
-	private String adaptedLanguage[] = new String [0];
+	private String[] adaptedLanguage = new String [0];
 
 	/**Attribute int duration: Duration of the movie or serie*/
 	private int duration;
@@ -92,7 +92,7 @@ public class Launcher
 	private String newOriginalLanguage;
 
 	/**Attribute String adaptedLanguage[]: His use is only to modify the old adaptedLanguage*/
-	private String newAdaptedLanguage[] = new String [0];
+	private String[] newAdaptedLanguage = new String [0];
 
 	/**Attribute int newDuration: His use is only to modify the old duration*/
 	private int newDuration;
@@ -389,47 +389,48 @@ public class Launcher
 			switch(option)
 			{
 				case "1":
-					{
-						//----ADD NEW FILM OR SERIE----
-						option = this.addNewFilmOrSerie();
-						endMenu = true;
-						break;
-					}
+				{
+					//----ADD NEW FILM OR SERIE----
+					option = this.addNewFilmOrSerie();
+					endMenu = true;
+					break;
+				}
 				case "2":
-					{
-						//---DELETE SERIE OR FILM-----
-						option = this.deleteSerieOrFilm();
-						endMenu = true;
-						break;
-					}
+				{
+					//---DELETE SERIE OR FILM-----
+					option = this.deleteSerieOrFilm();
+					endMenu = true;
+					break;
+				}
 				case "3":
-					{
-						//---MODIFY AN ATRIBUTE------
-						option = this.modifyAnAttribute();
-						endMenu = true;
-						break;
-					}
+				{
+					//---MODIFY AN ATRIBUTE------
+					option = this.modifyAnAttribute();
+					endMenu = true;
+					break;
+				}
 				case "4":
-					{
-						//---SEARCH A FILM OR SERIES----
-						option = this.searchFilmOrSerie();
-						endMenu = true;
-						break;
-					}
+				{
+					//---SEARCH A FILM OR SERIES----
+					option = this.searchFilmOrSerie();
+					endMenu = true;
+					break;
+				}
 				case "5":
-					{
-						//----BACK-------
-						endMenu = true;
-						break;
-					}
+				{
+					//----BACK-------
+					endMenu = true;
+					break;
+				}
 				default:
 				{
 					System.out.println("Error selecting option");
 				}
-
-				//---RETRY THE MENU FILM SERIES (PRINT)---
-				option = this.retryMenuFilmSeriesPrint(endMenu, option);
+				
 			}
+			
+			//---RETRY THE MENU FILM SERIES (PRINT)---
+			option = this.retryMenuFilmSeriesPrint(endMenu, option);
 		}
 	}
 
@@ -476,7 +477,7 @@ public class Launcher
 	}
 
 	/**
-	 * @return
+	 * @return string with the information
 	 */
 	private String searchFilmByAttributes()
 	{
@@ -636,7 +637,7 @@ public class Launcher
 	/**
 	 *Search Serie by views
 	 */
-	private void searchSerieByViews() 
+	private void searchSerieByViews()
 	{
 		try
 		{
@@ -652,7 +653,7 @@ public class Launcher
 	/**
 	 *Search serie by duration
 	 */
-	private void searchSerieByDuration() 
+	private void searchSerieByDuration()
 	{
 		try
 		{
@@ -668,7 +669,7 @@ public class Launcher
 	/**
 	 * @return String with the information
 	 */
-	private String searchSerieByAdaptedLanguage() 
+	private String searchSerieByAdaptedLanguage()
 	{
 		String option;
 		System.out.println("Select a language");
@@ -687,7 +688,7 @@ public class Launcher
 	/**
 	 *Search serie by original language
 	 */
-	private void searchSerieByOrigLanguage() 
+	private void searchSerieByOrigLanguage()
 	{
 		System.out.println("Select a original language to search");
 		this.originalLanguage = this.scanner.nextLine();
@@ -708,7 +709,7 @@ public class Launcher
 	/**
 	 * @return String with the information
 	 */
-	private String modifyAnAttribute() 
+	private String modifyAnAttribute()
 	{
 		String option;
 		System.out.println("Choose which audiovisual do you want (serie/film)");
@@ -717,12 +718,12 @@ public class Launcher
 		if(option.equalsIgnoreCase("serie"))
 		{
 			//---MODIFY A SERIE ATTRIBUTE---
-			option = modifySerieAttribute();
+			option = this.modifySerieAttribute();
 		}
 		else if(option.equalsIgnoreCase("film"))
 		{
 			//---MODIFY A FILM ATTRIBUTE---
-			option = modifyFilmAttribute();
+			option = this.modifyFilmAttribute();
 		}
 		return option;
 	}
@@ -730,11 +731,11 @@ public class Launcher
 	/**
 	 * @return String with the information
 	 */
-	private String modifyFilmAttribute() 
+	private String modifyFilmAttribute()
 	{
 		String option;
 		option = this.scanner.nextLine();
-		
+
 		System.out.println("""
 			You choose modify an attribute of a film, choose one of then:\s
 			1.-Title\s
@@ -742,33 +743,33 @@ public class Launcher
 			3.-Adapted language\s
 			4.-Duration\s
 			5.-Views""");
-	
+
 		option = this.scanner.nextLine();
-		
+
 		if(option.equalsIgnoreCase("title") || option.equalsIgnoreCase("1"))
 		{
 			//------MODIFY FILM TITLE-------
-			modifyFilmTitle();
+			this.modifyFilmTitle();
 		}
 		else if(option.equalsIgnoreCase("Original language") || option.equalsIgnoreCase("originalLanguage") || option.equalsIgnoreCase("2"))
 		{
 			//------MODIFY FILM ORIGINAL LANGUAGE-------
-			modifyFilmOriginalLanguage();
+			this.modifyFilmOriginalLanguage();
 		}
 		else if(option.equalsIgnoreCase("Adapted language") || option.equalsIgnoreCase("adaptedLanguage") || option.equalsIgnoreCase("3"))
 		{
 			//------MODIFY FILM ADAPTED LANGUAGE-------
-			option = modifyFilmAdaptedLanguage();
+			option = this.modifyFilmAdaptedLanguage();
 		}
 		else if(option.equalsIgnoreCase("duration") || option.equalsIgnoreCase("4"))
 		{
 			//------MODIFY FILM DURATION-------
-			modifyFilmDuration();
+			this.modifyFilmDuration();
 		}
 		else if(option.equalsIgnoreCase("views") || option.equalsIgnoreCase("5"))
 		{
 			//------MODIFY FILM VIEWS-------
-			modifyFilmViews();
+			this.modifyFilmViews();
 		} else {
 			System.out.println("Error to select option");
 		}
@@ -778,7 +779,7 @@ public class Launcher
 	/**
 	 * Modify film views
 	 */
-	private void modifyFilmViews() 
+	private void modifyFilmViews()
 	{
 		try
 		{
@@ -814,7 +815,7 @@ public class Launcher
 	/**
 	 * @return String with the information
 	 */
-	private String modifyFilmAdaptedLanguage() 
+	private String modifyFilmAdaptedLanguage()
 	{
 		String option;
 		System.out.println("Select a new adaapted language");
@@ -833,7 +834,7 @@ public class Launcher
 	/**
 	 * Modify original language film
 	 */
-	private void modifyFilmOriginalLanguage() 
+	private void modifyFilmOriginalLanguage()
 	{
 		System.out.println("Select the original language to search");
 		this.originalLanguage = this.scanner.next();
@@ -857,7 +858,7 @@ public class Launcher
 	/**
 	 * @return String with the information
 	 */
-	private String modifySerieAttribute() 
+	private String modifySerieAttribute()
 	{
 		String option;
 		option = this.scanner.nextLine();
@@ -872,27 +873,27 @@ public class Launcher
 		if(option.equalsIgnoreCase("title") || option.equalsIgnoreCase("1"))
 		{
 			//----MODIFY SERIE TITLE----
-			modifySerieTitle();
+			this.modifySerieTitle();
 		}
 		else if(option.equalsIgnoreCase("Original language") || option.equalsIgnoreCase("originalLanguage") || option.equalsIgnoreCase("2"))
 		{
 			//----MODIFY SERIE ORIGINAL LANGUAGE----
-			modifySerieOriginalLanguage();
+			this.modifySerieOriginalLanguage();
 		}
 		else if(option.equalsIgnoreCase("Adapted language") || option.equalsIgnoreCase("adaptedLanguage") || option.equalsIgnoreCase("3"))
 		{
 			//----MODIFY SERIE ADAPTED LANGUAGE----
-			option = modifySerieAdaptedLanguage();
+			option = this.modifySerieAdaptedLanguage();
 		}
 		else if(option.equalsIgnoreCase("duration") || option.equalsIgnoreCase("4"))
 		{
 			//----MODIFY SERIE DURATION----
-			modifySerieDuration();
+			this.modifySerieDuration();
 		}
 		else if(option.equalsIgnoreCase("views") || option.equalsIgnoreCase("5"))
 		{
 			//----MODIFY SERIE VIEWS----
-			modifySerieViews();
+			this.modifySerieViews();
 		} else {
 			System.out.println("Error to select option");
 		}
@@ -902,7 +903,7 @@ public class Launcher
 	/**
 	 * Modify serie views
 	 */
-	private void modifySerieViews() 
+	private void modifySerieViews()
 	{
 		try
 		{
@@ -920,7 +921,7 @@ public class Launcher
 	/**
 	 * Modify serie duration
 	 */
-	private void modifySerieDuration() 
+	private void modifySerieDuration()
 	{
 		try
 		{
@@ -938,7 +939,7 @@ public class Launcher
 	/**
 	 * @return string with the information
 	 */
-	private String modifySerieAdaptedLanguage() 
+	private String modifySerieAdaptedLanguage()
 	{
 		String option;
 		System.out.println("Select a new adaapted language");
@@ -957,7 +958,7 @@ public class Launcher
 	/**
 	 * Modify serie original language
 	 */
-	private void modifySerieOriginalLanguage() 
+	private void modifySerieOriginalLanguage()
 	{
 		System.out.println("Select the original language to search");
 		this.originalLanguage = this.scanner.next();
@@ -968,7 +969,7 @@ public class Launcher
 	/**
 	 * Modify serie title
 	 */
-	private void modifySerieTitle() 
+	private void modifySerieTitle()
 	{
 		this.title = this.scanner.nextLine();
 		System.out.println("Select the title to search");
@@ -981,7 +982,7 @@ public class Launcher
 	/**
 	 * @return string with the information
 	 */
-	private String deleteSerieOrFilm() 
+	private String deleteSerieOrFilm()
 	{
 		String option;
 		System.out.println("Choose which audiovisual do you want (serie/film)");
@@ -989,12 +990,12 @@ public class Launcher
 		if(option.equalsIgnoreCase("serie"))
 		{
 			//---DELETE SERIE----
-			option = deleteSerie();
+			option = this.deleteSerie();
 		}
 		else if(option.equalsIgnoreCase("film"))
 		{
 			//---DELETE FILM---
-			option = deleteFilm();
+			option = this.deleteFilm();
 		}
 		return option;
 	}
@@ -1002,7 +1003,7 @@ public class Launcher
 	/**
 	 * @return string with information
 	 */
-	private String deleteFilm() 
+	private String deleteFilm()
 	{
 		String option;
 		option = this.scanner.nextLine();
@@ -1017,27 +1018,27 @@ public class Launcher
 		if(option.equalsIgnoreCase("title") || option.equals("1"))
 		{
 			//---DELETE FILM BY TITLE---
-			deleteFilmByTitle();
+			this.deleteFilmByTitle();
 		}
 		else if(option.equalsIgnoreCase("original language") || option.equalsIgnoreCase("originalLanguage") || option.equals("2"))
 		{
 			//---DELETE FILM BY ORIGINAL LANGUAGE---
-			deleteFilmByOrigLanguage();
+			this.deleteFilmByOrigLanguage();
 		}
 		else if(option.equalsIgnoreCase("adapted language") || option.equalsIgnoreCase("adaptedLanguage") || option.equals("3"))
 		{
 			//---DELETE FILM BY ADAPTED LANGUAGE---
-			option = deleteFilmByAdaptedLanguage();
+			option = this.deleteFilmByAdaptedLanguage();
 		}
 		else if(option.equalsIgnoreCase("duration") || option.equals("4"))
 		{
 			//---DELETE FILM BY DURATION---
-			deleteFilmByDuration();
+			this.deleteFilmByDuration();
 		}
 		else if(option.equalsIgnoreCase("views") || option.equals("5"))
 		{
 			//---DELETE FILM BY VIEWS---
-			deleteFilmByViews();
+			this.deleteFilmByViews();
 
 		} else {
 			System.out.println("Error to introducing option");
@@ -1048,7 +1049,7 @@ public class Launcher
 	/**
 	 * Delete film by views
 	 */
-	private void deleteFilmByViews() 
+	private void deleteFilmByViews()
 	{
 		try
 		{
@@ -1069,7 +1070,7 @@ public class Launcher
 	/**
 	 * Delete film by duration
 	 */
-	private void deleteFilmByDuration() 
+	private void deleteFilmByDuration()
 	{
 		try
 		{
@@ -1090,7 +1091,7 @@ public class Launcher
 	/**
 	 * @return String with the information
 	 */
-	private String deleteFilmByAdaptedLanguage() 
+	private String deleteFilmByAdaptedLanguage()
 	{
 		String option;
 		this.adaptedLanguage = new String[0];
@@ -1110,7 +1111,7 @@ public class Launcher
 	/**
 	 * Delete film by original language
 	 */
-	private void deleteFilmByOrigLanguage() 
+	private void deleteFilmByOrigLanguage()
 	{
 		this.originalLanguage = this.scanner.nextLine();
 		System.out.println("Select the original language to search");
@@ -1121,7 +1122,7 @@ public class Launcher
 	/**
 	 * Delete film by title
 	 */
-	private void deleteFilmByTitle() 
+	private void deleteFilmByTitle()
 	{
 		this.title = this.scanner.nextLine();
 		System.out.println("Select the title to search");
@@ -1132,7 +1133,7 @@ public class Launcher
 	/**
 	 * @return string with the information
 	 */
-	private String deleteSerie() 
+	private String deleteSerie()
 	{
 		String option;
 		option = this.scanner.nextLine();
@@ -1144,34 +1145,34 @@ public class Launcher
 			4.-Duration\s
 			5.-Views""");
 		option = this.scanner.nextLine();
-		
+
 		if(option.equalsIgnoreCase("title") || option.equals("1"))
 		{
 			//---DELETE SERIE BY TITLE---
-			deleteSerieByTitle();
+			this.deleteSerieByTitle();
 		}
 		else if(option.equalsIgnoreCase("original language") || option.equalsIgnoreCase("originalLanguage") || option.equals("2"))
 		{
 			//---DELETE SERIE BY ORIGINAL LANGUAGE---
-			deleteSerieByOrigLanguage();
+			this.deleteSerieByOrigLanguage();
 		}
 		else if(option.equalsIgnoreCase("adapted language") || option.equalsIgnoreCase("adaptedLanguage") || option.equals("3"))
 		{
 			//---DELETE SERIE BY ADAPTED LANGUAGE---
-			option = deleteSerieByAdaptedLanguage();
+			option = this.deleteSerieByAdaptedLanguage();
 		}
 		else if(option.equalsIgnoreCase("duration") || option.equals("4"))
 		{
 
 			//---DELETE SERIE BY DURATION---
-			deleteSerieByDuration();
+			this.deleteSerieByDuration();
 		}
 		else if(option.equalsIgnoreCase("views") || option.equals("5"))
 		{
 			//---DELETE SERIE BY VIEWS---
-			deleteSerieByViews();
+			this.deleteSerieByViews();
 
-		} else 
+		} else
 		{
 			System.out.println("Error to introducing option");
 		}
@@ -1179,10 +1180,10 @@ public class Launcher
 	}
 
 	/**
-	 * 
+	 *
 	 * Delete serie by views
 	 */
-	private void deleteSerieByViews() 
+	private void deleteSerieByViews()
 	{
 		System.out.println("Select the views to search");
 		try
@@ -1204,7 +1205,7 @@ public class Launcher
 	/**
 	 * Delete serie by duration
 	 */
-	private void deleteSerieByDuration() 
+	private void deleteSerieByDuration()
 	{
 		try
 		{
@@ -1225,7 +1226,7 @@ public class Launcher
 	/**
 	 * @return String with the information
 	 */
-	private String deleteSerieByAdaptedLanguage() 
+	private String deleteSerieByAdaptedLanguage()
 	{
 		String option;
 		this.adaptedLanguage = new String[0];
@@ -1245,7 +1246,7 @@ public class Launcher
 	/**
 	 * Delete serie by original language
 	 */
-	private void deleteSerieByOrigLanguage() 
+	private void deleteSerieByOrigLanguage()
 	{
 		this.originalLanguage = this.scanner.nextLine();
 		System.out.println("Select the original language to search");
@@ -1256,7 +1257,7 @@ public class Launcher
 	/**
 	 * Delete serie by title
 	 */
-	private void deleteSerieByTitle() 
+	private void deleteSerieByTitle()
 	{
 		System.out.println("Select the title to search");
 		this.title = this.scanner.nextLine();
@@ -1266,7 +1267,7 @@ public class Launcher
 	/**
 	 * @return String with the information
 	 */
-	private String addNewFilmOrSerie() 
+	private String addNewFilmOrSerie()
 	{
 		String option;
 		System.out.println("Choose which audiovisual do you want (serie / film)");
@@ -1274,12 +1275,12 @@ public class Launcher
 		if(option.equalsIgnoreCase("serie"))
 		{
 			//---ADD NEW SERIE SELECTION----
-			option = addNewSerieSelected();
+			option = this.addNewSerieSelected();
 		}
 		else if(option.equalsIgnoreCase("film"))
 		{
 			//---ADD NEW FILM SELECTION----
-			option = addNewFilmSelected();
+			option = this.addNewFilmSelected();
 		} else {
 			System.out.println("Error to selecting audiovisual");
 		}
@@ -1289,7 +1290,7 @@ public class Launcher
 	/**
 	 * @return String with the information
 	 */
-	private String addNewFilmSelected() 
+	private String addNewFilmSelected()
 	{
 		String option;
 		//The user must to introduce with the scanner the attributes of the films
@@ -1344,7 +1345,7 @@ public class Launcher
 	/**
 	 * @return string with the information
 	 */
-	private String addNewSerieSelected() 
+	private String addNewSerieSelected()
 	{
 		String option;
 		this.title = this.scanner.nextLine();
@@ -1427,654 +1428,32 @@ public class Launcher
 				case "3":
 				{
 					//----MENU OF CATEGORIES-------
-					option = menuDataCategories();
+					option = this.menuDataCategories();
 					break;
 				}
                 case "4":
-                        System.out.println("""
-							You choose menu of recommendation, select one option:\s
-							1.-Add a recommendation\s
-							2.-Delete a recommendation\s
-							3.-Modify a recommendation\s
-							4.-Search a recommendation\s
-							5.-Back""");
-                        option = this.scanner.next();
-                        if(option.equals("1"))
-                        {
-                                System.out.println("Select a rating (bad/good)");
-                                option = this.scanner.next();
-                                while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
-                                {
-                                    System.out.println("Error selecting a rate, choose again (bad/good)");
-                                    option = this.scanner.next();
-                                }
-                                if(option.equalsIgnoreCase("good"))
-                                {
-                                    this.rate = RatingType.POSITIVE;
-                                }
-                                else
-                                {
-                                    this.rate = RatingType.NEGATIVE;
-                                }
-                                this.comment = this.scanner.nextLine();
-                                System.out.println("Select a comment ");
-                                this.comment = this.scanner.nextLine();
-                                System.out.println("Where do you save your recommendation (serie/film)");
-                                option = this.scanner.next();
-                                while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                                {
-                                        System.out.println("Error choose again (serie/film)");
-                                        option = this.scanner.next();
-                                }
-                                if(option.equalsIgnoreCase("serie"))
-                                {
-                                        this.statsFS.countSeries(this.serie);
-                                        this.title= this.scanner.nextLine();
-                                        System.out.println("Select the title of your serie");
-                                        this.title = this.scanner.nextLine();
-                                        for(Serie serie:this.serie)
-                                        {
-                                                if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                                {
-                                                        this.recommendation = serie.getRecommendation();
-                                                        this.recommendation = this.menuRec.addRecommendation(this.recommendation, this.rate, this.comment);
-                                                        serie.setRecommendation(this.recommendation);
-                                                }
-                                        }
-                                }
-                                else
-                                {
-                                        this.statsFS.countFilms(this.film);
-                                        this.title= this.scanner.nextLine();
-                                        System.out.println("Select the title of your film");
-                                        this.title = this.scanner.nextLine();
-                                        for(Film film:this.film)
-                                        {
-                                                if(this.title.equalsIgnoreCase(film.getTitle()))
-                                                {
-                                                        this.recommendation = film.getRecommendation();
-                                                        this.recommendation = this.menuRec.addRecommendation(this.recommendation, this.rate, this.comment);
-                                                        film.setRecommendation(this.recommendation);
-                                                }
-                                        }
-                                }
-
-                        }
-                        else if(option.equals("2"))
-                        {
-                                System.out.println("""
-									You choose delete a recommendation by its attributes, choose one:\s
-									1.-Rating\s
-									2.-Comment\s
-									""");
-                                option = this.scanner.next();
-                                if(option.equalsIgnoreCase("Rating") || option.equals("1"))
-                                {
-                                        System.out.println("Select a rating (bad/good)");
-                                        option = this.scanner.next();
-                                        while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
-                                        {
-                                            System.out.println("Error selecting a rate, choose again (bad/good)");
-                                            option = this.scanner.next();
-                                        }
-                                        if(option.equalsIgnoreCase("good"))
-                                        {
-                                            this.rate = RatingType.POSITIVE;
-                                        }
-                                        else
-                                        {
-                                            this.rate = RatingType.NEGATIVE;
-                                        }
-                                        System.out.println("where do you remove the recommendation (serie/film)");
-                                        option = this.scanner.next();
-                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                                        {
-                                                System.out.println("Error choose again (serie/film)");
-                                                option = this.scanner.next();
-                                        }
-                                        if(option.equalsIgnoreCase("serie"))
-                                        {
-                                                this.statsFS.countSeries(this.serie);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your serie");
-                                                this.title = this.scanner.nextLine();
-                                                for(Serie serie:this.serie)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                                        {
-                                                            this.recommendation = serie.getRecommendation();
-                                                            this.recommendation = this.menuRec.recommendationDeleteByRate(this.recommendation, this.rate);
-                                                            serie.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-                                        else
-                                        {
-                                                this.statsFS.countFilms(this.film);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your film");
-                                                this.title = this.scanner.nextLine();
-                                                for(Film film:this.film)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
-                                                        {
-                                                            this.recommendation = film.getRecommendation();
-                                                            this.recommendation = this.menuRec.recommendationDeleteByRate(this.recommendation, this.rate);
-                                                            film.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-
-                                }
-                                else if(option.equalsIgnoreCase("Comment") || option.equalsIgnoreCase("Comment") || option.equals("2"))
-                                {
-                                        this.comment = this.scanner.nextLine();
-                                        System.out.println("Select the comment to search");
-                                        this.comment = this.scanner.nextLine();
-                                        System.out.println("were do you remove the description (serie/film)");
-                                        option = this.scanner.next();
-                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                                        {
-                                                System.out.println("Error choose again (serie/film)");
-                                                option = this.scanner.next();
-                                        }
-                                        if(option.equalsIgnoreCase("serie"))
-                                        {
-                                                this.statsFS.countSeries(this.serie);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your serie");
-                                                this.title = this.scanner.nextLine();
-                                                for(Serie serie:this.serie)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                                        {
-                                                            this.recommendation = serie.getRecommendation();
-                                                            this.recommendation = this.menuRec.recommendationDeleteByComment(this.recommendation, this.comment);
-                                                            serie.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-                                        else
-                                        {
-                                                this.statsFS.countFilms(this.film);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your film");
-                                                this.title = this.scanner.nextLine();
-                                                for(Film film:this.film)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
-                                                        {
-                                                            this.recommendation = film.getRecommendation();
-                                                            this.recommendation = this.menuRec.recommendationDeleteByComment(this.recommendation, this.comment);
-                                                            film.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-                                }
-                                else
-                                {
-                                        System.out.println("Error selecting option");
-                                }
-                        }
-                        else if(option.equals("3"))
-                        {
-                                System.out.println("""
-									You choose modify an attribute of a recommendation, choose one option:\s
-									 \
-									1.-Rating\s
-									2.-Comment\s
-									""");
-                                option = this.scanner.next();
-                                if(option.equalsIgnoreCase("Rating") || option.equals("1"))
-                                {
-                                        System.out.println("Select a rating to search (bad/good)");
-                                        option = this.scanner.next();
-                                        while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
-                                        {
-                                            System.out.println("Error selecting a rate, choose again (bad/good)");
-                                            option = this.scanner.next();
-                                        }
-                                        if(option.equalsIgnoreCase("good"))
-                                        {
-                                            this.rate = RatingType.POSITIVE;
-                                        }
-                                        else
-                                        {
-                                            this.rate = RatingType.NEGATIVE;
-                                        }
-                                        System.out.println("Select a new rate (bad/good)");
-                                        option = this.scanner.next();
-                                        while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
-                                        {
-                                            System.out.println("Error selecting a rate, choose again (bad/good)");
-                                            option = this.scanner.next();
-                                        }
-                                        if(option.equalsIgnoreCase("good"))
-                                        {
-                                            this.newRate = RatingType.POSITIVE;
-                                        }
-                                        else
-                                        {
-                                            this.newRate = RatingType.NEGATIVE;
-                                        }
-                                        System.out.println("Where do you modify the recommendation (serie/film)");
-                                        option = this.scanner.next();
-                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                                        {
-                                                System.out.println("Error choose again (serie/film)");
-                                                option = this.scanner.next();
-                                        }
-                                        if(option.equalsIgnoreCase("serie"))
-                                        {
-                                                this.statsFS.countSeries(this.serie);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your serie");
-                                                this.title = this.scanner.nextLine();
-                                                for(Serie serie:this.serie)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                                        {
-                                                            this.recommendation = serie.getRecommendation();
-                                                            this.recommendation = this.menuRec.recommendationModifyByRate(this.recommendation, this.rate, this.newRate);
-                                                            serie.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-                                        else
-                                        {
-                                                this.statsFS.countFilms(this.film);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your film");
-                                                this.title = this.scanner.nextLine();
-                                                for(Film film:this.film)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
-                                                        {
-                                                            this.recommendation = film.getRecommendation();
-                                                            this.recommendation = this.menuRec.recommendationModifyByRate(this.recommendation, this.rate, this.newRate);
-                                                            film.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-
-                                }
-                                else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("Description") || option.equals("2"))
-                                {
-                                        this.comment = this.scanner.nextLine();
-                                        System.out.println("Select the comment to search");
-                                        this.comment = this.scanner.nextLine();
-                                        System.out.println("Select the new comment");
-                                        this.newComment = this.scanner.nextLine();
-                                        System.out.println("were do you modify the category (serie/film)");
-                                        option = this.scanner.next();
-                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                                        {
-                                                System.out.println("Error choose again (serie/film)");
-                                                option = this.scanner.next();
-                                        }
-                                        if(option.equalsIgnoreCase("serie"))
-                                        {
-                                                this.statsFS.countSeries(this.serie);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your serie");
-                                                this.title = this.scanner.nextLine();
-                                                for(Serie serie:this.serie)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                                        {
-                                                            this.recommendation = serie.getRecommendation();
-                                                            this.recommendation = this.menuRec.recommendationModifyByComment(this.recommendation, this.comment, this.newComment);
-                                                            serie.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-                                        else
-                                        {
-                                                this.statsFS.countFilms(this.film);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your film");
-                                                this.title = this.scanner.nextLine();
-                                                for(Film film:this.film)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
-                                                        {
-                                                            this.recommendation = film.getRecommendation();
-                                                            this.recommendation = this.menuRec.recommendationModifyByComment(this.recommendation, this.comment, this.newComment);
-                                                            film.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-                                }
-                                else
-                                {
-                                        System.out.println("Error selecting option");
-                                }
-                        }
-                        else if(option.equals("4"))
-                        {
-                                System.out.println("""
-									You choose search a recommendation by his attributes, choose one:\s
-									1.-Rating\s
-									2.-Comment\s
-									""");
-                                option = this.scanner.next();
-                                if(option.equalsIgnoreCase("Rating") || option.equals("1"))
-                                {
-                                        System.out.println("Select a rate to search (bad/good)");
-                                        option = this.scanner.next();
-                                        while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
-                                        {
-                                            System.out.println("Error selecting a rate, choose again (bad/good)");
-                                            option = this.scanner.next();
-                                        }
-                                        if(option.equalsIgnoreCase("good"))
-                                        {
-                                            this.rate = RatingType.POSITIVE;
-                                        }
-                                        else
-                                        {
-                                            this.rate = RatingType.NEGATIVE;
-                                        }
-                                        System.out.println("where do you search the recommendation (serie/film)");
-                                        option = this.scanner.next();
-                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                                        {
-                                                System.out.println("Error choose again (serie/film)");
-                                                option = this.scanner.next();
-                                        }
-                                        if(option.equalsIgnoreCase("serie"))
-                                        {
-                                                this.statsFS.countSeries(this.serie);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your serie");
-                                                this.title = this.scanner.nextLine();
-                                                for(Serie serie:this.serie)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                                        {
-                                                            this.recommendation = serie.getRecommendation();
-                                                            this.menuRec.recommendationSearchByRate(this.recommendation, this.rate);
-                                                            serie.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-                                        else
-                                        {
-                                                this.statsFS.countFilms(this.film);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your film");
-                                                this.title = this.scanner.nextLine();
-                                                for(Film film:this.film)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
-                                                        {
-                                                            this.recommendation = film.getRecommendation();
-                                                            this.menuRec.recommendationSearchByRate(this.recommendation, this.rate);
-                                                            film.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-
-                                }
-                                else if(option.equalsIgnoreCase("Comment") || option.equalsIgnoreCase("Comment") || option.equals("2"))
-                                {
-                                        this.comment = this.scanner.nextLine();
-                                        System.out.println("Select the description to search");
-                                        this.comment = this.scanner.nextLine();
-                                        System.out.println("were do you search the category (serie/film)");
-                                        option = this.scanner.next();
-                                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                                        {
-                                                System.out.println("Error choose again (serie/film)");
-                                                option = this.scanner.next();
-                                        }
-                                        if(option.equalsIgnoreCase("serie"))
-                                        {
-                                                this.statsFS.countSeries(this.serie);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your serie");
-                                                this.title = this.scanner.nextLine();
-                                                for(Serie serie:this.serie)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                                        {
-                                                            this.recommendation = serie.getRecommendation();
-                                                            this.menuRec.recommendationSearchByComment(this.recommendation, this.comment);
-                                                            serie.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-                                        else
-                                        {
-                                                this.statsFS.countFilms(this.film);
-                                                this.title= this.scanner.nextLine();
-                                                System.out.println("Select the title of your film");
-                                                this.title = this.scanner.nextLine();
-                                                for(Film film:this.film)
-                                                {
-                                                        if(this.title.equalsIgnoreCase(film.getTitle()))
-                                                        {
-                                                            this.recommendation = film.getRecommendation();
-                                                            this.menuRec.recommendationSearchByComment(this.recommendation, this.comment);
-                                                            film.setRecommendation(this.recommendation);
-                                                        }
-                                                }
-                                        }
-                                }
-                                else
-                                {
-                                        System.out.println("Error selecting option");
-                                }
-                        }
-                        break;
-
+                {
+                	//---MENU OF RECOMMENDATIONS---
+                	option = this.menuOfRecommendations();
+                	break;
+                }
                 case "5":
-    				System.out.println("""
-						You choose menu of subtitles, select one option:\s
-						1.-Add a language\s
-						2.-Delete a language\s
-						3.-Modify a language\s
-						4.-Search a language\s
-						5.-Back""");
-    				option = this.scanner.next();
-                    if(option.equals("1"))
-                    {
-                        System.out.println("Select a language");
-                        this.language = this.scanner.next();
-                        System.out.println("Where do you save your language (serie/film)");
-                        option = this.scanner.next();
-                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                        {
-                            System.out.println("Error choose again (serie/film)");
-                            option = this.scanner.next();
-                        }
-                        if(option.equalsIgnoreCase("serie"))
-                        {
-                            this.statsFS.countSeries(this.serie);
-                            this.title= this.scanner.nextLine();
-                            System.out.println("Select the title of your serie");
-                            this.title = this.scanner.nextLine();
-                            for(Serie serie:this.serie)
-                                {
-                                	if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                    {
-                                        this.subtitles = serie.getSubtitles();
-                                        this.subtitles = this.menuSub.addSubtitles(this.subtitles,this.language);
-                                        serie.setSubtitles(this.subtitles);
-                                    }
-                                }
-                        }
-                        else
-                        {
-                            this.statsFS.countFilms(this.film);
-                            this.title= this.scanner.nextLine();
-                            System.out.println("Select the title of your film");
-                            this.title = this.scanner.nextLine();
-                            for(Film film:this.film)
-                            {
-                                if(this.title.equalsIgnoreCase(film.getTitle()))
-                                {
-                                    this.subtitles = film.getSubtitles();
-                                    this.subtitles = this.menuSub.addSubtitles(this.subtitles, this.language);
-                                    film.setSubtitles(this.subtitles);
-                                }
-                    		}
-                        }
-
-                    }
-                    else if(option.equals("2"))
-                    {
-                        System.out.println("You choose delete a subtitle by his language");
-                        System.out.println("Select a language to search");
-                        this.language = this.scanner.next();
-                        System.out.println("where do you remove the language (serie/film)");
-                        option = this.scanner.next();
-                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                        {
-                            System.out.println("Error choose again (serie/film)");
-                            option = this.scanner.next();
-                        }
-                        if(option.equalsIgnoreCase("serie"))
-                        {
-                            this.statsFS.countSeries(this.serie);
-                            this.title= this.scanner.nextLine();
-                            System.out.println("Select the title of your serie");
-                            this.title = this.scanner.nextLine();
-                            for(Serie serie:this.serie)
-                            {
-                                if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                {
-                                    this.subtitles = serie.getSubtitles();
-                                    this.subtitles = this.menuSub.removeSubtitles(this.subtitles, this.language);
-                                    serie.setSubtitles(this.subtitles);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            this.statsFS.countFilms(this.film);
-                            this.title= this.scanner.nextLine();
-                            System.out.println("Select the title of your film");
-                            this.title = this.scanner.nextLine();
-                            for(Film film:this.film)
-                            {
-                                if(this.title.equalsIgnoreCase(film.getTitle()))
-                                {
-                                    this.subtitles = film.getSubtitles();
-                                    this.subtitles = this.menuSub.removeSubtitles(this.subtitles, this.language);
-                                    film.setSubtitles(this.subtitles);
-                                }
-                            }
-                        }
-                    }
-
-
-                    else if(option.equals("3"))
-                    {
-                        System.out.println("You choose modify the subtitle by his language");
-                        System.out.println("Select the language to search");
-                        this.language = this.scanner.next();
-                        System.out.println("Select the new language");
-                        this.newLanguage = this.scanner.next();
-                        System.out.println("Were do you modify the language (serie/film)");
-                        option = this.scanner.next();
-                        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                        {
-                            System.out.println("Error choose again (serie/film)");
-                            option = this.scanner.next();
-                        }
-                    	if(option.equalsIgnoreCase("serie"))
-                		{
-                            this.statsFS.countSeries(this.serie);
-                            this.title= this.scanner.nextLine();
-                            System.out.println("Select the title of your serie");
-                            this.title = this.scanner.nextLine();
-                            for(Serie serie:this.serie)
-                            {
-                                if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                {
-                                    this.subtitles = serie.getSubtitles();
-                                    this.subtitles = this.menuSub.modifyLanguage(this.subtitles, this.language, this.newLanguage);
-                                    serie.setSubtitles(this.subtitles);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            this.statsFS.countFilms(this.film);
-                            this.title= this.scanner.nextLine();
-                            System.out.println("Select the title of your film");
-                            this.title = this.scanner.nextLine();
-                            for(Film film:this.film)
-                            {
-                                if(this.title.equalsIgnoreCase(film.getTitle()))
-                                {
-                                    this.subtitles = film.getSubtitles();
-                                    this.subtitles = this.menuSub.modifyLanguage(this.subtitles, this.language, this.newLanguage);
-                                    film.setSubtitles(this.subtitles);
-                                }
-                            }
-                        }
-
-
-    				}
-
-    		        else if(option.equals("4"))
-    		        {
-    		        	System.out.println("You choose search a subtitle by languaje") ;
-    	                System.out.println("Select a language to search");
-    	                this.language = this.scanner.next();
-    	                System.out.println("where do you search the language (serie/film)");
-    	                option = this.scanner.next();
-    	                while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-                        {
-                            System.out.println("Error choose again (serie/film)");
-                            option = this.scanner.next();
-                        }
-                        if(option.equalsIgnoreCase("serie"))
-                        {
-                            this.statsFS.countSeries(this.serie);
-                            this.title= this.scanner.nextLine();
-                            System.out.println("Select the title of your serie");
-                            this.title = this.scanner.nextLine();
-                            for(Serie serie:this.serie)
-                			{
-                                if(this.title.equalsIgnoreCase(serie.getTitle()))
-                                {
-                                    this.subtitles = serie.getSubtitles();
-                                    this.menuSub.searchByLanguage(this.subtitles, this.language);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            this.statsFS.countFilms(this.film);
-                            this.title= this.scanner.nextLine();
-                            System.out.println("Select the title of your film");
-                            this.title = this.scanner.nextLine();
-                            for(Film film:this.film)
-                            {
-                                if(this.title.equalsIgnoreCase(film.getTitle()))
-                                {
-                                    this.subtitles = film.getSubtitles();
-                                    this.menuSub.searchByLanguage(this.subtitles, this.language);
-                                }
-                            }
-                        }
-
-                    }
-
-                	else
-                    {
-                    	System.out.println("Error selecting option");
-                    }
-
+                {
+                	//---MENU OF SUBTITLES---
+    				option = this.menuOfSubtitles();
     				break;
 
-
+                }
 				case "6":
+				{
+					//---MENU EXIT---
 					endMenu = true;
 					break;
+				}
+				default:
+				{
+					System.out.println("Unknow option");
+				}
 			}
 			if(!endMenu)
 			{
@@ -2092,9 +1471,945 @@ public class Launcher
 	}
 
 	/**
+	 * @return String with the info
+	 */
+	private String menuOfSubtitles()
+	{
+		String option;
+		System.out.println("""
+			You choose menu of subtitles, select one option:\s
+			1.-Add a language\s
+			2.-Delete a language\s
+			3.-Modify a language\s
+			4.-Search a language\s
+			5.-Back""");
+		option = this.scanner.next();
+
+		if(option.equals("1"))
+		{
+			//---ADD SUBTITLE LANGUAGE---
+		    option = this.addSubtitleLanguages();
+
+		}
+		else if(option.equals("2"))
+		{
+			//---DELETE SUBTITLE LANGUAGE---
+		    option = this.deleteSubtitleLanguage();
+		}
+		else if(option.equals("3"))
+		{
+			//---MODIFY SUBTITLE LANGUAGE---
+		    option = this.modifySubtitleLanguage();
+		}
+		else if(option.equals("4"))
+		{
+			//---SEARCH SUBTITLE LANGUAGE---
+			option = this.searchSubtitleLanguage();
+
+		}
+
+		else
+		{
+			System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return String whit information
+	 */
+	private String searchSubtitleLanguage()
+	{
+		String option;
+		System.out.println("You choose search a subtitle by languaje") ;
+		System.out.println("Select a language to search");
+		this.language = this.scanner.next();
+		System.out.println("where do you search the language (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		    System.out.println("Error choose again (serie/film)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+		    this.statsFS.countSeries(this.serie);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your serie");
+		    this.title = this.scanner.nextLine();
+		    for(Serie series:this.serie)
+			{
+		        if(this.title.equalsIgnoreCase(series.getTitle()))
+		        {
+		            this.subtitles = series.getSubtitles();
+		            this.menuSub.searchByLanguage(this.subtitles, this.language);
+		        }
+		    }
+		}
+		else
+		{
+		    this.statsFS.countFilms(this.film);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your film");
+		    this.title = this.scanner.nextLine();
+		    for(Film films:this.film)
+		    {
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.subtitles = films.getSubtitles();
+		            this.menuSub.searchByLanguage(this.subtitles, this.language);
+		        }
+		    }
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with information
+	 */
+	private String modifySubtitleLanguage()
+	{
+		String option;
+		System.out.println("You choose modify the subtitle by his language");
+		System.out.println("Select the language to search");
+		this.language = this.scanner.next();
+
+		System.out.println("Select the new language");
+		this.newLanguage = this.scanner.next();
+
+		System.out.println("Were do you modify the language (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		    System.out.println("Error choose again (serie/film)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+		    this.statsFS.countSeries(this.serie);
+		    this.title= this.scanner.nextLine();
+
+		    System.out.println("Select the title of your serie");
+		    this.title = this.scanner.nextLine();
+
+		    for(Serie series:this.serie)
+		    {
+		        if(this.title.equalsIgnoreCase(series.getTitle()))
+		        {
+		            this.subtitles = series.getSubtitles();
+		            this.subtitles = this.menuSub.modifyLanguage(this.subtitles, this.language, this.newLanguage);
+		            series.setSubtitles(this.subtitles);
+		        }
+		    }
+		}
+		else
+		{
+		    this.statsFS.countFilms(this.film);
+
+		    this.title= this.scanner.nextLine();
+
+		    System.out.println("Select the title of your film");
+		    this.title = this.scanner.nextLine();
+
+		    for(Film films:this.film)
+		    {
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.subtitles = films.getSubtitles();
+		            this.subtitles = this.menuSub.modifyLanguage(this.subtitles, this.language, this.newLanguage);
+		            films.setSubtitles(this.subtitles);
+		        }
+		    }
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with information
+	 */
+	private String deleteSubtitleLanguage()
+	{
+		String option;
+		System.out.println("You choose delete a subtitle by his language");
+		System.out.println("Select a language to search");
+		this.language = this.scanner.next();
+
+		System.out.println("where do you remove the language (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		    System.out.println("Error choose again (serie/film)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+		    this.statsFS.countSeries(this.serie);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your serie");
+		    this.title = this.scanner.nextLine();
+		    for(Serie series:this.serie)
+		    {
+		        if(this.title.equalsIgnoreCase(series.getTitle()))
+		        {
+		            this.subtitles = series.getSubtitles();
+		            this.subtitles = this.menuSub.removeSubtitles(this.subtitles, this.language);
+		            series.setSubtitles(this.subtitles);
+		        }
+		    }
+		}
+		else
+		{
+		    this.statsFS.countFilms(this.film);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your film");
+		    this.title = this.scanner.nextLine();
+		    for(Film films:this.film)
+		    {
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.subtitles = films.getSubtitles();
+		            this.subtitles = this.menuSub.removeSubtitles(this.subtitles, this.language);
+		            films.setSubtitles(this.subtitles);
+		        }
+		    }
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with information
+	 */
+	private String addSubtitleLanguages()
+	{
+		String option;
+
+		System.out.println("Select a language");
+		this.language = this.scanner.next();
+
+		System.out.println("Where do you save your language (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		    System.out.println("Error choose again (serie/film)");
+		    option = this.scanner.next();
+		}
+
+		if(option.equalsIgnoreCase("serie"))
+		{
+		    this.statsFS.countSeries(this.serie);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your serie");
+		    this.title = this.scanner.nextLine();
+		    for(Serie series:this.serie)
+		        {
+		        	if(this.title.equalsIgnoreCase(series.getTitle()))
+		            {
+		                this.subtitles = series.getSubtitles();
+		                this.subtitles = this.menuSub.addSubtitles(this.subtitles,this.language);
+		                series.setSubtitles(this.subtitles);
+		            }
+		        }
+		}
+		else
+		{
+		    this.statsFS.countFilms(this.film);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your film");
+		    this.title = this.scanner.nextLine();
+		    for(Film films:this.film)
+		    {
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.subtitles = films.getSubtitles();
+		            this.subtitles = this.menuSub.addSubtitles(this.subtitles, this.language);
+		            films.setSubtitles(this.subtitles);
+		        }
+			}
+		}
+		return option;
+	}
+
+	/**
 	 * @return
 	 */
-	private String menuDataCategories() {
+	private String menuOfRecommendations()
+	{
+		String option;
+		System.out.println("""
+			You choose menu of recommendation, select one option:\s
+			1.-Add a recommendation\s
+			2.-Delete a recommendation\s
+			3.-Modify a recommendation\s
+			4.-Search a recommendation\s
+			5.-Back""");
+		option = this.scanner.next();
+
+		if(option.equals("1"))
+		{
+			//---ADD RECOMMENDATION---
+			option = this.addRecommendation();
+
+		}
+		else if(option.equals("2"))
+		{
+		    //---DELETE RECOMMENDATION---
+			option = this.deleteRecommendation();
+		}
+		else if(option.equals("3"))
+		{
+		    //---MODIFY RECOMMENDATION---
+			option = this.modifyRecommendation();
+		}
+		else if(option.equals("4"))
+		{
+			//---SEARCH RECOMMENDATION---
+			option = this.searchRecommendation();
+		}
+		return option;
+	}
+
+	/**
+	 * @return String with the information
+	 */
+	private String searchRecommendation()
+	{
+		String option;
+		System.out.println("""
+			You choose search a recommendation by his attributes, choose one:\s
+			1.-Rating\s
+			2.-Comment\s
+			""");
+		option = this.scanner.next();
+		if(option.equalsIgnoreCase("Rating") || option.equals("1"))
+		{
+			//---SEARCH RECOMMENDATION BY RATING---
+			option = this.searchRecommendationByRating();
+
+		}
+		else if(option.equalsIgnoreCase("Comment") || option.equalsIgnoreCase("comment") || option.equals("2"))
+		{
+			//---SEARCH RECOMMENDATION BY COMMENT---
+			option = this.searchRecommendationByComment();
+		}
+		else
+		{
+		    System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String searchRecommendationByComment()
+	{
+		String option;
+		this.comment = this.scanner.nextLine();
+
+		System.out.println("Select the description to search");
+		this.comment = this.scanner.nextLine();
+
+		System.out.println("were do you search the category (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		        System.out.println("Error choose again (serie/film)");
+		        option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+		        this.statsFS.countSeries(this.serie);
+		        this.title= this.scanner.nextLine();
+		        System.out.println("Select the title of your serie");
+		        this.title = this.scanner.nextLine();
+		        for(Serie series:this.serie)
+		        {
+		                if(this.title.equalsIgnoreCase(series.getTitle()))
+		                {
+		                    this.recommendation = series.getRecommendation();
+		                    this.menuRec.recommendationSearchByComment(this.recommendation, this.comment);
+		                    series.setRecommendation(this.recommendation);
+		                }
+		        }
+		}
+		else
+		{
+		        this.statsFS.countFilms(this.film);
+		        this.title= this.scanner.nextLine();
+		        System.out.println("Select the title of your film");
+		        this.title = this.scanner.nextLine();
+		        for(Film films:this.film)
+		        {
+		                if(this.title.equalsIgnoreCase(films.getTitle()))
+		                {
+		                    this.recommendation = films.getRecommendation();
+		                    this.menuRec.recommendationSearchByComment(this.recommendation, this.comment);
+		                    films.setRecommendation(this.recommendation);
+		                }
+		        }
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String searchRecommendationByRating()
+	{
+		String option;
+		System.out.println("Select a rate to search (bad/good)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
+		{
+		    System.out.println("Error selecting a rate, choose again (bad/good)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("good"))
+		{
+		    this.rate = RatingType.POSITIVE;
+		}
+		else
+		{
+		    this.rate = RatingType.NEGATIVE;
+		}
+		System.out.println("where do you search the recommendation (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		     System.out.println("Error choose again (serie/film)");
+		     option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---SEARCH RECOMMENDATION ON SERIE---
+		     this.searchRecommendationOnSerie();
+		}
+		else
+		{
+			//---SEARCH RECOMMENDATION ON FILM---
+		     this.searchRecommendationOnFilm();
+		}
+		return option;
+	}
+
+	/**
+	 *Search recommendation on film
+	 */
+	private void searchRecommendationOnFilm()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+
+		for(Film films:this.film)
+		{
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.recommendation = films.getRecommendation();
+		            this.menuRec.recommendationSearchByRate(this.recommendation, this.rate);
+		            films.setRecommendation(this.recommendation);
+		        }
+		}
+	}
+
+	/**
+	 *Search recommendation on serie
+	 */
+	private void searchRecommendationOnSerie()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+
+		for(Serie series:this.serie)
+		{
+		        if(this.title.equalsIgnoreCase(series.getTitle()))
+		        {
+		            this.recommendation = series.getRecommendation();
+		            this.menuRec.recommendationSearchByRate(this.recommendation, this.rate);
+		            series.setRecommendation(this.recommendation);
+		        }
+		}
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyRecommendation()
+	{
+		String option;
+		System.out.println("""
+			You choose modify an attribute of a recommendation, choose one option:\s
+			 \
+			1.-Rating\s
+			2.-Comment\s
+			""");
+		option = this.scanner.next();
+
+		if(option.equalsIgnoreCase("Rating") || option.equals("1"))
+		{
+			//---MODIFY RECOMMENDATION BY RATING---
+			option = this.modifyRecommendationByRating();
+
+		}
+		else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("description") || option.equals("2"))
+		{
+			//---MODIFY RECOMMENDATION BY DESCRIPTION---
+		    option = this.modifyRecommendationByDescription();
+		}
+		else
+		{
+		    System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return String with the information
+	 */
+	private String modifyRecommendationByDescription()
+	{
+		String option;
+		this.comment = this.scanner.nextLine();
+		System.out.println("Select the comment to search");
+		this.comment = this.scanner.nextLine();
+		System.out.println("Select the new comment");
+		this.newComment = this.scanner.nextLine();
+		System.out.println("were do you modify the category (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		        System.out.println("Error choose again (serie/film)");
+		        option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---MODIFI RECOMM BY DESCRIPTION SERIE---
+			this.modifyRecommByDescSerie();
+		}
+		else
+		{
+			//---MODIFI RECOMM BY DESCRIPTION FILM---
+		    this.modifyRecommByDescFilm();
+		}
+		return option;
+	}
+
+	/**
+	 *Modify recommendation by description on film
+	 */
+	private void modifyRecommByDescFilm()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.recommendation = films.getRecommendation();
+		            this.recommendation = this.menuRec.recommendationModifyByComment(this.recommendation, this.comment, this.newComment);
+		            films.setRecommendation(this.recommendation);
+		        }
+		}
+	}
+
+	/**
+	 *Modify recommendation by description on serie
+	 */
+	private void modifyRecommByDescSerie() {
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+		        if(this.title.equalsIgnoreCase(series.getTitle()))
+		        {
+		            this.recommendation = series.getRecommendation();
+		            this.recommendation = this.menuRec.recommendationModifyByComment(this.recommendation, this.comment, this.newComment);
+		            series.setRecommendation(this.recommendation);
+		        }
+		}
+	}
+
+	/**
+	 * @return string with information
+	 */
+	private String modifyRecommendationByRating()
+	{
+		String option;
+		System.out.println("Select a rating to search (bad/good)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
+		{
+		    System.out.println("Error selecting a rate, choose again (bad/good)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("good"))
+		{
+		    this.rate = RatingType.POSITIVE;
+		}
+		else
+		{
+		    this.rate = RatingType.NEGATIVE;
+		}
+		System.out.println("Select a new rate (bad/good)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
+		{
+		    System.out.println("Error selecting a rate, choose again (bad/good)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("good"))
+		{
+		    this.newRate = RatingType.POSITIVE;
+		}
+		else
+		{
+		    this.newRate = RatingType.NEGATIVE;
+		}
+		System.out.println("Where do you modify the recommendation (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		        System.out.println("Error choose again (serie/film)");
+		        option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+		        this.modifyRecommByRatingSerie();
+		}
+		else
+		{
+		        this.modifyRecommByRatingFilm();
+		}
+		return option;
+	}
+
+	/**
+	 * Modify recommmendation by rating film
+	 */
+	private void modifyRecommByRatingFilm()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.recommendation = films.getRecommendation();
+		            this.recommendation = this.menuRec.recommendationModifyByRate(this.recommendation, this.rate, this.newRate);
+		            films.setRecommendation(this.recommendation);
+		        }
+		}
+	}
+
+	/**
+	 * Modify recommmendation by rating Serie
+	 */
+	private void modifyRecommByRatingSerie()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+		        if(this.title.equalsIgnoreCase(series.getTitle()))
+		        {
+		            this.recommendation = series.getRecommendation();
+		            this.recommendation = this.menuRec.recommendationModifyByRate(this.recommendation, this.rate, this.newRate);
+		            series.setRecommendation(this.recommendation);
+		        }
+		}
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteRecommendation()
+	{
+		String option;
+		System.out.println("""
+			You choose delete a recommendation by its attributes, choose one:\s
+			1.-Rating\s
+			2.-Comment\s
+			""");
+		option = this.scanner.next();
+
+		if(option.equalsIgnoreCase("Rating") || option.equals("1"))
+		{
+			//---DELETE RECOMENTATION BY RATING---
+			option = this.deleteRecommendationByRating();
+
+		}
+		else if(option.equalsIgnoreCase("Comment") || option.equalsIgnoreCase("comment") || option.equals("2"))
+		{
+			//---DELETE RECOMENTATION BY COMMENT---
+			option = this.deleteRecommendationByComment();
+		}
+		else
+		{
+		    System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return
+	 */
+	private String deleteRecommendationByComment()
+	{
+		String option;
+		//---SELECT THE COMMENT TO DELETE---
+		option = this.selectCommentToDelete();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		    System.out.println("Error choose again (serie/film)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---DELETE RECOMMENDATION BY SERIE COMMENT---
+		    this.deleteRecommendationSerieByComment();
+		}
+		else
+		{
+			//---DELETE RECOMMENDATION BY FILM COMMENT---
+		    this.deleteRecommendationFilmByComment();
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with information
+	 */
+	private String deleteRecommendationByRating()
+	{
+		String option;
+		//---SELECT THE RATING TO DELETE---
+		this.selectRating();
+
+		System.out.println("where do you remove the recommendation (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		    System.out.println("Error choose again (serie/film)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---DELETE RECOMMENDATION BY SERIE RATING---
+		    this.deleteRecommendationSerieByRating();
+		}
+		else
+		{
+			//---DELETE RECOMMENDATION BY FILM RATING---
+		    this.deleteRecommendationFilmByRating();
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with information
+	 */
+	private String selectCommentToDelete()
+	{
+		String option;
+		this.comment = this.scanner.nextLine();
+		System.out.println("Select the comment to search");
+		this.comment = this.scanner.nextLine();
+		System.out.println("were do you remove the description (serie/film)");
+		option = this.scanner.next();
+		return option;
+	}
+
+	/**
+	 *Select the rating
+	 */
+	private void selectRating()
+	{
+		String option;
+		System.out.println("Select a rating (bad/good)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("good")&&!option.equalsIgnoreCase("bad"))
+		{
+		    System.out.println("Error selecting a rate, choose again (bad/good)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("good"))
+		{
+		    this.rate = RatingType.POSITIVE;
+		}
+		else
+		{
+		    this.rate = RatingType.NEGATIVE;
+		}
+	}
+
+	/**
+	 *Delete recommendation from film by comment
+	 */
+	private void deleteRecommendationFilmByComment()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.recommendation = films.getRecommendation();
+		            this.recommendation = this.menuRec.recommendationDeleteByComment(this.recommendation, this.comment);
+		            films.setRecommendation(this.recommendation);
+		        }
+		}
+	}
+
+	/**
+	 *delete recommendation from serie by comment
+	 */
+	private void deleteRecommendationSerieByComment()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+		        if(this.title.equalsIgnoreCase(series.getTitle()))
+		        {
+		            this.recommendation = series.getRecommendation();
+		            this.recommendation = this.menuRec.recommendationDeleteByComment(this.recommendation, this.comment);
+		            series.setRecommendation(this.recommendation);
+		        }
+		}
+	}
+
+	/**
+	 *delete recommendation of film by rating
+	 */
+	private void deleteRecommendationFilmByRating()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+	        if(this.title.equalsIgnoreCase(films.getTitle()))
+	        {
+	            this.recommendation = films.getRecommendation();
+	            this.recommendation = this.menuRec.recommendationDeleteByRate(this.recommendation, this.rate);
+	            films.setRecommendation(this.recommendation);
+	        }
+		}
+	}
+
+	/**
+	 * Delete recommendation from serie by rating
+	 */
+	private void deleteRecommendationSerieByRating()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+	        if(this.title.equalsIgnoreCase(series.getTitle()))
+	        {
+	            this.recommendation = series.getRecommendation();
+	            this.recommendation = this.menuRec.recommendationDeleteByRate(this.recommendation, this.rate);
+	            series.setRecommendation(this.recommendation);
+	        }
+		}
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String addRecommendation()
+	{
+		String option;
+
+		//---SELECT THE RATING---
+		this.selectRating();
+
+		this.comment = this.scanner.nextLine();
+
+		System.out.println("Select a comment ");
+		this.comment = this.scanner.nextLine();
+
+		System.out.println("Where do you save your recommendation (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		        System.out.println("Error choose again (serie/film)");
+		        option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+	        this.statsFS.countSeries(this.serie);
+	        this.title= this.scanner.nextLine();
+
+	        System.out.println("Select the title of your serie");
+	        this.title = this.scanner.nextLine();
+
+	        for(Serie series:this.serie)
+	        {
+                if(this.title.equalsIgnoreCase(series.getTitle()))
+                {
+                    this.recommendation = series.getRecommendation();
+                    this.recommendation = this.menuRec.addRecommendation(this.recommendation, this.rate, this.comment);
+                    series.setRecommendation(this.recommendation);
+                }
+	        }
+		}
+		else
+		{
+	        this.statsFS.countFilms(this.film);
+	        this.title= this.scanner.nextLine();
+	        System.out.println("Select the title of your film");
+	        this.title = this.scanner.nextLine();
+
+	        for(Film films:this.film)
+	        {
+                if(this.title.equalsIgnoreCase(films.getTitle()))
+                {
+                        this.recommendation = films.getRecommendation();
+                        this.recommendation = this.menuRec.addRecommendation(this.recommendation, this.rate, this.comment);
+                        films.setRecommendation(this.recommendation);
+                }
+	        }
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String menuDataCategories()
+	{
 		String option;
 		System.out.println("""
 			You choose menu of categories, select one option:\s
@@ -2104,368 +2419,250 @@ public class Launcher
 			4.-Search a category\s
 			5.-Back""");
 		option = this.scanner.next();
+
 		if(option.equals("1"))
 		{
-		        this.name = this.scanner.nextLine();
-		        System.out.println("Select a name");
-		        this.name = this.scanner.nextLine();
-		        System.out.println("Select a description");
-		        this.description = this.scanner.nextLine();
-		        System.out.println("Where do you save your category (serie/film)");
-		        option = this.scanner.next();
-		        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-		        {
-		                System.out.println("Error choose again (serie/film)");
-		                option = this.scanner.next();
-		        }
-		        if(option.equalsIgnoreCase("serie"))
-		        {
-		            this.statsFS.countSeries(this.serie);
-		            this.title= this.scanner.nextLine();
-		            System.out.println("Select the title of your serie");
-		            this.title = this.scanner.nextLine();
-		            for(Serie serie:this.serie)
-		            {
-		                    if(this.title.equalsIgnoreCase(serie.getTitle()))
-		                    {
-		                        this.category = serie.getCategory();
-		                        this.category = this.menuCat.addCategory(this.category, this.name, this.description);
-		                        serie.setCategory(this.category);
-		                    }
-		            }
-		        }
-		        else
-		        {
-		                this.statsFS.countFilms(this.film);
-		                this.title= this.scanner.nextLine();
-		                System.out.println("Select the title of your film");
-		                this.title = this.scanner.nextLine();
-		                for(Film film:this.film)
-		                {
-		                    if(this.title.equalsIgnoreCase(film.getTitle()))
-		                    {
-		                        this.category = film.getCategory();
-		                        this.category = this.menuCat.addCategory(this.category, this.name, this.description);
-		                        film.setCategory(this.category);
-		                    }
-		                }
-		        }
-
+			//--ADD CATEGORY---
+	        option = this.addCategory();
 		}
 		else if(option.equals("2"))
 		{
-		    System.out.println("""
-				You choose delete a Category by its attributes, choose one:\s
-				1.-Name\s
-				2.-Description\s
-				""");
-		    option = this.scanner.next();
-		    if(option.equalsIgnoreCase("name") || option.equals("1"))
-		    {
-		            this.name = this.scanner.nextLine();
-		            System.out.println("Select a name to search");
-		            this.name = this.scanner.next();
-		            System.out.println("where do you remove the category (serie/film)");
-		            option = this.scanner.next();
-		            while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-		            {
-		                System.out.println("Error choose again (serie/film)");
-		                option = this.scanner.next();
-		            }
-		            if(option.equalsIgnoreCase("serie"))
-		            {
-		                this.statsFS.countSeries(this.serie);
-		                this.title= this.scanner.nextLine();
-		                System.out.println("Select the title of your serie");
-		                this.title = this.scanner.nextLine();
-		                for(Serie serie:this.serie)
-		                {
-		                    if(this.title.equalsIgnoreCase(serie.getTitle()))
-		                    {
-		                        this.category = serie.getCategory();
-		                        this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
-		                        serie.setCategory(this.category);
-		                    }
-		                }
-		            }
-		            else
-		            {
-		                this.statsFS.countFilms(this.film);
-		                this.title= this.scanner.nextLine();
-		                System.out.println("Select the title of your film");
-		                this.title = this.scanner.nextLine();
-		                for(Film film:this.film)
-		                {
-		                    if(this.title.equalsIgnoreCase(film.getTitle()))
-		                    {
-		                        this.category = film.getCategory();
-		                        this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
-		                        film.setCategory(this.category);
-		                    }
-		                }
-		            }
-		        }
-		        else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("Description") || option.equals("2"))
-		        {
-		            this.description = this.scanner.nextLine();
-		            System.out.println("Select the description to search");
-		            this.description = this.scanner.nextLine();
-		            System.out.println("were do you remove the description (serie/film)");
-		            option = this.scanner.next();
-		            while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-		            {
-		                System.out.println("Error choose again (serie/film)");
-		                option = this.scanner.next();
-		            }
-		            if(option.equalsIgnoreCase("serie"))
-		            {
-		                this.statsFS.countSeries(this.serie);
-		                this.title= this.scanner.nextLine();
-		                System.out.println("Select the title of your serie");
-		                this.title = this.scanner.nextLine();
-		                for(Serie serie:this.serie)
-		                {
-		                    if(this.title.equalsIgnoreCase(serie.getTitle()))
-		                    {
-		                        this.category = serie.getCategory();
-		                        this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
-		                        serie.setCategory(this.category);
-		                    }
-		                }
-		            }
-		            else
-		            {
-		                this.statsFS.countFilms(this.film);
-		                this.title= this.scanner.nextLine();
-		                System.out.println("Select the title of your film");
-		                this.title = this.scanner.nextLine();
-		                for(Film film:this.film)
-		                {
-		                    if(this.title.equalsIgnoreCase(film.getTitle()))
-		                    {
-		                        this.category = film.getCategory();
-		                        this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
-		                        film.setCategory(this.category);
-		                    }
-		                }
-		            }
-		        }
-		        else
-		        {
-		                System.out.println("Error selecting option");
-		        }
+			//---DELETE CATEGORY---
+		    option = this.deleteCategory();
 		}
 		else if(option.equals("3"))
 		{
-		    System.out.println("""
-				You choose modify a attribute of a category, choose one option:\s
-				 \
-				1.-Name\s
-				2.-Description\s
-				""");
-		    option = this.scanner.next();
-		    if(option.equalsIgnoreCase("name") || option.equals("1"))
-		    {
-		            this.name = this.scanner.nextLine();
-		            System.out.println("Select a name to search");
-		            this.name = this.scanner.nextLine();
-		            System.out.println("Select the new name");
-		            this.newName = this.scanner.nextLine();
-		            System.out.println("Were do you modify the category (serie/film)");
-		            option = this.scanner.next();
-		            while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-		            {
-		                System.out.println("Error choose again (serie/film)");
-		                option = this.scanner.next();
-		            }
-		            if(option.equalsIgnoreCase("serie"))
-		            {
-		                    this.statsFS.countSeries(this.serie);
-		                    this.title= this.scanner.nextLine();
-		                    System.out.println("Select the title of your serie");
-		                    this.title = this.scanner.nextLine();
-		                    for(Serie serie:this.serie)
-		                    {
-		                        if(this.title.equalsIgnoreCase(serie.getTitle()))
-		                        {
-		                            this.category = serie.getCategory();
-		                            this.category = this.menuCat.modifyCategoryByName(this.category, this.name, this.newName);
-		                            serie.setCategory(this.category);
-		                        }
-		                    }
-		            }
-		            else
-		            {
-		                this.statsFS.countFilms(this.film);
-		                this.title= this.scanner.nextLine();
-		                System.out.println("Select the title of your film");
-		                this.title = this.scanner.nextLine();
-		                for(Film film:this.film)
-		                {
-		                    if(this.title.equalsIgnoreCase(film.getTitle()))
-		                    {
-		                        this.category = film.getCategory();
-		                        this.category = this.menuCat.modifyCategoryByName(this.category, this.name, this.newName);
-		                        film.setCategory(this.category);
-		                    }
-		                }
-		            }
+			//---MODIFY CATEGORY---
+		    option = this.modifyCategory();
+        }
+        else if(option.equals("4"))
+        {
+        	//---SEARCH CATEGORY---
+		    option = this.searchCategory();
+		}
+		return option;
+	}
 
-		    }
-		    else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("Description") || option.equals("2"))
-		    {
-		        this.description = this.scanner.nextLine();
-		        System.out.println("Select the description to search");
-		        this.description = this.scanner.nextLine();
-		        System.out.println("Select the new description");
-		        this.newDescription = this.scanner.nextLine();
-		        System.out.println("were do you modify the category (serie/film)");
+	/**
+	 * @return string with information
+	 */
+	private String searchCategory()
+	{
+		String option;
+		System.out.println("""
+			You choose search a category by his attributes, choose one:\s
+			1.-Name\s
+			2.-Description\s
+			""");
+		option = this.scanner.next();
+		if(option.equalsIgnoreCase("name") || option.equals("1"))
+		{
+			//---SEARCH CATEGORY BY NAME---
+	        option = this.searchCategoryByName();
+		}
+		else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("description") || option.equals("2"))
+		{
+			//---SEARCH CATEGORY BY DESCRIPTION---
+			option = this.searchCategoryByDescription();
+		}
+		else
+		{
+		    System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String searchCategoryByDescription()
+	{
+		String option;
+		this.lastName = this.scanner.nextLine();
+
+		System.out.println("Select the description to search");
+		this.lastName = this.scanner.nextLine();
+
+		System.out.println("were do you search the category (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+	        System.out.println("Error choose again (serie/film)");
+	        option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+	        this.statsFS.countSeries(this.serie);
+	        this.title= this.scanner.nextLine();
+	        System.out.println("Select the title of your serie");
+	        this.title = this.scanner.nextLine();
+	        for(Serie series:this.serie)
+	        {
+                if(this.title.equalsIgnoreCase(series.getTitle()))
+                {
+                    this.category = series.getCategory();
+                    this.menuCat.searchCategoryByDescription(this.category, this.description);
+                    series.setCategory(this.category);
+                }
+	        }
+		}
+		else
+		{
+	        this.statsFS.countFilms(this.film);
+	        this.title= this.scanner.nextLine();
+	        System.out.println("Select the title of your film");
+	        this.title = this.scanner.nextLine();
+	        for(Film films:this.film)
+	        {
+                if(this.title.equalsIgnoreCase(films.getTitle()))
+                {
+                    this.category = films.getCategory();
+                    this.menuCat.searchCategoryByDescription(this.category, this.description);
+                    films.setCategory(this.category);
+                }
+	        }
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with information
+	 */
+	private String searchCategoryByName()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+
+		System.out.println("Select a name to search");
+		this.name = this.scanner.next();
+
+		System.out.println("where do you search the category (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		        System.out.println("Error choose again (serie/film)");
 		        option = this.scanner.next();
-		        while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-		        {
-		                System.out.println("Error choose again (serie/film)");
-		                option = this.scanner.next();
-		        }
-		        if(option.equalsIgnoreCase("serie"))
-		        {
-		                this.statsFS.countSeries(this.serie);
-		                this.title= this.scanner.nextLine();
-		                System.out.println("Select the title of your serie");
-		                this.title = this.scanner.nextLine();
-		                for(Serie serie:this.serie)
-		                {
-		                        if(this.title.equalsIgnoreCase(serie.getTitle()))
-		                        {
-		                                this.category = serie.getCategory();
-		                                this.category = this.menuCat.modifyCategoryByDescription(this.category, this.description, this.newDescription);
-		                                serie.setCategory(this.category);
-		                        }
-		                }
-		        }
-		        else
-		        {
-		            this.statsFS.countFilms(this.film);
-		            this.title= this.scanner.nextLine();
-		            System.out.println("Select the title of your film");
-		            this.title = this.scanner.nextLine();
-		            for(Film film:this.film)
-		            {
-		                if(this.title.equalsIgnoreCase(film.getTitle()))
-		                {
-		                        this.category = film.getCategory();
-		                        this.category = this.menuCat.modifyCategoryByDescription(this.category, this.description, this.newDescription);
-		                        film.setCategory(this.category);
-		                }
-		            }
-		        }
-		    }
-		    else
-		    {
-		            System.out.println("Error selecting option");
-		    }
-            }
-            else if(option.equals("4"))
-            {
-		    System.out.println("""
-				You choose search a category by his attributes, choose one:\s
-				1.-Name\s
-				2.-Description\s
-				""");
-		    option = this.scanner.next();
-		    if(option.equalsIgnoreCase("name") || option.equals("1"))
-		    {
-		            this.name = this.scanner.nextLine();
-		            System.out.println("Select a name to search");
-		            this.name = this.scanner.next();
-		            System.out.println("where do you search the category (serie/film)");
-		            option = this.scanner.next();
-		            while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-		            {
-		                    System.out.println("Error choose again (serie/film)");
-		                    option = this.scanner.next();
-		            }
-		            if(option.equalsIgnoreCase("serie"))
-		            {
-		                    this.statsFS.countSeries(this.serie);
-		                    this.title= this.scanner.nextLine();
-		                    System.out.println("Select the title of your serie");
-		                    this.title = this.scanner.nextLine();
-		                    for(Serie serie:this.serie)
-		                    {
-		                            if(this.title.equalsIgnoreCase(serie.getTitle()))
-		                            {
-		                                this.category = serie.getCategory();
-		                                this.menuCat.searchCategoryByName(this.category, this.name);
-		                                serie.setCategory(this.category);
-		                            }
-		                    }
-		            }
-		            else
-		            {
-		                    this.statsFS.countFilms(this.film);
-		                    this.title= this.scanner.nextLine();
-		                    System.out.println("Select the title of your film");
-		                    this.title = this.scanner.nextLine();
-		                    for(Film film:this.film)
-		                    {
-		                            if(this.title.equalsIgnoreCase(film.getTitle()))
-		                            {
-		                                this.category = film.getCategory();
-		                                this.menuCat.searchCategoryByName(this.category, this.name);
-		                                film.setCategory(this.category);
-		                            }
-		                    }
-		            }
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+	        this.statsFS.countSeries(this.serie);
+	        this.title= this.scanner.nextLine();
 
-		    }
-		    else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("Description") || option.equals("2"))
+	        System.out.println("Select the title of your serie");
+	        this.title = this.scanner.nextLine();
+
+	        for(Serie series:this.serie)
+	        {
+                if(this.title.equalsIgnoreCase(series.getTitle()))
+                {
+                    this.category = series.getCategory();
+                    this.menuCat.searchCategoryByName(this.category, this.name);
+                    series.setCategory(this.category);
+                }
+	        }
+		}
+		else
+		{
+	        this.statsFS.countFilms(this.film);
+	        this.title= this.scanner.nextLine();
+	        System.out.println("Select the title of your film");
+	        this.title = this.scanner.nextLine();
+
+	        for(Film films:this.film)
+	        {
+                if(this.title.equalsIgnoreCase(films.getTitle()))
+                {
+                    this.category = films.getCategory();
+                    this.menuCat.searchCategoryByName(this.category, this.name);
+                    films.setCategory(this.category);
+                }
+	        }
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the infromation
+	 */
+	private String modifyCategory()
+	{
+		String option;
+		System.out.println("""
+			You choose modify a attribute of a category, choose one option:\s
+			 \
+			1.-Name\s
+			2.-Description\s
+			""");
+		option = this.scanner.next();
+		if(option.equalsIgnoreCase("name") || option.equals("1"))
+		{
+			//---MODIFY CATEGORY BY NAME---
+			option = this.modifyCategoryByName();
+		}
+		else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("description") || option.equals("2"))
+		{
+			//---MODIFY CATEGORY BY DESCRIPTION---
+		    option = this.modifyCategoryByDescription();
+		}
+		else
+		{
+		    System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyCategoryByDescription()
+	{
+		String option;
+		this.description = this.scanner.nextLine();
+		System.out.println("Select the description to search");
+		this.description = this.scanner.nextLine();
+
+		System.out.println("Select the new description");
+		this.newDescription = this.scanner.nextLine();
+
+		System.out.println("were do you modify the category (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		        System.out.println("Error choose again (serie/film)");
+		        option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+		        this.statsFS.countSeries(this.serie);
+		        this.title= this.scanner.nextLine();
+		        System.out.println("Select the title of your serie");
+		        this.title = this.scanner.nextLine();
+		        for(Serie series:this.serie)
+		        {
+	                if(this.title.equalsIgnoreCase(series.getTitle()))
+	                {
+                        this.category = series.getCategory();
+                        this.category = this.menuCat.modifyCategoryByDescription(this.category, this.description, this.newDescription);
+                        series.setCategory(this.category);
+	                }
+		        }
+		}
+		else
+		{
+		    this.statsFS.countFilms(this.film);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your film");
+		    this.title = this.scanner.nextLine();
+		    for(Film films:this.film)
 		    {
-		            this.lastName = this.scanner.nextLine();
-		            System.out.println("Select the description to search");
-		            this.lastName = this.scanner.nextLine();
-		            System.out.println("were do you search the category (serie/film)");
-		            option = this.scanner.next();
-		            while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-		            {
-		                    System.out.println("Error choose again (serie/film)");
-		                    option = this.scanner.next();
-		            }
-		            if(option.equalsIgnoreCase("serie"))
-		            {
-		                    this.statsFS.countSeries(this.serie);
-		                    this.title= this.scanner.nextLine();
-		                    System.out.println("Select the title of your serie");
-		                    this.title = this.scanner.nextLine();
-		                    for(Serie serie:this.serie)
-		                    {
-		                            if(this.title.equalsIgnoreCase(serie.getTitle()))
-		                            {
-		                                this.category = serie.getCategory();
-		                                this.menuCat.searchCategoryByDescription(this.category, this.description);
-		                                serie.setCategory(this.category);
-		                            }
-		                    }
-		            }
-		            else
-		            {
-		                    this.statsFS.countFilms(this.film);
-		                    this.title= this.scanner.nextLine();
-		                    System.out.println("Select the title of your film");
-		                    this.title = this.scanner.nextLine();
-		                    for(Film film:this.film)
-		                    {
-		                            if(this.title.equalsIgnoreCase(film.getTitle()))
-		                            {
-		                                this.category = film.getCategory();
-		                                this.menuCat.searchCategoryByDescription(this.category, this.description);
-		                                film.setCategory(this.category);
-		                            }
-		                    }
-		            }
-		    }
-		    else
-		    {
-		            System.out.println("Error selecting option");
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+	                this.category = films.getCategory();
+	                this.category = this.menuCat.modifyCategoryByDescription(this.category, this.description, this.newDescription);
+	                films.setCategory(this.category);
+		        }
 		    }
 		}
 		return option;
@@ -2474,7 +2671,252 @@ public class Launcher
 	/**
 	 * @return
 	 */
-	private String menuDataDirectors() {
+	private String modifyCategoryByName()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name to search");
+		this.name = this.scanner.nextLine();
+
+		System.out.println("Select the new name");
+		this.newName = this.scanner.nextLine();
+
+		System.out.println("Were do you modify the category (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		    System.out.println("Error choose again (serie/film)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+	        this.statsFS.countSeries(this.serie);
+	        this.title= this.scanner.nextLine();
+	        System.out.println("Select the title of your serie");
+	        this.title = this.scanner.nextLine();
+	        for(Serie series:this.serie)
+	        {
+	            if(this.title.equalsIgnoreCase(series.getTitle()))
+	            {
+	                this.category = series.getCategory();
+	                this.category = this.menuCat.modifyCategoryByName(this.category, this.name, this.newName);
+	                series.setCategory(this.category);
+	            }
+	        }
+		}
+		else
+		{
+		    this.statsFS.countFilms(this.film);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your film");
+		    this.title = this.scanner.nextLine();
+		    for(Film films:this.film)
+		    {
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.category = films.getCategory();
+		            this.category = this.menuCat.modifyCategoryByName(this.category, this.name, this.newName);
+		            films.setCategory(this.category);
+		        }
+		    }
+		}
+		return option;
+	}
+
+	/**
+	 * @return
+	 */
+	private String deleteCategory()
+	{
+		String option;
+		System.out.println("""
+			You choose delete a Category by its attributes, choose one:\s
+			1.-Name\s
+			2.-Description\s
+			""");
+		option = this.scanner.next();
+
+		if(option.equalsIgnoreCase("name") || option.equals("1"))
+		{
+			//---DELETE CATEGORY BY NAME---
+		    option = this.deleteCategoryByName();
+		}
+		else if(option.equalsIgnoreCase("Description") || option.equalsIgnoreCase("description") || option.equals("2"))
+		{
+		    option = this.deleteCategoryByDescription();
+		}
+		else
+		{
+		        System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteCategoryByDescription()
+	{
+		String option;
+		this.description = this.scanner.nextLine();
+		System.out.println("Select the description to search");
+		this.description = this.scanner.nextLine();
+		System.out.println("were do you remove the description (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		    System.out.println("Error choose again (serie/film)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+		    this.statsFS.countSeries(this.serie);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your serie");
+		    this.title = this.scanner.nextLine();
+		    for(Serie series:this.serie)
+		    {
+		        if(this.title.equalsIgnoreCase(series.getTitle()))
+		        {
+		            this.category = series.getCategory();
+		            this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
+		            series.setCategory(this.category);
+		        }
+		    }
+		}
+		else
+		{
+		    this.statsFS.countFilms(this.film);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your film");
+		    this.title = this.scanner.nextLine();
+		    for(Film films:this.film)
+		    {
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.category = films.getCategory();
+		            this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
+		            films.setCategory(this.category);
+		        }
+		    }
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteCategoryByName()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name to search");
+		this.name = this.scanner.next();
+
+		System.out.println("where do you remove the category (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		    System.out.println("Error choose again (serie/film)");
+		    option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+		    this.statsFS.countSeries(this.serie);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your serie");
+		    this.title = this.scanner.nextLine();
+		    for(Serie series:this.serie)
+		    {
+		        if(this.title.equalsIgnoreCase(series.getTitle()))
+		        {
+		            this.category = series.getCategory();
+		            this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
+		            series.setCategory(this.category);
+		        }
+		    }
+		}
+		else
+		{
+		    this.statsFS.countFilms(this.film);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your film");
+		    this.title = this.scanner.nextLine();
+		    for(Film films:this.film)
+		    {
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.category = films.getCategory();
+		            this.category = this.menuCat.deleteCategoryByName(this.name, this.category);
+		            films.setCategory(this.category);
+		        }
+		    }
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String addCategory()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name");
+
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a description");
+		this.description = this.scanner.nextLine();
+
+		System.out.println("Where do you save your category (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+		        System.out.println("Error choose again (serie/film)");
+		        option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+		    this.statsFS.countSeries(this.serie);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your serie");
+		    this.title = this.scanner.nextLine();
+		    for(Serie series:this.serie)
+		    {
+		        if(this.title.equalsIgnoreCase(series.getTitle()))
+		        {
+		            this.category = series.getCategory();
+		            this.category = this.menuCat.addCategory(this.category, this.name, this.description);
+		            series.setCategory(this.category);
+		        }
+		    }
+		}
+		else
+		{
+		    this.statsFS.countFilms(this.film);
+		    this.title= this.scanner.nextLine();
+		    System.out.println("Select the title of your film");
+		    this.title = this.scanner.nextLine();
+		    for(Film films:this.film)
+		    {
+		        if(this.title.equalsIgnoreCase(films.getTitle()))
+		        {
+		            this.category = films.getCategory();
+		            this.category = this.menuCat.addCategory(this.category, this.name, this.description);
+		            films.setCategory(this.category);
+		        }
+		    }
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String menuDataDirectors()
+	{
 		String option;
 		System.out.println("""
 			You choose menu of directors, select one option:\s
@@ -2486,894 +2928,525 @@ public class Launcher
 		option = this.scanner.next();
 		if(option.equals("1"))
 		{
-			this.name = this.scanner.nextLine();
-			System.out.println("Select a name");
-			this.name = this.scanner.nextLine();
-			System.out.println("Select a last name");
-			this.lastName = this.scanner.nextLine();
-			System.out.println("Select one gender (MALE,FEMALE,OTHER)");
-			option = this.scanner.next();
-			while(!option.equalsIgnoreCase("MALE") && !option.equalsIgnoreCase("FEMALE") && !option.equalsIgnoreCase("OTHER"))
-			{
-				System.out.println("Error to selecting gender slect again (MALE,FEMALE,OTHER)");
-				option = this.scanner.next();
-			}
-			if(option.equalsIgnoreCase("MALE"))
-			{
-				this.gender = Gender.MALE;
-			}
-			else if(option.equalsIgnoreCase("FEMALE"))
-			{
-				this.gender = Gender.FEMALE;
-			}
-			else
-			{
-				this.gender = Gender.OTHER;
-			}
-			try
-			{
-			System.out.println("Select a age");
-			this.age = this.scanner.nextInt();
-			}catch(InputMismatchException e)
-			{
-				System.out.println("Error selecting age");
-				this.age = 0;
-			}
-			System.out.println("Select awards");
-			this.awards  = this.scanner.next();
-			System.out.println("Were do you save your director (serie/film)");
-			option = this.scanner.next();
-			while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-			{
-				System.out.println("Error choose again (serie/film)");
-				option = this.scanner.next();
-			}
-			if(option.equalsIgnoreCase("serie"))
-			{
-				this.statsFS.countSeries(this.serie);
-				this.title= this.scanner.nextLine();
-				System.out.println("Select the title of your serie");
-				this.title = this.scanner.nextLine();
-				for(Serie serie:this.serie)
-				{
-					if(this.title.equalsIgnoreCase(serie.getTitle()))
-					{
-						this.director = serie.getDirectors();
-						this.director = this.menuDict.directorsAdd(this.director, this.name, this.lastName, this.gender, this.age, this.awards);
-						serie.setDirectors(this.director);
-					}
-				}
-			}
-			else
-			{
-				this.statsFS.countFilms(this.film);
-				this.title= this.scanner.nextLine();
-				System.out.println("Select the title of your film");
-				this.title = this.scanner.nextLine();
-				for(Film film:this.film)
-				{
-					if(this.title.equalsIgnoreCase(film.getTitle()))
-					{
-						this.director = film.getDirectors();
-						this.director = this.menuDict.directorsAdd(this.director, this.name, this.lastName, this.gender, this.age, this.awards);
-						film.setDirectors(this.director);
-					}
-				}
-			}
+			//--ADD-DIRECTOR---
+			option = this.addDirector();
 
 		}
 		else if(option.equals("2"))
 		{
-			System.out.println("""
-				You choose delete a director by his attributes, choose one:\s
-				1.-Name\s
-				2.-Last name\s
-				3.-Gender\s
-				4.-Age\s
-				5.-Awards""");
-			option = this.scanner.next();
-			if(option.equalsIgnoreCase("name") || option.equals("1"))
-			{
-				this.name = this.scanner.nextLine();
-				System.out.println("Select a name to search");
-				this.name = this.scanner.next();
-				System.out.println("were do you remove the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.director = this.menuDict.directorsDeleteByName(this.name, this.director);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.director = this.menuDict.directorsDeleteByName(this.name, this.director);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
-			{
-				this.lastName = this.scanner.nextLine();
-				System.out.println("Select the last name to search");
-				this.lastName = this.scanner.nextLine();
-				System.out.println("were do you remove the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.director = this.menuDict.directorsDeleteByLastName(this.lastName, this.director);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.director = this.menuDict.directorsDeleteByLastName(this.lastName, this.director);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-			}
-			else if(option.equalsIgnoreCase("gender") || option.equals("3"))
-			{
-				System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
-				option = this.scanner.next();
-				while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
-				{
-					System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("MALE"))
-				{
-					this.gender = Gender.MALE;
-				}
-				else if(option.equalsIgnoreCase("FEMALE"))
-				{
-					this.gender = Gender.FEMALE;
-				}
-				else
-				{
-					this.gender = Gender.OTHER;
-				}
-				System.out.println("were do you remove the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.director = this.menuDict.directorsDeleteByGender(this.gender, this.director);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.director = this.menuDict.directorsDeleteByGender(this.gender, this.director);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("age") || option.equals("4"))
-			{
-				try
-				{
-					System.out.println("Select the age to search");
-					this.age = this.scanner.nextInt();
-				}catch(InputMismatchException e)
-				{
-					System.out.println("Error selecting age");
-				}
-				System.out.println("were do you remove the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.director = this.menuDict.directorsDeleteByAge(this.age, this.director);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.director = this.menuDict.directorsDeleteByAge(this.age, this.director);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
-			{
-				System.out.println("Select the awards to search");
-				this.awards = this.scanner.next();
-				System.out.println("were do you remove the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.director = this.menuDict.directorsDeleteByAwards(this.awards, this.director);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.director = this.menuDict.directorsDeleteByAwards(this.awards, this.director);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-
-			}
-			else
-			{
-				System.out.println("Error selecting option");
-			}
+			//---DELETE-DIRECTOR---
+			option = this.deleteDirector();
 		}
 		else if(option.equals("3"))
 		{
-			System.out.println("""
-				You choose modify a attribute of a director, choose one option:\s
-				 \
-				1.-Name\s
-				2.-Last name\s
-				3.-Gender\s
-				4.-Age\s
-				5.-Awards""");
-			option = this.scanner.next();
-			if(option.equalsIgnoreCase("name") || option.equals("1"))
-			{
-				this.name = this.scanner.nextLine();
-				System.out.println("Select a name to search");
-				this.name = this.scanner.nextLine();
-				System.out.println("Select the new name");
-				this.newName = this.scanner.nextLine();
-				System.out.println("Were do you modify the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.director = this.menuDict.directorsModifyByName(this.director, this.name, this.newName);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.director = this.menuDict.directorsModifyByName(this.director, this.name, this.newName);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
-			{
-				this.lastName = this.scanner.nextLine();
-				System.out.println("Select the last name to search");
-				this.lastName = this.scanner.nextLine();
-				System.out.println("Select the new last name");
-				this.newLastName = this.scanner.nextLine();
-				System.out.println("were do you modify the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.director = this.menuDict.directorsModifyByLastName(this.director, this.lastName, this.newLastName);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.director = this.menuDict.directorsModifyByLastName(this.director, this.lastName, this.newLastName);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-			}
-			else if(option.equalsIgnoreCase("gender") || option.equals("3"))
-			{
-				System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
-				option = this.scanner.next();
-				while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
-				{
-					System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("MALE"))
-				{
-					this.gender = Gender.MALE;
-				}
-				else if(option.equalsIgnoreCase("FEMALE"))
-				{
-					this.gender = Gender.FEMALE;
-				}
-				else
-				{
-					this.gender = Gender.OTHER;
-				}
-				System.out.println("Select the new gender");
-				option = this.scanner.next();
-				if(option.equalsIgnoreCase("MALE"))
-				{
-					this.newGender = Gender.MALE;
-				}
-				else if(option.equalsIgnoreCase("FEMALE"))
-				{
-					this.newGender = Gender.FEMALE;
-				}
-				else
-				{
-					this.newGender = Gender.OTHER;
-				}
-				System.out.println("were do you modify the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.director = this.menuDict.directorsModifyByGender(this.director, this.gender, this.newGender);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.director = this.menuDict.directorsModifyByGender(this.director, this.gender, this.newGender);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("age") || option.equals("4"))
-			{
-				try
-				{
-					System.out.println("Select the age to search");
-					this.age = this.scanner.nextInt();
-					System.out.println("Select the new age");
-					this.newAge = this.scanner.nextInt();
-				}catch(InputMismatchException e)
-				{
-					System.out.println("Error selecting age");
-				}
-				System.out.println("were do you modify the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.director = this.menuDict.directorsModifyByAge(this.director, this.age, this.newAge);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.director = this.menuDict.directorsModifyByAge(this.director, this.age, this.newAge);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
-			{
-				System.out.println("Select the awards to search");
-				this.awards = this.scanner.next();
-				System.out.println("Select the new awards");
-				this.newAwards = this.scanner.next();
-				System.out.println("were do you modify the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.director = this.menuDict.directorsModifyByAward(this.director, this.awards, this.newAwards);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.director = this.menuDict.directorsModifyByAward(this.director, this.awards, this.newAwards);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-
-			}
-			else
-			{
-				System.out.println("Error selecting option");
-			}
+			//---MODIFY DIRECTOR---
+			option = this.modifyDirector();
 		}
 		else if(option.equals("4"))
 		{
-			System.out.println("""
-				You choose search a director by his attributes, choose one:\s
-				1.-Name\s
-				2.-Last name\s
-				3.-Gender\s
-				4.-Age\s
-				5.-Awards""");
+			option = this.searchDirector();
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String searchDirector()
+	{
+		String option;
+		System.out.println("""
+			You choose search a director by his attributes, choose one:\s
+			1.-Name\s
+			2.-Last name\s
+			3.-Gender\s
+			4.-Age\s
+			5.-Awards""");
+		option = this.scanner.next();
+
+		if(option.equalsIgnoreCase("name") || option.equals("1"))
+		{
+			//---SEARCH DIRECTOR BY NAME---
+			option = this.searchDirectorByName();
+		}
+		else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
+		{
+			//---SEARCH DIRECTOR BY LAST NAME---
+			option = this.searchDirectorByLastName();
+		}
+		else if(option.equalsIgnoreCase("gender") || option.equals("3"))
+		{
+			//---SEARCH DIRECTOR BY GENDER---
+			option = this.searchDirectorByGender();
+
+		}
+		else if(option.equalsIgnoreCase("age") || option.equals("4"))
+		{
+			//---SEARCH DIRECTOR BY AGE---
+			option = this.searchDirectorByAge();
+
+		}
+		else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
+		{
+			//---SEARCH DIRECTOR BY AWARDS---
+			option = this.searchDirectorByAwards();
+		}
+		else
+		{
+			System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return String with the information
+	 */
+	private String searchDirectorByAwards()
+	{
+		String option;
+		System.out.println("Select the awards to search");
+		this.awards = this.scanner.next();
+
+		System.out.println("were do you search the director (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
 			option = this.scanner.next();
-			if(option.equalsIgnoreCase("name") || option.equals("1"))
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
 			{
-				this.name = this.scanner.nextLine();
-				System.out.println("Select a name to search");
-				this.name = this.scanner.next();
-				System.out.println("were do you search the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+				if(this.title.equalsIgnoreCase(series.getTitle()))
 				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
+					this.director = series.getDirectors();
+					this.menuDict.directorsSearchByAwards(this.director, this.awards);
+					series.setDirectors(this.director);
 				}
-				if(option.equalsIgnoreCase("serie"))
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
 				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-						    this.menuDict.directorsSearchByName(this.director, this.name);
-							serie.setDirectors(this.director);
-						}
-					}
+					this.director = films.getDirectors();
+					this.menuDict.directorsSearchByAwards(this.director, this.awards);
+					films.setDirectors(this.director);
 				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.menuDict.directorsSearchByName(this.director, this.name);
-							film.setDirectors(this.director);
-						}
-					}
-				}
+			}
+		}
+		return option;
+	}
 
-			}
-			else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
-			{
-				this.lastName = this.scanner.nextLine();
-				System.out.println("Select the last name to search");
-				this.lastName = this.scanner.nextLine();
-				System.out.println("were do you search the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.menuDict.directorsSearchByLastName(this.director, this.lastName);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.menuDict.directorsSearchByLastName(this.director, this.lastName);
-							film.setDirectors(this.director);
-						}
-					}
-				}
-			}
-			else if(option.equalsIgnoreCase("gender") || option.equals("3"))
-			{
-				System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
-				option = this.scanner.next();
-				while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
-				{
-					System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("MALE"))
-				{
-					this.gender = Gender.MALE;
-				}
-				else if(option.equalsIgnoreCase("FEMALE"))
-				{
-					this.gender = Gender.FEMALE;
-				}
-				else
-				{
-					this.gender = Gender.OTHER;
-				}
-				System.out.println("were do you search the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.menuDict.directorsSearchByGender(this.director, this.gender);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.menuDict.directorsSearchByGender(this.director, this.gender);
-							film.setDirectors(this.director);
-						}
-					}
-				}
+	/**
+	 * @return string with the information
+	 */
+	private String searchDirectorByAge()
+	{
+		String option;
+		try
+		{
+			System.out.println("Select the age to search");
+			this.age = this.scanner.nextInt();
 
-			}
-			else if(option.equalsIgnoreCase("age") || option.equals("4"))
+		}catch(InputMismatchException e)
+		{
+			System.out.println("Error selecting age");
+		}
+		System.out.println("were do you search the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
 			{
-				try
+				if(this.title.equalsIgnoreCase(series.getTitle()))
 				{
-					System.out.println("Select the age to search");
-					this.age = this.scanner.nextInt();
-				}catch(InputMismatchException e)
-				{
-					System.out.println("Error selecting age");
+					this.director = series.getDirectors();
+					this.menuDict.directorsSearchByAge(this.director, this.age);
+					series.setDirectors(this.director);
 				}
-				System.out.println("were do you search the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
 				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
+					this.director = films.getDirectors();
+				    this.menuDict.directorsSearchByAge(this.director, this.age);
+					films.setDirectors(this.director);
 				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.menuDict.directorsSearchByAge(this.director, this.age);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-						    this.menuDict.directorsSearchByAge(this.director, this.age);
-							film.setDirectors(this.director);
-						}
-					}
-				}
+			}
+		}
+		return option;
+	}
 
-			}
-			else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
+	/**
+	 * @return string with the information
+	 */
+	private String searchDirectorByGender()
+	{
+		String option;
+		System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
+		option = this.scanner.next();
+
+		while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
+		{
+			System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("MALE"))
+		{
+			this.gender = Gender.MALE;
+		}
+		else if(option.equalsIgnoreCase("FEMALE"))
+		{
+			this.gender = Gender.FEMALE;
+		}
+		else
+		{
+			this.gender = Gender.OTHER;
+		}
+		System.out.println("were do you search the director (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---SEARCH DIRECTO BY GENDER ON SERIE---
+			this.searchDirectorByGenderSerie();
+		}
+		else
+		{
+			//---SEARCH DIRECTOR BY GENDER ON FILM---
+			this.searchDirectorByGenderFilm();
+		}
+		return option;
+	}
+
+	/**
+	 * Search director by gender on films
+	 */
+	private void searchDirectorByGenderFilm()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+			if(this.title.equalsIgnoreCase(films.getTitle()))
 			{
-				System.out.println("Select the awards to search");
-				this.awards = this.scanner.next();
-				System.out.println("were do you search the director (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+				this.director = films.getDirectors();
+				this.menuDict.directorsSearchByGender(this.director, this.gender);
+				films.setDirectors(this.director);
+			}
+		}
+	}
+
+	/**
+	 * Search director by gender on Series
+	 */
+	private void searchDirectorByGenderSerie()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+			if(this.title.equalsIgnoreCase(series.getTitle()))
+			{
+				this.director = series.getDirectors();
+				this.menuDict.directorsSearchByGender(this.director, this.gender);
+				series.setDirectors(this.director);
+			}
+		}
+	}
+
+	/**
+	 * @return String with the information
+	 */
+	private String searchDirectorByLastName()
+	{
+		String option;
+		this.lastName = this.scanner.nextLine();
+		System.out.println("Select the last name to search");
+		this.lastName = this.scanner.nextLine();
+		System.out.println("were do you search the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
 				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.director = serie.getDirectors();
-							this.menuDict.directorsSearchByAwards(this.director, this.awards);
-							serie.setDirectors(this.director);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.director = film.getDirectors();
-							this.menuDict.directorsSearchByAwards(this.director, this.awards);
-							film.setDirectors(this.director);
-						}
-					}
+					this.director = series.getDirectors();
+					this.menuDict.directorsSearchByLastName(this.director, this.lastName);
+					series.setDirectors(this.director);
 				}
 			}
-			else
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
 			{
-				System.out.println("Error selecting option");
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.director = films.getDirectors();
+					this.menuDict.directorsSearchByLastName(this.director, this.lastName);
+					films.setDirectors(this.director);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String searchDirectorByName()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name to search");
+		this.name = this.scanner.next();
+		System.out.println("were do you search the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.director = series.getDirectors();
+				    this.menuDict.directorsSearchByName(this.director, this.name);
+					series.setDirectors(this.director);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.director = films.getDirectors();
+					this.menuDict.directorsSearchByName(this.director, this.name);
+					films.setDirectors(this.director);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyDirector()
+	{
+		String option;
+		System.out.println("""
+			You choose modify a attribute of a director, choose one option:\s
+			 \
+			1.-Name\s
+			2.-Last name\s
+			3.-Gender\s
+			4.-Age\s
+			5.-Awards""");
+		option = this.scanner.next();
+
+		if(option.equalsIgnoreCase("name") || option.equals("1"))
+		{
+			option = this.modifyDirectorByName();
+
+		}
+		else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("lastName") || option.equals("2"))
+		{
+			option = this.modifyDirectorByLastName();
+		}
+		else if(option.equalsIgnoreCase("gender") || option.equals("3"))
+		{
+			option = this.modifyDirectorByGender();
+
+		}
+		else if(option.equalsIgnoreCase("age") || option.equals("4"))
+		{
+			option = this.modifyDirectorByAge();
+
+		}
+		else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
+		{
+			option = this.modifyDirectorByAwards();
+		}
+		else
+		{
+			System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyDirectorByAwards()
+	{
+		String option;
+		System.out.println("Select the awards to search");
+		this.awards = this.scanner.next();
+		System.out.println("Select the new awards");
+		this.newAwards = this.scanner.next();
+		System.out.println("were do you modify the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.director = series.getDirectors();
+					this.director = this.menuDict.directorsModifyByAward(this.director, this.awards, this.newAwards);
+					series.setDirectors(this.director);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.director = films.getDirectors();
+					this.director = this.menuDict.directorsModifyByAward(this.director, this.awards, this.newAwards);
+					films.setDirectors(this.director);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyDirectorByAge()
+	{
+		String option;
+		try
+		{
+			System.out.println("Select the age to search");
+			this.age = this.scanner.nextInt();
+			System.out.println("Select the new age");
+			this.newAge = this.scanner.nextInt();
+		}catch(InputMismatchException e)
+		{
+			System.out.println("Error selecting age");
+		}
+		System.out.println("were do you modify the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.director = series.getDirectors();
+					this.director = this.menuDict.directorsModifyByAge(this.director, this.age, this.newAge);
+					series.setDirectors(this.director);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.director = films.getDirectors();
+					this.director = this.menuDict.directorsModifyByAge(this.director, this.age, this.newAge);
+					films.setDirectors(this.director);
+				}
 			}
 		}
 		return option;
@@ -3381,6 +3454,665 @@ public class Launcher
 
 	/**
 	 * @return
+	 */
+	private String modifyDirectorByGender()
+	{
+		String option;
+		System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
+		option = this.scanner.next();
+		while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
+		{
+			System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("MALE"))
+		{
+			this.gender = Gender.MALE;
+		}
+		else if(option.equalsIgnoreCase("FEMALE"))
+		{
+			this.gender = Gender.FEMALE;
+		}
+		else
+		{
+			this.gender = Gender.OTHER;
+		}
+		System.out.println("Select the new gender");
+		option = this.scanner.next();
+		if(option.equalsIgnoreCase("MALE"))
+		{
+			this.newGender = Gender.MALE;
+		}
+		else if(option.equalsIgnoreCase("FEMALE"))
+		{
+			this.newGender = Gender.FEMALE;
+		}
+		else
+		{
+			this.newGender = Gender.OTHER;
+		}
+		System.out.println("were do you modify the director (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---MODIFY DIRECTOR GENDER ON SERIE---
+			this.modifyDirectorByGenderSerie();
+		}
+		else
+		{
+			//---MODIFY DIRECTOR GENDER ON FILM---
+			this.modifyDirectorByGenderFilm();
+		}
+		return option;
+	}
+
+	/**
+	 * Modify Director by gender on films
+	 */
+	private void modifyDirectorByGenderFilm()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+			if(this.title.equalsIgnoreCase(films.getTitle()))
+			{
+				this.director = films.getDirectors();
+				this.director = this.menuDict.directorsModifyByGender(this.director, this.gender, this.newGender);
+				films.setDirectors(this.director);
+			}
+		}
+	}
+
+	/**
+	 *  Modify Director by gender on series
+	 */
+	private void modifyDirectorByGenderSerie()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+			if(this.title.equalsIgnoreCase(series.getTitle()))
+			{
+				this.director = series.getDirectors();
+				this.director = this.menuDict.directorsModifyByGender(this.director, this.gender, this.newGender);
+				series.setDirectors(this.director);
+			}
+		}
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyDirectorByLastName()
+	{
+		String option;
+		this.lastName = this.scanner.nextLine();
+		System.out.println("Select the last name to search");
+		this.lastName = this.scanner.nextLine();
+		System.out.println("Select the new last name");
+		this.newLastName = this.scanner.nextLine();
+		System.out.println("were do you modify the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.director = series.getDirectors();
+					this.director = this.menuDict.directorsModifyByLastName(this.director, this.lastName, this.newLastName);
+					series.setDirectors(this.director);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.director = films.getDirectors();
+					this.director = this.menuDict.directorsModifyByLastName(this.director, this.lastName, this.newLastName);
+					films.setDirectors(this.director);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyDirectorByName()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name to search");
+		this.name = this.scanner.nextLine();
+		System.out.println("Select the new name");
+		this.newName = this.scanner.nextLine();
+		System.out.println("Were do you modify the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.director = series.getDirectors();
+					this.director = this.menuDict.directorsModifyByName(this.director, this.name, this.newName);
+					series.setDirectors(this.director);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.director = films.getDirectors();
+					this.director = this.menuDict.directorsModifyByName(this.director, this.name, this.newName);
+					films.setDirectors(this.director);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteDirector()
+	{
+		String option;
+		System.out.println("""
+			You choose delete a director by his attributes, choose one:\s
+			1.-Name\s
+			2.-Last name\s
+			3.-Gender\s
+			4.-Age\s
+			5.-Awards""");
+		option = this.scanner.next();
+		if(option.equalsIgnoreCase("name") || option.equals("1"))
+		{
+			//---DELETE DIRECTOR BY NAME---
+			option = this.deleteDirectorByName();
+
+		}
+		else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
+		{
+			//---DELETE DIRECTOR BY LAST NAME---
+			option = this.deleteDirectorByLastName();
+		}
+		else if(option.equalsIgnoreCase("gender") || option.equals("3"))
+		{
+			//---DELETE DIRECTOR BY GENDER---
+			option = this.deleteDirectorByGender();
+
+		}
+		else if(option.equalsIgnoreCase("age") || option.equals("4"))
+		{
+			//---DELETE DIRECTOR BY AGE---
+			option = this.deleteDirectorByAge();
+
+		}
+		else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
+		{
+			//---DELETE DIRECTOR BY AWARDS---
+			option = this.deleteDirectorByAwards();
+
+		}
+		else
+		{
+			System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteDirectorByAwards()
+	{
+		String option;
+		System.out.println("Select the awards to search");
+		this.awards = this.scanner.next();
+		System.out.println("were do you remove the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.director = series.getDirectors();
+					this.director = this.menuDict.directorsDeleteByAwards(this.awards, this.director);
+					series.setDirectors(this.director);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.director = films.getDirectors();
+					this.director = this.menuDict.directorsDeleteByAwards(this.awards, this.director);
+					films.setDirectors(this.director);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return the string with the information
+	 */
+	private String deleteDirectorByAge()
+	{
+		String option;
+		try
+		{
+			System.out.println("Select the age to search");
+			this.age = this.scanner.nextInt();
+		}catch(InputMismatchException e)
+		{
+			System.out.println("Error selecting age");
+		}
+		System.out.println("were do you remove the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.director = series.getDirectors();
+					this.director = this.menuDict.directorsDeleteByAge(this.age, this.director);
+					series.setDirectors(this.director);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.director = films.getDirectors();
+					this.director = this.menuDict.directorsDeleteByAge(this.age, this.director);
+					films.setDirectors(this.director);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteDirectorByGender()
+	{
+		String option;
+		System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
+		option = this.scanner.next();
+		while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
+		{
+			System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("MALE"))
+		{
+			this.gender = Gender.MALE;
+		}
+		else if(option.equalsIgnoreCase("FEMALE"))
+		{
+			this.gender = Gender.FEMALE;
+		}
+		else
+		{
+			this.gender = Gender.OTHER;
+		}
+		System.out.println("were do you remove the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---DELETE DIRECTOR BY GENDER ON SERIES---
+			this.deleteDirectorByGenderSerie();
+		}
+		else
+		{
+			//---DELETE DIRECTOR BY GENDER ON FILM---
+			this.deleteDirectorByGenderFilm();
+		}
+		return option;
+	}
+
+	/**
+	 *Delete director by gender on the film
+	 */
+	private void deleteDirectorByGenderFilm()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+			if(this.title.equalsIgnoreCase(films.getTitle()))
+			{
+				this.director = films.getDirectors();
+				this.director = this.menuDict.directorsDeleteByGender(this.gender, this.director);
+				films.setDirectors(this.director);
+			}
+		}
+	}
+
+	/**
+	 *Delete director by gender on the serie
+	 */
+	private void deleteDirectorByGenderSerie()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+			if(this.title.equalsIgnoreCase(series.getTitle()))
+			{
+				this.director = series.getDirectors();
+				this.director = this.menuDict.directorsDeleteByGender(this.gender, this.director);
+				series.setDirectors(this.director);
+			}
+		}
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteDirectorByLastName()
+	{
+		String option;
+		this.lastName = this.scanner.nextLine();
+		System.out.println("Select the last name to search");
+		this.lastName = this.scanner.nextLine();
+
+		System.out.println("were do you remove the director (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.director = series.getDirectors();
+					this.director = this.menuDict.directorsDeleteByLastName(this.lastName, this.director);
+					series.setDirectors(this.director);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.director = films.getDirectors();
+					this.director = this.menuDict.directorsDeleteByLastName(this.lastName, this.director);
+					films.setDirectors(this.director);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteDirectorByName()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name to search");
+		this.name = this.scanner.next();
+		System.out.println("were do you remove the director (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.director = series.getDirectors();
+					this.director = this.menuDict.directorsDeleteByName(this.name, this.director);
+					series.setDirectors(this.director);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.director = films.getDirectors();
+					this.director = this.menuDict.directorsDeleteByName(this.name, this.director);
+					films.setDirectors(this.director);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String addDirector()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name");
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a last name");
+		this.lastName = this.scanner.nextLine();
+
+		System.out.println("Select one gender (MALE,FEMALE,OTHER)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("MALE") && !option.equalsIgnoreCase("FEMALE") && !option.equalsIgnoreCase("OTHER"))
+		{
+			System.out.println("Error to selecting gender slect again (MALE,FEMALE,OTHER)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("MALE"))
+		{
+			this.gender = Gender.MALE;
+		}
+		else if(option.equalsIgnoreCase("FEMALE"))
+		{
+			this.gender = Gender.FEMALE;
+		}
+		else
+		{
+			this.gender = Gender.OTHER;
+		}
+
+		try
+		{
+		System.out.println("Select a age");
+		this.age = this.scanner.nextInt();
+
+		}catch(InputMismatchException e)
+		{
+			System.out.println("Error selecting age");
+			this.age = 0;
+		}
+
+		System.out.println("Select awards");
+		this.awards  = this.scanner.next();
+
+		System.out.println("Were do you save your director (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---ADD DIRECTOR ON SERIE---
+			this.addDirectorSerie();
+		}
+		else
+		{
+			//---ADD DIRECTOR ON FILM---
+			this.addDirectorFilm();
+		}
+		return option;
+	}
+
+	/**
+	 * Add director to film
+	 */
+	private void addDirectorFilm()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+			if(this.title.equalsIgnoreCase(films.getTitle()))
+			{
+				this.director = films.getDirectors();
+				this.director = this.menuDict.directorsAdd(this.director, this.name, this.lastName, this.gender, this.age, this.awards);
+				films.setDirectors(this.director);
+			}
+		}
+	}
+
+	/**
+	 * Add director to serie
+	 */
+	private void addDirectorSerie()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+			if(this.title.equalsIgnoreCase(series.getTitle()))
+			{
+				this.director = series.getDirectors();
+				this.director = this.menuDict.directorsAdd(this.director, this.name, this.lastName, this.gender, this.age, this.awards);
+				series.setDirectors(this.director);
+			}
+		}
+	}
+
+	/**
+	 * @return string with the information
 	 */
 	private String menuDataActors()
 	{
@@ -3395,897 +4127,1189 @@ public class Launcher
 		option = this.scanner.next();
 		if(option.equals("1"))
 		{
-			this.name = this.scanner.nextLine();
-			System.out.println("Select a name");
-			this.name = this.scanner.nextLine();
-			System.out.println("Select a last name");
-			this.lastName = this.scanner.nextLine();
-			System.out.println("Select one gender (MALE,FEMALE,OTHER)");
-			option = this.scanner.next();
-			while(!option.equalsIgnoreCase("MALE") && !option.equalsIgnoreCase("FEMALE") && !option.equalsIgnoreCase("OTHER"))
-			{
-				System.out.println("Error to selecting gender slect again (MALE,FEMALE,OTHER)");
-				option = this.scanner.next();
-			}
-			if(option.equalsIgnoreCase("MALE"))
-			{
-				this.gender = Gender.MALE;
-			}
-			else if(option.equalsIgnoreCase("FEMALE"))
-			{
-				this.gender = Gender.FEMALE;
-			}
-			else
-			{
-				this.gender = Gender.OTHER;
-			}
-			try
-			{
-			System.out.println("Select a age");
-			this.age = this.scanner.nextInt();
-			}catch(InputMismatchException e)
-			{
-				System.out.println("Error selecting age");
-				this.age = 0;
-			}
-			System.out.println("Select awards");
-			this.awards  = this.scanner.next();
-			System.out.println("Were do you save your actor (serie/film)");
-			option = this.scanner.next();
-			while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-			{
-				System.out.println("Error choose again (serie/film)");
-				option = this.scanner.next();
-			}
-			if(option.equalsIgnoreCase("serie"))
-			{
-				this.statsFS.countSeries(this.serie);
-				this.title= this.scanner.nextLine();
-				System.out.println("Select the title of your serie");
-				this.title = this.scanner.nextLine();
-				for(Serie serie:this.serie)
-				{
-					if(this.title.equalsIgnoreCase(serie.getTitle()))
-					{
-						this.actor = serie.getActors();
-						this.actor = this.menuAct.addActors(this.actor, this.name, this.lastName, this.gender, this.age, this.awards);
-						serie.setActors(this.actor);
-					}
-				}
-			}
-			else
-			{
-				this.statsFS.countFilms(this.film);
-				this.title= this.scanner.nextLine();
-				System.out.println("Select the title of your film");
-				this.title = this.scanner.nextLine();
-				for(Film film:this.film)
-				{
-					if(this.title.equalsIgnoreCase(film.getTitle()))
-					{
-						this.actor = film.getActors();
-						this.actor = this.menuAct.addActors(this.actor, this.name, this.lastName, this.gender, this.age, this.awards);
-						film.setActors(this.actor);
-					}
-				}
-			}
+			//---ADD ACTOR---
+			option = this.addActor();
 
 		}
 		else if(option.equals("2"))
 		{
-			System.out.println("""
-				You choose delete a actor by his attributes, choose one:\s
-				1.-Name\s
-				2.-Last name\s
-				3.-Gender\s
-				4.-Age\s
-				5.-Awards""");
-			option = this.scanner.next();
-			if(option.equalsIgnoreCase("name") || option.equals("1"))
-			{
-				this.name = this.scanner.nextLine();
-				System.out.println("Select a name to search");
-				this.name = this.scanner.next();
-				System.out.println("were do you remove the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.actor = this.menuAct.removeActorsByName(this.actor, this.name);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.actor = this.menuAct.removeActorsByName(this.actor, this.name);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
-			{
-				this.lastName = this.scanner.nextLine();
-				System.out.println("Select the last name to search");
-				this.lastName = this.scanner.nextLine();
-				System.out.println("were do you remove the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.actor = this.menuAct.removeActorsByLastName(this.actor, this.lastName);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.actor = this.menuAct.removeActorsByLastName(this.actor, this.lastName);
-							film.setActors(this.actor);
-						}
-					}
-				}
-			}
-			else if(option.equalsIgnoreCase("gender") || option.equals("3"))
-			{
-				System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
-				option = this.scanner.next();
-				while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
-				{
-					System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("MALE"))
-				{
-					this.gender = Gender.MALE;
-				}
-				else if(option.equalsIgnoreCase("FEMALE"))
-				{
-					this.gender = Gender.FEMALE;
-				}
-				else
-				{
-					this.gender = Gender.OTHER;
-				}
-				System.out.println("were do you remove the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.actor = this.menuAct.removeActorsByGender(this.actor, this.gender);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.actor = this.menuAct.removeActorsByGender(this.actor, this.gender);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("age") || option.equals("4"))
-			{
-				try
-				{
-					System.out.println("Select the age to search");
-					this.age = this.scanner.nextInt();
-				}catch(InputMismatchException e)
-				{
-					System.out.println("Error selecting age");
-				}
-				System.out.println("were do you remove the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.actor = this.menuAct.removeActorsByAge(this.actor, this.age);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.actor = this.menuAct.removeActorsByAge(this.actor, this.age);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
-			{
-				System.out.println("Select the awards to search");
-				this.awards = this.scanner.next();
-				System.out.println("were do you remove the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.actor = this.menuAct.removeActorsByAwards(this.actor, this.awards);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.actor = this.menuAct.removeActorsByAwards(this.actor, this.awards);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else
-			{
-				System.out.println("Error selecting option");
-			}
+			//---DELETE ACTOR---
+			option = this.deleteActor();
 		}
 		else if(option.equals("3"))
 		{
-			System.out.println("""
-				You choose modify a attribute of a actor, choose one option:\s
-				 \
-				1.-Name\s
-				2.-Last name\s
-				3.-Gender\s
-				4.-Age\s
-				5.-Awards""");
-			option = this.scanner.next();
-			if(option.equalsIgnoreCase("name") || option.equals("1"))
-			{
-				this.name = this.scanner.nextLine();
-				System.out.println("Select a name to search");
-				this.name = this.scanner.nextLine();
-				System.out.println("Select the new name");
-				this.newName = this.scanner.nextLine();
-				System.out.println("Were do you modify the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.actor = this.menuAct.modifyActorsByName(this.actor, this.name, this.newName);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.actor = this.menuAct.modifyActorsByName(this.actor, this.name, this.newName);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
-			{
-				this.lastName = this.scanner.nextLine();
-				System.out.println("Select the last name to search");
-				this.lastName = this.scanner.nextLine();
-				System.out.println("Select the new last name");
-				this.newLastName = this.scanner.nextLine();
-				System.out.println("were do you modify the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.actor = this.menuAct.modifyActorsByLastName(this.actor, this.lastName, this.newLastName);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.actor = this.menuAct.modifyActorsByLastName(this.actor, this.lastName, this.newLastName);
-							film.setActors(this.actor);
-						}
-					}
-				}
-			}
-			else if(option.equalsIgnoreCase("gender") || option.equals("3"))
-			{
-				System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
-				option = this.scanner.next();
-				while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
-				{
-					System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("MALE"))
-				{
-					this.gender = Gender.MALE;
-				}
-				else if(option.equalsIgnoreCase("FEMALE"))
-				{
-					this.gender = Gender.FEMALE;
-				}
-				else
-				{
-					this.gender = Gender.OTHER;
-				}
-				System.out.println("Select the new gender");
-				option = this.scanner.next();
-				if(option.equalsIgnoreCase("MALE"))
-				{
-					this.newGender = Gender.MALE;
-				}
-				else if(option.equalsIgnoreCase("FEMALE"))
-				{
-					this.newGender = Gender.FEMALE;
-				}
-				else
-				{
-					this.newGender = Gender.OTHER;
-				}
-				System.out.println("were do you modify the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.actor = this.menuAct.modifyActorsByGender(this.actor, this.gender, this.newGender);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.actor = this.menuAct.modifyActorsByGender(this.actor, this.gender, this.newGender);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("age") || option.equals("4"))
-			{
-				try
-				{
-					System.out.println("Select the age to search");
-					this.age = this.scanner.nextInt();
-					System.out.println("Select the new age");
-					this.newAge = this.scanner.nextInt();
-				}catch(InputMismatchException e)
-				{
-					System.out.println("Error selecting age");
-				}
-				System.out.println("were do you modify the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.actor = this.menuAct.modifyActorsByAge(this.actor, this.age, this.newAge);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.actor = this.menuAct.modifyActorsByAge(this.actor, this.age, this.newAge);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
-			{
-				System.out.println("Select the awards to search");
-				this.awards = this.scanner.next();
-				System.out.println("Select the new awards");
-				this.newAwards = this.scanner.next();
-				System.out.println("were do you modify the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.actor = this.menuAct.modifyActorsByAwards(this.actor, this.awards, this.newAwards);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.actor = this.menuAct.modifyActorsByAwards(this.actor, this.awards, this.newAwards);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else
-			{
-				System.out.println("Error selecting option");
-			}
+			//---MODIFY ACTOR---
+			option = this.modifyActor();
 		}
 		else if(option.equals("4"))
 		{
-			System.out.println("""
-				You choose search a actor by his attributes, choose one:\s
-				1.-Name\s
-				2.-Last name\s
-				3.-Gender\s
-				4.-Age\s
-				5.-Awards""");
+			//---SEARCH ACTOR---
+			option = this.searchActor();
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String searchActor()
+	{
+		String option;
+		System.out.println("""
+			You choose search a actor by his attributes, choose one:\s
+			1.-Name\s
+			2.-Last name\s
+			3.-Gender\s
+			4.-Age\s
+			5.-Awards""");
+		option = this.scanner.next();
+
+		if(option.equalsIgnoreCase("name") || option.equals("1"))
+		{
+			//---SEARCH DIRECTOR BY NAME---
+			option = this.searchActorByName();
+
+		}
+		else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
+		{
+			//---SEARCH DIRECTOR BY LAST NAME---
+			option = this.searchActorByLastName();
+		}
+		else if(option.equalsIgnoreCase("gender") || option.equals("3"))
+		{
+			//---SEARCH DIRECTOR BY GENDER---
+			option = this.searchActorByGender();
+		}
+		else if(option.equalsIgnoreCase("age") || option.equals("4"))
+		{
+			//---SEARCH DIRECTOR BY AGE---
+			option = this.searchActortorByAge();
+
+		}
+		else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
+		{
+			//---SEARCH DIRECTOR BY AWARDS---
+			option = this.searchActorByAwards();
+		}
+		else
+		{
+			System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String searchActorByAwards()
+	{
+		String option;
+		System.out.println("Select the awards to search");
+		this.awards = this.scanner.next();
+		System.out.println("were do you search the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
 			option = this.scanner.next();
-			if(option.equalsIgnoreCase("name") || option.equals("1"))
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
 			{
-				this.name = this.scanner.nextLine();
-				System.out.println("Select a name to search");
-				this.name = this.scanner.next();
-				System.out.println("were do you search the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+				if(this.title.equalsIgnoreCase(series.getTitle()))
 				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-						    this.menuAct.searchActorsByName(this.actor, this.name);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.menuAct.searchActorsByName(this.actor, this.name);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
-			{
-				this.lastName = this.scanner.nextLine();
-				System.out.println("Select the last name to search");
-				this.lastName = this.scanner.nextLine();
-				System.out.println("were do you search the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.menuAct.searchActorsByLastName(this.actor, this.lastName);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.menuAct.searchActorsByLastName(this.actor, this.lastName);
-							film.setActors(this.actor);
-						}
-					}
+					this.actor = series.getActors();
+					this.menuAct.removeActorsByAwards(this.actor, this.awards);
+					series.setActors(this.actor);
 				}
 			}
-			else if(option.equalsIgnoreCase("gender") || option.equals("3"))
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
 			{
-				System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
-				option = this.scanner.next();
-				while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
+				if(this.title.equalsIgnoreCase(films.getTitle()))
 				{
-					System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
-					option = this.scanner.next();
+					this.actor = films.getActors();
+					this.menuAct.removeActorsByAwards(this.actor, this.awards);
+					films.setActors(this.actor);
 				}
-				if(option.equalsIgnoreCase("MALE"))
-				{
-					this.gender = Gender.MALE;
-				}
-				else if(option.equalsIgnoreCase("FEMALE"))
-				{
-					this.gender = Gender.FEMALE;
-				}
-				else
-				{
-					this.gender = Gender.OTHER;
-				}
-				System.out.println("were do you search the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.menuAct.searchActorsByGender(this.actor, this.gender);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.menuAct.searchActorsByGender(this.actor, this.gender);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("age") || option.equals("4"))
-			{
-				try
-				{
-					System.out.println("Select the age to search");
-					this.age = this.scanner.nextInt();
-				}catch(InputMismatchException e)
-				{
-					System.out.println("Error selecting age");
-				}
-				System.out.println("were do you search the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.menuAct.searchActorsByAge(this.actor, this.age);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-						    this.menuAct.searchActorsByAge(this.actor, this.age);
-							film.setActors(this.actor);
-						}
-					}
-				}
-
-			}
-			else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
-			{
-				System.out.println("Select the awards to search");
-				this.awards = this.scanner.next();
-				System.out.println("were do you search the actor (serie/film)");
-				option = this.scanner.next();
-				while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
-				{
-					System.out.println("Error choose again (serie/film)");
-					option = this.scanner.next();
-				}
-				if(option.equalsIgnoreCase("serie"))
-				{
-					this.statsFS.countSeries(this.serie);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your serie");
-					this.title = this.scanner.nextLine();
-					for(Serie serie:this.serie)
-					{
-						if(this.title.equalsIgnoreCase(serie.getTitle()))
-						{
-							this.actor = serie.getActors();
-							this.menuAct.removeActorsByAwards(this.actor, this.awards);
-							serie.setActors(this.actor);
-						}
-					}
-				}
-				else
-				{
-					this.statsFS.countFilms(this.film);
-					this.title= this.scanner.nextLine();
-					System.out.println("Select the title of your film");
-					this.title = this.scanner.nextLine();
-					for(Film film:this.film)
-					{
-						if(this.title.equalsIgnoreCase(film.getTitle()))
-						{
-							this.actor = film.getActors();
-							this.menuAct.removeActorsByAwards(this.actor, this.awards);
-							film.setActors(this.actor);
-						}
-					}
-				}
-			}
-			else
-			{
-				System.out.println("Error selecting option");
 			}
 		}
 		return option;
+	}
+
+	/**
+	 * @return string with the string information
+	 */
+	private String searchActortorByAge()
+	{
+		String option;
+		try
+		{
+			System.out.println("Select the age to search");
+			this.age = this.scanner.nextInt();
+		}catch(InputMismatchException e)
+		{
+			System.out.println("Error selecting age");
+		}
+		System.out.println("were do you search the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+					this.menuAct.searchActorsByAge(this.actor, this.age);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+				    this.menuAct.searchActorsByAge(this.actor, this.age);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String searchActorByGender()
+	{
+		String option;
+		System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
+		option = this.scanner.next();
+		while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
+		{
+			System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("MALE"))
+		{
+			this.gender = Gender.MALE;
+		}
+		else if(option.equalsIgnoreCase("FEMALE"))
+		{
+			this.gender = Gender.FEMALE;
+		}
+		else
+		{
+			this.gender = Gender.OTHER;
+		}
+		System.out.println("were do you search the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---SEARCH ACTOR BY GENDER ON SERIE---
+			this.searchActorByGenderSerie();
+		}
+		else
+		{
+			//---SEARCH ACTOR BY GENDER ON FILM---
+			this.searchActorByGenderFilm();
+		}
+		return option;
+	}
+
+	/**
+	 *Search actors by gender on film
+	 */
+	private void searchActorByGenderFilm()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+			if(this.title.equalsIgnoreCase(films.getTitle()))
+			{
+				this.actor = films.getActors();
+				this.menuAct.searchActorsByGender(this.actor, this.gender);
+				films.setActors(this.actor);
+			}
+		}
+	}
+
+	/**
+	 *Search actors by gender on Serie
+	 */
+	private void searchActorByGenderSerie()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+			if(this.title.equalsIgnoreCase(series.getTitle()))
+			{
+				this.actor = series.getActors();
+				this.menuAct.searchActorsByGender(this.actor, this.gender);
+				series.setActors(this.actor);
+			}
+		}
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String searchActorByLastName()
+	{
+		String option;
+		this.lastName = this.scanner.nextLine();
+		System.out.println("Select the last name to search");
+		this.lastName = this.scanner.nextLine();
+		System.out.println("were do you search the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+					this.menuAct.searchActorsByLastName(this.actor, this.lastName);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+					this.menuAct.searchActorsByLastName(this.actor, this.lastName);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with information
+	 */
+	private String searchActorByName()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name to search");
+		this.name = this.scanner.next();
+		System.out.println("were do you search the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+				    this.menuAct.searchActorsByName(this.actor, this.name);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+					this.menuAct.searchActorsByName(this.actor, this.name);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string infromation
+	 */
+	private String modifyActor()
+	{
+		String option;
+		System.out.println("""
+			You choose modify a attribute of a actor, choose one option:\s
+			 \
+			1.-Name\s
+			2.-Last name\s
+			3.-Gender\s
+			4.-Age\s
+			5.-Awards""");
+		option = this.scanner.next();
+		if(option.equalsIgnoreCase("name") || option.equals("1"))
+		{
+			//---MODIY ACTOR BY NAME---
+			option = this.modifyActorByName();
+
+		}
+		else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
+		{
+			//---MODIY ACTOR BY LAST NAME---
+			option = this.modifyActorByLastName();
+		}
+		else if(option.equalsIgnoreCase("gender") || option.equals("3"))
+		{
+			//---MODIY ACTOR BY GENDER---
+			option = this.modifyActorByGender();
+		}
+		else if(option.equalsIgnoreCase("age") || option.equals("4"))
+		{
+			//---MODIY ACTOR BY AGE---
+			option = this.modifyActorByAge();
+
+		}
+		else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
+		{
+			//---MODIY ACTOR BY AWARDS---
+			option = this.modifyActorByAwards();
+		}
+		else
+		{
+			System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyActorByAwards()
+	{
+		String option;
+		System.out.println("Select the awards to search");
+		this.awards = this.scanner.next();
+		System.out.println("Select the new awards");
+		this.newAwards = this.scanner.next();
+		System.out.println("were do you modify the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+					this.actor = this.menuAct.modifyActorsByAwards(this.actor, this.awards, this.newAwards);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+					this.actor = this.menuAct.modifyActorsByAwards(this.actor, this.awards, this.newAwards);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyActorByAge()
+	{
+		String option;
+		try
+		{
+			System.out.println("Select the age to search");
+			this.age = this.scanner.nextInt();
+			System.out.println("Select the new age");
+			this.newAge = this.scanner.nextInt();
+		}catch(InputMismatchException e)
+		{
+			System.out.println("Error selecting age");
+		}
+		System.out.println("were do you modify the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+					this.actor = this.menuAct.modifyActorsByAge(this.actor, this.age, this.newAge);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+					this.actor = this.menuAct.modifyActorsByAge(this.actor, this.age, this.newAge);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyActorByGender()
+	{
+		String option;
+		System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
+		option = this.scanner.next();
+		while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
+		{
+			System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("MALE"))
+		{
+			this.gender = Gender.MALE;
+		}
+		else if(option.equalsIgnoreCase("FEMALE"))
+		{
+			this.gender = Gender.FEMALE;
+		}
+		else
+		{
+			this.gender = Gender.OTHER;
+		}
+		System.out.println("Select the new gender");
+		option = this.scanner.next();
+		if(option.equalsIgnoreCase("MALE"))
+		{
+			this.newGender = Gender.MALE;
+		}
+		else if(option.equalsIgnoreCase("FEMALE"))
+		{
+			this.newGender = Gender.FEMALE;
+		}
+		else
+		{
+			this.newGender = Gender.OTHER;
+		}
+		System.out.println("were do you modify the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---MODIFY ACTOR BY GENDER ON SERIES---
+			this.modifyActorByGenderSerie();
+		}
+		else
+		{
+			//---MODIFY ACTOR BY GENDER ON FILM---
+			this.modifyActorByGenderFilm();
+		}
+		return option;
+	}
+
+	/**
+	 *Modify actor by gender on film
+	 */
+	private void modifyActorByGenderFilm()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+			if(this.title.equalsIgnoreCase(films.getTitle()))
+			{
+				this.actor = films.getActors();
+				this.actor = this.menuAct.modifyActorsByGender(this.actor, this.gender, this.newGender);
+				films.setActors(this.actor);
+			}
+		}
+	}
+
+	/**
+	 *Modify actor by gender on series
+	 */
+	private void modifyActorByGenderSerie()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+			if(this.title.equalsIgnoreCase(series.getTitle()))
+			{
+				this.actor = series.getActors();
+				this.actor = this.menuAct.modifyActorsByGender(this.actor, this.gender, this.newGender);
+				series.setActors(this.actor);
+			}
+		}
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyActorByLastName()
+	{
+		String option;
+		this.lastName = this.scanner.nextLine();
+		System.out.println("Select the last name to search");
+		this.lastName = this.scanner.nextLine();
+
+		System.out.println("Select the new last name");
+		this.newLastName = this.scanner.nextLine();
+
+		System.out.println("were do you modify the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+					this.actor = this.menuAct.modifyActorsByLastName(this.actor, this.lastName, this.newLastName);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+					this.actor = this.menuAct.modifyActorsByLastName(this.actor, this.lastName, this.newLastName);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String modifyActorByName()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name to search");
+		this.name = this.scanner.nextLine();
+		System.out.println("Select the new name");
+		this.newName = this.scanner.nextLine();
+		System.out.println("Were do you modify the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+					this.actor = this.menuAct.modifyActorsByName(this.actor, this.name, this.newName);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+					this.actor = this.menuAct.modifyActorsByName(this.actor, this.name, this.newName);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteActor()
+	{
+		String option;
+		System.out.println("""
+			You choose delete a actor by his attributes, choose one:\s
+			1.-Name\s
+			2.-Last name\s
+			3.-Gender\s
+			4.-Age\s
+			5.-Awards""");
+		option = this.scanner.next();
+		if(option.equalsIgnoreCase("name") || option.equals("1"))
+		{
+			//---DELETE ACTOR BY NAME---
+			option = this.deleteActorByName();
+
+		}
+		else if(option.equalsIgnoreCase("Last name") || option.equalsIgnoreCase("LastName") || option.equals("2"))
+		{
+			//---DELETE ACTOR BY LAST NAME---
+			option = this.deleteActorByLastName();
+		}
+		else if(option.equalsIgnoreCase("gender") || option.equals("3"))
+		{
+			//---DELETE ACTOR BY GENDER---
+			option = this.deleteActorByGender();
+
+		}
+		else if(option.equalsIgnoreCase("age") || option.equals("4"))
+		{
+			//---DELETE ACTOR BY AGE---
+			option = this.deleteActorByAge();
+
+		}
+		else if(option.equalsIgnoreCase("awards") || option.equalsIgnoreCase("5"))
+		{
+			//---DELETE ACTOR BY AWARDS---
+			option = this.deleteActorByAwards();
+
+		}
+		else
+		{
+			System.out.println("Error selecting option");
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteActorByAwards()
+	{
+		String option;
+		System.out.println("Select the awards to search");
+		this.awards = this.scanner.next();
+		System.out.println("were do you remove the actor (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+					this.actor = this.menuAct.removeActorsByAwards(this.actor, this.awards);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+					this.actor = this.menuAct.removeActorsByAwards(this.actor, this.awards);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with  the information
+	 */
+	private String deleteActorByAge()
+	{
+		String option;
+
+		try
+		{
+			System.out.println("Select the age to search");
+			this.age = this.scanner.nextInt();
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("Error selecting age");
+		}
+
+		System.out.println("were do you remove the actor (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+					this.actor = this.menuAct.removeActorsByAge(this.actor, this.age);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+					this.actor = this.menuAct.removeActorsByAge(this.actor, this.age);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteActorByGender()
+	{
+		String option;
+		System.out.println("Select the gender to search (MALE,FEMALE,OTHER");
+		option = this.scanner.next();
+
+		while(option.equalsIgnoreCase("MALE") && option.equalsIgnoreCase("FEMALE") && option.equalsIgnoreCase("OTHER"))
+		{
+			System.out.println("Error selecting gender, choose again (MALE,FEMALE,OTHER");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("MALE"))
+		{
+			this.gender = Gender.MALE;
+		}
+		else if(option.equalsIgnoreCase("FEMALE"))
+		{
+			this.gender = Gender.FEMALE;
+		}
+		else
+		{
+			this.gender = Gender.OTHER;
+		}
+		System.out.println("were do you remove the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---DELETE ACTOR BY GENDER ON SERIE---
+			this.deleteActorByGenderSerie();
+		}
+		else
+		{
+			//---DELETE ACTOR BY GENDER ON FILM---
+			this.deleteActorByGenderFilm();
+		}
+		return option;
+	}
+
+	/**
+	 *Delete actor by gender on film
+	 */
+	private void deleteActorByGenderFilm()
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+			if(this.title.equalsIgnoreCase(films.getTitle()))
+			{
+				this.actor = films.getActors();
+				this.actor = this.menuAct.removeActorsByGender(this.actor, this.gender);
+				films.setActors(this.actor);
+			}
+		}
+	}
+
+	/**
+	 *Delete actor by gender on serie
+	 */
+	private void deleteActorByGenderSerie()
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		for(Serie series:this.serie)
+		{
+			if(this.title.equalsIgnoreCase(series.getTitle()))
+			{
+				this.actor = series.getActors();
+				this.actor = this.menuAct.removeActorsByGender(this.actor, this.gender);
+				series.setActors(this.actor);
+			}
+		}
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteActorByLastName()
+	{
+		String option;
+		this.lastName = this.scanner.nextLine();
+		System.out.println("Select the last name to search");
+		this.lastName = this.scanner.nextLine();
+		System.out.println("were do you remove the actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+					this.actor = this.menuAct.removeActorsByLastName(this.actor, this.lastName);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+					this.actor = this.menuAct.removeActorsByLastName(this.actor, this.lastName);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String deleteActorByName()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name to search");
+		this.name = this.scanner.next();
+
+		System.out.println("were do you remove the actor (serie/film)");
+		option = this.scanner.next();
+
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			this.statsFS.countSeries(this.serie);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your serie");
+			this.title = this.scanner.nextLine();
+			for(Serie series:this.serie)
+			{
+				if(this.title.equalsIgnoreCase(series.getTitle()))
+				{
+					this.actor = series.getActors();
+					this.actor = this.menuAct.removeActorsByName(this.actor, this.name);
+					series.setActors(this.actor);
+				}
+			}
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+			this.title= this.scanner.nextLine();
+			System.out.println("Select the title of your film");
+			this.title = this.scanner.nextLine();
+			for(Film films:this.film)
+			{
+				if(this.title.equalsIgnoreCase(films.getTitle()))
+				{
+					this.actor = films.getActors();
+					this.actor = this.menuAct.removeActorsByName(this.actor, this.name);
+					films.setActors(this.actor);
+				}
+			}
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String addActor()
+	{
+		String option;
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a name");
+		this.name = this.scanner.nextLine();
+		System.out.println("Select a last name");
+		this.lastName = this.scanner.nextLine();
+		System.out.println("Select one gender (MALE,FEMALE,OTHER)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("MALE") && !option.equalsIgnoreCase("FEMALE") && !option.equalsIgnoreCase("OTHER"))
+		{
+			System.out.println("Error to selecting gender slect again (MALE,FEMALE,OTHER)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("MALE"))
+		{
+			this.gender = Gender.MALE;
+		}
+		else if(option.equalsIgnoreCase("FEMALE"))
+		{
+			this.gender = Gender.FEMALE;
+		}
+		else
+		{
+			this.gender = Gender.OTHER;
+		}
+		try
+		{
+		System.out.println("Select a age");
+		this.age = this.scanner.nextInt();
+		}catch(InputMismatchException e)
+		{
+			System.out.println("Error selecting age");
+			this.age = 0;
+		}
+		System.out.println("Select awards");
+		this.awards  = this.scanner.next();
+		System.out.println("Were do you save your actor (serie/film)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
+		{
+			System.out.println("Error choose again (serie/film)");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("serie"))
+		{
+			//---ADD ACTOR ON SERIE---
+			this.addActorSerie();
+		}
+		else
+		{
+			//--- ADD ACTOR ON FILM---
+			this.addActorFilm();
+		}
+		return option;
+	}
+
+	/**
+	 *Add actor on film
+	 */
+	private void addActorFilm() 
+	{
+		this.statsFS.countFilms(this.film);
+		this.title= this.scanner.nextLine();
+		System.out.println("Select the title of your film");
+		this.title = this.scanner.nextLine();
+		for(Film films:this.film)
+		{
+			if(this.title.equalsIgnoreCase(films.getTitle()))
+			{
+				this.actor = films.getActors();
+				this.actor = this.menuAct.addActors(this.actor, this.name, this.lastName, this.gender, this.age, this.awards);
+				films.setActors(this.actor);
+			}
+		}
+	}
+
+	/**
+	 *Add actor on serie
+	 */
+	private void addActorSerie() 
+	{
+		this.statsFS.countSeries(this.serie);
+		this.title= this.scanner.nextLine();
+		
+		System.out.println("Select the title of your serie");
+		this.title = this.scanner.nextLine();
+		
+		for(Serie series:this.serie)
+		{
+			if(this.title.equalsIgnoreCase(series.getTitle()))
+			{
+				this.actor = series.getActors();
+				this.actor = this.menuAct.addActors(this.actor, this.name, this.lastName, this.gender, this.age, this.awards);
+				series.setActors(this.actor);
+			}
+		}
 	}
 
 	public void statsMenu()
@@ -4305,317 +5329,40 @@ public class Launcher
 			switch(option)
 			{
 				case "1":
-					System.out.println("""
-						You choose stats of films and series, choose one option:\s
-						1.-Show all films\s
-						2.-Show all series\s
-						3.-Show good films\s
-						4.-Show bad films\s
-						5.-Show good series\s
-						6.-Show bad series\s
-						7.-Show multi gender film\s
-						8.-Show multi gender serie""");
-
-					option = this.scanner.next();
-					if(option.equals("1"))
-					{
-						System.out.println("Do you want see the number of films or the content (number/content)");
-						option = this.scanner.next();
-						while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
-						{
-							System.out.println("Error choosing a option, please choose again");
-							option = this.scanner.next();
-						}
-						if(option.equalsIgnoreCase("number"))
-						{
-							this.statsFS.numFilms(this.film);
-						}
-						else
-						{
-							this.statsFS.countFilms(this.film);
-						}
-					}
-					else if(option.equals("2"))
-					{
-						System.out.println("Do you want see the number of series or the content (number/content)");
-						option = this.scanner.next();
-						while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
-						{
-							System.out.println("Error choosing a option, please choose again");
-							option = this.scanner.next();
-						}
-						if(option.equalsIgnoreCase("number"))
-						{
-							this.statsFS.numSeries(this.serie);
-						}
-						else
-						{
-							this.statsFS.countSeries(this.serie);
-						}
-					}
-					else if(option.equals("3"))
-					{
-						this.goodFS.infoFilmsGoodRecommendation(this.film);
-					}
-					else if(option.equals("4"))
-					{
-						this.badFS.infoFilmsNegativeReviews(this.film);
-					}
-					else if(option.equals("5"))
-					{
-						this.goodFS.infoSeriesGoodRecommendation(this.serie);
-					}
-					else if(option.equals("6"))
-					{
-						this.badFS.infoSeriesNegativeReviews(this.serie);
-					}
-					else if(option.equals("7"))
-					{
-						this.genderFS.infoGenderFilm(this.film);
-					}
-					else if(option.equals("8"))
-					{
-						this.genderFS.infoGenderSerie(this.serie);
-					}
+				{
+					//---STATS OF FILM AND SERIES---
+					option = statsFilmSeries();
 					break;
+				}
 				case  "2":
-					System.out.println("""
-						You choose stats of actors, choose one option\s
-						1.-Show all actors\s
-						2.-Show actors in films\s
-						3.-Show actors in series\s
-						4.-Show series that works 2 or more actors\s
-						5.-Show films that works 2 or more actors""");
-					option = this.scanner.next();
-					if(option.equals("1"))
-					{
-						this.statsActor.allActors(this.serie, this.film);
-					}
-					else if(option.equals("2"))
-					{
-						System.out.println("Do you want see the number of series or the content (number/content)");
-						option = this.scanner.next();
-						while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
-						{
-							System.out.println("Error choosing a option, please choose again");
-							option = this.scanner.next();
-						}
-						if(option.equalsIgnoreCase("number"))
-						{
-							this.statsActor.numActorsFilms(this.film);
-						}
-						else
-						{
-							this.statsActor.showActorsFilms(this.film);
-						}
-					}
-					else if(option.equals("3"))
-					{
-						System.out.println("Do you want see the number of series or the content (number/content)");
-						option = this.scanner.next();
-						while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
-						{
-							System.out.println("Error choosing a option, please choose again");
-							option = this.scanner.next();
-						}
-						if(option.equalsIgnoreCase("number"))
-						{
-							this.statsActor.numActorsSeries(this.serie);
-						}
-						else
-						{
-							this.statsActor.showActorsSeries(this.serie);
-						}
-					}
-					else if(option.equals("4"))
-					{
-						this.statsActor.infoSeriesActors(this.serie);
-					}
-					else if(option.equals("5"))
-					{
-						this.statsActor.infoFilmsActors(this.film);
-					}
+				{
+					//---STATS OF ACTORS---
+					option = statsOfActors();
 					break;
+				}
 				case "3":
-					System.out.println("""
-						You choose stats of directors, choose one option\s
-						1.-Show all directors\s
-						2.-Show directors in films\s
-						3.-Show directors in series\s
-						4.-Show series that works 2 or more directors\s
-						5.-Show films that works 2 or more directors""");
-					option = this.scanner.next();
-					if(option.equals("1"))
-					{
-						this.statDirector.allDirectors(this.serie, this.film);
-					}
-					else if(option.equals("2"))
-					{
-						System.out.println("Do you want see the number of series or the content (number/content)");
-						option = this.scanner.next();
-						while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
-						{
-							System.out.println("Error choosing a option, please choose again");
-							option = this.scanner.next();
-						}
-						if(option.equalsIgnoreCase("number"))
-						{
-							this.statDirector.numDirectorsFilms(this.film);
-						}
-						else
-						{
-							this.statDirector.showDirectorsFilms(this.film);
-						}
-					}
-					else if(option.equals("3"))
-					{
-						System.out.println("Do you want see the number of series or the content (number/content)");
-						option = this.scanner.next();
-						while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
-						{
-							System.out.println("Error choosing a option, please choose again");
-							option = this.scanner.next();
-						}
-						if(option.equalsIgnoreCase("number"))
-						{
-							this.statDirector.numDirectorsSeries(this.serie);
-						}
-						else
-						{
-							this.statDirector.showDirectorsSeries(this.serie);
-						}
-					}
-					else if(option.equals("4"))
-					{
-						this.statDirector.infoSeriesDirectors(this.serie);
-					}
-					else if(option.equals("5"))
-					{
-						this.statDirector.infoFilmsDirectors(this.film);
-					}
+				{
+					//---STATS OF DIRECTORS---
+					option = statsOfDirectors();
 					break;
+				}
 				case "4":
-					System.out.println("""
-						1.-Number of categories of films and series
-						2.-Content of categories of films and series
-						3.-Show all categories
-						4.-Show the series with 2 or more categories
-						5.-Show the films with 2 or more categories""");
-					option = this.scanner.next();
-					if(option.equals("1"))
-					{
-						System.out.println("Choose (series/films)");
-						option = this.scanner.next();
-						if(option.equalsIgnoreCase("series"))
-						{
-							this.statsCategory.countSeriesCategories(this.serie);
-						}
-						else
-						{
-							this.statsCategory.countFilmsCategories(this.film);
-						}
-					}
-					else if(option.equals("1"))
-					{
-						System.out.println("Choose number of (series/films)");
-						option = this.scanner.next();
-						if(option.equalsIgnoreCase("series"))
-						{
-							this.statsCategory.countSeriesCategories(this.serie);
-						}
-						else
-						{
-							this.statsCategory.countFilmsCategories(this.film);
-						}
-					}
-					else if(option.equals("2"))
-					{
-						System.out.println("Choose categories of (series/films)");
-						option = this.scanner.next();
-						if(option.equalsIgnoreCase("series"))
-						{
-							this.statsCategory.showSeriesCategories(this.serie);
-						}
-						else
-						{
-							this.statsCategory.showFilmCategories(this.film);
-						}
-					}
-					else if(option.equals("3"))
-					{
-						this.statsCategory.countAllCategories(this.serie, this.film);
-					}
-					else if(option.equals("4"))
-					{
-						this.statsCategory.showSeriesWithTwoOrMoreCategories(this.serie);
-					}
-					else if(option.equals("5"))
-					{
-						this.statsCategory.showFilmsWithTwoOrMoreCategories(this.film);
-					}
+				{
+					//---STATS OF CATEGORIES---
+					option = statsOfCategories();
 					break;
+				}
 				case "5":
-                    System.out.println("""
-						You choose stats of subtitles from films and series, choose one option:\s
-						1.-Show all subtitles from films\s
-						2.-Show all subtitles from series\s
-						3.-Show all subtitles\s
-						4.-Show all films that contains 1 or more subtitles\s
-						5.-Show all series that contains 1 or more subtitles\s
-						""");
-                    option = this.scanner.next();
-					if(option.equals("1"))
-					{
-						System.out.println("Do you want see the number of subtitles or the content (number/content)");
-						option = this.scanner.next();
-						while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
-						{
-							System.out.println("Error choosing a option, please choose again");
-							option = this.scanner.next();
-						}
-						if(option.equalsIgnoreCase("number"))
-						{
-							this.statsSubtitles.countSubtitlesFilm(this.film);
-						}
-						else
-						{
-							this.statsSubtitles.showSubtitlesFilm(this.film);
-						}
-					}
-                    else if(option.equals("2"))
-                    {
-						System.out.println("Do you want see the number of subtitles or the content (number/content)");
-						option = this.scanner.next();
-						while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
-						{
-							System.out.println("Error choosing a option, please choose again");
-							option = this.scanner.next();
-						}
-						if(option.equalsIgnoreCase("number"))
-						{
-							this.statsSubtitles.countSubtitlesSerie(this.serie);
-						}
-						else
-						{
-							this.statsSubtitles.showSubtitlesSerie(this.serie);
-						}
-					}
-                    else if(option.equals("3"))
-                    {
-                        this.statsSubtitles.countAllSubtitles(this.serie, this.film);
-                    }
-                    else if(option.equals("4"))
-                    {
-                        this.statsSubtitles.infoFilmSubtitles(this.film);
-                    }
-                    else if(option.equals("5"))
-                    {
-                        this.statsSubtitles.infoSerieSubtitles(this.serie);
-                    }
+				{
+					//---STATS OF SUBTITLES---
+                    option = statsOfSubtitles();
 					break;
+				}
 				case "6":
+				{
 					endMenu = true;
 					break;
+				}
 				default:
 					System.out.println("Error selecting option");
 			}
@@ -4633,6 +5380,465 @@ public class Launcher
 			}
 
 		}
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String statsOfSubtitles() 
+	{
+		String option;
+		System.out.println("""
+			You choose stats of subtitles from films and series, choose one option:\s
+			1.-Show all subtitles from films\s
+			2.-Show all subtitles from series\s
+			3.-Show all subtitles\s
+			4.-Show all films that contains 1 or more subtitles\s
+			5.-Show all series that contains 1 or more subtitles\s
+			""");
+		option = this.scanner.next();
+		if(option.equals("1"))
+		{
+			//---SHOW ALL SUBTITLES FILM---
+			option = showAllSubtitlesFilm();
+		}
+		else if(option.equals("2"))
+		{
+			//---SHOW ALL SUBTITLES SERIE---
+			option = showAllSubtitlesSerie();
+		}
+		else if(option.equals("3"))
+		{
+			//---SHOW ALL SUBTITLES---
+		    this.statsSubtitles.countAllSubtitles(this.serie, this.film);
+		}
+		else if(option.equals("4"))
+		{
+			//---SHOW ALL SUBTITLES FILM---
+		    this.statsSubtitles.infoFilmSubtitles(this.film);
+		}
+		else if(option.equals("5"))
+		{
+			//---SHOW ALL SUBTITLES SERIE---
+		    this.statsSubtitles.infoSerieSubtitles(this.serie);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String showAllSubtitlesSerie() 
+	{
+		String option;
+		System.out.println("Do you want see the number of subtitles or the content (number/content)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+		{
+			System.out.println("Error choosing a option, please choose again");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("number"))
+		{
+			this.statsSubtitles.countSubtitlesSerie(this.serie);
+		}
+		else
+		{
+			this.statsSubtitles.showSubtitlesSerie(this.serie);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String showAllSubtitlesFilm()
+	{
+		String option;
+		System.out.println("Do you want see the number of subtitles or the content (number/content)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+		{
+			System.out.println("Error choosing a option, please choose again");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("number"))
+		{
+			this.statsSubtitles.countSubtitlesFilm(this.film);
+		}
+		else
+		{
+			this.statsSubtitles.showSubtitlesFilm(this.film);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String statsOfCategories() 
+	{
+		String option;
+		System.out.println("""
+			1.-Number of categories of films and series
+			2.-Content of categories of films and series
+			3.-Show all categories
+			4.-Show the series with 2 or more categories
+			5.-Show the films with 2 or more categories""");
+		option = this.scanner.next();
+		if(option.equals("1"))
+		{
+			//---NUMBER OF CATEGORIES FILM AND SERIE---
+			option = numberOfCategoriesFilmSerie();
+		}
+		else if(option.equals("2"))
+		{
+			//---CONTENT CATEGORIES FILM SERIES---
+			option = contentOfCategoriesFilmSeries();
+		}
+		else if(option.equals("3"))
+		{
+			//--- SHOW ALL CATEGORIES---
+			this.statsCategory.countAllCategories(this.serie, this.film);
+		}
+		else if(option.equals("4"))
+		{
+			//---SHOW THE SERIES WITH 2 OR MORE CATEGORIES---
+			this.statsCategory.showSeriesWithTwoOrMoreCategories(this.serie);
+		}
+		else if(option.equals("5"))
+		{
+			//---SHOW THE FILMS WITH 2 OR MORE CATEGORIES---
+			this.statsCategory.showFilmsWithTwoOrMoreCategories(this.film);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String contentOfCategoriesFilmSeries() 
+	{
+		String option;
+		System.out.println("Choose categories of (series/films)");
+		option = this.scanner.next();
+		if(option.equalsIgnoreCase("series"))
+		{
+			this.statsCategory.showSeriesCategories(this.serie);
+		}
+		else
+		{
+			this.statsCategory.showFilmCategories(this.film);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String numberOfCategoriesFilmSerie() 
+	{
+		String option;
+		System.out.println("Choose (series/films)");
+		option = this.scanner.next();
+		if(option.equalsIgnoreCase("series"))
+		{
+			this.statsCategory.countSeriesCategories(this.serie);
+		}
+		else
+		{
+			this.statsCategory.countFilmsCategories(this.film);
+		}
+		return option;
+	}
+
+	/**
+	 * @return
+	 */
+	private String statsOfDirectors() 
+	{
+		String option;
+		System.out.println("""
+			You choose stats of directors, choose one option\s
+			1.-Show all directors\s
+			2.-Show directors in films\s
+			3.-Show directors in series\s
+			4.-Show series that works 2 or more directors\s
+			5.-Show films that works 2 or more directors""");
+		option = this.scanner.next();
+		if(option.equals("1"))
+		{
+			//--SHOW ALL DIRECTORS---
+			this.statDirector.allDirectors(this.serie, this.film);
+		}
+		else if(option.equals("2"))
+		{
+			//--SHOW ALL DIRECTORS ON FILM---
+			option = showAllDirectorsOnFilm();
+		}
+		else if(option.equals("3"))
+		{
+			//--SHOW ALL DIRECTORS ON SERIE---
+			option = showAllDirectorsOnSerie();
+		}
+		else if(option.equals("4"))
+		{
+			//--SHOW ALL DIRECTORS SERIES WITH 2 OR MORE WORKING---
+			this.statDirector.infoSeriesDirectors(this.serie);
+		}
+		else if(option.equals("5"))
+		{
+			//--SHOW ALL DIRECTORS FILM WITH 2 OR MORE WORKING---
+			this.statDirector.infoFilmsDirectors(this.film);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String showAllDirectorsOnSerie() 
+	{
+		String option;
+		System.out.println("Do you want see the number of series or the content (number/content)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+		{
+			System.out.println("Error choosing a option, please choose again");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("number"))
+		{
+			this.statDirector.numDirectorsSeries(this.serie);
+		}
+		else
+		{
+			this.statDirector.showDirectorsSeries(this.serie);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String showAllDirectorsOnFilm() 
+	{
+		String option;
+		System.out.println("Do you want see the number of series or the content (number/content)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+		{
+			System.out.println("Error choosing a option, please choose again");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("number"))
+		{
+			this.statDirector.numDirectorsFilms(this.film);
+		}
+		else
+		{
+			this.statDirector.showDirectorsFilms(this.film);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String statsOfActors() 
+	{
+		String option;
+		System.out.println("""
+			You choose stats of actors, choose one option\s
+			1.-Show all actors\s
+			2.-Show actors in films\s
+			3.-Show actors in series\s
+			4.-Show series that works 2 or more actors\s
+			5.-Show films that works 2 or more actors""");
+		option = this.scanner.next();
+		if(option.equals("1"))
+		{
+			//---SHOW ALL ACTORS---
+			this.statsActor.allActors(this.serie, this.film);
+		}
+		else if(option.equals("2"))
+		{
+			//---SHOW ACTORS ON FILM---
+			option = showActorsOnFilm();
+		}
+		else if(option.equals("3"))
+		{
+			//---SHOW ACTORS ON SERIE---
+			option = showActorsOnSerie();
+		}
+		else if(option.equals("4"))
+		{
+			//---SHOW ACTORS SERIES WITH 2 OR MORE WORKING---
+			this.statsActor.infoSeriesActors(this.serie);
+		}
+		else if(option.equals("5"))
+		{
+			//---SHOW ACTORS FILM WITH 2 OR MORE WORKING---
+			this.statsActor.infoFilmsActors(this.film);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with information
+	 */
+	private String showActorsOnSerie() 
+	{
+		String option;
+		System.out.println("Do you want see the number of series or the content (number/content)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+		{
+			System.out.println("Error choosing a option, please choose again");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("number"))
+		{
+			this.statsActor.numActorsSeries(this.serie);
+		}
+		else
+		{
+			this.statsActor.showActorsSeries(this.serie);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String showActorsOnFilm() 
+	{
+		String option;
+		System.out.println("Do you want see the number of series or the content (number/content)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+		{
+			System.out.println("Error choosing a option, please choose again");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("number"))
+		{
+			this.statsActor.numActorsFilms(this.film);
+		}
+		else
+		{
+			this.statsActor.showActorsFilms(this.film);
+		}
+		return option;
+	}
+
+	/**
+	 * @return string with the information
+	 */
+	private String statsFilmSeries() 
+	{
+		String option;
+		System.out.println("""
+			You choose stats of films and series, choose one option:\s
+			1.-Show all films\s
+			2.-Show all series\s
+			3.-Show good films\s
+			4.-Show bad films\s
+			5.-Show good series\s
+			6.-Show bad series\s
+			7.-Show multi gender film\s
+			8.-Show multi gender serie""");
+
+		option = this.scanner.next();
+		if(option.equals("1"))
+		{
+			//---SHOW ALL FILM---
+			option = showAllFilm();
+		}
+		else if(option.equals("2"))
+		{
+			//---SHOW ALL SERIE---
+			option = showAllSerie();
+		}
+		else if(option.equals("3"))
+		{
+			//---SHOW GOOD FILMS---
+			this.goodFS.infoFilmsGoodRecommendation(this.film);
+		}
+		else if(option.equals("4"))
+		{
+			//---SHOW BAD FILMS---
+			this.badFS.infoFilmsNegativeReviews(this.film);
+		}
+		else if(option.equals("5"))
+		{
+			//---SHOW GOOD SERIES---
+			this.goodFS.infoSeriesGoodRecommendation(this.serie);
+		}
+		else if(option.equals("6"))
+		{
+			//---SHOW BAD SEREIES---
+			this.badFS.infoSeriesNegativeReviews(this.serie);
+		}
+		else if(option.equals("7"))
+		{
+			//---SHOW ALL MULTIGENDER FILMS---
+			this.genderFS.infoGenderFilm(this.film);
+		}
+		else if(option.equals("8"))
+		{
+			//---SHOW ALL MULTIGENDER SERIES---
+			this.genderFS.infoGenderSerie(this.serie);
+		}
+		return option;
+	}
+
+	/**
+	 * @return String with the inforamtion
+	 */
+	private String showAllSerie() 
+	{
+		String option;
+		System.out.println("Do you want see the number of series or the content (number/content)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+		{
+			System.out.println("Error choosing a option, please choose again");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("number"))
+		{
+			this.statsFS.numSeries(this.serie);
+		}
+		else
+		{
+			this.statsFS.countSeries(this.serie);
+		}
+		return option;
+	}
+
+	/**
+	 * @return String with the inforamtion
+	 */
+	private String showAllFilm() 
+	{
+		String option;
+		System.out.println("Do you want see the number of films or the content (number/content)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("number") && !option.equalsIgnoreCase("content"))
+		{
+			System.out.println("Error choosing a option, please choose again");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("number"))
+		{
+			this.statsFS.numFilms(this.film);
+		}
+		else
+		{
+			this.statsFS.countFilms(this.film);
+		}
+		return option;
 	}
 
 	/**
