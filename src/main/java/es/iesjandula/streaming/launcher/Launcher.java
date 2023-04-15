@@ -32,7 +32,7 @@ import es.iesjandula.streaming.streaming.Serie;
  *
  * @author Pablo Elias
  * @author Javier
- * @author Alex
+ * @author Alejandro
  *
  */
 public class Launcher
@@ -5940,8 +5940,5 @@ public class Launcher
 				option = this.scanner.next();
 			}
 		}
-
-
-
 	}
 }
