@@ -1,98 +1,91 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package es.iesjandula.streaming.stats;
+
 import es.iesjandula.streaming.streaming.*;
 import es.iesjandula.streaming.baseclasses.Actors;
 import java.util.Arrays;
+
 /**
- *
- * @author alexc
+ * This class takes care of counting and displaying how many Actors there are in the films or series
  */
-public class ActorStats {
-    /**This class takes care of count and show how many Actors there are in the films or series*/
-  
+public class ActorStats
+{
+
     /**
-    * This method counts how many Actors there are in the series
-    * @param seriesActors 
-    */
+     * This method counts how many Actors there are in the series
+     * @param seriesActors: An array of `Serie` objects representing the series to count the actors
+     */
     public void numActorsSeries(Serie[] seriesActors)
     {
         int sum = 0;
         Actors[] arrayActors;
-        for(int i = 0; i < seriesActors.length; i++)
+        for (Serie serie : seriesActors)
         {
-            arrayActors = seriesActors[i].getActors();
+            arrayActors = serie.getActors();
             sum += arrayActors.length;
         }
-        
-        System.out.println("There are "+ sum +" actors in the series.");
+        System.out.println("There are " + sum + " actors in the series.");
     }
 
     /**
      * This method counts how many Actors there are in the films
-     * @param filmActors 
+     * @param filmActors: An array of `Film` objects representing the films to count the actors
      */
     public void numActorsFilms(Film[] filmActors)
     {
         int sum = 0;
         Actors[] arrayActors;
-        for(int i = 0; i < filmActors.length; i++)
+        for (Film film : filmActors)
         {
-            arrayActors = filmActors[i].getActors();
+            arrayActors = film.getActors();
             sum += arrayActors.length;
         }
-        
-        System.out.println("There are "+ sum +" actors in the films.");
+        System.out.println("There are " + sum + " actors in the films.");
     }
-    
+
     /**
      * This method counts how many Actors there are in total
-     * @param seriesActors
-     * @param filmActors 
+     * @param seriesActors: An array of `Serie` objects representing the series to count the actors
+     * @param filmActors: An array of `Film` objects representing the films to count the actors
      */
     public void allActors(Serie[] seriesActors, Film[] filmActors)
     {
         int sum = 0;
         Actors[] arrayActors;
-        for(int i = 0; i < filmActors.length; i++)
+        for (Film film : filmActors)
         {
-            arrayActors = filmActors[i].getActors();
+            arrayActors = film.getActors();
             sum += arrayActors.length;
         }
-        
-        for(int i = 0; i < seriesActors.length; i++)
+        for (Serie serie : seriesActors)
         {
-            arrayActors = seriesActors[i].getActors();
+            arrayActors = serie.getActors();
             sum += arrayActors.length;
         }
-        
-        System.out.println("There are "+ sum +" actors in our system.");
+        System.out.println("There are " + sum + " actors in our system.");
     }
-    
+
     /**
      * This method shows many the Actors of the series
-     * @param seriesActors 
+     * @param seriesActors: An array of Serie objects containing all the series whose actors should be displayed.
      */
     public void showActorsSeries(Serie[] seriesActors)
     {
         Actors[] arrayActors;
-        for(Serie serie:seriesActors)
+        for (Serie serie : seriesActors)
         {
             arrayActors = serie.getActors();
             System.out.println(Arrays.toString(arrayActors));
         }
     }
-    
+
     /**
      * This method shows many the Actors of the films
-     * @param filmsActors 
+     * @param filmsActors: An array of Film objects containing all the movies whose actors should be displayed.
      */
     public void showActorsFilms(Film[] filmsActors)
     {
         Actors[] arrayActors;
-        for(Film film:filmsActors)
+        for (Film film : filmsActors)
         {
             arrayActors = film.getActors();
             System.out.println(Arrays.toString(arrayActors));
@@ -101,29 +94,29 @@ public class ActorStats {
 
     /**
      * This method shows the series that have 2 or more actors working on them
-     * @param seriesActors 
+     * @param seriesActors: An array of Serie objects containing all the series that should be analyzed.
      */
     public void infoSeriesActors(Serie[] seriesActors)
     {
         Actors[] arrayActors;
-        for(Serie serie:seriesActors)
+        for (Serie serie : seriesActors)
         {
             arrayActors = serie.getActors();
-            if(arrayActors.length >= 2)
+            if (arrayActors.length >= 2)
             {
                 System.out.println(serie);
             }
         }
     }
-    
+
     /**
      * This method shows the films that have 2 or more actors working on them
-     * @param filmsActors 
+     * @param filmsActors: An array of Film objects containing all the movies that should be analyzed.
      */
     public void infoFilmsActors(Film[] filmsActors)
     {
         Actors[] arrayActors;
-        for(Film film:filmsActors)
+        for(Film film : filmsActors)
         {
             arrayActors = film.getActors();
             if(arrayActors.length >= 2)
