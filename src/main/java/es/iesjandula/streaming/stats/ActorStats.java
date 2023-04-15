@@ -6,13 +6,15 @@ import java.util.Arrays;
 
 /**
  * This class takes care of counting and displaying how many Actors there are in the films or series
+ * 
+ * @author Alejandro
  */
 public class ActorStats
 {
 
     /**
      * This method counts how many Actors there are in the series
-     * @param seriesActors: An array of `Serie` objects representing the series to count the actors
+     * @param seriesActors An array of `Serie` objects representing the series to count the actors
      */
     public void numActorsSeries(Serie[] seriesActors)
     {
@@ -28,7 +30,7 @@ public class ActorStats
 
     /**
      * This method counts how many Actors there are in the films
-     * @param filmActors: An array of `Film` objects representing the films to count the actors
+     * @param filmActors An array of `Film` objects representing the films to count the actors
      */
     public void numActorsFilms(Film[] filmActors)
     {
@@ -44,8 +46,8 @@ public class ActorStats
 
     /**
      * This method counts how many Actors there are in total
-     * @param seriesActors: An array of `Serie` objects representing the series to count the actors
-     * @param filmActors: An array of `Film` objects representing the films to count the actors
+     * @param seriesActors An array of `Serie` objects representing the series to count the actors
+     * @param filmActors An array of `Film` objects representing the films to count the actors
      */
     public void allActors(Serie[] seriesActors, Film[] filmActors)
     {
@@ -66,7 +68,7 @@ public class ActorStats
 
     /**
      * This method shows many the Actors of the series
-     * @param seriesActors: An array of Serie objects containing all the series whose actors should be displayed.
+     * @param seriesActors An array of Serie objects containing all the series whose actors should be displayed.
      */
     public void showActorsSeries(Serie[] seriesActors)
     {
@@ -80,7 +82,7 @@ public class ActorStats
 
     /**
      * This method shows many the Actors of the films
-     * @param filmsActors: An array of Film objects containing all the movies whose actors should be displayed.
+     * @param filmsActors An array of Film objects containing all the movies whose actors should be displayed.
      */
     public void showActorsFilms(Film[] filmsActors)
     {
@@ -94,7 +96,7 @@ public class ActorStats
 
     /**
      * This method shows the series that have 2 or more actors working on them
-     * @param seriesActors: An array of Serie objects containing all the series that should be analyzed.
+     * @param seriesActors An array of Serie objects containing all the series that should be analyzed.
      */
     public void infoSeriesActors(Serie[] seriesActors)
     {
@@ -111,7 +113,7 @@ public class ActorStats
 
     /**
      * This method shows the films that have 2 or more actors working on them
-     * @param filmsActors: An array of Film objects containing all the movies that should be analyzed.
+     * @param filmsActors An array of Film objects containing all the movies that should be analyzed.
      */
     public void infoFilmsActors(Film[] filmsActors)
     {

@@ -4,15 +4,16 @@ import es.iesjandula.streaming.streaming.*;
 import java.util.Arrays;
 
 /**
- * @author jjurval
+ * This class takes care of count and show how many Directors there are in the films or series.
+ * 
+ * @author Juan Alberto
  */
 public class DirectorStats
 {
-    /**This class takes care of count and show how many Directors there are in the films or series*/
-    
+	
 	/**
 	* This method counts how many Directors there are in the series
-	* @param seriesDirectors: An array of objects of type Series that contains information about TV series.
+	* @param seriesDirectors An array of objects of type Series that contains information about TV series.
 	*/
     public void numDirectorsSeries(Serie[] seriesDirectors)
     {
@@ -27,7 +28,7 @@ public class DirectorStats
 
     /**
     * This method counts how many Directors there are in the films
-    * @param filmDirectors: An array of objects of type Film that contains information about movies.
+    * @param filmDirectors An array of objects of type Film that contains information about movies.
     */
     public void numDirectorsFilms(Film[] filmDirectors)
     {
@@ -42,8 +43,8 @@ public class DirectorStats
 
     /**
     * This method counts how many Directors there are in total
-    * @param seriesDirectors: An array of objects of type Series that contains information about TV series.
-    * @param filmDirectors: An array of objects of type Film that contains information about movies or TV series.
+    * @param seriesDirectors An array of objects of type Series that contains information about TV series.
+    * @param filmDirectors An array of objects of type Film that contains information about movies or TV series.
     */
     public void allDirectors(Serie[] seriesDirectors, Film[] filmDirectors)
     {
@@ -63,7 +64,7 @@ public class DirectorStats
 
     /**
     * This method shows the Directors of the TV series
-    * @param seriesDirectors: An array of objects of type Series that contains information about TV series
+    * @param seriesDirectors An array of objects of type Series that contains information about TV series
     */
     public void showDirectorsSeries(Serie[] seriesDirectors)
     {
@@ -75,7 +76,7 @@ public class DirectorStats
     
     /**
     * This method shows the Directors of the movies
-    * @param filmsDirectors: An array of objects of type Film that contains information about movies.
+    * @param filmsDirectors An array of objects of type Film that contains information about movies.
     */
     public void showDirectorsFilms(Film[] filmsDirectors)
     {
@@ -87,7 +88,7 @@ public class DirectorStats
     
     /**
     * This method shows the TV series that have 2 or more directors working on them
-    * @param seriesDirectors: An array of objects of type Series that contains information about TV series.
+    * @param seriesDirectors An array of objects of type Series that contains information about TV series.
     */
     public void infoSeriesDirectors(Serie[] seriesDirectors)
     {
@@ -102,7 +103,7 @@ public class DirectorStats
     
     /**
     * This method shows the movies that have 2 or more directors working on them
-    * @param filmsDirectors: An array of objects of type Film that contains information about movies.
+    * @param filmsDirectors An array of objects of type Film that contains information about movies.
     */
     public void infoFilmsDirectors(Film[] filmsDirectors)
     {

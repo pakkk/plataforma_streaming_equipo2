@@ -3,9 +3,7 @@ package es.iesjandula.streaming.baseclasses;
 import es.iesjandula.streaming.enums.Gender;
 
 /**
- * 
  * @author Eduardo
- *
  */
 public class Actors
 {
