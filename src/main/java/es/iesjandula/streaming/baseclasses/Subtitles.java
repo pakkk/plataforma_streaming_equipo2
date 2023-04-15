@@ -1,16 +1,20 @@
 package es.iesjandula.streaming.baseclasses;
 
-public class Subtitles {
-	/**This class is responsible for loading subtitle data and storing it in an array
-	* Attributes
-	*String language: attribute that defines the language of the subtitle
-	**/
+/**
+ * 
+ * @author Alejandro
+ *
+ */
+public class Subtitles 
+{
+	/**This class is responsible for loading subtitle data and storing it in an array*/
+
+	/**Attribute language: attribute that defines the language of the subtitle*/
 	private String language;
 	
-	// Constructor
 	/**
-	 *  Constructor that sets he value of the language attribute
-	 * @param language
+	 * Constructor that sets he value of the language attribute
+	 * @param language the language String value
 	 */
     public Subtitles(String language)
     {
@@ -20,7 +24,7 @@ public class Subtitles {
     // Getters
     /** Get method for the language attribute that returns its value
      * 
-     * @return
+     * @return returns String value with the language
      */
     public String getLanguage() 
     {
@@ -30,7 +34,7 @@ public class Subtitles {
     // Setters
     /** Set method for the language attribute that allows to change its value
      * 
-     * @param language
+     * @param language the language String
      */
     public void setLanguage(String language)
     {
@@ -38,7 +42,8 @@ public class Subtitles {
     }
     
     /**
-     * retun the atributes of the class
+     * toString return the attributes of the class
+     * @return returns String with the information
      */
     @Override
     public String toString()

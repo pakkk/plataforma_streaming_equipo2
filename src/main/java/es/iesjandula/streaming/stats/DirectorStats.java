@@ -1,12 +1,13 @@
 package es.iesjandula.streaming.stats;
+
 import es.iesjandula.streaming.streaming.*;
-import es.iesjandula.streaming.baseclasses.Directors;
 import java.util.Arrays;
+
 /**
- *
  * @author jjurval
  */
-public class DirectorStats {
+public class DirectorStats
+{
     /**This class takes care of count and show how many Directors there are in the films or series*/
     
     /**
@@ -16,11 +17,9 @@ public class DirectorStats {
     public void numDirectorsSeries(Serie[] seriesDirectors)
     {
         int sum = 0;
-        Directors[] arrayDirectors;
-        for(int i = 0; i < seriesDirectors.length; i++)
+        for(Serie serie: seriesDirectors)
         {
-        	arrayDirectors = seriesDirectors[i].getDirectors();
-            sum += arrayDirectors.length;
+            sum += serie.getDirectors().length;
         }
         
         System.out.println("There are "+ sum +" directors in the series.");
@@ -33,11 +32,9 @@ public class DirectorStats {
     public void numDirectorsFilms(Film[] filmDirectors)
     {
         int sum = 0;
-        Directors[] arrayDirectors;
-        for(int i = 0; i < filmDirectors.length; i++)
+        for(Film film: filmDirectors)
         {
-        	arrayDirectors = filmDirectors[i].getDirectors();
-            sum += arrayDirectors.length;
+            sum += film.getDirectors().length;
         }
         
         System.out.println("There are "+ sum +" actors in the films.");
@@ -51,17 +48,14 @@ public class DirectorStats {
     public void allDirectors(Serie[] seriesDirectors, Film[] filmDirectors)
     {
         int sum = 0;
-        Directors[] arrayDirectors;
-        for(int i = 0; i < filmDirectors.length; i++)
+        for(Film film: filmDirectors)
         {
-        	arrayDirectors = filmDirectors[i].getDirectors();
-            sum += arrayDirectors.length;
+            sum += film.getDirectors().length;
         }
         
-        for(int i = 0; i < seriesDirectors.length; i++)
+        for(Serie serie: seriesDirectors)
         {
-        	arrayDirectors = seriesDirectors[i].getDirectors();
-            sum += arrayDirectors.length;
+            sum += serie.getDirectors().length;
         }
         
         System.out.println("There are "+ sum +" directors in our system.");
@@ -73,11 +67,9 @@ public class DirectorStats {
      */
     public void showDirectorsSeries(Serie[] seriesDirectors)
     {
-        Directors[] arrayDirectors;
-        for(Serie serie:seriesDirectors)
+    	for(Serie serie: seriesDirectors)
         {
-        	arrayDirectors = serie.getDirectors();
-            System.out.println(Arrays.toString(arrayDirectors));
+            System.out.println(Arrays.toString(serie.getDirectors()));
         }
     }
     
@@ -87,11 +79,9 @@ public class DirectorStats {
      */
     public void showDirectorsFilms(Film[] filmsDirectors)
     {
-        Directors[] arrayDirectors;
-        for(Film film:filmsDirectors)
+    	for(Film film: filmsDirectors)
         {
-        	arrayDirectors = film.getDirectors();
-            System.out.println(Arrays.toString(arrayDirectors));
+            System.out.println(Arrays.toString(film.getDirectors()));
         }
     }
     
@@ -101,11 +91,9 @@ public class DirectorStats {
      */
     public void infoSeriesDirectors(Serie[] seriesDirectors)
     {
-        Directors[] arrayDirectors;
-        for(Serie serie:seriesDirectors)
+    	for(Serie serie: seriesDirectors)
         {
-        	arrayDirectors = serie.getDirectors();
-            if(arrayDirectors.length >= 2)
+            if(serie.getDirectors().length >= 2)
             {
                 System.out.println(serie);
             }
@@ -118,15 +106,12 @@ public class DirectorStats {
      */
     public void infoFilmsDirectors(Film[] filmsDirectors)
     {
-        Directors[] arrayDirectors;
-        for(Film film:filmsDirectors)
+    	for(Film film: filmsDirectors)
         {
-        	arrayDirectors = film.getDirectors();
-            if(arrayDirectors.length >= 2)
+            if(film.getDirectors().length >= 2)
             {
                 System.out.println(film);
             }
         }
     }
 }
-

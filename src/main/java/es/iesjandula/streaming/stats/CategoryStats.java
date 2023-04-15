@@ -2,127 +2,127 @@ package es.iesjandula.streaming.stats;
 
 import java.util.Arrays;
 
-
 import es.iesjandula.streaming.baseclasses.Category;
 import es.iesjandula.streaming.streaming.Film;
 import es.iesjandula.streaming.streaming.Serie;
-	/**
-	 * 
-	 * @author Javier
-	 *
-	 */
-public class CategoryStats {
-	// This class take care of count of categories there are.
-	
-	
-	/**This method count the how many categories there are in the series
-	 * 
-	 * @param seriesCategory
-	 */
-	public void numCategorySeries(Serie[] seriesCategory)
+
+/**
+ * @author Javi
+ * This class takes care of counting the categories in the system.
+ */
+public class CategoryStats
+{
+
+    /**
+     * This method counts how many categories there are in the series.
+     * 
+     * @param seriesCategory
+     */
+    public void countSeriesCategories(Serie[] seriesCategory)
     {
         int sum = 0;
-        Category[] arrayCategories;
-        for(int i = 0; i < seriesCategory.length; i++)
+        for (Serie serie : seriesCategory)
         {
-        	arrayCategories = seriesCategory[i].getCategory();
-            sum += arrayCategories.length;
+            Category[] categories = serie.getCategory();
+            sum += categories.length;
         }
-        
-        System.out.println("There are "+ sum +" categories in the series.");
+        System.out.println("There are " + sum + " categories in the series.");
     }
-    /**This method counts how many categories there are in the films
+
+    /**
+     * This method counts how many categories there are in the films.
      * 
      * @param filmCategory
      */
-    public void numCategoryFilms(Film[] filmCategory)
+    public void countFilmsCategories(Film[] filmCategory)
     {
         int sum = 0;
-        Category[] arrayCategories;
-        for(int i = 0; i < filmCategory.length; i++)
+        for (Film film : filmCategory)
         {
-            arrayCategories = filmCategory[i].getCategory();
-            sum += arrayCategories.length;
+            Category[] categories = film.getCategory();
+            sum += categories.length;
         }
-        
-        System.out.println("There are "+ sum +" categories in the films.");
+        System.out.println("There are " + sum + " categories in the films.");
     }
+
     /**
-     * This method counts how many categories there are in total
+     * This method counts how many categories there are in total.
+     * 
      * @param seriesCategory
      * @param filmCategory
      */
-    public void allCategory(Serie[] seriesCategory, Film[] filmCategory)
+    public void countAllCategories(Serie[] seriesCategory, Film[] filmCategory)
     {
         int sum = 0;
-        Category[] arrayCategory;
-        for(int i = 0; i < filmCategory.length; i++)
+        for (Film film : filmCategory)
         {
-            arrayCategory = filmCategory[i].getCategory();
-            sum += arrayCategory.length;
+            Category[] categories = film.getCategory();
+            sum += categories.length;
         }
-        
-        for(int i = 0; i < seriesCategory.length; i++)
+        for (Serie serie : seriesCategory)
         {
-            arrayCategory = seriesCategory[i].getCategory();
-            sum += arrayCategory.length;
+            Category[] categories = serie.getCategory();
+            sum += categories.length;
         }
-        
-        System.out.println("There are "+ sum +" Category in our system.");
+        System.out.println("There are " + sum + " categories in our system.");
     }
+
     /**
-     * This method shows how many the Category of the series
+     * This method shows the categories of the series.
+     * 
      * @param seriesCategory
      */
-    public void showCategorySeries(Serie[] seriesCategory)
+    public void showSeriesCategories(Serie[] seriesCategory)
     {
-        Category[] arrayCategory;
-        for(Serie serie:seriesCategory)
+        for (Serie serie : seriesCategory)
         {
-            arrayCategory = serie.getCategory();
-            System.out.println(Arrays.toString(arrayCategory));
+            Category[] categories = serie.getCategory();
+            System.out.println(Arrays.toString(categories));
         }
     }
-    /**This method shows how many categories are in the films
+
+    /**
+     * This method shows the categories of the films.
      * 
      * @param filmsCategory
      */
-    public void showCategoryFilms(Film[] filmsCategory)
+    public void showFilmCategories(Film[] filmsCategory)
     {
-        Category[] arrayCategory;
-        for(Film film:filmsCategory)
+        for (Film film : filmsCategory)
         {
-            arrayCategory = film.getCategory();
-            System.out.println(Arrays.toString(arrayCategory));
+            Category[] categories = film.getCategory();
+            System.out.println(Arrays.toString(categories));
         }
     }
-    /**This method shows the series that have 2 or more Category on them
+
+    /**
+     * This method shows the series that have 2 or more categories on them.
      * 
      * @param seriesCategory
      */
-    public void infoSeriesCategory(Serie[] seriesCategory)
+    public void showSeriesWithTwoOrMoreCategories(Serie[] seriesCategory)
     {
-        Category[] arrayCategory;
-        for(Serie serie:seriesCategory)
+        for (Serie serie : seriesCategory)
         {
-            arrayCategory = serie.getCategory();
-            if(arrayCategory.length >= 2)
+            Category[] categories = serie.getCategory();
+            if (categories.length >= 2)
             {
                 System.out.println(serie);
             }
         }
     }
-    /**This method shows the films that have 2 or more Category on them
+
+    /**
+     * This method shows the films that have 2 or more categories on them.
      * 
      * @param filmsCategory
      */
-    public void infoFilmsCategory(Film[] filmsCategory)
+    public void showFilmsWithTwoOrMoreCategories(Film[] filmsCategory)
     {
-        Category[] arrayCategory;
-        for(Film film:filmsCategory)
+        for (Film film : filmsCategory)
         {
-            arrayCategory = film.getCategory();
-            if(arrayCategory.length >= 2)
+            Category[] categories = film.getCategory();
+            if (categories.length >= 2)
             {
                 System.out.println(film);
             }

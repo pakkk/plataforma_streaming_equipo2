@@ -3926,11 +3926,11 @@ public class Launcher
 									option = this.scanner.next();
 									if(option.equalsIgnoreCase("series")) 
 									{
-										this.statsCategory.numCategorySeries(this.serie);
+										this.statsCategory.countSeriesCategories(this.serie);
 									}
 									else 
 									{
-										this.statsCategory.numCategoryFilms(this.film);
+										this.statsCategory.countFilmsCategories(this.film);
 									}
 								}
 								else if(option.equals("1")) 
@@ -3939,11 +3939,11 @@ public class Launcher
 									option = this.scanner.next();
 									if(option.equalsIgnoreCase("series")) 
 									{
-										this.statsCategory.numCategorySeries(this.serie);
+										this.statsCategory.countSeriesCategories(this.serie);
 									}
 									else 
 									{
-										this.statsCategory.numCategoryFilms(this.film);
+										this.statsCategory.countFilmsCategories(this.film);
 									}
 								}
 								else if(option.equals("2")) 
@@ -3952,24 +3952,24 @@ public class Launcher
 									option = this.scanner.next();
 									if(option.equalsIgnoreCase("series")) 
 									{
-										this.statsCategory.showCategorySeries(this.serie);
+										this.statsCategory.showSeriesCategories(this.serie);
 									}
 									else 
 									{
-										this.statsCategory.showCategoryFilms(this.film);
+										this.statsCategory.showFilmCategories(this.film);
 									}
 								}
 								else if(option.equals("3")) 
 								{
-									this.statsCategory.allCategory(serie, this.film);
+									this.statsCategory.countAllCategories(this.serie, this.film);
 								}
 								else if(option.equals("4")) 
 								{									
-									this.statsCategory.infoSeriesCategory(this.serie);
+									this.statsCategory.showSeriesWithTwoOrMoreCategories(this.serie);
 								}
 								else if(option.equals("5")) 
 								{																										
-									this.statsCategory.numCategoryFilms(this.film);									
+									this.statsCategory.showFilmsWithTwoOrMoreCategories(this.film);			
 								}								
 								break;
 							case "5":
