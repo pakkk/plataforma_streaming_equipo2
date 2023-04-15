@@ -1,94 +1,181 @@
 package es.iesjandula.streaming.launcher;
+
 import java.util.*;
 import es.iesjandula.streaming.baseclasses.*;
 import es.iesjandula.streaming.streaming.*;
 import es.iesjandula.streaming.menus.*;
 import es.iesjandula.streaming.enums.*;
 import es.iesjandula.streaming.stats.*;
-public class Launcher{
+
+/**
+ * 
+ * @author Pablo Elias
+ * @author Javier
+ * @author Alex
+ *
+ */
+public class Launcher
+{
 	//This class is responsible of execute the menus and control the logic of the entire project
 	
-	/**Attributes
-	 *
-	 * Attribute Scanner scanner: Provide of Class Scanner and his use its only for write by keyboard
-	 * Attribute Film film[]: Array that save films that the user select
-	 * Attribute Serie serie[]: Array that save series that the user select
+	/**
 	 * NOTE:Class film and serie have arrays of actors,directors,categories,recommendations and subtitles so to save them
 	 * the user must use menu methods 
 	 */
+	
+	/** Attribute Scanner scanner: Provide of Class Scanner and his use its only for write by keyboard*/
 	private Scanner scanner = new Scanner(System.in);
-	private Film film[] = new Film[0];
-	private Serie serie[] = new Serie[0];
-	private Actors actor[];
-	private Directors director[];
-    private Category category[];
-    private Recommendation recommendation[];
-    private Subtitles subtitles[];
 	
-	/**Attributes of films and serie
-	 *
-	 * String titles: Title of the film or movie that the user choose 
-	 * String originalLanguage: Language with which the movie or serie it was created 
-	 * String adaptedLanguage []: Language with which the movie or serie its translated
-	 * int duration: Duration of the movie or serie
-	 * int views: Views that the movie or serie have
-	 * String newTitle: His use is only to modify the old title
-	 * String newOriginalLanguage: His use is only to modify the old originalLanguage
-	 * String adaptedLanguage[]: His use is only to modify the old adaptedLanguage
-	 * int newDuration: His use is only to modify the old duration
-	 * int newViews: His use is only to modify the old views
-	 */
-	private String title,originalLanguage;
+	/** Attribute Film film[]: Array that save films that the user select*/
+	private Film[] film = new Film[0];
+	
+	/** Attribute Serie serie[]: Array that save series that the user select*/
+	private Serie[] serie = new Serie[0];
+	
+	/** Attribute actor*/
+	private Actors[] actor;
+	
+	/** Attribute director*/
+	private Directors[] director;
+	
+	/** Attribute category*/
+    private Category[] category;
+    
+    /** Attribute recomentadion*/
+    private Recommendation[] recommendation;
+    
+    /** Attribute subtitles*/
+    private Subtitles[] subtitles;
+	
+	/*Attributes of films and serie*/
+    
+    /**Attribute String title: Title of the film or movie that the user choose  */
+	private String title;
+	
+	/**Attribute String originalLanguage: Language with which the movie or serie it was created */
+	private String originalLanguage;
+	
+	/**Attribute String adaptedLanguage []: Language with which the movie or serie its translated*/
 	private String adaptedLanguage[] = new String [0];
-	private int duration,views;
-	private String newTitle,newOriginalLanguage;
-	private String newAdaptedLanguage[] = new String [0];
-	private int newDuration,newViews;
+
+	/**Attribute int duration: Duration of the movie or serie*/
+	private int duration;
 	
-	/**Attributes of actors and directors
-	 *
-	 * String name: Name of the actor or director
-	 * String lastName: Last name of the actor of director
-	 * String awards: Awards that the actor or director has been wined
-	 * int age: Age of the actor or director
-	 * Gender gender: Represent the gender of the actor of director
-	 *   
-	 */
-	private String name,lastName,awards,description,comment,language;
+	/**Attribute int views: Views that the movie or serie have*/
+	private int views;
+	
+	/**Attribute String newTitle: His use is only to modify the old title*/
+	private String newTitle;
+	
+	/**Attribute String newOriginalLanguage: His use is only to modify the old originalLanguage*/
+	private String newOriginalLanguage;
+	
+	/**Attribute String adaptedLanguage[]: His use is only to modify the old adaptedLanguage*/
+	private String newAdaptedLanguage[] = new String [0];
+	
+	/**Attribute int newDuration: His use is only to modify the old duration*/
+	private int newDuration;
+	
+	/**Attribute int newViews: His use is only to modify the old views*/
+	private int newViews;
+	
+	
+	/*Attributes of actors and directors*/
+	
+	/**Attribute String name: Name of the actor or director*/
+	private String name;
+	
+	/**Attribute String lastName: Last name of the actor of director*/
+	private String lastName;
+	
+	/**Attribute String awards: Awards that the actor or director has been wined*/
+	private String awards;
+	
+	/**Attribute int age: Age of the actor or director*/
+	private String description;
+	
+	/**Attribute Gender gender: Represent the gender of the actor of director*/
+	private String comment;
+	
+	/**Attribute language*/
+	private String language;
+	
+	/**Attribute age*/
 	private int age;
+	
+	/**Attribute gender*/
 	private Gender gender;
-	private String newName,newLastName,newAwards,newDescription,newComment,newLanguage;
+	
+	/**Attribute newName*/
+	private String newName;
+	
+	/**Attribute newLastName*/
+	private String newLastName;
+	
+	/**Attribute newAwards*/
+	private String newAwards;
+	
+	/**Attribute newDescription*/
+	private String newDescription;
+	
+	/**Attribute newComment*/
+	private String newComment;
+	
+	/**Attribute newLanguage*/
+	private String newLanguage;
+	
+	/**Attribute newAge*/
 	private int newAge;
+	
+	/**Attribute newGender*/
 	private Gender newGender;
+	
+	/**Attribute rate*/
 	private RatingType rate;
+	
+	/**Attribute newRate*/
     private RatingType newRate;
-	//Menu instance 
+    
+	//Menu instances
 	//This instance controls the menu of actors
 	private MenuActors menuAct = new MenuActors();
+	
 	//This instance controls the menu of directors
 	private MenuDirectors menuDict = new MenuDirectors();
+	
 	//This instance controls the menu of categories
 	private MenuCategories menuCat = new MenuCategories();
+	
 	//This instance controls the menu of recommendations
 	private MenuRecommendations menuRec = new MenuRecommendations();
+	
 	//This instance controls the menu of Subtitles
 	private MenuSubtitles menuSub = new MenuSubtitles();
+	
 	//This instance controls the menu of films and series 
 	private MenuFilmSeries menuFS = new MenuFilmSeries();
+	
 	//This instance controls the stats of series and films
 	private FilmsSerieStats statsFS = new FilmsSerieStats ();
+	
 	//This instance controls the stats of the good films and series
 	private FilmSeriesPositiveReviews goodFS = new FilmSeriesPositiveReviews();
+	
 	//This instance controls the stats of the bad films and series
 	private FilmSeriesNegativeReviews badFS = new FilmSeriesNegativeReviews();
+	
 	//This instance controls the stats of the multi gender films and series
 	private GenderStast genderFS = new GenderStast();
+	
 	//This instance controls the stats of the actors
 	private ActorStats statsActor = new ActorStats();
+	
 	//This instance controls the stats of the directors
 	private DirectorStats statDirector = new DirectorStats();
+	
 	//This instance controls the stats of the categories
 	private CategoryStats statsCategory = new CategoryStats();
+	
 	//This instance controls the stats of the subtitles
 	private SubtitleStats statsSubtitles = new SubtitleStats();
 	
