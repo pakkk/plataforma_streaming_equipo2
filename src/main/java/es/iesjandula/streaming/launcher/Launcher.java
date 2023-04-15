@@ -179,19 +179,177 @@ public class Launcher
 	//This instance controls the stats of the subtitles
 	private SubtitleStats statsSubtitles = new SubtitleStats();
 	
+	/**
+	 * @param option the option selected
+	 */
+	private void addNewFilm() 
+	{
+		String option = this.scanner.nextLine();
+		//The user must to introduce with the scanner the attributes of the films 
+		System.out.println("You choose add a new film please introduce his title");
+		this.title = this.scanner.nextLine();
+		System.out.println("Introduce his original language");
+		this.originalLanguage = this.scanner.next();
+		System.out.println("Want to introduce adapted language? (yes/no)");
+		option = this.scanner.next();
+		while(!option.equalsIgnoreCase("yes") && !option.equalsIgnoreCase("no"))
+		{
+			System.out.println("Error introducing adapted language introduce yes or no again");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("yes"))
+		{
+			while(!option.equalsIgnoreCase("no"))
+			{
+				System.out.println("Introduce a new language");
+				language = this.scanner.next();
+				this.adaptedLanguage = Arrays.copyOf(this.adaptedLanguage, this.adaptedLanguage.length+1);
+				this.adaptedLanguage[this.adaptedLanguage.length-1] = language;
+				System.out.println("Want to introduce a new language (no/any key)");
+				option=this.scanner.next();
+			}
+		}
+		//This try catch it used if the user enter a String data
+		try
+		{
+			System.out.println("Enter a duration");
+			this.duration = this.scanner.nextInt();
+		}catch(InputMismatchException exception)
+		{
+			System.out.println("Error introducing duration");
+			this.duration = 0;
+		}
+		//This try-catch do the same function of the last try-catch
+		try
+		{
+			System.out.println("Enter a view");
+			this.views = this.scanner.nextInt();
+		}catch(InputMismatchException exception)
+		{
+			System.out.println("Error introducing views");
+			this.views=0;
+		}
+		this.film = this.menuFS.addFilm(this.film, this.title, this.originalLanguage, this.adaptedLanguage, this.duration, this.views);
+	}
 	
-	//This method controls the operation of this program calling menu methods
-	public void startStreaming()
+	/**
+	 * For add serie
+	 */
+	private void addNewSerie() 
+	{
+		this.title = this.scanner.nextLine();
+		//The user must introduce with the scanner the attributes of the series
+		System.out.println("You choose add a new serie please introduce his title");
+		this.title = this.scanner.nextLine();
+		System.out.println("Introduce his original language");
+		this.originalLanguage = this.scanner.next();
+		System.out.println("Want to introduce adapted language? (yes/no)");
+		String option = this.scanner.next();
+		while(!option.equalsIgnoreCase("yes") && !option.equalsIgnoreCase("no"))
+		{
+			System.out.println("Error introducing adapted language introduce yes or no again");
+			option = this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("yes"))
+		{
+			while(!option.equalsIgnoreCase("no"))
+			{
+				System.out.println("Introduce a new language");
+				language = this.scanner.next();
+				this.adaptedLanguage = Arrays.copyOf(this.adaptedLanguage, this.adaptedLanguage.length+1);
+				this.adaptedLanguage[this.adaptedLanguage.length-1] = language;
+				System.out.println("Want to introduce a new language (no/any key)");
+				option=this.scanner.next();
+			}
+		}
+		//This try-catch it used if the user introduce a string data
+		try
+		{
+			System.out.println("Enter a duration");
+			this.duration = this.scanner.nextInt();
+		}catch(InputMismatchException exception)
+		{
+			System.out.println("Error introducing duration");
+			this.duration = 0;
+		}
+		//This try-catch have the same function of the last try-catch
+		try
+		{
+			System.out.println("Enter a view");
+			this.views = this.scanner.nextInt();
+		}catch(InputMismatchException exception)
+		{
+			System.out.println("Error introducing views");
+			this.views=0;
+		}
+		this.serie = this.menuFS.addSerie(this.serie, this.title, this.originalLanguage, this.adaptedLanguage, this.duration, this.views);
+	}
+	
+	/**
+	 * 
+	 * @param endLoop the end of loop boolean
+	 * @return return the boolean
+	 */
+	public boolean anotherSerie(boolean endLoop) 
+	{
+		//When a film or serie it introduced the user can introduced another film or serie or can access to the next menu
+		System.out.println("Want select again? (yes/no)");
+		String option = this.scanner.next();
+		
+		while(!option.equalsIgnoreCase("yes") && !option.equalsIgnoreCase("no"))
+		{
+			System.out.println("Error, select again (yes/no)");
+			option=this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("yes"))
+		{
+			System.out.println("Select one of this option \n"
+					+ "1.-Add a new film \n"
+					+ "2.-Add a new serie \n");
+			option=this.scanner.next();
+		}
+		if(option.equalsIgnoreCase("no"))
+		{
+			endLoop = true;
+		}
+		return endLoop;
+	}
+	
+	/**
+	 * @return returns the string option
+	 */
+	public String controlMenu() 
+	{
+		//In this menu the user can control films,series,actors,directors,subtitles,categories and recommendations
+		System.out.println("You have this options now: \n"
+				+ "1.-Menu of films and serie \n"
+				+ "2.-Menu of data of films and series \n"
+				+ "3.-Menu of stats of the system \n"
+				+ "4.-Exit");
+		System.out.println("Select one of them");
+		String option = this.scanner.next();
+		
+		return option;
+	}
+	
+	/**
+	 * This method controls the operation of this program calling menu methods
+	 * @param launcher the launcher object
+	 */
+	public void startStreaming(Launcher launcher)
 	{
 		//First menu were the user must to add a film or serie
 		String option="";
 		String language;
+		
 		boolean endLoop=false;
+		
 		System.out.println("Welcome to our streaming platform, in this moment you havent any film and serie register here \n"
 				+ "so please choose one of this option:\n"
 				+ "1.-Add a new film \n"
 				+ "2.-Add a new serie");
 		option = this.scanner.next();
+		
 		//Inside this loop there is a switch were the user can add a film or movie
 		while(!endLoop)
 		{
@@ -199,132 +357,34 @@ public class Launcher
 			switch(option)
 			{
 				case "1":
-					//The user must to introduce with the scanner the attributes of the films 
-					option = this.scanner.nextLine();
-					System.out.println("You choose add a new film please introduce his title");
-					this.title = this.scanner.nextLine();
-					System.out.println("Introduce his original language");
-					this.originalLanguage = this.scanner.next();
-					System.out.println("Want to introduce adapted language? (yes/no)");
-					option = this.scanner.next();
-					while(!option.equalsIgnoreCase("yes") && !option.equalsIgnoreCase("no"))
-					{
-						System.out.println("Error introducing adapted language introduce yes or no again");
-						option = this.scanner.next();
-					}
-					if(option.equalsIgnoreCase("yes"))
-					{
-						while(!option.equalsIgnoreCase("no"))
-						{
-							System.out.println("Introduce a new language");
-							language = this.scanner.next();
-							this.adaptedLanguage = Arrays.copyOf(this.adaptedLanguage, this.adaptedLanguage.length+1);
-							this.adaptedLanguage[this.adaptedLanguage.length-1] = language;
-							System.out.println("Want to introduce a new language (no/any key)");
-							option=this.scanner.next();
-						}
-					}
-					//This try catch it used if the user enter a String data
-					try
-					{
-						System.out.println("Enter a duration");
-						this.duration = this.scanner.nextInt();
-					}catch(InputMismatchException exception)
-					{
-						System.out.println("Error introducing duration");
-						this.duration = 0;
-					}
-					//This try-catch do the same function of the last try-catch
-					try
-					{
-						System.out.println("Enter a view");
-						this.views = this.scanner.nextInt();
-					}catch(InputMismatchException exception)
-					{
-						System.out.println("Error introducing views");
-						this.views=0;
-					}
-					this.film = this.menuFS.addFilm(this.film, this.title, this.originalLanguage, this.adaptedLanguage, this.duration, this.views);
+				{
+					//--------ADD NEW FILM---------------
+					launcher.addNewFilm();
 					break;
+				}
 				case "2":
-					this.title = this.scanner.nextLine();
-					//The user must introduce with the scanner the attributes of the series
-					System.out.println("You choose add a new serie please introduce his title");
-					this.title = this.scanner.nextLine();
-					System.out.println("Introduce his original language");
-					this.originalLanguage = this.scanner.next();
-					System.out.println("Want to introduce adapted language? (yes/no)");
-					option = this.scanner.next();
-					while(!option.equalsIgnoreCase("yes") && !option.equalsIgnoreCase("no"))
-					{
-						System.out.println("Error introducing adapted language introduce yes or no again");
-						option = this.scanner.next();
-					}
-					if(option.equalsIgnoreCase("yes"))
-					{
-						while(!option.equalsIgnoreCase("no"))
-						{
-							System.out.println("Introduce a new language");
-							language = this.scanner.next();
-							this.adaptedLanguage = Arrays.copyOf(this.adaptedLanguage, this.adaptedLanguage.length+1);
-							this.adaptedLanguage[this.adaptedLanguage.length-1] = language;
-							System.out.println("Want to introduce a new language (no/any key)");
-							option=this.scanner.next();
-						}
-					}
-					//This try-catch it used if the user introduce a string data
-					try
-					{
-						System.out.println("Enter a duration");
-						this.duration = this.scanner.nextInt();
-					}catch(InputMismatchException exception)
-					{
-						System.out.println("Error introducing duration");
-						this.duration = 0;
-					}
-					//This try-catch have the same function of the last try-catch
-					try
-					{
-						System.out.println("Enter a view");
-						this.views = this.scanner.nextInt();
-					}catch(InputMismatchException exception)
-					{
-						System.out.println("Error introducing views");
-						this.views=0;
-					}
-					this.serie = this.menuFS.addSerie(this.serie, this.title, this.originalLanguage, this.adaptedLanguage, this.duration, this.views);
+				{
+					//--------ADD NEW SERIE------------
+					launcher.addNewSerie();
 					break;
+				}
 				default:
+				{
 					System.out.println("Error introducing option");		
+				}
 			}
-			//When a film or serie it introduced the user can introduced another film or serie or can access to the next menu
-			System.out.println("Want select again? (yes/no)");
-			option = this.scanner.next();
-			while(!option.equalsIgnoreCase("yes") && !option.equalsIgnoreCase("no"))
-			{
-				System.out.println("Error, select again (yes/no)");
-				option=this.scanner.next();
-			}
-			if(option.equalsIgnoreCase("yes"))
-			{
-				System.out.println("Select one of this option \n"
-						+ "1.-Add a new film \n"
-						+ "2.-Add a new serie \n");
-				option=this.scanner.next();
-			}
-			if(option.equalsIgnoreCase("no"))
-				endLoop = true;
 			
+			//-----ANOTHER SERIE--------
+			endLoop=launcher.anotherSerie(endLoop);
 		}
-		//In this menu the user can control films,series,actors,directors,subtitles,categories and recommendations
+		
+		//-----THE MENU TO CONTROL SERIES FILMS MOVIES
+		
+		
 		endLoop = false;
-		System.out.println("You have this options now: \n"
-				+ "1.-Menu of films and serie \n"
-				+ "2.-Menu of data of films and series \n"
-				+ "3.-Menu of stats of the system \n"
-				+ "4.-Exit");
-		System.out.println("Select one of them");
-		option = this.scanner.next();
+		
+		option=launcher.controlMenu();
+		
 		while(!endLoop)
 		{
 			switch(option)
