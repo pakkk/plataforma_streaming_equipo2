@@ -16,7 +16,7 @@ public class GenderStast
 	 */
 	public void infoGenderSerie(Serie[] arraySerie)
 	{
-		Category category[];
+		Category[] category;
 		for(Serie serie: arraySerie)
 		{
 			category=serie.getCategory();
@@ -32,7 +32,7 @@ public class GenderStast
 	 */
 	public void infoGenderFilm(Film[] arrayFilm)
 	{
-		Category category[];
+		Category[] category;
 		for(Film film: arrayFilm)
 		{
 			category=film.getCategory();
