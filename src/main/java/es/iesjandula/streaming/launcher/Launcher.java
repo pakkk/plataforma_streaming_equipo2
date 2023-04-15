@@ -75,7 +75,7 @@ public class Launcher
 	/**Attribute String originalLanguage: Language with which the movie or serie it was created */
 	private String originalLanguage;
 
-	/**Attribute String adaptedLanguage []: Language with which the movie or serie its translated*/
+	/**Attribute String adaptedLanguage[]: Language with which the movie or serie its translated*/
 	private String[] adaptedLanguage = new String [0];
 
 	/**Attribute int duration: Duration of the movie or serie*/
@@ -98,7 +98,6 @@ public class Launcher
 
 	/**Attribute int newViews: His use is only to modify the old views*/
 	private int newViews;
-
 
 	/*Attributes of actors and directors*/
 
