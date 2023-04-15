@@ -16,22 +16,31 @@ public class Audiovisual
 
 	/**Attribute String title: Defines the title of the audiovisual*/
 	private String title;
+	
 	/**Attribute originalLanguage: Defines the original language of the audiovisual*/
 	private String originalLanguage;
+	
 	/**Attribute adaptedLanguages: Defines the adapted languages in which the audiovisual is available*/
 	private String[] adaptedLanguage;
+	
 	/**Attribute int duration: Defines how long the audiovisual lasts*/
 	private int duration;
+	
 	/**Attribute int views: Defines how many times the audiovisual has been watched*/
 	private int views;
+	
 	/**Attribute Actors[] actors: Array that stores objects of Actors*/
 	private Actors[] actors = new Actors [0];
+	
 	/**Attribute Directors[] directors: Array that stores objects of directors*/
 	private Directors[] directors = new Directors [0];
+	
 	/**Attribute Categories[] category: Array that stores objects of categories*/
 	private Category[] category = new Category [0];
+	
 	/**Attribute Subtitles[] subtitles: Array that stores objects of Subtitles*/
 	private Subtitles[] subtitles = new Subtitles [0];
+	
 	/**Attribute Recommendations[] recommendation: Array that stores objects of recommendations*/
 	private Recommendation[] recommendation = new Recommendation [0];
 
@@ -158,9 +167,9 @@ public class Audiovisual
 	 * Setter that allows modifying the array of Actors
 	 * @param Actors the actors
 	 */
-	public void setActors(Actors[] Actors)
+	public void setActors(Actors[] actors)
 	{
-		this.actors = Actors;
+		this.actors = actors;
 	}
 
 	/**
