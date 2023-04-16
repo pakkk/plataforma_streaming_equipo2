@@ -153,46 +153,47 @@ public class Launcher
     private RatingType newRate;
 
 	//Menu instances
-	//This instance controls the menu of actors
+    
+	/** This instance controls the menu of actors */
 	private MenuActors menuAct = new MenuActors();
 
-	//This instance controls the menu of directors
+	/** This instance controls the menu of directors*/
 	private MenuDirectors menuDict = new MenuDirectors();
 
-	//This instance controls the menu of categories
+	/** This instance controls the menu of categories*/
 	private MenuCategories menuCat = new MenuCategories();
 
-	//This instance controls the menu of recommendations
+	/** This instance controls the menu of recommendations*/
 	private MenuRecommendations menuRec = new MenuRecommendations();
 
-	//This instance controls the menu of Subtitles
+	/** This instance controls the menu of Subtitles*/
 	private MenuSubtitles menuSub = new MenuSubtitles();
 
-	//This instance controls the menu of films and series
+	/** This instance controls the menu of films and series*/
 	private MenuFilmSeries menuFS = new MenuFilmSeries();
 
-	//This instance controls the stats of series and films
+	/** This instance controls the stats of series and films*/
 	private FilmsSerieStats statsFS = new FilmsSerieStats ();
 
-	//This instance controls the stats of the good films and series
+	/** This instance controls the stats of the good films and series*/
 	private FilmSeriesPositiveReviews goodFS = new FilmSeriesPositiveReviews();
 
-	//This instance controls the stats of the bad films and series
+	/** This instance controls the stats of the bad films and series*/
 	private FilmSeriesNegativeReviews badFS = new FilmSeriesNegativeReviews();
 
-	//This instance controls the stats of the multi gender films and series
+	/** This instance controls the stats of the multi gender films and series*/
 	private GenderStast genderFS = new GenderStast();
 
-	//This instance controls the stats of the actors
+	/** This instance controls the stats of the actors*/
 	private ActorStats statsActor = new ActorStats();
 
-	//This instance controls the stats of the directors
+	/** This instance controls the stats of the directors*/
 	private DirectorStats statDirector = new DirectorStats();
 
-	//This instance controls the stats of the categories
+	/** This instance controls the stats of the categories*/
 	private CategoryStats statsCategory = new CategoryStats();
 
-	//This instance controls the stats of the subtitles
+	/** This instance controls the stats of the subtitles*/
 	private SubtitleStats statsSubtitles = new SubtitleStats();
 
 	/**
@@ -345,6 +346,7 @@ public class Launcher
 	}
 
 	/**
+	 * The control menu
 	 * @return returns the string option
 	 */
 	public String controlMenu()
@@ -430,6 +432,7 @@ public class Launcher
 	}
 
 	/**
+	 * Rety the film and series menu
 	 * @param endMenu the menu booelan
 	 * @param option the option
 	 * @return String with the info
@@ -450,6 +453,7 @@ public class Launcher
 	}
 
 	/**
+	 * search film or serie
 	 * @return String with the info
 	 */
 	private String searchFilmOrSerie()
@@ -472,6 +476,7 @@ public class Launcher
 	}
 
 	/**
+	 * search film by attributes
 	 * @return string with the information
 	 */
 	private String searchFilmByAttributes()
@@ -547,6 +552,7 @@ public class Launcher
 	}
 
 	/**
+	 * film by adapted language
 	 * @return string with the information
 	 */
 	private String filmByAdaptedLanguage()
@@ -587,6 +593,7 @@ public class Launcher
 	}
 
 	/**
+	 * search series by attributes
 	 * @return String with the information
 	 */
 	private String searchSerieByAttributes()
@@ -662,6 +669,7 @@ public class Launcher
 	}
 
 	/**
+	 * search series by adapted language
 	 * @return String with the information
 	 */
 	private String searchSerieByAdaptedLanguage()
@@ -702,6 +710,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify attributes
 	 * @return String with the information
 	 */
 	private String modifyAnAttribute()
@@ -724,6 +733,7 @@ public class Launcher
 	}
 
 	/**
+	 * modiy film by attribute
 	 * @return String with the information
 	 */
 	private String modifyFilmAttribute()
@@ -808,6 +818,7 @@ public class Launcher
 	}
 
 	/**
+	 * modify film by adapted language
 	 * @return String with the information
 	 */
 	private String modifyFilmAdaptedLanguage()
@@ -851,6 +862,7 @@ public class Launcher
 	}
 
 	/**
+	 * modify series attributes
 	 * @return String with the information
 	 */
 	private String modifySerieAttribute()
@@ -896,7 +908,7 @@ public class Launcher
 	}
 
 	/**
-	 * Modify serie views
+	 * Modify series views
 	 */
 	private void modifySerieViews()
 	{
@@ -932,6 +944,7 @@ public class Launcher
 	}
 
 	/**
+	 * modify series by adapted language
 	 * @return string with the information
 	 */
 	private String modifySerieAdaptedLanguage()
@@ -974,6 +987,7 @@ public class Launcher
 	}
 
 	/**
+	 * delete serie or film
 	 * @return string with the information
 	 */
 	private String deleteSerieOrFilm()
@@ -995,6 +1009,7 @@ public class Launcher
 	}
 
 	/**
+	 * delete film
 	 * @return string with information
 	 */
 	private String deleteFilm()
@@ -1083,6 +1098,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete film by adapted language
 	 * @return String with the information
 	 */
 	private String deleteFilmByAdaptedLanguage()
@@ -1125,6 +1141,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete series
 	 * @return string with the information
 	 */
 	private String deleteSerie()
@@ -1218,6 +1235,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete series by adapted language
 	 * @return String with the information
 	 */
 	private String deleteSerieByAdaptedLanguage()
@@ -1238,7 +1256,7 @@ public class Launcher
 	}
 
 	/**
-	 * Delete serie by original language
+	 * Delete series by original language
 	 */
 	private void deleteSerieByOrigLanguage()
 	{
@@ -1249,7 +1267,7 @@ public class Launcher
 	}
 
 	/**
-	 * Delete serie by title
+	 * Delete series by title
 	 */
 	private void deleteSerieByTitle()
 	{
@@ -1282,6 +1300,7 @@ public class Launcher
 	}
 
 	/**
+	 * Add new Film selection
 	 * @return String with the information
 	 */
 	private String addNewFilmSelected()
@@ -1337,6 +1356,7 @@ public class Launcher
 	}
 
 	/**
+	 * Add new series selected
 	 * @return string with the information
 	 */
 	private String addNewSerieSelected()
@@ -1390,6 +1410,9 @@ public class Launcher
 		return option;
 	}
 
+	/**
+	 * Menu data of films and series
+	 */
 	public void menuDataFilmSerie()
 	{
 		System.out.println("""
@@ -1465,6 +1488,7 @@ public class Launcher
 	}
 
 	/**
+	 * Menu of subtitles
 	 * @return String with the info
 	 */
 	private String menuOfSubtitles()
@@ -1510,6 +1534,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search subtitle language
 	 * @return String whit information
 	 */
 	private String searchSubtitleLanguage()
@@ -1559,6 +1584,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify subtitle language
 	 * @return string with information
 	 */
 	private String modifySubtitleLanguage()
@@ -1620,6 +1646,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete subtitle language
 	 * @return string with information
 	 */
 	private String deleteSubtitleLanguage()
@@ -1673,6 +1700,7 @@ public class Launcher
 	}
 
 	/**
+	 * Add subtitle language
 	 * @return string with information
 	 */
 	private String addSubtitleLanguages()
@@ -1727,7 +1755,8 @@ public class Launcher
 	}
 
 	/**
-	 * @return
+	 * Menu of recommendations
+	 * @return String with the information
 	 */
 	private String menuOfRecommendations()
 	{
@@ -1766,6 +1795,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search recommendation
 	 * @return String with the information
 	 */
 	private String searchRecommendation()
@@ -1796,6 +1826,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search recommendation by comment
 	 * @return string with the information
 	 */
 	private String searchRecommendationByComment()
@@ -1850,6 +1881,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search recommendation by Rating
 	 * @return string with the information
 	 */
 	private String searchRecommendationByRating()
@@ -1936,6 +1968,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify recommendation
 	 * @return string with the information
 	 */
 	private String modifyRecommendation()
@@ -1968,6 +2001,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify recommendation by description
 	 * @return String with the information
 	 */
 	private String modifyRecommendationByDescription()
@@ -2038,6 +2072,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify Recommendation by rating
 	 * @return string with information
 	 */
 	private String modifyRecommendationByRating()
@@ -2094,7 +2129,7 @@ public class Launcher
 	}
 
 	/**
-	 * Modify recommmendation by rating film
+	 * Modify recommendation by rating film
 	 */
 	private void modifyRecommByRatingFilm()
 	{
@@ -2114,7 +2149,7 @@ public class Launcher
 	}
 
 	/**
-	 * Modify recommmendation by rating Serie
+	 * Modify recommendation by rating Serie
 	 */
 	private void modifyRecommByRatingSerie()
 	{
@@ -2134,6 +2169,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete recommendation
 	 * @return string with the information
 	 */
 	private String deleteRecommendation()
@@ -2165,7 +2201,8 @@ public class Launcher
 	}
 
 	/**
-	 * @return
+	 * Delete recommendation by comment
+	 * @return String with the information
 	 */
 	private String deleteRecommendationByComment()
 	{
@@ -2192,6 +2229,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete recommendation by rating
 	 * @return string with information
 	 */
 	private String deleteRecommendationByRating()
@@ -2222,6 +2260,7 @@ public class Launcher
 	}
 
 	/**
+	 * Select the comment to delete
 	 * @return string with information
 	 */
 	private String selectCommentToDelete()
@@ -2279,7 +2318,7 @@ public class Launcher
 	}
 
 	/**
-	 *delete recommendation from serie by comment
+	 *Delete recommendation from series by comment
 	 */
 	private void deleteRecommendationSerieByComment()
 	{
@@ -2299,7 +2338,7 @@ public class Launcher
 	}
 
 	/**
-	 *delete recommendation of film by rating
+	 *Delete recommendation of film by rating
 	 */
 	private void deleteRecommendationFilmByRating()
 	{
@@ -2339,6 +2378,7 @@ public class Launcher
 	}
 
 	/**
+	 * Add recommendation
 	 * @return string with the information
 	 */
 	private String addRecommendation()
@@ -2400,6 +2440,7 @@ public class Launcher
 	}
 
 	/**
+	 * Menu of data categories
 	 * @return string with the information
 	 */
 	private String menuDataCategories()
@@ -2438,6 +2479,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search category
 	 * @return string with information
 	 */
 	private String searchCategory()
@@ -2467,6 +2509,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search category by description
 	 * @return string with the information
 	 */
 	private String searchCategoryByDescription()
@@ -2521,6 +2564,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search category by name
 	 * @return string with information
 	 */
 	private String searchCategoryByName()
@@ -2578,6 +2622,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify category
 	 * @return string with the infromation
 	 */
 	private String modifyCategory()
@@ -2608,6 +2653,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify category by description
 	 * @return string with the information
 	 */
 	private String modifyCategoryByDescription()
@@ -2663,7 +2709,8 @@ public class Launcher
 	}
 
 	/**
-	 * @return
+	 * Modify category by description
+	 * @return String with the information
 	 */
 	private String modifyCategoryByName()
 	{
@@ -2719,7 +2766,8 @@ public class Launcher
 	}
 
 	/**
-	 * @return
+	 * Delete category
+	 * @return String with the information
 	 */
 	private String deleteCategory()
 	{
@@ -2748,6 +2796,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete category by description
 	 * @return string with the information
 	 */
 	private String deleteCategoryByDescription()
@@ -2799,6 +2848,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete category by name
 	 * @return string with the information
 	 */
 	private String deleteCategoryByName()
@@ -2852,6 +2902,7 @@ public class Launcher
 	}
 
 	/**
+	 * Add category
 	 * @return string with the information
 	 */
 	private String addCategory()
@@ -2907,6 +2958,7 @@ public class Launcher
 	}
 
 	/**
+	 * Menu data of directors
 	 * @return string with the information
 	 */
 	private String menuDataDirectors()
@@ -2944,6 +2996,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search director
 	 * @return string with the information
 	 */
 	private String searchDirector()
@@ -2993,6 +3046,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search director by awards
 	 * @return String with the information
 	 */
 	private String searchDirectorByAwards()
@@ -3045,6 +3099,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search director by age
 	 * @return string with the information
 	 */
 	private String searchDirectorByAge()
@@ -3102,6 +3157,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search director by the information
 	 * @return string with the information
 	 */
 	private String searchDirectorByGender()
@@ -3189,6 +3245,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search director by Last Name
 	 * @return String with the information
 	 */
 	private String searchDirectorByLastName()
@@ -3240,6 +3297,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search director by name
 	 * @return string with the information
 	 */
 	private String searchDirectorByName()
@@ -3291,6 +3349,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify director
 	 * @return string with the information
 	 */
 	private String modifyDirector()
@@ -3337,6 +3396,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify director by awards
 	 * @return string with the information
 	 */
 	private String modifyDirectorByAwards()
@@ -3389,6 +3449,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify director by age
 	 * @return string with the information
 	 */
 	private String modifyDirectorByAge()
@@ -3447,7 +3508,8 @@ public class Launcher
 	}
 
 	/**
-	 * @return
+	 * Modify director by gender
+	 * @return string with the information
 	 */
 	private String modifyDirectorByGender()
 	{
@@ -3547,6 +3609,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify director by information
 	 * @return string with the information
 	 */
 	private String modifyDirectorByLastName()
@@ -3600,6 +3663,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify director by name
 	 * @return string with the information
 	 */
 	private String modifyDirectorByName()
@@ -3653,6 +3717,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete director
 	 * @return string with the information
 	 */
 	private String deleteDirector()
@@ -3703,6 +3768,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete director by awards
 	 * @return string with the information
 	 */
 	private String deleteDirectorByAwards()
@@ -3753,6 +3819,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete director by age
 	 * @return the string with the information
 	 */
 	private String deleteDirectorByAge()
@@ -3809,6 +3876,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete director by gender
 	 * @return string with the information
 	 */
 	private String deleteDirectorByGender()
@@ -3894,6 +3962,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete director by information
 	 * @return string with the information
 	 */
 	private String deleteDirectorByLastName()
@@ -3947,6 +4016,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete director by name
 	 * @return string with the information
 	 */
 	private String deleteDirectorByName()
@@ -3998,6 +4068,7 @@ public class Launcher
 	}
 
 	/**
+	 * Add director
 	 * @return string with the information
 	 */
 	private String addDirector()
@@ -4106,6 +4177,7 @@ public class Launcher
 	}
 
 	/**
+	 * Menu data of actors
 	 * @return string with the information
 	 */
 	private String menuDataActors()
@@ -4144,6 +4216,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search an actor
 	 * @return string with the information
 	 */
 	private String searchActor()
@@ -4193,6 +4266,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search an actor by awards
 	 * @return string with the information
 	 */
 	private String searchActorByAwards()
@@ -4243,6 +4317,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search an actor by age
 	 * @return string with the string information
 	 */
 	private String searchActortorByAge()
@@ -4299,6 +4374,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search an actor by gender
 	 * @return string with the information
 	 */
 	private String searchActorByGender()
@@ -4384,6 +4460,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search an actor by Last Name
 	 * @return string with the information
 	 */
 	private String searchActorByLastName()
@@ -4435,6 +4512,7 @@ public class Launcher
 	}
 
 	/**
+	 * Search an actor by Name
 	 * @return string with information
 	 */
 	private String searchActorByName()
@@ -4486,6 +4564,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify an actor
 	 * @return string infromation
 	 */
 	private String modifyActor()
@@ -4535,6 +4614,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify an actor by awards
 	 * @return string with the information
 	 */
 	private String modifyActorByAwards()
@@ -4587,6 +4667,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify an actor by age
 	 * @return string with the information
 	 */
 	private String modifyActorByAge()
@@ -4645,6 +4726,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify an actor by gender
 	 * @return string with the information
 	 */
 	private String modifyActorByGender()
@@ -4744,6 +4826,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify an actor by last name
 	 * @return string with the information
 	 */
 	private String modifyActorByLastName()
@@ -4799,6 +4882,7 @@ public class Launcher
 	}
 
 	/**
+	 * Modify an actor by Name
 	 * @return string with the information
 	 */
 	private String modifyActorByName()
@@ -4852,6 +4936,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete an actor
 	 * @return string with the information
 	 */
 	private String deleteActor()
@@ -4902,6 +4987,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete an actor by awards
 	 * @return string with the information
 	 */
 	private String deleteActorByAwards()
@@ -4953,6 +5039,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete an actor by age
 	 * @return string with  the information
 	 */
 	private String deleteActorByAge()
@@ -5013,6 +5100,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete an actor by gender
 	 * @return string with the information
 	 */
 	private String deleteActorByGender()
@@ -5059,7 +5147,7 @@ public class Launcher
 	}
 
 	/**
-	 *Delete actor by gender on film
+	 *Delete an actor by gender on film
 	 */
 	private void deleteActorByGenderFilm()
 	{
@@ -5079,7 +5167,7 @@ public class Launcher
 	}
 
 	/**
-	 *Delete actor by gender on serie
+	 *Delete an actor by gender on series
 	 */
 	private void deleteActorByGenderSerie()
 	{
@@ -5099,6 +5187,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete an actor by Last Name
 	 * @return string with the information
 	 */
 	private String deleteActorByLastName()
@@ -5151,6 +5240,7 @@ public class Launcher
 	}
 
 	/**
+	 * Delete an actor by name
 	 * @return string with the information
 	 */
 	private String deleteActorByName()
@@ -5204,6 +5294,7 @@ public class Launcher
 	}
 
 	/**
+	 * Add an actor
 	 * @return string with the information
 	 */
 	private String addActor()
@@ -5285,7 +5376,7 @@ public class Launcher
 	}
 
 	/**
-	 *Add actor on serie
+	 *Add actor on series
 	 */
 	private void addActorSerie() 
 	{
@@ -5306,6 +5397,9 @@ public class Launcher
 		}
 	}
 
+	/**
+	 * Menu of stats
+	 */
 	public void statsMenu()
 	{
 		System.out.println("""
@@ -5377,6 +5471,7 @@ public class Launcher
 	}
 
 	/**
+	 * Stats of subtitles
 	 * @return string with the information
 	 */
 	private String statsOfSubtitles() 
@@ -5420,6 +5515,7 @@ public class Launcher
 	}
 
 	/**
+	 * Show all subtitles from series
 	 * @return string with the information
 	 */
 	private String showAllSubtitlesSerie() 
@@ -5444,6 +5540,7 @@ public class Launcher
 	}
 
 	/**
+	 * Show all subtitles from films
 	 * @return string with the information
 	 */
 	private String showAllSubtitlesFilm()
@@ -5468,6 +5565,7 @@ public class Launcher
 	}
 
 	/**
+	 * Stats from categories
 	 * @return string with the information
 	 */
 	private String statsOfCategories() 
@@ -5509,6 +5607,7 @@ public class Launcher
 	}
 
 	/**
+	 * Content from categories on film and series
 	 * @return string with the information
 	 */
 	private String contentOfCategoriesFilmSeries() 
@@ -5528,6 +5627,7 @@ public class Launcher
 	}
 
 	/**
+	 * Number of categories on film or series
 	 * @return string with the information
 	 */
 	private String numberOfCategoriesFilmSerie() 
@@ -5547,7 +5647,8 @@ public class Launcher
 	}
 
 	/**
-	 * @return
+	 * Stats of directors
+	 * @return String with the information
 	 */
 	private String statsOfDirectors() 
 	{
@@ -5589,6 +5690,7 @@ public class Launcher
 	}
 
 	/**
+	 * Show all directors on series
 	 * @return string with the information
 	 */
 	private String showAllDirectorsOnSerie() 
@@ -5613,6 +5715,7 @@ public class Launcher
 	}
 
 	/**
+	 * Show all directors on film
 	 * @return string with the information
 	 */
 	private String showAllDirectorsOnFilm() 
@@ -5637,6 +5740,7 @@ public class Launcher
 	}
 
 	/**
+	 * Stats of actors
 	 * @return string with the information
 	 */
 	private String statsOfActors() 
@@ -5679,6 +5783,7 @@ public class Launcher
 	}
 
 	/**
+	 * Show actors on series
 	 * @return string with information
 	 */
 	private String showActorsOnSerie() 
@@ -5703,6 +5808,7 @@ public class Launcher
 	}
 
 	/**
+	 * Show actors on films
 	 * @return string with the information
 	 */
 	private String showActorsOnFilm() 
@@ -5727,6 +5833,7 @@ public class Launcher
 	}
 
 	/**
+	 * Stats of films and series
 	 * @return string with the information
 	 */
 	private String statsFilmSeries() 
@@ -5788,6 +5895,7 @@ public class Launcher
 	}
 
 	/**
+	 * Show all series
 	 * @return String with the inforamtion
 	 */
 	private String showAllSerie() 
@@ -5812,6 +5920,7 @@ public class Launcher
 	}
 
 	/**
+	 * Show all films
 	 * @return String with the inforamtion
 	 */
 	private String showAllFilm() 
