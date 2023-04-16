@@ -6,21 +6,21 @@ import es.iesjandula.streaming.enums.Gender;
 import java.util.Arrays;
 
 /**
- *
+ * Class responsible for storing the methods for adding, removing, querying, and searching for Actors
  * @author alex
  */
 
-/**Class responsible for storing the methods for adding, removing, querying, and searching for Actors*/
-public class MenuActors {
+public class MenuActors 
+{
     /**
      * Takes an array of Actors objects, adds a new actor to the array and returns the updated array
-     * @param other
-     * @param name
-     * @param lastName
-     * @param gender
-     * @param age
-     * @param awards
-     * @return 
+     * @param other the array to add an actor
+     * @param name  new actor's name
+     * @param lastName new actor's last name
+     * @param gender new actor's gender
+     * @param age   new actor's name age
+     * @param awards new actor's name awards
+     * @return the array with the new actor
      */
     public Actors[] addActors(Actors[] other, String name, String lastName, Gender gender, int age, String awards) 
     {
@@ -31,9 +31,9 @@ public class MenuActors {
 
     /**
      * Request an array of Actor objects and the name of the actor to be removed, remove an Actor from the Array and return the Array 
-     * @param other
-     * @param name
-     * @return 
+     * @param other the array with the actors
+     * @param name  the name of the actor to delete
+     * @return the array without the actor
      */
     public Actors[] removeActorsByName(Actors[] other, String name) 
     {
@@ -51,9 +51,9 @@ public class MenuActors {
 
     /**
      * Request an array of Actor objects and the last name of the actor to be removed, remove an Actor from the Array and return the Array
-     * @param other
-     * @param lastName
-     * @return 
+     * @param other the array with the actors
+     * @param lastName the last name of the actor to delete
+     * @return the array without the actor
      */
     public Actors[] removeActorsByLastName(Actors[] other, String lastName) 
     {
@@ -71,9 +71,9 @@ public class MenuActors {
 
     /**
      * Request an array of Actor objects and the gender of the actor to be removed, remove an Actor from the Array and return the Array
-     * @param other
-     * @param gender
-     * @return 
+     * @param other the array with the actors
+     * @param gender the gender of the actor to delete
+     * @return the array without the actor
      */
     public Actors[] removeActorsByGender(Actors[] other, Gender gender) 
     {
@@ -91,9 +91,9 @@ public class MenuActors {
 
     /**
      * Request an array of Actor objects and the age of the actor to be removed, remove an Actor from the Array and return the Array
-     * @param other
-     * @param age
-     * @return 
+     * @param other the array with the actors
+     * @param age the age of the actor to delete
+     * @return the array without the actor
      */
     public Actors[] removeActorsByAge(Actors[] other, int age) 
     {
@@ -111,9 +111,9 @@ public class MenuActors {
 
     /**
      * Request an array of Actor objects and the awards of the actor to be removed, remove an Actor from the Array and return the Array
-     * @param other
-     * @param awards
-     * @return 
+     * @param other the array with the actors
+     * @param awards the awards of the actor to delete
+     * @return the array without the actor
      */
     public Actors[] removeActorsByAwards(Actors[] other, String awards)
     {
@@ -126,15 +126,15 @@ public class MenuActors {
                 other = Arrays.copyOf (other, other.length-1) ;
             }
         }
-    return other;
+        return other;
     }
 
     /**
     * An Array of Actors objects, the name of the actor to search for, and their substitution are requested, the selected Actors objects are modified and the Array is returned 
-    * @param other
-    * @param name
-    * @param newName
-    * @return 
+    * @param other the array with the actors
+    * @param name the name of the actor to modify
+    * @param newName the new name
+    * @return the array with the actors
     */
     public Actors[] modifyActorsByName(Actors[] other, String name, String newName)
     {
@@ -152,10 +152,10 @@ public class MenuActors {
   
     /**
      * An Array of Actors objects, the last name of the actor to search for, and their substitution are requested, the selected Actors objects are modified and the Array is returned 
-     * @param other
-     * @param lastName
-     * @param nuevoslastName
-     * @return 
+     * @param other the array with the actors
+     * @param lastName the last name of the actor to modify
+     * @param nuevoslastName the new last name
+     * @return the array with the actors
      */
     public Actors[] modifyActorsByLastName(Actors[] other, String lastName, String nuevoslastName)
     {
@@ -173,10 +173,10 @@ public class MenuActors {
     
     /**
      * An Array of Actors objects, the gender of the actor to search for, and their substitution are requested, the selected Actors objects are modified and the Array is returned 
-     * @param other
-     * @param gender
-     * @param nuevoGender
-     * @return 
+     * @param other the array with the actors
+     * @param gender the gender of the actor to modify
+     * @param nuevoGender the new gender
+     * @return the array with the actors
      */
     public Actors[] modifyActorsByGender(Actors[] other, Gender gender, Gender nuevoGender)
     {
@@ -194,10 +194,10 @@ public class MenuActors {
     
     /**
      * An Array of Actors objects, the age of the actor to search for, and their substitution are requested, the selected Actors objects are modified and the Array is returned 
-     * @param other
-     * @param age
-     * @param newAge
-     * @return 
+     * @param other the array with the actors
+     * @param age the age of the actor to modify
+     * @param newAge the new age
+     * @return the array with the actors
      */
     public Actors[] modifyActorsByAge(Actors[] other, int age, int newAge)
     {
@@ -215,10 +215,10 @@ public class MenuActors {
 
     /**
      * An Array of Actors objects, the awards of the actor to search for, and their substitution are requested, the selected Actors objects are modified and the Array is returned 
-     * @param other
-     * @param awards
-     * @param newAwards
-     * @return 
+     * @param other the array with the actors
+     * @param awards the awards of the actor to modify
+     * @param newAwards the new awards
+     * @return the array with the actors
      */
     public Actors[] modifyActorsByAwards(Actors[] other, String awards, String newAwards)
     {
@@ -236,8 +236,8 @@ public class MenuActors {
 
     /**
      * An Array of Actors objects and the name of the actor to be searched, looking for objects Actors, the Array is returned
-     * @param other
-     * @param name 
+     * @param other the array with the actors
+     * @param name the name to search
      */
     public void searchActorsByName(Actors[] other, String name)
     {
@@ -258,8 +258,8 @@ public class MenuActors {
 
     /**
      * An Array of Actors objects and the last name of the actor to be searched, looking for objects Actors, the Array is returned
-     * @param other
-     * @param lastName 
+     * @param other the array with the actors
+     * @param lastName the last name to search
      */
     public void searchActorsByLastName(Actors[] other, String lastName)
     {
@@ -280,8 +280,8 @@ public class MenuActors {
 
     /**
      * An Array of Actors objects and the gender of the actor to be searched, looking for objects Actors, the Array is returned
-     * @param other
-     * @param gender 
+     * @param other the array with the actors
+     * @param gender the gender to search
      */
     public void searchActorsByGender(Actors[] other, Gender gender)
     {
@@ -292,8 +292,7 @@ public class MenuActors {
             {   
                 System.out.println("Gender found: " + other[i]);
                 found = true;
-            }
-                       
+            }           
         }
         if(found == false)
         {
@@ -303,8 +302,8 @@ public class MenuActors {
 
     /**
      * An Array of Actors objects and the age of the actor to be searched, looking for objects Actors, the Array is returned
-     * @param other
-     * @param age 
+     * @param other the array with the actors
+     * @param age the age to search
      */
     public void searchActorsByAge(Actors[] other, int age)
     {
@@ -325,8 +324,8 @@ public class MenuActors {
 
     /**
      * An Array of Actors objects and the awards of the actor to be searched, looking for objects Actors, the Array is returned
-     * @param other
-     * @param awards 
+     * @param other the array with the actors
+     * @param awards the awards to search
      */
     public void searchActorsByawards(Actors[] other, String awards)
     {
@@ -338,13 +337,10 @@ public class MenuActors {
                 System.out.println("Award found: " + other[i]);
                 found = true;
             }
-            
         }
         if(found == false)
         {
             System.out.println("The award " + awards + " has not been found.");
         }
     }
-    
-    
 }
