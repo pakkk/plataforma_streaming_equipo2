@@ -132,9 +132,6 @@ public class Launcher
 	/**Attribute newAwards*/
 	private String newAwards;
 
-	/**Attribute newDescription*/
-	
-
 	/**Attribute newComment*/
 	private String newComment;
 
