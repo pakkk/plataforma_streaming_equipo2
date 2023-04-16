@@ -13,11 +13,10 @@ public class MenuCategories
     /**
      * Takes an array of Category objects
      * Adds a new category to the array
-     * Returns the updated array
-     * @param categoryArray
-     * @param name
-     * @param description
-     * @return
+     * @param categoryArray array of Category objects
+     * @param name name of the new category
+     * @param description description of the new category
+     * @return the updated array
      */
     public Category[] addCategory(Category[] categoryArray, String name, String description) 
     {
@@ -29,10 +28,9 @@ public class MenuCategories
     /**
      * Takes an array of Category objects and the name of the category to delete
      * Deletes the selected categories from the array
-     * Returns the updated array
-     * @param name
-     * @param categoryArray
-     * @return
+     * @param name name of the category to delete
+     * @param categoryArray array of Category objects
+     * @return the updated array
      */
     public Category[] deleteCategoryByName(String name, Category[] categoryArray) 
     {
@@ -51,9 +49,9 @@ public class MenuCategories
      * Takes an array of Category objects and the description of the category to delete
      * Deletes the selected categories from the array
      * Returns the updated array
-     * @param description
-     * @param categoryArray
-     * @return
+     * @param description description of the category to delete
+     * @param categoryArray array of Category objects
+     * @return the updated array
      */
     public Category[] deleteCategoryByDescription(String description, Category[] categoryArray) 
     {
@@ -73,10 +71,10 @@ public class MenuCategories
      * Takes an array of Category objects, the name of the category to search for, and its replacement
      * Replaces the selected categories in the array
      * Returns the updated array
-     * @param categoryArray
-     * @param name
-     * @param newName
-     * @return
+     * @param categoryArray array of Category objects
+     * @param name name to modify
+     * @param newName the new name
+     * @return the updated array
      */
     public Category[] modifyCategoryByName(Category[] categoryArray, String name, String newName) 
     {
@@ -87,7 +85,6 @@ public class MenuCategories
                 System.out.println("Category to modify "+categoryArray[i]);
                 categoryArray[i].setName(newName);
                 System.out.println("Category to modified "+categoryArray[i]);
-
             }
         }		
         return categoryArray;
@@ -97,10 +94,10 @@ public class MenuCategories
      * Takes an array of Category objects, the description of the category to search for, and its replacement
      * Replaces the selected categories in the array
      * Returns the updated array
-     * @param categoryArray
-     * @param description
-     * @param newDescription
-     * @return
+     * @param categoryArray array of Category objects
+     * @param description description to modify
+     * @param newDescription the new description
+     * @return the updated array
      */
     public Category[] modifyCategoryByDescription(Category[] categoryArray, String description, String newDescription) 
     {
@@ -120,8 +117,8 @@ public class MenuCategories
      * Takes an array of Category objects and the name of the category to search for
      * Searches for the categories in the array
      * Displays the result on the screen
-     * @param categoryArray
-     * @param name
+     * @param categoryArray array of Category objects
+     * @param name  name to search
      */
     public void searchCategoryByName(Category[] categoryArray, String name) 
     {
@@ -144,8 +141,8 @@ public class MenuCategories
      * Takes an array of Category objects and the description of the category to search for
      * Searches for the categories in the array
      * Displays the result on the screen
-     * @param categoryArray
-     * @param description
+     * @param categoryArray array of Category objects
+     * @param description description to search
      */
     public void searchCategoryByDescription(Category[] categoryArray, String description) 
     {
