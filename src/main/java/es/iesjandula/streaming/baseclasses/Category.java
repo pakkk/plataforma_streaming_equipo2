@@ -3,13 +3,11 @@ package es.iesjandula.streaming.baseclasses;
 /**
 
  * @author Javier
- *
+ * @see -This class is responsible for loading category data and storing it in an array
  */
 public class Category 
 {
-    // This class is responsible for loading category data and storing it in an array
-    // Attributes 
-	
+
 	/**String attribute "name": defines the name of the category*/
     private String name;
     

@@ -3,12 +3,10 @@ package es.iesjandula.streaming.baseclasses;
 /**
  * 
  * @author Alejandro
- *
+ * @see -This class is responsible for loading subtitle data and storing it in an array
  */
 public class Subtitles 
 {
-	/**This class is responsible for loading subtitle data and storing it in an array*/
-
 	/**Attribute language: attribute that defines the language of the subtitle*/
 	private String language;
 	
