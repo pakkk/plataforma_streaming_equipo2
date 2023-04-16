@@ -36,7 +36,7 @@ import es.iesjandula.streaming.streaming.Serie;
  * @author Alejandro
  *
  * @see NOTE: Class film and serie have arrays of actors,directors,categories,recommendations and subtitles so to save them
- * the user must use menu methods 
+ * the user must use menu methods
  */
 public class Launcher
 {
@@ -154,7 +154,7 @@ public class Launcher
     private RatingType newRate;
 
 	//Menu instances
-    
+
 	/** This instance controls the menu of actors */
 	private MenuActors menuAct = new MenuActors();
 
@@ -424,9 +424,9 @@ public class Launcher
 				{
 					System.out.println("Error selecting option");
 				}
-				
+
 			}
-			
+
 			//---RETRY THE MENU FILM SERIES (PRINT)---
 			option = this.retryMenuFilmSeriesPrint(endMenu, option);
 		}
@@ -5359,7 +5359,7 @@ public class Launcher
 	/**
 	 *Add actor on film
 	 */
-	private void addActorFilm() 
+	private void addActorFilm()
 	{
 		this.statsFS.countFilms(this.film);
 		this.title= this.scanner.nextLine();
@@ -5379,14 +5379,14 @@ public class Launcher
 	/**
 	 *Add actor on series
 	 */
-	private void addActorSerie() 
+	private void addActorSerie()
 	{
 		this.statsFS.countSeries(this.serie);
 		this.title= this.scanner.nextLine();
-		
+
 		System.out.println("Select the title of your serie");
 		this.title = this.scanner.nextLine();
-		
+
 		for(Serie series:this.serie)
 		{
 			if(this.title.equalsIgnoreCase(series.getTitle()))
@@ -5420,31 +5420,31 @@ public class Launcher
 				case "1":
 				{
 					//---STATS OF FILM AND SERIES---
-					option = statsFilmSeries();
+					option = this.statsFilmSeries();
 					break;
 				}
 				case  "2":
 				{
 					//---STATS OF ACTORS---
-					option = statsOfActors();
+					option = this.statsOfActors();
 					break;
 				}
 				case "3":
 				{
 					//---STATS OF DIRECTORS---
-					option = statsOfDirectors();
+					option = this.statsOfDirectors();
 					break;
 				}
 				case "4":
 				{
 					//---STATS OF CATEGORIES---
-					option = statsOfCategories();
+					option = this.statsOfCategories();
 					break;
 				}
 				case "5":
 				{
 					//---STATS OF SUBTITLES---
-                    option = statsOfSubtitles();
+                    option = this.statsOfSubtitles();
 					break;
 				}
 				case "6":
@@ -5475,7 +5475,7 @@ public class Launcher
 	 * Stats of subtitles
 	 * @return string with the information
 	 */
-	private String statsOfSubtitles() 
+	private String statsOfSubtitles()
 	{
 		String option;
 		System.out.println("""
@@ -5490,12 +5490,12 @@ public class Launcher
 		if(option.equals("1"))
 		{
 			//---SHOW ALL SUBTITLES FILM---
-			option = showAllSubtitlesFilm();
+			option = this.showAllSubtitlesFilm();
 		}
 		else if(option.equals("2"))
 		{
 			//---SHOW ALL SUBTITLES SERIE---
-			option = showAllSubtitlesSerie();
+			option = this.showAllSubtitlesSerie();
 		}
 		else if(option.equals("3"))
 		{
@@ -5519,7 +5519,7 @@ public class Launcher
 	 * Show all subtitles from series
 	 * @return string with the information
 	 */
-	private String showAllSubtitlesSerie() 
+	private String showAllSubtitlesSerie()
 	{
 		String option;
 		System.out.println("Do you want see the number of subtitles or the content (number/content)");
@@ -5569,7 +5569,7 @@ public class Launcher
 	 * Stats from categories
 	 * @return string with the information
 	 */
-	private String statsOfCategories() 
+	private String statsOfCategories()
 	{
 		String option;
 		System.out.println("""
@@ -5582,12 +5582,12 @@ public class Launcher
 		if(option.equals("1"))
 		{
 			//---NUMBER OF CATEGORIES FILM AND SERIE---
-			option = numberOfCategoriesFilmSerie();
+			option = this.numberOfCategoriesFilmSerie();
 		}
 		else if(option.equals("2"))
 		{
 			//---CONTENT CATEGORIES FILM SERIES---
-			option = contentOfCategoriesFilmSeries();
+			option = this.contentOfCategoriesFilmSeries();
 		}
 		else if(option.equals("3"))
 		{
@@ -5611,7 +5611,7 @@ public class Launcher
 	 * Content from categories on film and series
 	 * @return string with the information
 	 */
-	private String contentOfCategoriesFilmSeries() 
+	private String contentOfCategoriesFilmSeries()
 	{
 		String option;
 		System.out.println("Choose categories of (series/films)");
@@ -5631,7 +5631,7 @@ public class Launcher
 	 * Number of categories on film or series
 	 * @return string with the information
 	 */
-	private String numberOfCategoriesFilmSerie() 
+	private String numberOfCategoriesFilmSerie()
 	{
 		String option;
 		System.out.println("Choose (series/films)");
@@ -5651,7 +5651,7 @@ public class Launcher
 	 * Stats of directors
 	 * @return String with the information
 	 */
-	private String statsOfDirectors() 
+	private String statsOfDirectors()
 	{
 		String option;
 		System.out.println("""
@@ -5670,12 +5670,12 @@ public class Launcher
 		else if(option.equals("2"))
 		{
 			//--SHOW ALL DIRECTORS ON FILM---
-			option = showAllDirectorsOnFilm();
+			option = this.showAllDirectorsOnFilm();
 		}
 		else if(option.equals("3"))
 		{
 			//--SHOW ALL DIRECTORS ON SERIE---
-			option = showAllDirectorsOnSerie();
+			option = this.showAllDirectorsOnSerie();
 		}
 		else if(option.equals("4"))
 		{
@@ -5694,7 +5694,7 @@ public class Launcher
 	 * Show all directors on series
 	 * @return string with the information
 	 */
-	private String showAllDirectorsOnSerie() 
+	private String showAllDirectorsOnSerie()
 	{
 		String option;
 		System.out.println("Do you want see the number of series or the content (number/content)");
@@ -5719,7 +5719,7 @@ public class Launcher
 	 * Show all directors on film
 	 * @return string with the information
 	 */
-	private String showAllDirectorsOnFilm() 
+	private String showAllDirectorsOnFilm()
 	{
 		String option;
 		System.out.println("Do you want see the number of series or the content (number/content)");
@@ -5744,7 +5744,7 @@ public class Launcher
 	 * Stats of actors
 	 * @return string with the information
 	 */
-	private String statsOfActors() 
+	private String statsOfActors()
 	{
 		String option;
 		System.out.println("""
@@ -5763,12 +5763,12 @@ public class Launcher
 		else if(option.equals("2"))
 		{
 			//---SHOW ACTORS ON FILM---
-			option = showActorsOnFilm();
+			option = this.showActorsOnFilm();
 		}
 		else if(option.equals("3"))
 		{
 			//---SHOW ACTORS ON SERIE---
-			option = showActorsOnSerie();
+			option = this.showActorsOnSerie();
 		}
 		else if(option.equals("4"))
 		{
@@ -5787,7 +5787,7 @@ public class Launcher
 	 * Show actors on series
 	 * @return string with information
 	 */
-	private String showActorsOnSerie() 
+	private String showActorsOnSerie()
 	{
 		String option;
 		System.out.println("Do you want see the number of series or the content (number/content)");
@@ -5812,7 +5812,7 @@ public class Launcher
 	 * Show actors on films
 	 * @return string with the information
 	 */
-	private String showActorsOnFilm() 
+	private String showActorsOnFilm()
 	{
 		String option;
 		System.out.println("Do you want see the number of series or the content (number/content)");
@@ -5837,7 +5837,7 @@ public class Launcher
 	 * Stats of films and series
 	 * @return string with the information
 	 */
-	private String statsFilmSeries() 
+	private String statsFilmSeries()
 	{
 		String option;
 		System.out.println("""
@@ -5855,12 +5855,12 @@ public class Launcher
 		if(option.equals("1"))
 		{
 			//---SHOW ALL FILM---
-			option = showAllFilm();
+			option = this.showAllFilm();
 		}
 		else if(option.equals("2"))
 		{
 			//---SHOW ALL SERIE---
-			option = showAllSerie();
+			option = this.showAllSerie();
 		}
 		else if(option.equals("3"))
 		{
@@ -5899,7 +5899,7 @@ public class Launcher
 	 * Show all series
 	 * @return String with the inforamtion
 	 */
-	private String showAllSerie() 
+	private String showAllSerie()
 	{
 		String option;
 		System.out.println("Do you want see the number of series or the content (number/content)");
@@ -5924,7 +5924,7 @@ public class Launcher
 	 * Show all films
 	 * @return String with the inforamtion
 	 */
-	private String showAllFilm() 
+	private String showAllFilm()
 	{
 		String option;
 		System.out.println("Do you want see the number of films or the content (number/content)");
