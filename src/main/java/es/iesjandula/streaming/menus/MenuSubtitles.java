@@ -4,12 +4,11 @@ import java.util.Arrays;
 import es.iesjandula.streaming.baseclasses.Subtitles;
 
 /**
+ * The class makes a high, low, modifications and searches of subtitles in a movie or series
  * @author Alejandro Cazalla Perez
  */
 public class MenuSubtitles
 {
-    /*The class makes a high, low, modifications and searches of subtitles in a movie or series*/
-
     /**
      * This method performs a discharge of subtitles in a series or film, this method is passed as a parameter an array of subtitles and their attributes, the modified array is returned
      * @param newSubtitle the new subtitle

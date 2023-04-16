@@ -29,11 +29,12 @@ import es.iesjandula.streaming.streaming.Serie;
 
 /**
  *
+ *-This class is responsible of execute the menus and control the logic of the entire project
+ *
  * @author Pablo Elias
  * @author Javier
  * @author Alejandro
  *
- * @see -This class is responsible of execute the menus and control the logic of the entire project
  * @see NOTE: Class film and serie have arrays of actors,directors,categories,recommendations and subtitles so to save them
  * the user must use menu methods 
  */

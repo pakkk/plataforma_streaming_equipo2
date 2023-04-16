@@ -3,14 +3,14 @@ package es.iesjandula.streaming.stats;
 import es.iesjandula.streaming.streaming.*;
 
 /**
+ * This class takes care of count how many series or films there are in our system
  * @author Pablo Ruiz
  */
 public class FilmsSerieStats
 {
-	//This class takes care of count how many series or films there are in our system
-	
-	/**This method count how many series there are in our system
-	 * 
+
+	/**
+	 * This method count how many series there are in our system
 	 * @param array the array of series
 	 */
 	public void numSeries (Serie[] array)

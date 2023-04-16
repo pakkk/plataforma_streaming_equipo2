@@ -1,9 +1,9 @@
 package es.iesjandula.streaming.baseclasses;
 
 /**
-
+ * -This class is responsible for loading category data and storing it in an array
  * @author Javier
- * @see -This class is responsible for loading category data and storing it in an array
+ * 
  */
 public class Category 
 {

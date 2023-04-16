@@ -5,9 +5,8 @@ import es.iesjandula.streaming.streaming.Film;
 import es.iesjandula.streaming.streaming.Serie;
 
 /**
- * 
+ * -This class is responsible for high, low, modifications and searches of films or series
  * @author Pablo Elias
- * @see -This class is responsible for high, low, modifications and searches of films or series
  */
 public class MenuFilmSeries 
 {

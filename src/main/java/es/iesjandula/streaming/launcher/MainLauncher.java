@@ -1,12 +1,12 @@
 package es.iesjandula.streaming.launcher;
 
 /**
- * 
+ * -The class with main method
  * @author Pablo
  * @author Javier
  * @author Alejandro
  * 
- * @see -The class with main method
+ * 
  */
 public class MainLauncher 
 {

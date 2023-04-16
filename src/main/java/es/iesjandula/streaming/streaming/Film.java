@@ -5,7 +5,8 @@ package es.iesjandula.streaming.streaming;
  * @author Alejandro
  */
 
-public class Film extends Audiovisual {
+public class Film extends Audiovisual
+{
 	
 	/**
 	 * Parametriced constructor

@@ -3,9 +3,8 @@ package es.iesjandula.streaming.baseclasses;
 import es.iesjandula.streaming.enums.RatingType;
 
 /**
- * 
+ * -This class is responsible for loading recommendation data and storing it in an array
  * @author Adrian
- * @see -This class is responsible for loading recommendation data and storing it in an array
  */
 public class Recommendation 
 {

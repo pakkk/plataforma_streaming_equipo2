@@ -9,17 +9,18 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
  * @author Pablo
  */
 
-public class SubtitleStats {
+public class SubtitleStats 
+{
   
     /**
      * This method takes care of show how many subtitles there are in the series
      * @param arraySerie 
      */
 	
-    public void countSubtitlesSerie (Serie arraySerie[])
+    public void countSubtitlesSerie (Serie[] arraySerie)
     {
         int sum = 0;
-        Subtitles subtitle[];
+        Subtitles[] subtitle;
         for(int i = 0;i<arraySerie.length;i++)
         {
             subtitle = arraySerie[i].getSubtitles();
@@ -33,10 +34,10 @@ public class SubtitleStats {
      * @param arrayFilm array with the films 
      */
     
-    public void countSubtitlesFilm (Film arrayFilm[])
+    public void countSubtitlesFilm (Film[] arrayFilm)
     {
         int sum = 0;
-        Subtitles subtitle[];
+        Subtitles[] subtitle;
         for(int i = 0;i<arrayFilm.length;i++)
         {
             subtitle = arrayFilm[i].getSubtitles();
@@ -51,10 +52,10 @@ public class SubtitleStats {
      * @param arrayFilm array with the films 
      */
     
-    public void countAllSubtitles(Serie arraySerie[],Film arrayFilm[])
+    public void countAllSubtitles(Serie[] arraySerie,Film[] arrayFilm)
     {
         int sum = 0;
-        Subtitles subtitle[];
+        Subtitles[] subtitle;
         for(int i = 0;i<arraySerie.length;i++)
         {
             subtitle = arraySerie[i].getSubtitles();
@@ -74,9 +75,9 @@ public class SubtitleStats {
      * @param arraySerie array with the series
      */
     
-    public void showSubtitlesSerie(Serie arraySerie[])
+    public void showSubtitlesSerie(Serie[] arraySerie)
     {
-        Subtitles subtitle[];
+        Subtitles[] subtitle;
         for(Serie serie:arraySerie)
         {
             subtitle = serie.getSubtitles();
@@ -89,9 +90,9 @@ public class SubtitleStats {
      * @param arrayFilm array with the films 
      */
     
-    public void showSubtitlesFilm(Film arrayFilm[])
+    public void showSubtitlesFilm(Film[] arrayFilm)
     {
-	    Subtitles subtitle[];
+	    Subtitles[] subtitle;
 	    for(Film film:arrayFilm)
 	    {
 	        subtitle = film.getSubtitles();
@@ -104,9 +105,9 @@ public class SubtitleStats {
      * @param arrayFilm array with the films
      */
     
-    public void infoFilmSubtitles(Film arrayFilm[])
+    public void infoFilmSubtitles(Film[] arrayFilm)
     {
-        Subtitles subtitle[];
+        Subtitles[] subtitle;
         for(Film film:arrayFilm)
         {
             subtitle = film.getSubtitles();
@@ -122,9 +123,9 @@ public class SubtitleStats {
      * @param arraySerie array with the series
      */
     
-    public void infoSerieSubtitles(Serie arraySerie[])
+    public void infoSerieSubtitles(Serie[] arraySerie)
     {
-        Subtitles subtitle[];
+        Subtitles[] subtitle;
         for(Serie serie:arraySerie)
         {
             subtitle = serie.getSubtitles();

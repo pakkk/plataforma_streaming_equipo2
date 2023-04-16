@@ -7,11 +7,11 @@ import es.iesjandula.streaming.baseclasses.Directors;
 import es.iesjandula.streaming.baseclasses.Subtitles;
 
 /**
+ * -Parent class of Series and Movie that will contain all the data that will later be transmitted to those classes
  * @author Javier
  */
 public class Audiovisual
 {
-	//Parent class of Series and Movie that will contain all the data that will later be transmitted to those classes
 	//Attributes
 
 	/**Attribute String title: Defines the title of the audiovisual*/

@@ -5,7 +5,8 @@ package es.iesjandula.streaming.streaming;
  * @author Alejandro
  */
 
-public class Serie extends Audiovisual{
+public class Serie extends Audiovisual
+{
 	
 	/**
 	 * Parametriced constructor.

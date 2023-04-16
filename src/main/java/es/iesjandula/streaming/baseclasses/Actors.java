@@ -3,8 +3,8 @@ package es.iesjandula.streaming.baseclasses;
 import es.iesjandula.streaming.enums.Gender;
 
 /**
+ * This class is responsible for loading actor data and storing it in an array 
  * @author Eduardo
- * @see -This class is responsible for loading actor data and storing it in an array 
  */
 public class Actors
 {

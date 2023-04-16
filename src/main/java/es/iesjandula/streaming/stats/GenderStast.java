@@ -4,12 +4,11 @@ import es.iesjandula.streaming.baseclasses.Category;
 import es.iesjandula.streaming.streaming.*;
 
 /**
+ * This class takes care of show series and films that have many genders
  * @author Eduardo
  */
 public class GenderStast
 {
-	//This class takes care of show series and films that have many genders
-	
 	/**
 	 * This method show the series that have two or more genders
 	 * @param arraySerie the array serie

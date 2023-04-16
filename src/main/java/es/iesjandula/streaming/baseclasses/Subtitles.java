@@ -1,9 +1,8 @@
 package es.iesjandula.streaming.baseclasses;
 
 /**
- * 
+ * -This class is responsible for loading subtitle data and storing it in an array
  * @author Alejandro
- * @see -This class is responsible for loading subtitle data and storing it in an array
  */
 public class Subtitles 
 {
