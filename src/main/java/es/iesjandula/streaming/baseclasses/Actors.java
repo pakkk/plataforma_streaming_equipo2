@@ -4,12 +4,10 @@ import es.iesjandula.streaming.enums.Gender;
 
 /**
  * @author Eduardo
+ * @see -This class is responsible for loading actor data and storing it in an array 
  */
 public class Actors
 {
-	//This class is responsible for loading actor data and storing it in an array
-    //Attributes 
-	
 	/**Attribute name*/
     private String name;
     

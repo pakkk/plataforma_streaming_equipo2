@@ -5,13 +5,11 @@ import es.iesjandula.streaming.enums.RatingType;
 /**
  * 
  * @author Adrian
- *
+ * @see -This class is responsible for loading recommendation data and storing it in an array
  */
 public class Recommendation 
 {
-    /** This class is responsible for loading recommendation data and storing it in an array
-    */
-	
+
 	/**Attribute RatingType rating: An enum attribute that defines the type of recommendation (Positive and negative) */
     private RatingType rating;
     

@@ -33,15 +33,12 @@ import es.iesjandula.streaming.streaming.Serie;
  * @author Javier
  * @author Alejandro
  *
+ * @see -This class is responsible of execute the menus and control the logic of the entire project
+ * @see NOTE: Class film and serie have arrays of actors,directors,categories,recommendations and subtitles so to save them
+ * the user must use menu methods 
  */
 public class Launcher
 {
-	//This class is responsible of execute the menus and control the logic of the entire project
-
-	/**
-	 * NOTE:Class film and serie have arrays of actors,directors,categories,recommendations and subtitles so to save them
-	 * the user must use menu methods
-	 */
 
 	/** Attribute Scanner scanner: Provide of Class Scanner and his use its only for write by keyboard*/
 	private Scanner scanner = new Scanner(System.in);
@@ -969,7 +966,6 @@ public class Launcher
 	 */
 	private void modifySerieTitle()
 	{
-		this.title = this.scanner.nextLine();
 		System.out.println("Select the title to search");
 		this.title = this.scanner.nextLine();
 		System.out.println("Select the new title");
