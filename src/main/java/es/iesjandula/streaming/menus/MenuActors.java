@@ -250,7 +250,7 @@ public class MenuActors
                 found = true;
             }                    
         }
-        if(found == false)
+        if(!found)
         {
             System.out.println("The name " + name + " has not been found.");
         }
@@ -272,7 +272,7 @@ public class MenuActors
                 found = true;
             }              
         }
-        if(found == false)
+        if(!found)
         {
             System.out.println("The lastName " + lastName + " has not been found.");
         }
@@ -294,7 +294,7 @@ public class MenuActors
                 found = true;
             }           
         }
-        if(found == false)
+        if(!found)
         {
             System.out.println("The Gender " + gender + " has not been found.");
         }
@@ -316,7 +316,7 @@ public class MenuActors
                 found = true;
             }
         }
-        if(found == false)
+        if(!found)
         {
             System.out.println("The age " + age + " has not been found.");
         }
@@ -338,7 +338,7 @@ public class MenuActors
                 found = true;
             }
         }
-        if(found == false)
+        if(!found)
         {
             System.out.println("The award " + awards + " has not been found.");
         }

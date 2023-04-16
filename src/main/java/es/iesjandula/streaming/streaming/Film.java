@@ -18,7 +18,7 @@ public class Film extends Audiovisual
 	 * @param views the views of the Audiovisual
 	 * */
     	
-    public Film(String title, String originalLanguage,String adaptedLanguage[], int duration, int views)
+    public Film(String title, String originalLanguage,String[] adaptedLanguage, int duration, int views)
     {
         super(title, originalLanguage,adaptedLanguage, duration, views);
     }

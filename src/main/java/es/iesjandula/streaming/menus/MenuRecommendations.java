@@ -18,7 +18,7 @@ public class MenuRecommendations
      * @param comment comment of the new recommendation
      * @return array modified
      */
-    public Recommendation[] addRecommendation(Recommendation array[], RatingType rate, String comment) 
+    public Recommendation[] addRecommendation(Recommendation[] array, RatingType rate, String comment) 
     {
         array = Arrays.copyOf(array, array.length + 1);
         array[array.length - 1] = new Recommendation(rate, comment);
@@ -32,12 +32,12 @@ public class MenuRecommendations
      * @param comment comment of the recommendation to delete
      * @return array modified
      */
-    public Recommendation[] recommendationDeleteByComment(Recommendation array[], String comment) 
+    public Recommendation[] recommendationDeleteByComment(Recommendation[] array, String comment) 
     {
         /**This for loop searches the array of recommendations for recommendations that contain the same comment to delete it*/
         for (int i = 0; i < array.length; i++) 
         {
-            if (comment.equalsIgnoreCase(((Recommendation) array[i]).getComment())) 
+            if (comment.equalsIgnoreCase((array[i]).getComment())) 
             {
                 System.out.println("Removed recommendation: " + array[i]);
                 System.arraycopy(array, i + 1, array, i, array.length - i - 1);
@@ -54,12 +54,12 @@ public class MenuRecommendations
      * @param rate rate of the recommendation to delete
      * @return array modified
      */
-    public Recommendation[] recommendationDeleteByRate(Recommendation array[], RatingType rate)
+    public Recommendation[] recommendationDeleteByRate(Recommendation[] array, RatingType rate)
     {
         /** This for loop searches the array of recommendations for recommendations that contain the same rating to delete it*/
         for (int i = 0; i < array.length; i++)
         {
-            if (rate.equals(((Recommendation) array[i]).getRating())) 
+            if (rate.equals((array[i]).getRating())) 
             {
                 System.out.println("Removed recommendation: " + array[i]);
                 System.arraycopy(array, i + 1, array, i, array.length - i - 1);
@@ -76,15 +76,15 @@ public class MenuRecommendations
      * @param arraycomment new comment
      * @return array modified
      */
-    public Recommendation[] recommendationModifyByComment(Recommendation array[], String comment, String arraycomment) 
+    public Recommendation[] recommendationModifyByComment(Recommendation[] array, String comment, String arraycomment) 
     {
         /**This loop iterates through the recommendations array and searches for recommendations that contain the old comment to replace it with the new one*/
         for (int i = 0; i < array.length; i++) 
         {
-            if (comment.equalsIgnoreCase(((Recommendation) array[i]).getComment())) 
+            if (comment.equalsIgnoreCase((array[i]).getComment())) 
             {
                 System.out.println("Attribute to modify: " + array[i]);
-                ((Recommendation) array[i]).setComment(arraycomment);
+                (array[i]).setComment(arraycomment);
                 System.out.println("Attribute modified: " + array[i]);
             }
         }
@@ -99,15 +99,15 @@ public class MenuRecommendations
      * @param nuevarate new rate
      * @return array modified
      */
-    public Recommendation[] recommendationModifyByRate(Recommendation array[], RatingType rate, RatingType nuevarate) 
+    public Recommendation[] recommendationModifyByRate(Recommendation[] array, RatingType rate, RatingType nuevarate) 
     {
         /**This loop iterates through the recommendations array and searches for recommendations that contain the old rating to replace it with the new one*/
         for (int i = 0; i < array.length; i++) 
         {
-            if (rate.equals(((Recommendation) array[i]).getRating())) 
+            if (rate.equals((array[i]).getRating())) 
             {
                 System.out.println("Attribute to modify: " + array[i]);
-                ((Recommendation) array[i]).setRating(nuevarate);
+                (array[i]).setRating(nuevarate);
                 System.out.println("Attribute modified: " + array[i]);
             }
         }
@@ -119,18 +119,18 @@ public class MenuRecommendations
      * @param array array of recommendations
      * @param comment comment to search
      */
-    public void recommendationSearchByComment(Recommendation array[], String comment)
+    public void recommendationSearchByComment(Recommendation[] array, String comment)
     {
         /**This loop iterates through the recommendations array and searches for recommendations that contain the comment to search for. If it is not found, the user will be notified*/
         boolean encontrado = false;
         for (int i = 0; i < array.length; i++)
         {
-            if (comment.equalsIgnoreCase(((Recommendation) array[i]).getComment())) 
+            if (comment.equalsIgnoreCase((array[i]).getComment())) 
             {
                 System.out.println("Recommendation found: " + array[i]);
                 encontrado = true;
             }
-            if (encontrado == true)
+            if (encontrado)
             {
                 System.out.println("The comment " + comment + " could not be found.");
             }
@@ -142,7 +142,7 @@ public class MenuRecommendations
      * @param array array of recommendations
      * @param rate rate to search
      */
-    public void recommendationSearchByRate(Recommendation array[], RatingType rate) 
+    public void recommendationSearchByRate(Recommendation[] array, RatingType rate) 
     {
         /**This loop iterates through the recommendations array and searches for recommendations that contain the rating to search for. If it is not found, the user will be notified*/
         boolean encontrado = false;

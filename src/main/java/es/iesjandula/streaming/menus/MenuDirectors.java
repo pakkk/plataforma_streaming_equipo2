@@ -165,15 +165,15 @@ public class MenuDirectors
      * Modifies the selected Director objects and returns the updated array.
      *
      * @param array array of directors
-     * @param LastName new last name to modify
+     * @param lastName new last name to modify
      * @param newLastName the new last name
      * @return the modified array
      */
-    public Directors[] directorsModifyByLastName(Directors[] array, String LastName, String newLastName)
+    public Directors[] directorsModifyByLastName(Directors[] array, String lastName, String newLastName)
     {
         for(int i = 0; i < array.length; i++)
         {
-            if(LastName.equalsIgnoreCase(array[i].getLastName()))
+            if(lastName.equalsIgnoreCase(array[i].getLastName()))
             {
                 System.out.println("Director to modify "+array[i]);
                 array[i].setLastName(newLastName);
@@ -268,7 +268,7 @@ public class MenuDirectors
                 found = true;
             }
         }
-        if (found == false)
+        if (!found)
         {
             System.out.println("The name " + name + " does not exist");
         }
@@ -292,7 +292,7 @@ public class MenuDirectors
                 found = true;
             }
         }
-        if (found == false)
+        if (!found)
         {
             System.out.println("The name " + lastName + " does not exist");
         }
@@ -316,7 +316,7 @@ public class MenuDirectors
                 found = true;
             }
         }
-        if (found == false)
+        if (!found)
         {
             System.out.println("The name " + gender + " does not exist");
         }
@@ -340,7 +340,7 @@ public class MenuDirectors
                 found = true;
             }
         }
-        if (found == false)
+        if (!found)
         {
             System.out.println("The age " + age + " does not exist");
         }
@@ -364,7 +364,7 @@ public class MenuDirectors
                 found = true;
             }
         }		
-        if (found==false) 
+        if (!found) 
         {
             System.out.println("The award "+awards+" does not exist");
         }

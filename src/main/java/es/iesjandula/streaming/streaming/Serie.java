@@ -18,7 +18,7 @@ public class Serie extends Audiovisual
 	 * @param views the views of the Audiovisual
 	 * */
 		
-	public Serie(String title, String originalLanguage,String adaptedLanguage[], int duration, int views) 
+	public Serie(String title, String originalLanguage,String[] adaptedLanguage, int duration, int views) 
 	{
 		super(title, originalLanguage,adaptedLanguage, duration, views);
 	}
