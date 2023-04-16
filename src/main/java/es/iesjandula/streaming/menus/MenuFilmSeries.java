@@ -102,8 +102,8 @@ public class MenuFilmSeries
 	{
 		//This for searches for the film by its adapted language and deletes it from the array
 		for(int i = 0;i<movie.length;i++)
-		{
-			if(adaptedLanguage.equals(movie[i].getAdaptedLanguages()))
+		{	
+			if(Arrays.equals(adaptedLanguage, movie[i].getAdaptedLanguages()))
 			{
 				System.out.println("Deleted film: "+movie[i]);
 				System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
@@ -325,7 +325,7 @@ public class MenuFilmSeries
 		//This for looks for the original language attribute of a movie and modifies it by the other one.
 		for (Film element : other) 
 		{
-			if(adaptedLanguage.equals(element.getAdaptedLanguages()))
+			if(Arrays.equals(adaptedLanguage, element.getAdaptedLanguages()))
 			{
 				System.out.println("Movie to modify "+element);
 				element.setAdaptedLanguages(otherAdaptedLanguage);
@@ -440,7 +440,7 @@ public class MenuFilmSeries
 		//This for looks for the adapted language attribute of a series and modifies it by other
 		for (Serie element : other) 
 		{
-			if(adaptedLanguage.equals(element.getAdaptedLanguages()))
+			if(Arrays.equals(adaptedLanguage, element.getAdaptedLanguages()))
 			{
 				System.out.println("Series to modify "+element);
 				element.setAdaptedLanguages(otherAdaptedLanguage);

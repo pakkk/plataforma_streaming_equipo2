@@ -133,13 +133,10 @@ public class Launcher
 	private String newAwards;
 
 	/**Attribute newDescription*/
-	private String newDescription;
+	
 
 	/**Attribute newComment*/
 	private String newComment;
-
-	/**Attribute newLanguage*/
-	private String newLanguage;
 
 	/**Attribute newAge*/
 	private int newAge;
@@ -1592,13 +1589,14 @@ public class Launcher
 	 */
 	private String modifySubtitleLanguage()
 	{
+		String newLanguage;
 		String option;
 		System.out.println("You choose modify the subtitle by his language");
 		System.out.println("Select the language to search");
 		this.language = this.scanner.next();
 
 		System.out.println("Select the new language");
-		this.newLanguage = this.scanner.next();
+		newLanguage = this.scanner.next();
 
 		System.out.println("Were do you modify the language (serie/film)");
 		option = this.scanner.next();
@@ -1621,7 +1619,7 @@ public class Launcher
 		        if(this.title.equalsIgnoreCase(series.getTitle()))
 		        {
 		            this.subtitles = series.getSubtitles();
-		            this.subtitles = this.menuSub.modifyLanguage(this.subtitles, this.language, this.newLanguage);
+		            this.subtitles = this.menuSub.modifyLanguage(this.subtitles, this.language, newLanguage);
 		            series.setSubtitles(this.subtitles);
 		        }
 		    }
@@ -1640,7 +1638,7 @@ public class Launcher
 		        if(this.title.equalsIgnoreCase(films.getTitle()))
 		        {
 		            this.subtitles = films.getSubtitles();
-		            this.subtitles = this.menuSub.modifyLanguage(this.subtitles, this.language, this.newLanguage);
+		            this.subtitles = this.menuSub.modifyLanguage(this.subtitles, this.language, newLanguage);
 		            films.setSubtitles(this.subtitles);
 		        }
 		    }
@@ -2659,13 +2657,14 @@ public class Launcher
 	 */
 	private String modifyCategoryByDescription()
 	{
+		String newDescription;
 		String option;
 		this.description = this.scanner.nextLine();
 		System.out.println("Select the description to search");
 		this.description = this.scanner.nextLine();
 
 		System.out.println("Select the new description");
-		this.newDescription = this.scanner.nextLine();
+		newDescription = this.scanner.nextLine();
 
 		System.out.println("were do you modify the category (serie/film)");
 		option = this.scanner.next();
@@ -2685,7 +2684,7 @@ public class Launcher
 	                if(this.title.equalsIgnoreCase(series.getTitle()))
 	                {
                         this.category = series.getCategory();
-                        this.category = this.menuCat.modifyCategoryByDescription(this.category, this.description, this.newDescription);
+                        this.category = this.menuCat.modifyCategoryByDescription(this.category, this.description, newDescription);
                         series.setCategory(this.category);
 	                }
 		        }
@@ -2701,7 +2700,7 @@ public class Launcher
 		        if(this.title.equalsIgnoreCase(films.getTitle()))
 		        {
 	                this.category = films.getCategory();
-	                this.category = this.menuCat.modifyCategoryByDescription(this.category, this.description, this.newDescription);
+	                this.category = this.menuCat.modifyCategoryByDescription(this.category, this.description, newDescription);
 	                films.setCategory(this.category);
 		        }
 		    }
