@@ -5662,7 +5662,7 @@ public class Launcher
 		if(option.equals("1"))
 		{
 			//--SHOW ALL DIRECTORS---
-			this.statDirector.allDirectors(this.serie, this.film);
+			this.statDirector.countAllDirectors(this.serie, this.film);
 		}
 		else if(option.equals("2"))
 		{
@@ -5703,7 +5703,7 @@ public class Launcher
 		}
 		if(option.equalsIgnoreCase("number"))
 		{
-			this.statDirector.numDirectorsSeries(this.serie);
+			this.statDirector.countDirectorsSeries(this.serie);
 		}
 		else
 		{
@@ -5728,7 +5728,7 @@ public class Launcher
 		}
 		if(option.equalsIgnoreCase("number"))
 		{
-			this.statDirector.numDirectorsFilms(this.film);
+			this.statDirector.countDirectorsFilms(this.film);
 		}
 		else
 		{
@@ -5755,7 +5755,7 @@ public class Launcher
 		if(option.equals("1"))
 		{
 			//---SHOW ALL ACTORS---
-			this.statsActor.allActors(this.serie, this.film);
+			this.statsActor.countAllActors(this.serie, this.film);
 		}
 		else if(option.equals("2"))
 		{
@@ -5796,7 +5796,7 @@ public class Launcher
 		}
 		if(option.equalsIgnoreCase("number"))
 		{
-			this.statsActor.numActorsSeries(this.serie);
+			this.statsActor.countActorsSeries(this.serie);
 		}
 		else
 		{
@@ -5821,7 +5821,7 @@ public class Launcher
 		}
 		if(option.equalsIgnoreCase("number"))
 		{
-			this.statsActor.numActorsFilms(this.film);
+			this.statsActor.countActorsFilms(this.film);
 		}
 		else
 		{

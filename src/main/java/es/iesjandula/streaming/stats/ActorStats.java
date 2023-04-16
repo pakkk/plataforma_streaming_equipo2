@@ -19,7 +19,7 @@ public class ActorStats
      * This method counts how many Actors there are in the series
      * @param seriesActors An array of `Serie` objects representing the series to count the actors
      */
-    public void numActorsSeries(Serie[] seriesActors)
+    public void countActorsSeries(Serie[] seriesActors)
     {
         int sum = 0;
         Actors[] arrayActors;
@@ -35,7 +35,7 @@ public class ActorStats
      * This method counts how many Actors there are in the films
      * @param filmActors An array of `Film` objects representing the films to count the actors
      */
-    public void numActorsFilms(Film[] filmActors)
+    public void countActorsFilms(Film[] filmActors)
     {
         int sum = 0;
         Actors[] arrayActors;
@@ -52,7 +52,7 @@ public class ActorStats
      * @param seriesActors An array of `Serie` objects representing the series to count the actors
      * @param filmActors An array of `Film` objects representing the films to count the actors
      */
-    public void allActors(Serie[] seriesActors, Film[] filmActors)
+    public void countAllActors(Serie[] seriesActors, Film[] filmActors)
     {
         int sum = 0;
         Actors[] arrayActors;

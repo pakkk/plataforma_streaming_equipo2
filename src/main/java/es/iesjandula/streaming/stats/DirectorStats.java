@@ -18,7 +18,7 @@ public class DirectorStats
 	* This method counts how many Directors there are in the series
 	* @param seriesDirectors An array of objects of type Series that contains information about TV series.
 	*/
-    public void numDirectorsSeries(Serie[] seriesDirectors)
+    public void countDirectorsSeries(Serie[] seriesDirectors)
     {
         int sum = 0;
         for(Serie serie: seriesDirectors)
@@ -33,7 +33,7 @@ public class DirectorStats
     * This method counts how many Directors there are in the films
     * @param filmDirectors An array of objects of type Film that contains information about movies.
     */
-    public void numDirectorsFilms(Film[] filmDirectors)
+    public void countDirectorsFilms(Film[] filmDirectors)
     {
         int sum = 0;
         for(Film film: filmDirectors)
@@ -49,7 +49,7 @@ public class DirectorStats
     * @param seriesDirectors An array of objects of type Series that contains information about TV series.
     * @param filmDirectors An array of objects of type Film that contains information about movies or TV series.
     */
-    public void allDirectors(Serie[] seriesDirectors, Film[] filmDirectors)
+    public void countAllDirectors(Serie[] seriesDirectors, Film[] filmDirectors)
     {
         int sum = 0;
         for(Film film: filmDirectors)
