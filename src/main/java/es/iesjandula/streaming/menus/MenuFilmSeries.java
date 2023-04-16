@@ -7,15 +7,12 @@ import es.iesjandula.streaming.streaming.Serie;
 /**
  * 
  * @author Pablo Elias
- *
+ * @see -This class is responsible for high, low, modifications and searches of films or series
  */
 public class MenuFilmSeries 
 {
-	//This class is responsible for high, low, modifications and searches of films or series
-	
 	/**This method is responsible for registering a film with the attributes that is passed by param
-	 *This method returns the modified array
-	 *
+	 * This method returns the modified array
 	 * @param movie the Film array
 	 * @param title String title
 	 * @param originalLanguage String oiriginal language
@@ -132,8 +129,8 @@ public class MenuFilmSeries
 			if(duration==(movie[i]).getDuration())
 			{
 				System.out.println("Deleted film: "+movie[i]);
-                                System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
-                                movie = Arrays.copyOf(movie, movie.length-1) ;
+                System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
+                movie = Arrays.copyOf(movie, movie.length-1) ;
 					
 			}
 		}
@@ -155,8 +152,8 @@ public class MenuFilmSeries
 			if(views==(movie[i]).getViews())
 			{
 				System.out.println("Deleted film: "+movie[i]);
-                                System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
-                                movie = Arrays.copyOf(movie, movie.length-1) ;
+                System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
+                movie = Arrays.copyOf(movie, movie.length-1) ;
 					
 			}
 		}
@@ -178,8 +175,8 @@ public class MenuFilmSeries
 			if(title.equalsIgnoreCase((other[i]).getTitle()))
 			{
 				System.out.println("Series to delete "+other[i]);
-					System.arraycopy(other, i+1, other, i, other.length-i-1);
-					other = Arrays.copyOf(other, other.length-1);
+				System.arraycopy(other, i+1, other, i, other.length-i-1);
+				other = Arrays.copyOf(other, other.length-1);
 			}
 		}
 		return other;

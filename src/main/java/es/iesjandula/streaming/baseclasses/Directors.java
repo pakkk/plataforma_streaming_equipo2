@@ -5,14 +5,12 @@ import es.iesjandula.streaming.enums.Gender;
 /**
  * 
  * @author Juan Alberto
- *
+ * @see -This class is responsible for loading the data of the directors and storing it in an array
  */
 
 public class Directors 
 {
-	//This class is responsible for loading the data of the directors and storing it in an array
-	//Attributes 
-	
+
 	/** Attribute String name: Defines the name of the director */
 	private String name;
 	
