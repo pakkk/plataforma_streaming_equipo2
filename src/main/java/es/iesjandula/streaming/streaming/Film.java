@@ -8,7 +8,7 @@ package es.iesjandula.streaming.streaming;
 public class Film extends Audiovisual {
 	
 	/**
-	 * Parametriced constructor.
+	 * Parametriced constructor
 	 * Constructor comes from the Audiovisual class
 	 * @param title the title of the Audiovisual
 	 * @param originalLanguage the original language of the Audiovisual
