@@ -1,7 +1,9 @@
 package es.iesjandula.streaming.stats;
 
 import es.iesjandula.streaming.baseclasses.Category;
-import es.iesjandula.streaming.streaming.*;
+import es.iesjandula.streaming.streaming.Film;
+import es.iesjandula.streaming.streaming.Serie;
+
 
 /**
  * This class takes care of show series and films that have many genders

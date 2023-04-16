@@ -12,7 +12,9 @@ import es.iesjandula.streaming.streaming.Serie;
  */
 public class CategoryStats
 {
-
+	/**Attribute CATEGORIES_COT*/
+	private static final int CATEGORIES_COUNT=2;
+	
     /**
      * This method counts how many categories there are in the series.
      * 
@@ -105,7 +107,7 @@ public class CategoryStats
         for (Serie serie : seriesCategory)
         {
             Category[] categories = serie.getCategory();
-            if (categories.length >= 2)
+            if (categories.length >= CategoryStats.CATEGORIES_COUNT)
             {
                 System.out.println(serie);
             }
@@ -122,7 +124,7 @@ public class CategoryStats
         for (Film film : filmsCategory)
         {
             Category[] categories = film.getCategory();
-            if (categories.length >= 2)
+            if (categories.length >= CategoryStats.CATEGORIES_COUNT)
             {
                 System.out.println(film);
             }

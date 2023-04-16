@@ -1,7 +1,8 @@
 package es.iesjandula.streaming.stats;
 
-import es.iesjandula.streaming.streaming.*;
 import es.iesjandula.streaming.baseclasses.Actors;
+import es.iesjandula.streaming.streaming.Film;
+import es.iesjandula.streaming.streaming.Serie;
 import java.util.Arrays;
 
 /**
@@ -11,6 +12,8 @@ import java.util.Arrays;
  */
 public class ActorStats
 {
+	/**Attribute ACTORS_WORKING*/
+	private static final int ACTORS_WORKING=2;
 
     /**
      * This method counts how many Actors there are in the series
@@ -104,7 +107,7 @@ public class ActorStats
         for (Serie serie : seriesActors)
         {
             arrayActors = serie.getActors();
-            if (arrayActors.length >= 2)
+            if (arrayActors.length >= ActorStats.ACTORS_WORKING)
             {
                 System.out.println(serie);
             }
@@ -121,7 +124,7 @@ public class ActorStats
         for(Film film : filmsActors)
         {
             arrayActors = film.getActors();
-            if(arrayActors.length >= 2)
+            if(arrayActors.length >= ActorStats.ACTORS_WORKING)
             {
                 System.out.println(film);
             }

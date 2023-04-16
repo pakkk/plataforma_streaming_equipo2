@@ -1,6 +1,7 @@
 package es.iesjandula.streaming.stats;
 
-import es.iesjandula.streaming.streaming.*;
+import es.iesjandula.streaming.streaming.Film;
+import es.iesjandula.streaming.streaming.Serie;
 
 /**
  * This class takes care of count how many series or films there are in our system

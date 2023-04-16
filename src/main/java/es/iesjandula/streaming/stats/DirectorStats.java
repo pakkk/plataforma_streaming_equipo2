@@ -1,7 +1,9 @@
 package es.iesjandula.streaming.stats;
 
-import es.iesjandula.streaming.streaming.*;
+
 import java.util.Arrays;
+import es.iesjandula.streaming.streaming.Film;
+import es.iesjandula.streaming.streaming.Serie;
 
 /**
  * This class takes care of count and show how many Directors there are in the films or series.
@@ -10,6 +12,8 @@ import java.util.Arrays;
  */
 public class DirectorStats
 {
+	/**Attribute DIRECTORS_WORKING*/
+	private static final int DIRECTORS_WORKING=2;
 	
 	/**
 	* This method counts how many Directors there are in the series
@@ -94,7 +98,7 @@ public class DirectorStats
     {
     	for(Serie serie: seriesDirectors)
         {
-            if(serie.getDirectors().length >= 2)
+            if(serie.getDirectors().length >= DirectorStats.DIRECTORS_WORKING)
             {
                 System.out.println(serie);
             }
@@ -109,7 +113,7 @@ public class DirectorStats
     {
     	for(Film film: filmsDirectors)
         {
-            if(film.getDirectors().length >= 2)
+            if(film.getDirectors().length >= DirectorStats.DIRECTORS_WORKING)
             {
                 System.out.println(film);
             }

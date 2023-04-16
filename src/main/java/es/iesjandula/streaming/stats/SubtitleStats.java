@@ -1,8 +1,9 @@
 package es.iesjandula.streaming.stats;
 
 import java.util.Arrays; 
-import es.iesjandula.streaming.streaming.*;
 import es.iesjandula.streaming.baseclasses.Subtitles;
+import es.iesjandula.streaming.streaming.Film;
+import es.iesjandula.streaming.streaming.Serie;
 
 /**
  * This class takes care of show information of the series and film that have several subtitles
@@ -12,6 +13,9 @@ import es.iesjandula.streaming.baseclasses.Subtitles;
 public class SubtitleStats 
 {
   
+	/**Attribute NUMBER_SUBTITLES*/
+	private static final int NUMBER_SUBTITLES=2;
+	
     /**
      * This method takes care of show how many subtitles there are in the series
      * @param arraySerie 
@@ -111,7 +115,7 @@ public class SubtitleStats
         for(Film film:arrayFilm)
         {
             subtitle = film.getSubtitles();
-            if(subtitle.length>=2)
+            if(subtitle.length>=SubtitleStats.NUMBER_SUBTITLES)
             {
             	System.out.println(film);
             }
@@ -129,7 +133,7 @@ public class SubtitleStats
         for(Serie serie:arraySerie)
         {
             subtitle = serie.getSubtitles();
-            if(subtitle.length>=2)
+            if(subtitle.length>=SubtitleStats.NUMBER_SUBTITLES)
             {
                     System.out.println(serie);
             }
