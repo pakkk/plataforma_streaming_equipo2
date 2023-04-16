@@ -8,7 +8,7 @@ import es.iesjandula.streaming.streaming.Serie;
  * -This class is responsible for high, low, modifications and searches of films or series
  * @author Pablo Elias
  */
-public class MenuFilmSeries 
+public class MenuFilmSeries
 {
 	/**This method is responsible for registering a film with the attributes that is passed by param
 	 * This method returns the modified array
@@ -26,7 +26,7 @@ public class MenuFilmSeries
 		movie[movie.length-1] = new Film (title,originalLanguage,adaptedLanguage,duration,views);
 		return movie;
 	}
-	
+
 	/**This method is responsible for registering a film with the attributes that is passed by param
 	 *This method returns the modified array
 	 *
@@ -44,10 +44,10 @@ public class MenuFilmSeries
 		serie[serie.length-1] = new Serie (title,originalLanguage,adaptedLanguage,duration,views);
 		return serie;
 	}
-	
+
 	/**This method is responsible for removing a film for its title
 	 *This method returns the modified array
-	 * 
+	 *
 	 * @param movie Film array
 	 * @param title String title
 	 * @return Film[] the film array
@@ -62,12 +62,12 @@ public class MenuFilmSeries
 				System.out.println("Deleted film: "+movie[i]);
 				System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
 				movie = Arrays.copyOf(movie, movie.length-1) ;
-					
+
 			}
 		}
 		return movie;
 	}
-	
+
 	/**This method is responsible for removing a film for its original language
 	 *This method returns the modified array
 	 *
@@ -85,15 +85,15 @@ public class MenuFilmSeries
 				System.out.println("Deleted film: "+movie[i]);
 				System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
 				movie = Arrays.copyOf(movie, movie.length-1);
-					
+
 			}
 		}
 		return movie;
 	}
-	
+
 	/**This method is responsible for removing a film for its adapted language
 	 *This method returns the modified array
-	 * 
+	 *
 	 * @param movie the film array
 	 * @param adaptedLanguage array of strings with adapted language
 	 * @return Film[] the film array
@@ -112,7 +112,7 @@ public class MenuFilmSeries
 		}
 		return movie;
 	}
-	
+
 	/**This method is responsible for removing a film for its duration
 	 *This method returns the modified array
 	 *
@@ -130,12 +130,12 @@ public class MenuFilmSeries
 				System.out.println("Deleted film: "+movie[i]);
                 System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
                 movie = Arrays.copyOf(movie, movie.length-1) ;
-					
+
 			}
 		}
 		return movie;
 	}
-	
+
 	/**This method is responsible for removing a film for the times it has been seen
 	 *This method returns the modified array
 	 *
@@ -153,12 +153,12 @@ public class MenuFilmSeries
 				System.out.println("Deleted film: "+movie[i]);
                 System.arraycopy(movie, i+1, movie, i, movie.length-i-1);
                 movie = Arrays.copyOf(movie, movie.length-1) ;
-					
+
 			}
 		}
 		return movie;
 	}
-	
+
 	/**This method is responsible of removing a serie by his title
 	 *This method returns the modified array.
 	 *
@@ -180,7 +180,7 @@ public class MenuFilmSeries
 		}
 		return other;
 	}
-	
+
 	/**This method is responsible of removing a serie by his original language .
 	 *This method returns the modified array.
 	 *
@@ -202,10 +202,10 @@ public class MenuFilmSeries
 		}
 		return other;
 	}
-	
+
 	/**This method is responsible of delete a serie an array by its adapted language.
 	 *This method returns the modified array
-	 * 
+	 *
 	 * @param other the Serie array
 	 * @param adaptedLanguage String array with adapted lanugages
 	 * @return serie array Serie[]
@@ -221,7 +221,7 @@ public class MenuFilmSeries
 		}
 		return other;
 	}
-	
+
 	/**This method is in charge of delete a serie for its duration.
 	 *This method returns the modified array
 	 *
@@ -243,7 +243,7 @@ public class MenuFilmSeries
 		}
 		return other;
 	}
-	
+
 	/**This method is responsible for  delete a serie  by its title.
 	 *This method returns the modified array
 	 *
@@ -265,9 +265,9 @@ public class MenuFilmSeries
 		}
 		return other;
 	}
-	
+
 	/**This method is in charge of modifying the title attribute of a movie by another one.
-	 *This method returns the modified array. 
+	 *This method returns the modified array.
 	 *
 	 * @param other the Film array
 	 * @param title the string title
@@ -277,20 +277,20 @@ public class MenuFilmSeries
 	public Film[] movieModificationForTitle(Film[] other,String title,String otherTitle)
 	{
 		//This for looks for the title attribute of a movie and modifies it by the other one
-		for(int i = 0;i<other.length;i++)
+		for (Film element : other) 
 		{
-			if(title.equalsIgnoreCase(other[i].getTitle()))
+			if(title.equalsIgnoreCase(element.getTitle()))
 			{
-				System.out.println("Movie to modify "+other[i]);
-				other[i].setTitle(otherTitle);
-				System.out.println("Movie modified "+other[i]);
+				System.out.println("Movie to modify "+element);
+				element.setTitle(otherTitle);
+				System.out.println("Movie modified "+element);
 			}
 		}
 		return other;
 	}
-	
+
 	/**This method is in charge of modifying an original language attribute of a movie by another one other
-	 *This method returns the modified array 
+	 *This method returns the modified array
 	 *
 	 * @param other the Film array
 	 * @param originalLanguage string original Language
@@ -300,18 +300,18 @@ public class MenuFilmSeries
 	public Film[] movieModificationForOriginalLanguage(Film[] other,String originalLanguage,String otherOriginalLanguage)
 	{
 		//This for looks for the original language attribute of a movie and modifies it by the other one.
-		for(int i = 0;i<other.length;i++)
+		for (Film element : other) 
 		{
-			if(originalLanguage.equalsIgnoreCase(other[i].getOriginalLanguage()))
+			if(originalLanguage.equalsIgnoreCase(element.getOriginalLanguage()))
 			{
-				System.out.println("Movie to modify "+other[i]);
-				other[i].setOriginalLanguage(originalLanguage);
-				System.out.println("Movie modified "+other[i]);
+				System.out.println("Movie to modify "+element);
+				element.setOriginalLanguage(originalLanguage);
+				System.out.println("Movie modified "+element);
 			}
 		}
 		return other;
 	}
-	
+
 	/**This method is in charge of modifying an adapted language attribute of a movie by another one other
 	 *This method returns the modified array
 	 *
@@ -323,18 +323,18 @@ public class MenuFilmSeries
 	public Film[] movieModificationByAdaptedLanguage(Film[] other,String[] adaptedLanguage,String[] otherAdaptedLanguage)
 	{
 		//This for looks for the original language attribute of a movie and modifies it by the other one.
-		for(int i = 0;i<other.length;i++)
+		for (Film element : other) 
 		{
-			if(adaptedLanguage.equals(other[i].getAdaptedLanguages()))
+			if(adaptedLanguage.equals(element.getAdaptedLanguages()))
 			{
-				System.out.println("Movie to modify "+other[i]);
-				other[i].setAdaptedLanguages(otherAdaptedLanguage);
-				System.out.println("Movie modified "+other[i]);
+				System.out.println("Movie to modify "+element);
+				element.setAdaptedLanguages(otherAdaptedLanguage);
+				System.out.println("Movie modified "+element);
 			}
 		}
 		return other;
 	}
-	
+
 	/**This method is in charge of modifying a movie's duration attribute by another other
 	 *This method returns the modified array
 	 *
@@ -346,20 +346,20 @@ public class MenuFilmSeries
 	public Film[] movieModificationForDuration(Film[] other,int duration,int otherDuration)
 	{
 		//This for finds the duration attribute of a movie and modifies it by the other one
-		for(int i = 0;i<other.length;i++)
+		for (Film element : other) 
 		{
-			if(duration==(other[i].getDuration()))
+			if(duration==(element.getDuration()))
 			{
-				System.out.println("Movie to modify "+other[i]);
-				other[i].setDuration(otherDuration);
-				System.out.println("Movie modified "+other[i]);
+				System.out.println("Movie to modify "+element);
+				element.setDuration(otherDuration);
+				System.out.println("Movie modified "+element);
 			}
 		}
 		return other;
 	}
-	
+
 	/**This method is in charge of modifying an attribute of a movie for another one.
-	 *This method returns the modified array. 
+	 *This method returns the modified array.
 	 *
 	 * @param other the Film array
 	 * @param timesViewed the int times viewed
@@ -369,21 +369,21 @@ public class MenuFilmSeries
 	public Film[] filmModificationTimesViewed(Film[] other,int timesViewed,int otherTimesViewed)
 	{
 		//This for finds the times viewed attribute of a film and modifies it by other
-		for(int i = 0;i<other.length;i++)
+		for (Film element : other) 
 		{
-			if(timesViewed==(other[i].getViews()))
+			if(timesViewed==(element.getViews()))
 			{
-				System.out.println("Movie to modify "+other[i]);
-				other[i].setViews(otherTimesViewed);
-				System.out.println("Movie modified "+other[i]);
+				System.out.println("Movie to modify "+element);
+				element.setViews(otherTimesViewed);
+				System.out.println("Movie modified "+element);
 			}
 		}
 		return other;
 	}
-	
+
 	/**This method is in charge of modifying a title attribute of a series by another other.
 	 *This method returns the modified array
-	 * 
+	 *
 	 * @param other the Serie array
 	 * @param title the string title
 	 * @param otherTitle the other string title
@@ -391,19 +391,19 @@ public class MenuFilmSeries
 	 */
 	public Serie[] seriesModificationForTitle(Serie[] other,String title,String otherTitle)
 	{
-		//This for looks for the attribute title of a series and modifies it by other 
-		for(int i = 0;i<other.length;i++)
+		//This for looks for the attribute title of a series and modifies it by other
+		for (Serie element : other) 
 		{
-			if(title.equalsIgnoreCase(other[i].getTitle()))
+			if(title.equalsIgnoreCase(element.getTitle()))
 			{
-				System.out.println("Series to modify "+other[i]);
-				other[i].setTitle(otherTitle);
-				System.out.println("Series modified "+other[i]);
+				System.out.println("Series to modify "+element);
+				element.setTitle(otherTitle);
+				System.out.println("Series modified "+element);
 			}
 		}
 		return other;
 	}
-	
+
 	/**This method is responsible for modifying an original language attribute of a series by another other.
 	 *This method returns the modified array
 	 *
@@ -414,21 +414,21 @@ public class MenuFilmSeries
 	 */
 	public Serie[] seriesModificationByOriginalLanguage(Serie[] other,String originalLanguage,String otherOriginalLanguage)
 	{
-		//This for looks for the original language attribute of a series and modifies it by the other one. 
-		for(int i = 0;i<other.length;i++)
+		//This for looks for the original language attribute of a series and modifies it by the other one.
+		for (Serie element : other) 
 		{
-			if(originalLanguage.equalsIgnoreCase(other[i].getOriginalLanguage()))
+			if(originalLanguage.equalsIgnoreCase(element.getOriginalLanguage()))
 			{
-				System.out.println("Series to modify "+other[i]);
-				other[i].setOriginalLanguage(otherOriginalLanguage);
-				System.out.println("Series modified "+other[i]);
+				System.out.println("Series to modify "+element);
+				element.setOriginalLanguage(otherOriginalLanguage);
+				System.out.println("Series modified "+element);
 			}
 		}
 		return other;
 	}
-	
+
 	/**This method is in charge of modifying an adapted language attribute of a series by another one other
-	 *This method returns the modified array 
+	 *This method returns the modified array
 	 *
 	 * @param other the serie array
 	 * @param adaptedLanguage the adapted languages array
@@ -438,18 +438,18 @@ public class MenuFilmSeries
 	public Serie[] seriesModificationByAdaptedLanguage(Serie[] other,String[] adaptedLanguage,String[] otherAdaptedLanguage)
 	{
 		//This for looks for the adapted language attribute of a series and modifies it by other
-		for(int i=0;i<other.length;i++)
+		for (Serie element : other) 
 		{
-			if(adaptedLanguage.equals(other[i].getAdaptedLanguages()))
+			if(adaptedLanguage.equals(element.getAdaptedLanguages()))
 			{
-				System.out.println("Series to modify "+other[i]);
-				other[i].setAdaptedLanguages(otherAdaptedLanguage);
-				System.out.println("Series modified "+other[i]);
+				System.out.println("Series to modify "+element);
+				element.setAdaptedLanguages(otherAdaptedLanguage);
+				System.out.println("Series modified "+element);
 			}
 		}
 		return other;
 	}
-	
+
 	/**This method is in charge of modifying a duration attribute of an array by another one.
 	 *This method returns the modified array.
 	 *
@@ -460,19 +460,19 @@ public class MenuFilmSeries
 	 */
 	public Serie[] seriesModificationForDuration(Serie[] other,int duration,int newDuration)
 	{
-		//This for finds the duration attribute of a series and modifies it by the other one 
-		for(int i = 0;i<other.length;i++)
+		//This for finds the duration attribute of a series and modifies it by the other one
+		for (Serie element : other) 
 		{
-			if(duration==other[i].getDuration())
+			if(duration==element.getDuration())
 			{
-				System.out.println("Series to modify "+other[i]);
-				other[i].setDuration(newDuration);
-				System.out.println("Series modified "+other[i]);
+				System.out.println("Series to modify "+element);
+				element.setDuration(newDuration);
+				System.out.println("Series modified "+element);
 			}
 		}
 		return other;
 	}
-	
+
 	/**This method is in charge of modifying an attribute of a series by another one other
 	 *This method returns the modified array
 	 *
@@ -483,36 +483,36 @@ public class MenuFilmSeries
 	 */
 	public Serie[] seriesModificationForViewedTimes(Serie[] other,int timesViewed,int otherViewedTimes)
 	{
-		//This for looks for the times viewed attribute of a series and modifies it by other 
-		for(int i = 0;i<other.length;i++)
+		//This for looks for the times viewed attribute of a series and modifies it by other
+		for (Serie element : other) 
 		{
-			if(timesViewed==other[i].getViews())
+			if(timesViewed==element.getViews())
 			{
-				System.out.println("Series to modify "+other[i]);
-				other[i].setViews(otherViewedTimes);
-				System.out.println("Series modified "+other[i]);
+				System.out.println("Series to modify "+element);
+				element.setViews(otherViewedTimes);
+				System.out.println("Series modified "+element);
 			}
 		}
 		return other;
 	}
-	
+
 	/**
 	 * This method is responsible for searching for Films by their title and displaying them
-	 * 
+	 *
 	 * @param other the Film array
 	 * @param title the string title
 	 */
-	public void filmsSearchByTitle(Film[] other, String title) 
+	public void filmsSearchByTitle(Film[] other, String title)
 	{
 	/** This for loop iterates over the array and displays the Films that contain the
 	 * entered title. If it is not found, the user will be notified.
 	 */
 		boolean found = false;
-		for(int i = 0; i < other.length; i++) 
+		for (Film element : other) 
 		{
-			if(title.equalsIgnoreCase(other[i].getTitle())) 
+			if(title.equalsIgnoreCase(element.getTitle()))
 			{
-			System.out.println("Film found " + other[i]);
+			System.out.println("Film found " + element);
 			found = true;
 			}
 		}
@@ -527,17 +527,17 @@ public class MenuFilmSeries
 	 * @param other the Film array
 	 * @param originalLanguage the orignal language string
 	 */
-	public void filmsSearchByOriginalLanguage(Film[] other, String originalLanguage) 
+	public void filmsSearchByOriginalLanguage(Film[] other, String originalLanguage)
 	{
-		/**This for loop iterates over the array and displays the Films that contain the 
+		/**This for loop iterates over the array and displays the Films that contain the
 		 * entered original language. If it is not found, the user will be notified.
 		 */
 		boolean found = false;
-		for(int i = 0; i < other.length; i++)
+		for (Film element : other) 
 		{
-			if(originalLanguage.equalsIgnoreCase(other[i].getOriginalLanguage())) 
+			if(originalLanguage.equalsIgnoreCase(element.getOriginalLanguage()))
 			{
-				System.out.println("Film found " + other[i]);
+				System.out.println("Film found " + element);
 				found = true;
 			}
 		}
@@ -552,17 +552,17 @@ public class MenuFilmSeries
 	 * @param other the Film array
 	 * @param adaptedLanguage the string array with adapted languages
 	 */
-	public void filmsSearchByAdaptedLanguage(Film[] other, String[] adaptedLanguage) 
+	public void filmsSearchByAdaptedLanguage(Film[] other, String[] adaptedLanguage)
 	{
-		/** This for loop iterates over the array and displays the Films that contain the 
+		/** This for loop iterates over the array and displays the Films that contain the
 		 * entered adapted language. If it is not found, the user will be notified.
 		 */
 		boolean found = false;
-		for(int i = 0; i < other.length; i++) 
+		for (Film element : other) 
 		{
-			if(Arrays.equals(adaptedLanguage, other[i].getAdaptedLanguages())) 
+			if(Arrays.equals(adaptedLanguage, element.getAdaptedLanguages()))
 			{
-				System.out.println("Film found " + other[i]);
+				System.out.println("Film found " + element);
 				found = true;
 			}
 		}
@@ -577,21 +577,21 @@ public class MenuFilmSeries
 	 * @param other the Film array
 	 * @param duration the int duration
 	 */
-	public void filmsSearchByDuration(Film[] other, int duration) 
+	public void filmsSearchByDuration(Film[] other, int duration)
 	{
-		/** This for loop iterates over the array and displays the Films that contain the 
+		/** This for loop iterates over the array and displays the Films that contain the
 		 * entered duration. If it is not found, the user will be notified.
 		 */
 		boolean found = false;
-		for(int i = 0; i < other.length; i++) 
+		for (Film element : other) 
 		{
-			if(duration == other[i].getDuration()) 
+			if(duration == element.getDuration())
 			{
-				System.out.println("Film found " + other[i]);
+				System.out.println("Film found " + element);
 				found = true;
 			}
 		}
-		if(!found)	
+		if(!found)
 		{
 			System.out.println("The duration " + duration + " is not found in any Film");
 		}
@@ -602,17 +602,17 @@ public class MenuFilmSeries
 	 * @param other the Film array
 	 * @param views the int views
 	 */
-	public void filmsSearchByViews(Film[] other, int views) 
+	public void filmsSearchByViews(Film[] other, int views)
 	{
-		/**This for loop iterates over the array and displays the Films that contain the 
+		/**This for loop iterates over the array and displays the Films that contain the
 		 * entered number of views. If it is not found, the user will be notified.
 		 */
 		boolean found = false;
-		for(int i = 0; i < other.length; i++) 
+		for (Film element : other) 
 		{
-			if(views == other[i].getViews()) 
+			if(views == element.getViews())
 			{
-				System.out.println("Film found " + other[i]);
+				System.out.println("Film found " + element);
 				found = true;
 			}
 		}
@@ -621,23 +621,23 @@ public class MenuFilmSeries
 			System.out.println("The views " + views + " is not found in any Film");
 		}
 	}
-		
+
 	/**
 	 * This method is responsible of search a serie by his title
 	 * @param other the Serie array
 	 * @param title the string title
 	 */
-	public void searchSeriesByTitle(Serie[] other, String title) 
+	public void searchSeriesByTitle(Serie[] other, String title)
 	{
 		/**This for loop iterates through the array and displays the series that contain the entered title
 		 * If not found, the user will be notified
 		 */
 		boolean found = false;
-		for(int i = 0; i < other.length; i++) 
+		for (Serie element : other) 
 		{
-			if(title.equalsIgnoreCase(other[i].getTitle())) 
+			if(title.equalsIgnoreCase(element.getTitle()))
 			{
-				System.out.println("Series found: " + other[i]);
+				System.out.println("Series found: " + element);
 				found = true;
 			}
 		}
@@ -657,11 +657,11 @@ public class MenuFilmSeries
 		 * If not found, the user will be notified
 		 */
 		boolean found = false;
-		for(int i = 0; i < other.length; i++) 
+		for (Serie element : other) 
 		{
-			if(originalLanguage.equalsIgnoreCase(other[i].getOriginalLanguage())) 
+			if(originalLanguage.equalsIgnoreCase(element.getOriginalLanguage()))
 			{
-				System.out.println("Series found: " + other[i]);
+				System.out.println("Series found: " + element);
 				found = true;
 			}
 		}
@@ -676,15 +676,15 @@ public class MenuFilmSeries
 	 * @param other the Serie array
 	 * @param adaptedLanguage the arrat with the string for adapted languages
 	 */
-	public void searchSeriesByAdaptedLanguage(Serie[] other, String[] adaptedLanguage) 
+	public void searchSeriesByAdaptedLanguage(Serie[] other, String[] adaptedLanguage)
 	{
 		//This for loop iterates through the array and displays the series that contain the entered adapted language
 		boolean found = false;
-		for(int i = 0; i < other.length; i++) 
+		for (Serie element : other) 
 		{
-			if(Arrays.equals(adaptedLanguage, other[i].getAdaptedLanguages())) 
+			if(Arrays.equals(adaptedLanguage, element.getAdaptedLanguages()))
 			{
-				System.out.println("Series found: " + other[i]);
+				System.out.println("Series found: " + element);
 				found = true;
 			}
 		}
@@ -699,16 +699,16 @@ public class MenuFilmSeries
 	 * @param other the Serie array
 	 * @param duration the duration int
 	 */
-	public void searchSeriesByDuration(Serie[] other, int duration) 
+	public void searchSeriesByDuration(Serie[] other, int duration)
 	{
 		// This for loop iterates through the array and displays the series that contain the entered duration
 		// If not found, the user will be notified
 		boolean found = false;
-		for(int i = 0; i < other.length; i++) 
+		for (Serie element : other) 
 		{
-			if(duration == other[i].getDuration()) 
+			if(duration == element.getDuration())
 			{
-				System.out.println("Series found: " + other[i]);
+				System.out.println("Series found: " + element);
 				found = true;
 			}
 		}
@@ -723,17 +723,17 @@ public class MenuFilmSeries
 	 * @param other the Serie array
 	 * @param views the int with the views
 	 */
-	public void searchSeriesByViews(Serie[] other, int views) 
+	public void searchSeriesByViews(Serie[] other, int views)
 	{
 		/**This for loop iterates through the array and displays the series that contain the entered number of views
 		 * If not found, the user will be notified
 		 */
 		boolean found = false;
-		for(int i = 0; i < other.length; i++) 
+		for (Serie element : other) 
 		{
-			if(views == other[i].getViews()) 
+			if(views == element.getViews())
 			{
-				System.out.println("Series found: " + other[i]);
+				System.out.println("Series found: " + element);
 				found = true;
 			}
 		}
@@ -742,5 +742,5 @@ public class MenuFilmSeries
 			System.out.println("The series with " + views + " views was not found.");
 		}
 	}
-						
+
 }

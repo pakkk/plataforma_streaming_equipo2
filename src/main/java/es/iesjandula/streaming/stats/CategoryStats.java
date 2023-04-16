@@ -1,7 +1,6 @@
 package es.iesjandula.streaming.stats;
 
 import java.util.Arrays;
-
 import es.iesjandula.streaming.baseclasses.Category;
 import es.iesjandula.streaming.streaming.Film;
 import es.iesjandula.streaming.streaming.Serie;

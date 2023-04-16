@@ -1,7 +1,6 @@
 package es.iesjandula.streaming.menus;
 
 import java.util.Arrays;
-
 import es.iesjandula.streaming.baseclasses.Recommendation;
 import es.iesjandula.streaming.enums.RatingType;
 

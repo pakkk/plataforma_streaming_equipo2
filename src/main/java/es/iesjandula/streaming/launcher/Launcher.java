@@ -198,6 +198,7 @@ public class Launcher
 	private SubtitleStats statsSubtitles = new SubtitleStats();
 
 	/**
+	 * Add new Films
 	 * @param option the option selected
 	 */
 	private void addNewFilm()
@@ -256,7 +257,7 @@ public class Launcher
 	}
 
 	/**
-	 * For add serie
+	 * For add new series
 	 */
 	private void addNewSerie()
 	{
@@ -316,6 +317,7 @@ public class Launcher
 	}
 
 	/**
+	 * Another series selected
 	 * @param endLoop the end of loop boolean
 	 * @return return the boolean
 	 */
@@ -553,7 +555,7 @@ public class Launcher
 	}
 
 	/**
-	 * film by adapted language
+	 * Film by adapted language
 	 * @return string with the information
 	 */
 	private String filmByAdaptedLanguage()
@@ -2572,7 +2574,6 @@ public class Launcher
 	{
 		String option;
 		this.name = this.scanner.nextLine();
-
 		System.out.println("Select a name to search");
 		this.name = this.scanner.next();
 
@@ -2581,8 +2582,8 @@ public class Launcher
 
 		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
 		{
-		        System.out.println("Error choose again (serie/film)");
-		        option = this.scanner.next();
+	        System.out.println("Error choose again (serie/film)");
+	        option = this.scanner.next();
 		}
 		if(option.equalsIgnoreCase("serie"))
 		{
@@ -2591,7 +2592,6 @@ public class Launcher
 
 	        System.out.println("Select the title of your serie");
 	        this.title = this.scanner.nextLine();
-
 	        for(Serie series:this.serie)
 	        {
                 if(this.title.equalsIgnoreCase(series.getTitle()))
@@ -2725,7 +2725,6 @@ public class Launcher
 
 		System.out.println("Were do you modify the category (serie/film)");
 		option = this.scanner.next();
-
 		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
 		{
 		    System.out.println("Error choose again (serie/film)");
@@ -2791,7 +2790,7 @@ public class Launcher
 		}
 		else
 		{
-		        System.out.println("Error selecting option");
+	        System.out.println("Error selecting option");
 		}
 		return option;
 	}
@@ -2920,8 +2919,8 @@ public class Launcher
 		option = this.scanner.next();
 		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
 		{
-		        System.out.println("Error choose again (serie/film)");
-		        option = this.scanner.next();
+	        System.out.println("Error choose again (serie/film)");
+	        option = this.scanner.next();
 		}
 		if(option.equalsIgnoreCase("serie"))
 		{
@@ -4836,10 +4835,8 @@ public class Launcher
 		this.lastName = this.scanner.nextLine();
 		System.out.println("Select the last name to search");
 		this.lastName = this.scanner.nextLine();
-
 		System.out.println("Select the new last name");
 		this.newLastName = this.scanner.nextLine();
-
 		System.out.println("were do you modify the actor (serie/film)");
 		option = this.scanner.next();
 		while(!option.equalsIgnoreCase("film") && !option.equals("serie"))
